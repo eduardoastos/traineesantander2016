@@ -1961,7 +1961,7 @@ footer {
 
 .areas-tabs-wrapper {
   /* margin-bottom: 30px; */
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 22px 10px;
   background-color: white;
   /* display: flex;
@@ -2022,6 +2022,7 @@ footer {
   background-color: #F8F9FA;
   border-radius: 0px 0px 15px 15px;
   padding: 25px;
+  padding-bottom: 90px;
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 1px solid #E9ECEF;
@@ -2035,30 +2036,31 @@ footer {
 }
 
 .areas-speech-bubble p:first-child {
-  font-weight: 600;
-  color: #FF0000;
+  /* font-weight: 600; */
+  /* color: white; */
 }
 
 .areas-speech-bubble p:nth-child(2) {
-  color: #666666;
-  font-style: italic;
+  color: #444444;
+  /* font-style: italic; */
   font-size: 14px;
 }
 
 .areas-response {
   background-color: #FFFFFF;
-  border-radius: 12px;
+  border-radius: 36px;
   padding: 25px;
   margin-top: 20px;
-  border: 2px solid #FF0000;
+  border: 1px solid #FF0000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 90%;
 }
 
 .areas-response p {
-  color: #333333;
+  color: #444444;
   font-size: 15px;
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 0px !important;
 }
 
 .areas-person {
@@ -2066,7 +2068,7 @@ footer {
   align-items: center;
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid #E9ECEF;
+  /* border-top: 1px solid #E9ECEF; */
 }
 
 .areas-person-avatar {
@@ -2075,10 +2077,9 @@ footer {
 }
 
 .areas-person-avatar img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border: 2px solid #FF0000;
 }
 
 .areas-person-info {
@@ -2095,7 +2096,7 @@ footer {
 .areas-person-title {
   color: #666666;
   font-size: 13px;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   font-style: normal;
 }
 
@@ -2183,18 +2184,39 @@ footer {
 }
 
 .areas-content.active .areas-response {
-  animation: fadeInContent 0.4s ease-in-out 0.1s both;
+  -webkit-animation: fadeInContent 0.3s ease-in-out;
+          animation: fadeInContent 0.3s ease-in-out;
 }
 
 @keyframes fadeInContent {
-  from { 
-    opacity: 0; 
-    transform: translateY(15px);
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
-  to { 
-    opacity: 1; 
-    transform: translateY(0);
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
+.custom-question {
+  padding: 18px 42px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: 4%;
+  background-color: #4B4B4B;
+  border-radius: 30px;
+  width: fit-content !important;
+  color: white !important;
+}
+
+.custom-singin {
+  color: #444444 !important;
+  background-color: #D9E7EF;
+  width: fit-content;
+  padding: 8px 15px;
+  border-radius: 14px;
+}
 
