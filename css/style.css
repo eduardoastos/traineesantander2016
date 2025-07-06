@@ -228,8 +228,8 @@ ul.header-nav.show {
   position: absolute;
   width: 913px;
   height: 214px;
-  left: 50vw;
-  bottom: -40px;
+  left: 68vw;
+  bottom: 0;
 }
 .s-about h2 {
   font-size: 32px;
@@ -305,7 +305,7 @@ ul.header-nav.show {
 }
 .s-program h2 {
   width: 100%;
-  max-width: 700px;
+  max-width: 585px;
   font-size: 40px;
   line-height: 57.72px;
   font-weight: bold;
@@ -1934,6 +1934,275 @@ footer {
   .sobre-universia-flex .btn-cta {
     margin-top: 20px;
   }
+}
+
+/* Seção Conheça Nossas Áreas */
+.s-conheca-areas {
+  background-color: #FF0000;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.s-conheca-areas .header-paragraf {
+  color: #FFFFFF;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.areas-tabs-container {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.areas-tabs-wrapper {
+  margin-bottom: 30px;
+}
+
+.areas-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .areas-nav-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.areas-tab {
+  background-color: #F5F5F5;
+  color: #666666;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  border: 2px solid transparent;
+}
+
+.areas-tab:hover,
+.areas-tab.active {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border-color: #FF0000;
+  transform: translateY(-2px);
+}
+
+.areas-content-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
+.areas-content {
+  display: none !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.areas-content.active {
+  display: block !important;
+  opacity: 1;
+}
+
+.areas-speech-bubble {
+  background-color: #F8F9FA;
+  border-radius: 15px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E9ECEF;
+}
+
+.areas-speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #F8F9FA;
+}
+
+.areas-speech-bubble p {
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.areas-speech-bubble p:first-child {
+  font-weight: 600;
+  color: #FF0000;
+}
+
+.areas-speech-bubble p:nth-child(2) {
+  color: #666666;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.areas-response {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 20px;
+  border-left: 4px solid #FF0000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.areas-response p {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.areas-person {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #E9ECEF;
+}
+
+.areas-person-avatar {
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.areas-person-avatar img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 3px solid #FF0000;
+}
+
+.areas-person-info {
+  flex: 1;
+}
+
+.areas-person-name {
+  color: #FF0000;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.areas-person-title {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+@media (max-width: 992px) {
+  .s-conheca-areas {
+    padding: 60px 0;
+  }
+  
+  .s-conheca-areas .header-paragraf {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .areas-tabs-container {
+    padding: 30px 20px;
+  }
+  
+  .areas-nav-list {
+    gap: 8px;
+  }
+  
+  .areas-tab {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .areas-speech-bubble {
+    padding: 20px;
+  }
+  
+  .areas-response {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .s-conheca-areas {
+    padding: 40px 0;
+  }
+  
+  .s-conheca-areas .header-paragraf {
+    font-size: 28px;
+  }
+  
+  .areas-tabs-container {
+    padding: 20px 15px;
+  }
+  
+  .areas-tab {
+    padding: 8px 16px;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .areas-speech-bubble {
+    padding: 15px;
+  }
+  
+  .areas-response {
+    padding: 15px;
+  }
+  
+  .areas-person {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .areas-person-avatar {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Debug styles para as abas */
+.areas-tab.active {
+  background-color: #FF0000 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.05) !important;
+}
+
+.areas-content.active {
+  border: 3px solid #FF0000 !important;
+  background-color: #FFF8F8 !important;
+}
+
+/* Garantir que apenas um conteúdo seja mostrado por vez */
+.areas-content:not(.active) {
+  display: none !important;
+}
+
+.areas-content.active {
+  display: block !important;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 

@@ -166,3 +166,52 @@ corpSantander.classList.remove("active"), corp2.classList.remove(
 "d-none"), desc2.classList.add("d-none"), desc3.classList.remove(
 "d-none"), AOS.refresh()
 });
+
+// Funcionalidade para as abas da seção "Conheça Nossas Áreas"
+function initializeAreasTabs() {
+    var areasTabs = document.querySelectorAll(".areas-tab");
+    var areasContents = document.querySelectorAll(".areas-content");
+    
+    console.log("Iniciando abas das áreas...", areasTabs.length, areasContents.length);
+    
+    for (var i = 0; i < areasTabs.length; i++) {
+        areasTabs[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            var targetArea = this.getAttribute("data-area");
+            console.log("Clicou na aba:", targetArea);
+            
+            // Remove active class from all tabs
+            for (var j = 0; j < areasTabs.length; j++) {
+                areasTabs[j].classList.remove("active");
+            }
+            
+            // Add active class to clicked tab
+            this.classList.add("active");
+            
+            // Hide all content areas
+            for (var k = 0; k < areasContents.length; k++) {
+                areasContents[k].classList.remove("active");
+            }
+            
+            // Show target content area
+            var targetContent = document.getElementById(targetArea + "-content");
+            console.log("Procurando elemento:", targetArea + "-content", targetContent);
+            if (targetContent) {
+                targetContent.classList.add("active");
+                console.log("Conteúdo ativado para:", targetArea);
+            } else {
+                console.error("Elemento não encontrado:", targetArea + "-content");
+            }
+            
+            // Refresh AOS animations
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        });
+    }
+}
+
+// Executa em diferentes momentos para garantir que funcione
+setTimeout(initializeAreasTabs, 500);
+setTimeout(initializeAreasTabs, 1500);
+setTimeout(initializeAreasTabs, 3000);
