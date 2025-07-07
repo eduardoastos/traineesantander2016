@@ -1358,11 +1358,9 @@ ul.header-nav.show {
   }
 }
 .s-trainee {
-  background-image: url(../images/bg-people.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom right;
+  background-color: #454545;
   padding-top: 96px;
+  padding-bottom: 55px;
 }
 .s-trainee .video-yt.yt-part {
   width: 100%;
