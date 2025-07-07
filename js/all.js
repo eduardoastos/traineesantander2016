@@ -199,6 +199,12 @@ function initializeAreasTabs() {
             if (targetContent) {
                 targetContent.classList.add("active");
                 console.log("Conteúdo ativado para:", targetArea);
+                
+                // Reset animations for all tabs to ensure AOS animations work
+                var aosElements = targetContent.querySelectorAll('[data-aos]');
+                for (var m = 0; m < aosElements.length; m++) {
+                    aosElements[m].classList.remove('aos-animate');
+                }
             } else {
                 console.error("Elemento não encontrado:", targetArea + "-content");
             }
