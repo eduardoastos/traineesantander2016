@@ -1791,6 +1791,23 @@
                 element.style.visibility = 'visible';
                 element.style.transition = 'none';
                 
+                // Calcula e fixa a altura para evitar mudanças durante a animação
+                const originalHeight = element.offsetHeight;
+                console.log('Altura original do elemento:', originalHeight);
+                
+                // Se a altura for muito pequena, calcula com o texto completo temporariamente
+                if (originalHeight < 20) {
+                    const tempText = element.textContent;
+                    element.textContent = originalContent;
+                    const fullHeight = element.offsetHeight;
+                    element.textContent = tempText;
+                    element.style.minHeight = fullHeight + 'px';
+                    console.log('Altura ajustada para:', fullHeight + 'px');
+                } else {
+                    element.style.minHeight = originalHeight + 'px';
+                    console.log('Altura fixada em:', originalHeight + 'px');
+                }
+                
                 // Inicia com um ponto
                 element.textContent = '.';
                 
@@ -1820,6 +1837,9 @@
                     clearInterval(interval);
                     element.textContent = originalContent;
                     console.log('Animação finalizada, mostrando:', originalContent);
+                    
+                    // Remove a altura mínima fixa após a animação
+                    element.style.minHeight = '';
                     
                     // Aplica o efeito fade manualmente na pergunta
                     element.style.opacity = '0';
