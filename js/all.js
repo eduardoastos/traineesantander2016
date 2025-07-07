@@ -1,5 +1,13 @@
 "use strict";
-AOS.init();
+AOS.init({
+    duration: 300,
+    easing: 'ease-in-out',
+    delay: 0,
+    offset: 0,
+    once: false,
+    mirror: false,
+    anchorPlacement: 'top-bottom'
+});
 var menuList = document.querySelector(".header-nav"),
 menuOpen = document.querySelector("#js-open"),
 menuClose = document.querySelector("#js-close"),
@@ -200,24 +208,87 @@ function initializeAreasTabs() {
                 targetContent.classList.add("active");
                 console.log("Conteúdo ativado para:", targetArea);
                 
-                // Reset animations for all tabs to ensure AOS animations work
-                var aosElements = targetContent.querySelectorAll('[data-aos]');
-                for (var m = 0; m < aosElements.length; m++) {
-                    aosElements[m].classList.remove('aos-animate');
+                // Reset ALL AOS animations first
+                var allAosElements = document.querySelectorAll('[data-aos]');
+                for (var n = 0; n < allAosElements.length; n++) {
+                    allAosElements[n].classList.remove('aos-animate');
                 }
+                
+                // Force refresh AOS multiple times to ensure detection
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                    
+                    // Wait and refresh again
+                    setTimeout(function() {
+                        AOS.refresh();
+                    }, 50);
+                    
+                    // Final refresh to trigger animations
+                    setTimeout(function() {
+                        AOS.refresh();
+                        console.log('AOS refresh final executado para área:', targetArea);
+                    }, 150);
+                }
+                
             } else {
                 console.error("Elemento não encontrado:", targetArea + "-content");
             }
-            
-            // Refresh AOS animations
-            if (typeof AOS !== 'undefined') {
-                AOS.refresh();
-            }
         });
     }
+}
+
+// Função para garantir que o AOS detecte todos os elementos
+function ensureAOSDetection() {
+    console.log('Iniciando detecção AOS...');
+    
+    // Temporariamente mostra todos os elementos AOS para que sejam detectados
+    var allAreasContent = document.querySelectorAll('.areas-content');
+    
+    // Faz todos os conteúdos ficarem visíveis temporariamente, sobrescrevendo o !important
+    for (var i = 0; i < allAreasContent.length; i++) {
+        allAreasContent[i].style.setProperty('display', 'block', 'important');
+        allAreasContent[i].style.setProperty('visibility', 'visible', 'important');
+    }
+    
+    // Refresh AOS para detectar todos os elementos
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+        console.log('AOS refresh executado');
+    }
+    
+    // Restaura a visibilidade original após um pequeno delay
+    setTimeout(function() {
+        for (var j = 0; j < allAreasContent.length; j++) {
+            if (!allAreasContent[j].classList.contains('active')) {
+                allAreasContent[j].style.removeProperty('display');
+                allAreasContent[j].style.removeProperty('visibility');
+            }
+        }
+        console.log('Visibilidade restaurada');
+    }, 100);
 }
 
 // Executa em diferentes momentos para garantir que funcione
 setTimeout(initializeAreasTabs, 500);
 setTimeout(initializeAreasTabs, 1500);
 setTimeout(initializeAreasTabs, 3000);
+
+// Executa a detecção do AOS após o carregamento
+setTimeout(ensureAOSDetection, 1000);
+setTimeout(ensureAOSDetection, 2000);
+
+// Configuração adicional para garantir que o AOS funcione corretamente
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        ensureAOSDetection();
+        console.log('AOS configurado no DOMContentLoaded');
+    }, 500);
+});
+
+// Também executa quando a página carrega completamente
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        ensureAOSDetection();
+        console.log('AOS configurado no window load');
+    }, 500);
+});
