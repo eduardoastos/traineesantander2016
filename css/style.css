@@ -1938,17 +1938,29 @@ footer {
 
 /* Seção Conheça Nossas Áreas */
 .s-conheca-areas {
-  background-color: #FF0000;
+  background-color: #D92E20;
   padding: 80px 0;
   position: relative;
   overflow: hidden;
+}
+
+.s-conheca-areas::after {
+  content: "";
+  background-image: url(../images/bg-areas-right.svg);
+  background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  width: 913px;
+  height: 214px;
+  left: 68vw;
+  bottom: 0;
 }
 
 .s-conheca-areas .header-paragraf {
   color: #FFFFFF;
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .areas-tabs-container {
@@ -1961,9 +1973,12 @@ footer {
 
 .areas-tabs-wrapper {
   /* margin-bottom: 30px; */
+  position: relative;
+  z-index: 1;
   border-radius: 12px;
   padding: 22px 10px;
   background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   /* display: flex;
   align-items: center;
   justify-content: center; */
@@ -2007,7 +2022,7 @@ footer {
 .areas-content-wrapper {
   position: relative;
   min-height: 400px;
-  /* top: -30px; */
+  top: -10px;
 }
 
 .areas-content {
