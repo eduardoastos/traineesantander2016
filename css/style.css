@@ -334,7 +334,7 @@ ul.header-nav.show {
 }
 
 .s-requirement {
-  background: #FF0000;
+  background: #D92E20;
   color: #FFFFFF;
   padding-block: 96px 192px;
 }
@@ -344,14 +344,14 @@ ul.header-nav.show {
   font-size: 24px;
   font-weight: bold;
   margin: 0 auto;
-  padding: 8px 16px;
+  padding: 8px 48px;
   text-align: center;
   text-transform: uppercase;
   white-space: wrap;
 }
 @media screen and (min-width: 768px) {
   .s-requirement .header-title {
-    font-size: 40px;
+    font-size: 32px;
   }
 }
 .s-requirement .header-title.colored {
@@ -360,7 +360,7 @@ ul.header-nav.show {
 
 .s-requirement .text-box {
   width: 100%;
-  max-width: 1069px;
+  /* max-width: 1069px; */
   margin-inline: auto;
   font-size: 20px;
 }
@@ -461,7 +461,7 @@ ul.header-nav.show {
 }
 @media (min-width: 992px) {
   .s-cta .box-cta .text {
-    font-size: 40px;
+    font-size: 36px;
   }
 }
 .s-cta .box-cta .button {
@@ -567,7 +567,7 @@ ul.header-nav.show {
 .s-process .list-seletivo li {
   width: 100%;
   padding: 32px 28px;
-  background: #B8DFE8;
+  background: #444444;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -618,7 +618,7 @@ ul.header-nav.show {
   font-size: 20px;
   line-height: 28.86px;
   height: 117px;
-  color: #444444;
+  color: #FFFFFF;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -637,7 +637,7 @@ ul.header-nav.show {
 
 
 .s-process .list-seletivo li .line {
-  background: #444444;
+  background: #FFFFFF;
   border-radius: 2px;
   width: 50px;
   height: 4px;
