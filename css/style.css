@@ -288,7 +288,8 @@ ul.header-nav.show {
 }
 
 .s-program {
-  padding-bottom: 72px;
+  padding-bottom: 125px;
+  padding-top: 125px;
 }
 .s-program .box-line {
   position: relative;
@@ -721,7 +722,7 @@ ul.header-nav.show {
 }
 
 .s-santander {
-  background-color: #EDF3F6;
+  background-color: #454545;
   padding-block: 50px;
 }
 .s-santander .header-title {
