@@ -344,7 +344,7 @@ ul.header-nav.show {
   font-size: 24px;
   font-weight: bold;
   margin: 0 auto;
-  padding: 8px 48px;
+  padding: 12px 133px;
   text-align: center;
   text-transform: uppercase;
   white-space: wrap;
@@ -362,7 +362,7 @@ ul.header-nav.show {
   width: 100%;
   /* max-width: 1069px; */
   margin-inline: auto;
-  font-size: 20px;
+  font-size: 17px;
 }
 .s-requirement .requirement-list {
   gap: 20px;
@@ -477,7 +477,7 @@ ul.header-nav.show {
 .s-process .box-line {
   position: relative;
 }
-.s-process .box-line::before {
+/* .s-process .box-line::before {
   content: "";
   background-image: url(../images/bg-processo.svg);
   background-repeat: no-repeat;
@@ -486,7 +486,7 @@ ul.header-nav.show {
   position: absolute;
   top: 0;
   left: -240px;
-}
+} */
 @media (min-width: 992px) {
   .s-process .benefits-slide {
     display: none;
