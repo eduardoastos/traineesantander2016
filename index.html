@@ -2494,10 +2494,17 @@ function scrollToThirdQuestion() {
             const wrapperRect = contentWrapper.getBoundingClientRect();
             const thirdSectionRect = thirdQASection.getBoundingClientRect();
             
-            // Posição relativa dentro do container
-            const scrollPosition = thirdSectionRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
+            // Encontrar o segundo botão para garantir que ele fique fora da vista
+            const secondButton = document.querySelector('.areas-button-more-second');
+            let buttonHeight = 0;
+            if (secondButton) {
+                buttonHeight = secondButton.offsetHeight + 50; // altura do botão + margem extra
+            }
             
-            console.log('📏 Scroll position:', scrollPosition);
+            // Posição relativa dentro do container, ajustada para esconder o botão anterior
+            const scrollPosition = thirdSectionRect.top - wrapperRect.top + contentWrapper.scrollTop + buttonHeight;
+            
+            console.log('📏 Scroll position (adjusted to hide previous button):', scrollPosition);
             
             // Fazer scroll suave dentro do container
             contentWrapper.scrollTo({
