@@ -1142,7 +1142,7 @@
                                         <!-- Botão centralizado após segunda resposta -->
                                         <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
                                             <button class="btn-more-info" id="btn-more-wealth-second" onclick="scrollToThirdQuestion()">
-                                                Quero saber mais
+                                                Quero dar match com essa área
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                     <path d="M6 9l6 6 6-6"></path>
                                                 </svg>
@@ -1795,6 +1795,191 @@
             // Variável global para rastrear estados de animação das abas
             window.animationStates = {};
             
+            // Variável para rastrear o progresso de cada aba (qual step foi completado)
+            window.tabProgress = {};
+            
+            // Função para restaurar o estado de uma aba baseado no progresso
+            function restoreTabState(tabId) {
+                console.log('🔄 Restaurando estado da aba:', tabId, 'Progress:', window.tabProgress[tabId]);
+                
+                if (tabId !== 'wealth-management-content') {
+                    // Para outras abas, esconder tudo
+                    const buttonContainer = document.querySelector('.areas-button-more');
+                    const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                    const secondSection = document.querySelector('.second-qa-section');
+                    const thirdSection = document.querySelector('.third-qa-section');
+                    
+                    if (buttonContainer) buttonContainer.style.opacity = '0';
+                    if (secondButtonContainer) secondButtonContainer.style.opacity = '0';
+                    if (secondSection) secondSection.style.opacity = '0';
+                    if (thirdSection) thirdSection.style.opacity = '0';
+                    return;
+                }
+                
+                const progress = window.tabProgress[tabId] || 0;
+                
+                // Elementos da wealth management
+                const buttonContainer = document.querySelector('.areas-button-more');
+                const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                const secondSection = document.querySelector('.second-qa-section');
+                const thirdSection = document.querySelector('.third-qa-section');
+                
+                // Reset inicial - esconder tudo
+                if (buttonContainer) buttonContainer.style.opacity = '0';
+                if (secondButtonContainer) secondButtonContainer.style.opacity = '0';
+                if (secondSection) secondSection.style.opacity = '0';
+                if (thirdSection) thirdSection.style.opacity = '0';
+                
+                // Reset dos elementos internos das seções
+                const secondQuestion = document.getElementById('second-question');
+                const secondResponse = document.getElementById('second-response');
+                const thirdQuestion = document.getElementById('third-question');
+                const thirdResponse = document.getElementById('third-response');
+                
+                if (secondQuestion) secondQuestion.style.opacity = '0';
+                if (secondResponse) secondResponse.style.opacity = '0';
+                if (thirdQuestion) thirdQuestion.style.opacity = '0';
+                if (thirdResponse) thirdResponse.style.opacity = '0';
+                
+                if (progress === 0) {
+                    console.log('🎯 Primeira vez na aba - aguardando animações normais');
+                    return;
+                }
+                
+                console.log('🎬 Reiniciando animações sequenciais até progress level:', progress);
+                
+                // Replicar as animações sequenciais baseadas no progresso
+                setTimeout(() => {
+                    // Step 1: Primeira animação - sempre mostrar primeiro botão
+                    if (buttonContainer) {
+                        buttonContainer.style.opacity = '1';
+                        console.log('✅ Primeiro botão animado (restauração)');
+                    }
+                    
+                    if (progress >= 2) {
+                        // Step 2: Animar segunda seção após delay
+                        setTimeout(() => {
+                            console.log('🎬 Iniciando animação da segunda seção (restauração)');
+                            restoreAnimateSecondSection();
+                        }, 1000);
+                    }
+                    
+                    if (progress >= 3) {
+                        // Step 3: Animar terceira seção após delay maior
+                        setTimeout(() => {
+                            console.log('🎬 Iniciando animação da terceira seção (restauração)');
+                            restoreAnimateThirdSection();
+                        }, 3000);
+                    }
+                }, 1000);
+                
+                console.log('🎯 Sequência de restauração iniciada');
+            }
+            
+            // Função para animar a segunda seção durante restauração
+            function restoreAnimateSecondSection() {
+                const secondSection = document.querySelector('.second-qa-section');
+                const secondQuestion = document.getElementById('second-question');
+                const secondResponse = document.getElementById('second-response');
+                const secondButton = document.querySelector('.areas-button-more-second');
+                
+                if (secondSection) secondSection.style.opacity = '1';
+                
+                // Animar pergunta com pontos
+                if (secondQuestion) {
+                    const originalText = secondQuestion.getAttribute('data-original-text') || secondQuestion.textContent.trim();
+                    if (!secondQuestion.getAttribute('data-original-text')) {
+                        secondQuestion.setAttribute('data-original-text', originalText);
+                    }
+                    
+                    secondQuestion.style.opacity = '1';
+                    secondQuestion.textContent = '.';
+                    
+                    let dotCount = 0;
+                    const interval = setInterval(() => {
+                        let dots = '';
+                        if (dotCount === 0) dots = '.';
+                        else if (dotCount === 1) dots = '..';
+                        else if (dotCount === 2) dots = '...';
+                        else if (dotCount === 3) dots = '';
+                        
+                        secondQuestion.textContent = dots;
+                        dotCount = (dotCount + 1) % 4;
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        clearInterval(interval);
+                        secondQuestion.textContent = originalText;
+                        
+                        // Mostrar resposta
+                        setTimeout(() => {
+                            if (secondResponse) {
+                                secondResponse.style.opacity = '1';
+                                if (typeof AOS !== 'undefined') {
+                                    secondResponse.classList.add('aos-animate');
+                                }
+                            }
+                            
+                            // Mostrar segundo botão
+                            setTimeout(() => {
+                                if (secondButton) {
+                                    secondButton.style.opacity = '1';
+                                    console.log('✅ Segunda seção completamente animada (restauração)');
+                                }
+                            }, 500);
+                        }, 500);
+                    }, 1000);
+                }
+            }
+            
+            // Função para animar a terceira seção durante restauração
+            function restoreAnimateThirdSection() {
+                const thirdSection = document.querySelector('.third-qa-section');
+                const thirdQuestion = document.getElementById('third-question');
+                const thirdResponse = document.getElementById('third-response');
+                
+                if (thirdSection) thirdSection.style.opacity = '1';
+                
+                // Animar pergunta com pontos
+                if (thirdQuestion) {
+                    const originalText = thirdQuestion.getAttribute('data-original-text') || thirdQuestion.textContent.trim();
+                    if (!thirdQuestion.getAttribute('data-original-text')) {
+                        thirdQuestion.setAttribute('data-original-text', originalText);
+                    }
+                    
+                    thirdQuestion.style.opacity = '1';
+                    thirdQuestion.textContent = '.';
+                    
+                    let dotCount = 0;
+                    const interval = setInterval(() => {
+                        let dots = '';
+                        if (dotCount === 0) dots = '.';
+                        else if (dotCount === 1) dots = '..';
+                        else if (dotCount === 2) dots = '...';
+                        else if (dotCount === 3) dots = '';
+                        
+                        thirdQuestion.textContent = dots;
+                        dotCount = (dotCount + 1) % 4;
+                    }, 300);
+                    
+                    setTimeout(() => {
+                        clearInterval(interval);
+                        thirdQuestion.textContent = originalText;
+                        
+                        // Mostrar resposta
+                        setTimeout(() => {
+                            if (thirdResponse) {
+                                thirdResponse.style.opacity = '1';
+                                if (typeof AOS !== 'undefined') {
+                                    thirdResponse.classList.add('aos-animate');
+                                }
+                                console.log('✅ Terceira seção completamente animada (restauração)');
+                            }
+                        }, 500);
+                    }, 1000);
+                }
+            }
+            
             // Função para animar os pontinhos
             function animateLoadingDots(element, originalText, delay) {
                 console.log('Iniciando animação para:', originalText, 'com delay:', delay);
@@ -2018,11 +2203,14 @@
                             console.log('🔄 Usuário scrollou para seções anteriores - resetando estado');
                             wasVisible = false;
                             
-                            // Resetar estados de animação de todas as abas
+                            // Resetar estados de animação e progresso de todas as abas
                             for (let tabId in window.animationStates) {
                                 delete window.animationStates[tabId];
                             }
-                            console.log('🔄 Estados de animação resetados para todas as abas');
+                            for (let tabId in window.tabProgress) {
+                                delete window.tabProgress[tabId];
+                            }
+                            console.log('🔄 Estados de animação e progresso resetados para todas as abas');
                             
                             // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
@@ -2073,7 +2261,8 @@
                                     if (activeContent) {
                                         const tabId = activeContent.id;
                                         window.animationStates[tabId] = true;
-                                        console.log('📝 Animação completada para aba:', tabId);
+                                        window.tabProgress[tabId] = 1; // Step 1 completado
+                                        console.log('📝 Animação completada para aba:', tabId, 'Progress: Step 1');
                                     }
                                 }
                                 // Esconder segundo botão e terceira seção inicialmente
@@ -2090,11 +2279,14 @@
                             console.log('Seção das áreas saiu de vista (scroll para baixo)');
                             wasVisible = false;
                             
-                            // Resetar estados de animação de todas as abas
+                            // Resetar estados de animação e progresso de todas as abas
                             for (let tabId in window.animationStates) {
                                 delete window.animationStates[tabId];
                             }
-                            console.log('🔄 Estados de animação resetados para todas as abas (scroll para baixo)');
+                            for (let tabId in window.tabProgress) {
+                                delete window.tabProgress[tabId];
+                            }
+                            console.log('🔄 Estados de animação e progresso resetados para todas as abas (scroll para baixo)');
                             
                             // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
@@ -2158,22 +2350,8 @@
                                 console.log('🔍 Aba ativa após clique:', activeContent ? activeContent.id : 'nenhuma');
                             }, 200);
                             
-                            // Esconder os botões e seções imediatamente quando trocar de aba
-                            const buttonContainer = document.querySelector('.areas-button-more');
-                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                            const thirdSection = document.querySelector('.third-qa-section');
-                            if (buttonContainer) {
-                                buttonContainer.style.opacity = '0';
-                                console.log('🔒 Botão "Quero saber mais" escondido ao trocar de aba');
-                            }
-                            if (secondButtonContainer) {
-                                secondButtonContainer.style.opacity = '0';
-                                console.log('🔒 Segundo botão "Quero saber mais" escondido ao trocar de aba');
-                            }
-                            if (thirdSection) {
-                                thirdSection.style.opacity = '0';
-                                console.log('🔒 Terceira seção escondida ao trocar de aba');
-                            }
+                            // Restaurar estado da nova aba baseado no progresso
+                            restoreTabState(targetTabId);
                             
                             // Pequeno delay para garantir que o conteúdo foi trocado
                             setTimeout(function() {
@@ -2181,47 +2359,29 @@
                                 
                                 // Verificar se a animação já foi completada para esta aba
                                 console.log('🔍 Verificando estado da aba:', targetTabId, 'Estado atual:', window.animationStates[targetTabId]);
-                                console.log('📊 Todos os estados de animação:', window.animationStates);
-                                if (window.animationStates[targetTabId]) {
-                                    console.log('🔥 Animação já completada para', targetTabId, '- mostrando botão imediatamente');
-                                    // Mostrar o botão imediatamente
-                                    const buttonContainer = document.querySelector('.areas-button-more');
-                                    if (buttonContainer) {
-                                        buttonContainer.style.opacity = '1';
-                                        console.log('✅ Botão "Quero saber mais" exibido imediatamente (aba já vista)');
-                                    }
-                                    // Esconder segundo botão e terceira seção inicialmente
-                                    const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                                    const thirdSection = document.querySelector('.third-qa-section');
-                                    if (secondButtonContainer) {
-                                        secondButtonContainer.style.opacity = '0';
-                                    }
-                                    if (thirdSection) {
-                                        thirdSection.style.opacity = '0';
-                                    }
+                                console.log('📊 Progress atual:', window.tabProgress[targetTabId]);
+                                
+                                if (window.animationStates[targetTabId] || window.tabProgress[targetTabId]) {
+                                    console.log('🔥 Aba já visitada - restaurando estado salvo');
+                                    // Aba já foi vista, o estado já foi restaurado pela função restoreTabState
                                 } else {
-                                    console.log('⏳ Primeira vez nesta aba - aguardando 6000ms para mostrar botão');
-                                    // Mostrar o botão após 6000ms (primeira vez nesta aba)
-                                    setTimeout(function() {
-                                        const buttonContainer = document.querySelector('.areas-button-more');
-                                        if (buttonContainer) {
-                                            buttonContainer.style.opacity = '1';
-                                            console.log('✅ Botão "Quero saber mais" exibido aos 6000ms (primeira vez)');
-                                            
-                                            // Marcar que a animação foi completada para esta aba
-                                            window.animationStates[targetTabId] = true;
-                                            console.log('📝 Animação completada para aba:', targetTabId);
-                                        }
-                                        // Esconder segundo botão e terceira seção inicialmente
-                                        const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                                        const thirdSection = document.querySelector('.third-qa-section');
-                                        if (secondButtonContainer) {
-                                            secondButtonContainer.style.opacity = '0';
-                                        }
-                                        if (thirdSection) {
-                                            thirdSection.style.opacity = '0';
-                                        }
-                                    }, 6000);
+                                    console.log('⏳ Primeira vez nesta aba - aguardando animações');
+                                    // Primeira vez nesta aba
+                                    if (targetTabId === 'wealth-management-content') {
+                                        // Para wealth management, aguardar 6000ms para primeiro botão
+                                        setTimeout(function() {
+                                            const buttonContainer = document.querySelector('.areas-button-more');
+                                            if (buttonContainer) {
+                                                buttonContainer.style.opacity = '1';
+                                                console.log('✅ Botão "Quero saber mais" exibido aos 6000ms (primeira vez)');
+                                                
+                                                // Marcar que a animação foi completada para esta aba
+                                                window.animationStates[targetTabId] = true;
+                                                window.tabProgress[targetTabId] = 1;
+                                                console.log('📝 Animação completada para aba:', targetTabId);
+                                            }
+                                        }, 6000);
+                                    }
                                 }
                             }, 100);
                         };
@@ -2609,6 +2769,13 @@ function animateSecondQuestion() {
                     if (secondButton) {
                         secondButton.style.opacity = '1';
                         console.log('✅ Segundo botão "Quero saber mais" exibido');
+                        
+                        // Salvar progresso - Step 2 completado
+                        const activeContent = document.querySelector('.areas-content.active');
+                        if (activeContent && activeContent.id === 'wealth-management-content') {
+                            window.tabProgress[activeContent.id] = 2;
+                            console.log('📝 Progress salvo: Step 2 para', activeContent.id);
+                        }
                     }
                 }, 1000);
             }, 500);
@@ -2628,6 +2795,13 @@ function animateSecondQuestion() {
                 if (secondButton) {
                     secondButton.style.opacity = '1';
                     console.log('✅ Segundo botão "Quero saber mais" exibido');
+                    
+                    // Salvar progresso - Step 2 completado
+                    const activeContent = document.querySelector('.areas-content.active');
+                    if (activeContent && activeContent.id === 'wealth-management-content') {
+                        window.tabProgress[activeContent.id] = 2;
+                        console.log('📝 Progress salvo: Step 2 para', activeContent.id);
+                    }
                 }
             }, 1000);
         }, 3000);
@@ -2708,6 +2882,13 @@ function animateThirdQuestion() {
                 if (typeof AOS !== 'undefined') {
                     thirdResponse.classList.add('aos-animate');
                 }
+                
+                // Salvar progresso - Step 3 completado
+                const activeContent = document.querySelector('.areas-content.active');
+                if (activeContent && activeContent.id === 'wealth-management-content') {
+                    window.tabProgress[activeContent.id] = 3;
+                    console.log('📝 Progress salvo: Step 3 (final) para', activeContent.id);
+                }
             }, 500);
         }, 1000);
         
@@ -2717,6 +2898,13 @@ function animateThirdQuestion() {
             thirdResponse.style.opacity = '1';
             if (typeof AOS !== 'undefined') {
                 thirdResponse.classList.add('aos-animate');
+            }
+            
+            // Salvar progresso - Step 3 completado
+            const activeContent = document.querySelector('.areas-content.active');
+            if (activeContent && activeContent.id === 'wealth-management-content') {
+                window.tabProgress[activeContent.id] = 3;
+                console.log('📝 Progress salvo: Step 3 (final) para', activeContent.id);
             }
         }, 3000);
         
