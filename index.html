@@ -1764,6 +1764,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Iniciando script de loading dots...');
             
+            // Variável global para rastrear estados de animação das abas
+            window.animationStates = {};
+            
             // Função para animar os pontinhos
             function animateLoadingDots(element, originalText, delay) {
                 console.log('Iniciando animação para:', originalText, 'com delay:', delay);
@@ -1979,6 +1982,19 @@
                         if (isAboveAreasSection && wasVisible) {
                             console.log('🔄 Usuário scrollou para seções anteriores - resetando estado');
                             wasVisible = false;
+                            
+                            // Resetar estados de animação de todas as abas
+                            for (let tabId in window.animationStates) {
+                                delete window.animationStates[tabId];
+                            }
+                            console.log('🔄 Estados de animação resetados para todas as abas');
+                            
+                            // Esconder o botão
+                            const buttonContainer = document.querySelector('.areas-button-more');
+                            if (buttonContainer) {
+                                buttonContainer.style.opacity = '0';
+                                console.log('🔒 Botão escondido no reset');
+                            }
                         }
                         
                         if (isVisible && !wasVisible) {
@@ -1997,10 +2013,41 @@
                                 }
                             }
                             
+                            // Inicia as animações das perguntas
                             initLoadingAnimations();
+                            
+                            // Controle manual do botão "Quero saber mais" - 6 segundos após início das animações
+                            setTimeout(function() {
+                                const buttonContainer = document.querySelector('.areas-button-more');
+                                if (buttonContainer) {
+                                    buttonContainer.style.opacity = '1';
+                                    console.log('✅ Botão "Quero saber mais" exibido aos 6000ms');
+                                    
+                                    // Marcar que a animação foi completada para a aba ativa
+                                    const activeContent = document.querySelector('.areas-content.active');
+                                    if (activeContent) {
+                                        const tabId = activeContent.id;
+                                        window.animationStates[tabId] = true;
+                                        console.log('📝 Animação completada para aba:', tabId);
+                                    }
+                                }
+                            }, 6000);
                         } else if (!isVisible && wasVisible && !isAboveAreasSection) {
                             console.log('Seção das áreas saiu de vista (scroll para baixo)');
                             wasVisible = false;
+                            
+                            // Resetar estados de animação de todas as abas
+                            for (let tabId in window.animationStates) {
+                                delete window.animationStates[tabId];
+                            }
+                            console.log('🔄 Estados de animação resetados para todas as abas (scroll para baixo)');
+                            
+                            // Esconder o botão
+                            const buttonContainer = document.querySelector('.areas-button-more');
+                            if (buttonContainer) {
+                                buttonContainer.style.opacity = '0';
+                                console.log('🔒 Botão escondido no reset (scroll para baixo)');
+                            }
                         }
                     }
                     
@@ -2033,11 +2080,57 @@
                         
                         // Cria novo handler
                         tab.clickHandler = function() {
-                            console.log('Aba clicada:', this.getAttribute('data-area'));
+                            const clickedArea = this.getAttribute('data-area');
+                            const targetTabId = clickedArea + '-content';
+                            console.log('Aba clicada:', clickedArea, 'Target ID:', targetTabId);
+                            
+                            // Verificar se o elemento existe realmente
+                            const targetElement = document.getElementById(targetTabId);
+                            console.log('🎯 Elemento alvo encontrado:', targetElement);
+                            
+                            // Verificar qual aba fica ativa após o clique
+                            setTimeout(() => {
+                                const activeContent = document.querySelector('.areas-content.active');
+                                console.log('🔍 Aba ativa após clique:', activeContent ? activeContent.id : 'nenhuma');
+                            }, 200);
+                            
+                            // Esconder o botão imediatamente quando trocar de aba
+                            const buttonContainer = document.querySelector('.areas-button-more');
+                            if (buttonContainer) {
+                                buttonContainer.style.opacity = '0';
+                                console.log('🔒 Botão "Quero saber mais" escondido ao trocar de aba');
+                            }
                             
                             // Pequeno delay para garantir que o conteúdo foi trocado
                             setTimeout(function() {
                                 initLoadingAnimations();
+                                
+                                // Verificar se a animação já foi completada para esta aba
+                                console.log('🔍 Verificando estado da aba:', targetTabId, 'Estado atual:', window.animationStates[targetTabId]);
+                                console.log('📊 Todos os estados de animação:', window.animationStates);
+                                if (window.animationStates[targetTabId]) {
+                                    console.log('🔥 Animação já completada para', targetTabId, '- mostrando botão imediatamente');
+                                    // Mostrar o botão imediatamente
+                                    const buttonContainer = document.querySelector('.areas-button-more');
+                                    if (buttonContainer) {
+                                        buttonContainer.style.opacity = '1';
+                                        console.log('✅ Botão "Quero saber mais" exibido imediatamente (aba já vista)');
+                                    }
+                                } else {
+                                    console.log('⏳ Primeira vez nesta aba - aguardando 6000ms para mostrar botão');
+                                    // Mostrar o botão após 6000ms (primeira vez nesta aba)
+                                    setTimeout(function() {
+                                        const buttonContainer = document.querySelector('.areas-button-more');
+                                        if (buttonContainer) {
+                                            buttonContainer.style.opacity = '1';
+                                            console.log('✅ Botão "Quero saber mais" exibido aos 6000ms (primeira vez)');
+                                            
+                                            // Marcar que a animação foi completada para esta aba
+                                            window.animationStates[targetTabId] = true;
+                                            console.log('📝 Animação completada para aba:', targetTabId);
+                                        }
+                                    }, 6000);
+                                }
                             }, 100);
                         };
                         
@@ -2221,38 +2314,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Script para mostrar o botão "Quero saber mais" após a primeira resposta
-document.addEventListener('DOMContentLoaded', function() {
-    // Detectar quando a seção de áreas fica visível
-    const areasSection = document.querySelector('.s-conheca-areas');
-    
-    if (areasSection) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    console.log('🎯 Seção de áreas visível, iniciando timer do botão');
-                    
-                    // Timer para mostrar o botão 1 segundo após a primeira resposta
-                    // Primeira resposta aparece aos 8500ms, então botão aos 9500ms
-                    setTimeout(function() {
-                        const buttonContainer = document.querySelector('.areas-button-more');
-                        if (buttonContainer) {
-                            buttonContainer.style.opacity = '1';
-                            console.log('✅ Botão "Quero saber mais" exibido');
-                        }
-                    }, 9500);
-                    
-                    // Parar de observar após detectar a primeira vez
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1 // Trigger quando 10% da seção estiver visível
-        });
-        
-        observer.observe(areasSection);
-    }
-});
+
 </script>
 
 <script>
