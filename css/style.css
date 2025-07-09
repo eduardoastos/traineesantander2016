@@ -1943,7 +1943,7 @@ footer {
   overflow: hidden;
 }
 
-.s-conheca-areas::after {
+/* .s-conheca-areas::after {
   content: "";
   background-image: url(../images/bg-areas-right.svg);
   background-repeat: no-repeat;
@@ -1953,7 +1953,7 @@ footer {
   height: 214px;
   left: 68vw;
   bottom: 0;
-}
+} */
 
 .s-conheca-areas .header-paragraf {
   color: #FFFFFF;
@@ -2020,8 +2020,22 @@ footer {
 
 .areas-content-wrapper {
   position: relative;
-  min-height: 400px;
+  height: 540px;
   top: -10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Ocultar barra de scroll */
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.areas-content-wrapper::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari e Opera */
+}
+
+.areas-content-wrapper:focus {
+  outline: none;  /* Remover outline de foco */
 }
 
 .areas-content {
@@ -2033,14 +2047,23 @@ footer {
 }
 
 .areas-speech-bubble {
+  min-height: 540px;
   background-color: #F8F9FA;
+  background-image: url(../images/bg-santander.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 0px 0px 15px 15px;
   padding: 25px;
-  padding-bottom: 90px;
+  padding-bottom: 60px;
   padding-top: 50px;
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 1px solid #E9ECEF;
+}
+
+.areas-speech-bubble:first-child {
+  margin-bottom: 0px; /* Espaço para o botão apenas na primeira */
 }
 
 .areas-speech-bubble p {
@@ -2138,8 +2161,22 @@ footer {
     font-size: 13px;
   }
   
+  .areas-content-wrapper {
+    height: 500px;
+  }
+  
   .areas-speech-bubble {
     padding: 20px;
+    padding-bottom: 80px;
+    background-image: url(../images/bg-santander.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+  }
+  
+  .areas-speech-bubble:first-child {
+    margin-bottom: 90px; /* Espaço para o botão */
   }
   
   .areas-response {
@@ -2166,8 +2203,22 @@ footer {
     text-align: center;
   }
   
+  .areas-content-wrapper {
+    height: 450px;
+  }
+  
   .areas-speech-bubble {
     padding: 15px;
+    padding-bottom: 100px;
+    background-image: url(../images/bg-santander.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 450px;
+  }
+  
+  .areas-speech-bubble:first-child {
+    margin-bottom: 100px; /* Mais espaço em mobile */
   }
   
   .areas-response {
@@ -2181,6 +2232,10 @@ footer {
   .areas-person-avatar img {
     width: 40px;
     height: 40px;
+  }
+  
+  .areas-button-more {
+    bottom: -70px; /* Ajustar posição em mobile */
   }
 }
 
@@ -2212,5 +2267,71 @@ footer {
   width: fit-content;
   padding: 8px 15px;
   border-radius: 14px;
+}
+
+/* Estilos para o botão "Quero saber mais" */
+.btn-more-info {
+  background: white;
+  border: 0px;
+  color: #ec0000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.15s ease;
+  font-size: 14px;
+  font-family: "Santander Text", sans-serif;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-more-info:hover {
+  background: white;
+  color: #ec0000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.btn-more-info:active {
+  transform: translateY(0);
+}
+
+.btn-more-info svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-more-info:hover svg {
+  transform: none;
+}
+
+.areas-button-more {
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  z-index: 10;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos removidos - conteúdo expandido não é mais necessário */
+
+@media (max-width: 768px) {
+  /* Estilos removidos - conteúdo expandido não é mais necessário */
 }
 
