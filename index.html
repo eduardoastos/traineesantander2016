@@ -1124,17 +1124,45 @@
                                         <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
                                             <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de Wealth?</p>
                                             <div style="width: 50%; margin-top: 6%;">
-                                                <p class="mb-3 custom-singin" style="width: fit-content; opacity: 0;" id="second-entry-msg" data-aos="fade" data-aos-offset="300" data-aos-delay="0" data-aos-duration="300">Maria Santos entrou na conversa.</p>
                                                 <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
-                                                    <p>A Wealth Management oferece diversas oportunidades de crescimento profissional, desde consultoria personalizada até gestão de investimentos complexos!</p>
-                                                    <p>Os profissionais podem atuar em áreas como Private Banking, Asset Management, Family Office, ou consultoria financeira especializada. É um ambiente dinâmico onde você desenvolve relacionamentos de longo prazo com clientes high-net-worth e participa de decisões estratégicas de investimento que impactam grandes patrimônios.</p>
+                                                    <p>Entender profundamente o perfil dos clientes e desenvolver soluções que ultrapassam o óbvio. Você irá atuar em projetos que cruzam dados, comportamento e estratégia de mercado, ao lado de especialistas em investimentos e private banking.</p>
                                                     <div class="areas-person">
                                                         <div class="areas-person-avatar">
-                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
                                                         </div>
                                                         <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">Maria Santos</h5>
-                                                            <p class="areas-person-title">Especialista em Carreiras Wealth Management</p>
+                                                            <h5 class="areas-person-name">João da Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-wealth-second" onclick="scrollToThirdQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de Wealth?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área de Wealth Management oferece um caminho de crescimento único, desde Analista até Executive Director. Você pode evoluir em especialidades como Gestão de Patrimônio, Investment Banking, ou liderar equipes de consultores especializados em clientes ultra-high-net-worth.</p>
+                                                    <p>Além disso, há oportunidades de intercâmbio com outras unidades do Santander pelo mundo, participação em projetos estratégicos globais e desenvolvimento de competências em inovação financeira e wealth tech.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">João da Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1865,23 +1893,30 @@
                         element.style.transition = 'opacity 0.3s ease';
                         element.style.opacity = '1';
                         
-                        // Mostra a pessoa após a pergunta aparecer (delay original era +500ms)
-                        if (personElement) {
-                            setTimeout(function() {
-                                personElement.style.transition = 'opacity 0.3s ease';
-                                personElement.style.visibility = 'visible';
-                                personElement.style.opacity = '1';
-                                
-                                // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
+                                                    // Mostra a pessoa após a pergunta aparecer (delay original era +500ms)
+                            if (personElement) {
                                 setTimeout(function() {
-                                    if (responseElement) {
-                                        responseElement.style.transition = 'opacity 0.3s ease';
-                                        responseElement.style.visibility = 'visible';
-                                        responseElement.style.opacity = '1';
-                                    }
-                                }, 1000);
-                            }, 500);
-                        }
+                                    personElement.style.transition = 'opacity 0.3s ease';
+                                    personElement.style.visibility = 'visible';
+                                    personElement.style.opacity = '1';
+                                    
+                                    // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
+                                    setTimeout(function() {
+                                        if (responseElement) {
+                                            responseElement.style.transition = 'opacity 0.3s ease';
+                                            responseElement.style.visibility = 'visible';
+                                            responseElement.style.opacity = '1';
+                                        }
+                                    }, 1000);
+                                }, 500);
+                            } else if (responseElement) {
+                                // Se não há elemento de pessoa, mostra a resposta diretamente
+                                setTimeout(function() {
+                                    responseElement.style.transition = 'opacity 0.3s ease';
+                                    responseElement.style.visibility = 'visible';
+                                    responseElement.style.opacity = '1';
+                                }, 500);
+                            }
                     }, 50);
                     
                     // Limpa as referências
@@ -1989,11 +2024,21 @@
                             }
                             console.log('🔄 Estados de animação resetados para todas as abas');
                             
-                            // Esconder o botão
+                            // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
+                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                            const thirdSection = document.querySelector('.third-qa-section');
                             if (buttonContainer) {
                                 buttonContainer.style.opacity = '0';
                                 console.log('🔒 Botão escondido no reset');
+                            }
+                            if (secondButtonContainer) {
+                                secondButtonContainer.style.opacity = '0';
+                                console.log('🔒 Segundo botão escondido no reset');
+                            }
+                            if (thirdSection) {
+                                thirdSection.style.opacity = '0';
+                                console.log('🔒 Terceira seção escondida no reset');
                             }
                         }
                         
@@ -2031,6 +2076,15 @@
                                         console.log('📝 Animação completada para aba:', tabId);
                                     }
                                 }
+                                // Esconder segundo botão e terceira seção inicialmente
+                                const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                                const thirdSection = document.querySelector('.third-qa-section');
+                                if (secondButtonContainer) {
+                                    secondButtonContainer.style.opacity = '0';
+                                }
+                                if (thirdSection) {
+                                    thirdSection.style.opacity = '0';
+                                }
                             }, 6000);
                         } else if (!isVisible && wasVisible && !isAboveAreasSection) {
                             console.log('Seção das áreas saiu de vista (scroll para baixo)');
@@ -2042,11 +2096,21 @@
                             }
                             console.log('🔄 Estados de animação resetados para todas as abas (scroll para baixo)');
                             
-                            // Esconder o botão
+                            // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
+                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                            const thirdSection = document.querySelector('.third-qa-section');
                             if (buttonContainer) {
                                 buttonContainer.style.opacity = '0';
                                 console.log('🔒 Botão escondido no reset (scroll para baixo)');
+                            }
+                            if (secondButtonContainer) {
+                                secondButtonContainer.style.opacity = '0';
+                                console.log('🔒 Segundo botão escondido no reset (scroll para baixo)');
+                            }
+                            if (thirdSection) {
+                                thirdSection.style.opacity = '0';
+                                console.log('🔒 Terceira seção escondida no reset (scroll para baixo)');
                             }
                         }
                     }
@@ -2094,11 +2158,21 @@
                                 console.log('🔍 Aba ativa após clique:', activeContent ? activeContent.id : 'nenhuma');
                             }, 200);
                             
-                            // Esconder o botão imediatamente quando trocar de aba
+                            // Esconder os botões e seções imediatamente quando trocar de aba
                             const buttonContainer = document.querySelector('.areas-button-more');
+                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                            const thirdSection = document.querySelector('.third-qa-section');
                             if (buttonContainer) {
                                 buttonContainer.style.opacity = '0';
                                 console.log('🔒 Botão "Quero saber mais" escondido ao trocar de aba');
+                            }
+                            if (secondButtonContainer) {
+                                secondButtonContainer.style.opacity = '0';
+                                console.log('🔒 Segundo botão "Quero saber mais" escondido ao trocar de aba');
+                            }
+                            if (thirdSection) {
+                                thirdSection.style.opacity = '0';
+                                console.log('🔒 Terceira seção escondida ao trocar de aba');
                             }
                             
                             // Pequeno delay para garantir que o conteúdo foi trocado
@@ -2116,6 +2190,15 @@
                                         buttonContainer.style.opacity = '1';
                                         console.log('✅ Botão "Quero saber mais" exibido imediatamente (aba já vista)');
                                     }
+                                    // Esconder segundo botão e terceira seção inicialmente
+                                    const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                                    const thirdSection = document.querySelector('.third-qa-section');
+                                    if (secondButtonContainer) {
+                                        secondButtonContainer.style.opacity = '0';
+                                    }
+                                    if (thirdSection) {
+                                        thirdSection.style.opacity = '0';
+                                    }
                                 } else {
                                     console.log('⏳ Primeira vez nesta aba - aguardando 6000ms para mostrar botão');
                                     // Mostrar o botão após 6000ms (primeira vez nesta aba)
@@ -2128,6 +2211,15 @@
                                             // Marcar que a animação foi completada para esta aba
                                             window.animationStates[targetTabId] = true;
                                             console.log('📝 Animação completada para aba:', targetTabId);
+                                        }
+                                        // Esconder segundo botão e terceira seção inicialmente
+                                        const secondButtonContainer = document.querySelector('.areas-button-more-second');
+                                        const thirdSection = document.querySelector('.third-qa-section');
+                                        if (secondButtonContainer) {
+                                            secondButtonContainer.style.opacity = '0';
+                                        }
+                                        if (thirdSection) {
+                                            thirdSection.style.opacity = '0';
                                         }
                                     }, 6000);
                                 }
@@ -2377,22 +2469,79 @@ function scrollToNextQuestion() {
     }
 }
 
+// Função para rolar até a terceira pergunta e disparar animações
+function scrollToThirdQuestion() {
+    console.log('🖱️ Segundo botão "Quero saber mais" clicado');
+    
+    // Permitir scroll programático temporariamente
+    allowProgrammaticScroll = true;
+    
+    // Encontrar o container das perguntas e o conteúdo ativo
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    const activeContent = document.querySelector('.areas-content.active');
+    
+    console.log('📦 Content wrapper:', contentWrapper);
+    console.log('🎯 Active content:', activeContent);
+    
+    if (activeContent && contentWrapper) {
+        // Encontrar a terceira seção Q&A dentro da única speech bubble
+        const thirdQASection = activeContent.querySelector('.third-qa-section');
+        
+        console.log('🔍 Third Q&A section:', thirdQASection);
+        
+        if (thirdQASection) {
+            // Calcular posição da terceira seção relativa ao wrapper
+            const wrapperRect = contentWrapper.getBoundingClientRect();
+            const thirdSectionRect = thirdQASection.getBoundingClientRect();
+            
+            // Posição relativa dentro do container
+            const scrollPosition = thirdSectionRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
+            
+            console.log('📏 Scroll position:', scrollPosition);
+            
+            // Fazer scroll suave dentro do container
+            contentWrapper.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
+            
+            // Desabilitar scroll programático após um tempo
+            setTimeout(() => {
+                allowProgrammaticScroll = false;
+                console.log('🔒 Scroll manual bloqueado novamente');
+            }, 1000);
+            
+            // Disparar animações em sequência após o scroll
+            setTimeout(() => {
+                animateThirdQuestion();
+            }, 200); // Pequeno delay apenas para o scroll iniciar
+            
+            // Feedback visual no botão
+            const button = document.getElementById('btn-more-wealth-second');
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 150);
+            }
+        }
+    }
+}
+
 // Função para animar o segundo bloco de pergunta e resposta
 function animateSecondQuestion() {
     console.log('🎬 Iniciando animação da segunda seção');
     
     const secondQASection = document.querySelector('.second-qa-section');
     const secondQuestion = document.getElementById('second-question');
-    const secondEntryMsg = document.getElementById('second-entry-msg');
     const secondResponse = document.getElementById('second-response');
     
     console.log('🔍 Elementos encontrados:');
     console.log('- secondQASection:', secondQASection);
     console.log('- secondQuestion:', secondQuestion);
-    console.log('- secondEntryMsg:', secondEntryMsg);
     console.log('- secondResponse:', secondResponse);
     
-    if (secondQASection && secondQuestion && secondEntryMsg && secondResponse) {
+    if (secondQASection && secondQuestion && secondResponse) {
         // Mostrar o container
         secondQASection.style.opacity = '1';
         console.log('✅ Container da segunda seção visível');
@@ -2439,50 +2588,137 @@ function animateSecondQuestion() {
             secondQuestion.textContent = originalQuestionText;
             console.log('✅ Pergunta exibida:', originalQuestionText);
             
-            // Mostrar entrada após 500ms
+            // Mostrar resposta após 500ms
             setTimeout(() => {
-                console.log('✨ Animando entrada...');
-                secondEntryMsg.style.opacity = '1';
+                console.log('✨ Animando resposta...');
+                secondResponse.style.opacity = '1';
                 if (typeof AOS !== 'undefined') {
-                    secondEntryMsg.classList.add('aos-animate');
+                    secondResponse.classList.add('aos-animate');
                 }
                 
-                // Mostrar resposta após mais 1000ms
+                // Mostrar segundo botão após resposta aparecer
                 setTimeout(() => {
-                    console.log('✨ Animando resposta...');
-                    secondResponse.style.opacity = '1';
-                    if (typeof AOS !== 'undefined') {
-                        secondResponse.classList.add('aos-animate');
+                    const secondButton = document.querySelector('.areas-button-more-second');
+                    if (secondButton) {
+                        secondButton.style.opacity = '1';
+                        console.log('✅ Segundo botão "Quero saber mais" exibido');
                     }
                 }, 1000);
             }, 500);
         }, 1000);
         
-        // 2. Segunda animação - Entrada (delay: 3000ms)
+        // 2. Segunda animação - Resposta (delay: 3000ms)
         setTimeout(() => {
-            console.log('✨ Animando entrada (delay 3000ms)...');
-            secondEntryMsg.style.opacity = '1';
-            if (typeof AOS !== 'undefined') {
-                secondEntryMsg.classList.add('aos-animate');
-            }
-        }, 3000);
-        
-        // 3. Terceira animação - Resposta (delay: 5000ms)
-        setTimeout(() => {
-            console.log('✨ Animando resposta (delay 5000ms)...');
+            console.log('✨ Animando resposta (delay 3000ms)...');
             secondResponse.style.opacity = '1';
             if (typeof AOS !== 'undefined') {
                 secondResponse.classList.add('aos-animate');
             }
-        }, 5000);
+            
+            // Mostrar segundo botão após resposta aparecer
+            setTimeout(() => {
+                const secondButton = document.querySelector('.areas-button-more-second');
+                if (secondButton) {
+                    secondButton.style.opacity = '1';
+                    console.log('✅ Segundo botão "Quero saber mais" exibido');
+                }
+            }, 1000);
+        }, 3000);
         
         console.log('🎯 Sequência de animações iniciada com delays idênticos à primeira seção');
     } else {
         console.log('❌ Elementos da segunda seção não encontrados');
         console.log('❌ secondQASection:', !!secondQASection);
         console.log('❌ secondQuestion:', !!secondQuestion);
-        console.log('❌ secondEntryMsg:', !!secondEntryMsg);
         console.log('❌ secondResponse:', !!secondResponse);
+    }
+}
+
+// Função para animar o terceiro bloco de pergunta e resposta
+function animateThirdQuestion() {
+    console.log('🎬 Iniciando animação da terceira seção');
+    
+    const thirdQASection = document.querySelector('.third-qa-section');
+    const thirdQuestion = document.getElementById('third-question');
+    const thirdResponse = document.getElementById('third-response');
+    
+    console.log('🔍 Elementos encontrados:');
+    console.log('- thirdQASection:', thirdQASection);
+    console.log('- thirdQuestion:', thirdQuestion);
+    console.log('- thirdResponse:', thirdResponse);
+    
+    if (thirdQASection && thirdQuestion && thirdResponse) {
+        // Mostrar o container
+        thirdQASection.style.opacity = '1';
+        console.log('✅ Container da terceira seção visível');
+        
+        // 1. Primeira animação - Pergunta com animação de pontos (delay: 1000ms)
+        const originalQuestionText = thirdQuestion.getAttribute('data-original-text') || thirdQuestion.textContent.trim();
+        
+        // Salvar o texto original se não foi salvo
+        if (!thirdQuestion.getAttribute('data-original-text')) {
+            thirdQuestion.setAttribute('data-original-text', originalQuestionText);
+        }
+        
+        console.log('✨ Iniciando animação de pontos para terceira pergunta:', originalQuestionText);
+        
+        // Fazer a animação de pontos manualmente para a terceira pergunta
+        let dotCount = 0;
+        let interval;
+        
+        // Definir o elemento visível para a animação
+        thirdQuestion.style.opacity = '1';
+        thirdQuestion.textContent = '.';
+        
+        // Ciclo de animação dos pontos
+        interval = setInterval(function() {
+            let dots = '';
+            
+            if (dotCount === 0) {
+                dots = '.';
+            } else if (dotCount === 1) {
+                dots = '..';
+            } else if (dotCount === 2) {
+                dots = '...';
+            } else if (dotCount === 3) {
+                dots = '';
+            }
+            
+            thirdQuestion.textContent = dots;
+            dotCount = (dotCount + 1) % 4;
+        }, 300);
+        
+        // Parar animação após 1000ms e mostrar texto final
+        setTimeout(() => {
+            clearInterval(interval);
+            thirdQuestion.textContent = originalQuestionText;
+            console.log('✅ Terceira pergunta exibida:', originalQuestionText);
+            
+            // Mostrar resposta após 500ms
+            setTimeout(() => {
+                console.log('✨ Animando terceira resposta...');
+                thirdResponse.style.opacity = '1';
+                if (typeof AOS !== 'undefined') {
+                    thirdResponse.classList.add('aos-animate');
+                }
+            }, 500);
+        }, 1000);
+        
+        // 2. Segunda animação - Resposta (delay: 3000ms)
+        setTimeout(() => {
+            console.log('✨ Animando terceira resposta (delay 3000ms)...');
+            thirdResponse.style.opacity = '1';
+            if (typeof AOS !== 'undefined') {
+                thirdResponse.classList.add('aos-animate');
+            }
+        }, 3000);
+        
+        console.log('🎯 Sequência de animações iniciada para terceira seção');
+    } else {
+        console.log('❌ Elementos da terceira seção não encontrados');
+        console.log('❌ thirdQASection:', !!thirdQASection);
+        console.log('❌ thirdQuestion:', !!thirdQuestion);
+        console.log('❌ thirdResponse:', !!thirdResponse);
     }
 }
 </script>
