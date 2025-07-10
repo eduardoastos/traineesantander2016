@@ -1406,7 +1406,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%;">
+                                                    <a href="http://vagas.com.br/v2662582" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                        <!-- <img src="https://ca.talent.com/tracker/img-pixel.php?tracker=globeats"> -->
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2582,6 +2588,9 @@
                                 thirdSection.style.opacity = '0';
                                 console.log('🔒 Terceira seção escondida no reset (scroll para baixo)');
                             }
+                            
+                            // Desabilitar scroll manual quando sair da área
+                            disableManualScroll();
                         }
                     }
                     
@@ -2834,18 +2843,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const contentWrapper = document.querySelector('.areas-content-wrapper');
     
     if (contentWrapper) {
-        // Bloquear scroll com mouse wheel - sempre
+        // Bloquear scroll com mouse wheel - apenas se não estiver habilitado
         contentWrapper.addEventListener('wheel', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
+            if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
         }, { passive: false });
         
-        // Bloquear scroll com touch - sempre
+        // Bloquear scroll com touch - apenas se não estiver habilitado
         contentWrapper.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
+            if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
         }, { passive: false });
         
         // Bloquear scroll com touchstart
@@ -2857,13 +2870,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, { passive: false });
         
-        // Bloquear teclas de navegação (setas, page up/down, space)
+        // Bloquear teclas de navegação (setas, page up/down, space) - apenas se não estiver habilitado
         contentWrapper.addEventListener('keydown', function(e) {
-            const blockedKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, home, end, arrows
-            if (blockedKeys.includes(e.keyCode)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+            if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
+                const blockedKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, home, end, arrows
+                if (blockedKeys.includes(e.keyCode)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
             }
         });
         
@@ -2876,28 +2891,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Bloquear scroll com barra de rolagem
+        // Bloquear scroll com barra de rolagem - apenas se não estiver habilitado
         let lastScrollTop = 0;
         contentWrapper.addEventListener('scroll', function(e) {
-            if (!allowProgrammaticScroll) {
+            if (!allowProgrammaticScroll && contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
                 e.preventDefault();
                 e.stopPropagation();
                 // Resetar posição de scroll se não for programático
                 this.scrollTop = lastScrollTop;
                 return false;
             } else {
-                // Salvar posição atual se é um scroll programático
+                // Salvar posição atual se é um scroll programático ou manual habilitado
                 lastScrollTop = this.scrollTop;
             }
         });
         
         console.log('🚫 Scroll manual completamente desabilitado no areas-content-wrapper');
+        
+        // Inicializar como desabilitado
+        disableManualScroll();
     }
     
     // Bloquear qualquer tentativa de scroll que possa afetar o container pai
     document.addEventListener('wheel', function(e) {
         const target = e.target.closest('.areas-content-wrapper');
-        if (target) {
+        if (target && target.getAttribute('data-manual-scroll') !== 'enabled') {
             e.preventDefault();
             e.stopPropagation();
             return false;
@@ -2906,7 +2924,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('touchmove', function(e) {
         const target = e.target.closest('.areas-content-wrapper');
-        if (target) {
+        if (target && target.getAttribute('data-manual-scroll') !== 'enabled') {
             e.preventDefault();
             e.stopPropagation();
             return false;
@@ -3201,8 +3219,34 @@ function scrollToFourthQuestion() {
                     duplicateResponse.classList.add('aos-animate');
                 }
             }
+            
+            // Habilitar scroll manual após animação da última seção estar completa
+            setTimeout(() => {
+                enableManualScroll();
+                console.log('✅ Scroll manual habilitado na última seção');
+            }, 500);
         }, 1500);
     }, 200);
+}
+
+// Função para habilitar scroll manual
+function enableManualScroll() {
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    if (contentWrapper) {
+        // Marcar que scroll manual está habilitado
+        contentWrapper.setAttribute('data-manual-scroll', 'enabled');
+        console.log('✅ Scroll manual habilitado');
+    }
+}
+
+// Função para desabilitar scroll manual
+function disableManualScroll() {
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    if (contentWrapper) {
+        // Marcar que scroll manual está desabilitado
+        contentWrapper.setAttribute('data-manual-scroll', 'disabled');
+        console.log('🚫 Scroll manual desabilitado');
+    }
 }
 </script>
 
@@ -3210,6 +3254,9 @@ function scrollToFourthQuestion() {
 // Função para resetar todas as animações de uma aba
 function resetTabAnimations(tabId) {
     console.log('🔄 Resetando animações para aba:', tabId);
+    
+    // Desabilitar scroll manual quando trocar de tab
+    disableManualScroll();
     
     // Resetar TODOS os estados e progresso
     window.tabProgress = {};
