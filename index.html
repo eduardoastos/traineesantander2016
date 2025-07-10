@@ -1406,7 +1406,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%;">
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
                                                     <a href="http://vagas.com.br/v2662582" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
                                                         Clique aqui e inscreva-se!
                                                         <img src="images/subscribe.svg" alt="">
@@ -3185,7 +3185,37 @@ function scrollToThirdQuestion() {
 
 // Função para scroll para quarta pergunta
 function scrollToFourthQuestion() {
-    scrollToNextSection('.fourth-qa-section', 'btn-more-wealth-third');
+    console.log('🖱️ Botão clicado: btn-more-wealth-third');
+    
+    // Permitir scroll programático temporariamente
+    allowProgrammaticScroll = true;
+    
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    
+    if (contentWrapper) {
+        // Scroll para o final da div
+        const scrollToBottom = contentWrapper.scrollHeight - contentWrapper.clientHeight;
+        
+        // Fazer scroll suave para o final
+        contentWrapper.scrollTo({
+            top: scrollToBottom,
+            behavior: 'smooth'
+        });
+        
+        // Desabilitar scroll programático
+        setTimeout(() => {
+            allowProgrammaticScroll = false;
+        }, 1000);
+        
+        // Feedback visual no botão
+        const button = document.getElementById('btn-more-wealth-third');
+        if (button) {
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 150);
+        }
+    }
     
     // Disparar animação após scroll
     setTimeout(() => {
@@ -3220,11 +3250,22 @@ function scrollToFourthQuestion() {
                 }
             }
             
+            // Mostrar botão de inscrição após o último elemento
+            setTimeout(() => {
+                const inscriptionButton = document.querySelector('#inscription-button');
+                if (inscriptionButton) {
+                    inscriptionButton.style.opacity = '1';
+                    inscriptionButton.style.visibility = 'visible';
+                    inscriptionButton.style.transition = 'opacity 0.3s ease';
+                    console.log('✅ Botão de inscrição exibido');
+                }
+            }, 500);
+            
             // Habilitar scroll manual após animação da última seção estar completa
             setTimeout(() => {
                 enableManualScroll();
                 console.log('✅ Scroll manual habilitado na última seção');
-            }, 500);
+            }, 1000);
         }, 1500);
     }, 200);
 }
@@ -3284,6 +3325,7 @@ function resetTabAnimations(tabId) {
         '.second-qa-section',
         '.third-qa-section',
         '.fourth-qa-section',
+        '#inscription-button',
                         '.custom-question',
                         '.custom-singin',
                         '.areas-response'
@@ -3369,7 +3411,8 @@ function resetTabAnimations(tabId) {
         '#third-response',
         '#fourth-question',
         '#fourth-response',
-        '#fourth-response-duplicate'
+        '#fourth-response-duplicate',
+        '#inscription-button'
     ];
     
     globalElements.forEach(selector => {
