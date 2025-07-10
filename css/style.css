@@ -215,7 +215,7 @@ ul.header-nav.show {
 }
 
 .s-about {
-  background: #444444;
+  background: #121111;
   color: #FFFFFF;
   padding-block: 144px;
   position: relative;
@@ -807,6 +807,20 @@ ul.header-nav.show {
     width: 44vw;
   }
 }
+
+/* Nova classe para a imagem do mundo Santander com animação */
+.s-santander .image-santander-animate {
+  width: 100vw;
+  position: relative;
+  left: 0;
+  margin-left: -15px; /* Compensa o padding do container */
+}
+@media screen and (min-width: 768px) {
+  .s-santander .image-santander-animate {
+    width: calc(50vw + 15px);
+    margin-left: 0;
+  }
+}
 .s-santander .bg-linear {
   position: relative;
 }
@@ -877,7 +891,7 @@ ul.header-nav.show {
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
-  color: #EC0000;
+  color: #ffffff;
 }
 .s-santander .switcher {
   margin-top: -15px;
@@ -2746,5 +2760,10 @@ footer {
   .tooltip-content p {
     font-size: 10px;
   }
+}
+
+/* Alteração do max-width do container para 95% */
+.container {
+  max-width: 95% !important;
 }
 
