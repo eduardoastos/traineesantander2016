@@ -1240,7 +1240,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-5">
-                        <h2 class="header-paragraf text-uppercase"
+                        <h2 class="header-paragraf"
                             data-aos="fade-up"
                             data-aos-offset="300"
                             data-aos-delay="0"
@@ -2730,41 +2730,85 @@
 // Variável para controlar se o scroll programático está acontecendo
 let allowProgrammaticScroll = false;
 
-// Desabilitar scroll manual no areas-content-wrapper
+// Desabilitar completamente o scroll manual no areas-content-wrapper
 document.addEventListener('DOMContentLoaded', function() {
     const contentWrapper = document.querySelector('.areas-content-wrapper');
     
     if (contentWrapper) {
-        // Bloquear scroll com mouse wheel
+        // Bloquear scroll com mouse wheel - sempre
         contentWrapper.addEventListener('wheel', function(e) {
-            if (!allowProgrammaticScroll) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
         }, { passive: false });
         
-        // Bloquear scroll com touch
+        // Bloquear scroll com touch - sempre
         contentWrapper.addEventListener('touchmove', function(e) {
-            if (!allowProgrammaticScroll) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, { passive: false });
+        
+        // Bloquear scroll com touchstart
+        contentWrapper.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
             }
         }, { passive: false });
         
-        // Bloquear teclas de navegação (setas, page up/down)
+        // Bloquear teclas de navegação (setas, page up/down, space)
         contentWrapper.addEventListener('keydown', function(e) {
             const blockedKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, home, end, arrows
-            if (blockedKeys.includes(e.keyCode) && !allowProgrammaticScroll) {
+            if (blockedKeys.includes(e.keyCode)) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
             }
         });
         
-        console.log('🚫 Scroll manual desabilitado no areas-content-wrapper');
+        // Bloquear scroll com mouse drag
+        contentWrapper.addEventListener('mousedown', function(e) {
+            if (e.button === 1) { // middle mouse button
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+        
+        // Bloquear scroll com barra de rolagem
+        contentWrapper.addEventListener('scroll', function(e) {
+            if (!allowProgrammaticScroll) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Resetar posição de scroll se não for programático
+                this.scrollTop = this.scrollTop;
+                return false;
+            }
+        });
+        
+        console.log('🚫 Scroll manual completamente desabilitado no areas-content-wrapper');
     }
+    
+    // Bloquear qualquer tentativa de scroll que possa afetar o container pai
+    document.addEventListener('wheel', function(e) {
+        const target = e.target.closest('.areas-content-wrapper');
+        if (target) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }, { passive: false });
+    
+    document.addEventListener('touchmove', function(e) {
+        const target = e.target.closest('.areas-content-wrapper');
+        if (target) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }, { passive: false });
 });
 
 
@@ -2791,9 +2835,9 @@ function scrollToNextSection(targetSelector, buttonId) {
             // Calcular posição de scroll
             let scrollPosition = targetRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
             
-            // Adicionar 5px extras para a segunda seção
+            // Adicionar 20px extras para a segunda seção
             if (targetSelector === '.second-qa-section') {
-                scrollPosition += 5;
+                scrollPosition += 20;
             }
             
             // Ajustar para esconder botão anterior se necessário
@@ -2802,8 +2846,8 @@ function scrollToNextSection(targetSelector, buttonId) {
                 if (secondButton) {
                     scrollPosition += secondButton.offsetHeight + 50;
                 }
-                // Adicionar 5px extras para a terceira seção
-                scrollPosition += 5;
+                // Subtrair 70px do scroll para a terceira seção
+                scrollPosition -= 70;
             }
             
             // Ajustar para esconder botão anterior se necessário
@@ -3205,9 +3249,9 @@ function scrollToNextSection(targetSelector, buttonId) {
             // Calcular posição de scroll
             let scrollPosition = targetRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
             
-            // Adicionar 5px extras para a segunda seção
+            // Adicionar 20px extras para a segunda seção
             if (targetSelector === '.second-qa-section') {
-                scrollPosition += 5;
+                scrollPosition += 20;
             }
             
             // Ajustar para esconder botão anterior se necessário
@@ -3216,8 +3260,8 @@ function scrollToNextSection(targetSelector, buttonId) {
                 if (secondButton) {
                     scrollPosition += secondButton.offsetHeight + 50;
                 }
-                // Adicionar 100px extras para a terceira seção
-                scrollPosition += 100;
+                // Subtrair 70px do scroll para a terceira seção
+                scrollPosition -= 70;
             }
             
             // Ajustar para esconder botão anterior se necessário
@@ -3226,8 +3270,8 @@ function scrollToNextSection(targetSelector, buttonId) {
                 if (thirdButton) {
                     scrollPosition += thirdButton.offsetHeight + 50;
                 }
-                // Adicionar 100px extras para a quarta seção
-                scrollPosition += 100;
+                // Adicionar 5px extras para a quarta seção
+                scrollPosition += 5;
             }
             
             // Fazer scroll suave
