@@ -2778,13 +2778,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Bloquear scroll com barra de rolagem
+        let lastScrollTop = 0;
         contentWrapper.addEventListener('scroll', function(e) {
             if (!allowProgrammaticScroll) {
                 e.preventDefault();
                 e.stopPropagation();
                 // Resetar posição de scroll se não for programático
-                this.scrollTop = this.scrollTop;
+                this.scrollTop = lastScrollTop;
                 return false;
+            } else {
+                // Salvar posição atual se é um scroll programático
+                lastScrollTop = this.scrollTop;
             }
         });
         
