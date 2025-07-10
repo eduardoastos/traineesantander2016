@@ -277,7 +277,7 @@ ul.header-nav.show {
   border-radius: 16px;
   overflow: hidden;
 }
-.s-video-top .video-yt::after {
+/* .s-video-top .video-yt::after {
   content: "";
   background-image: url(../images/bg-video-santander.png);
   background-repeat: no-repeat;
@@ -291,7 +291,7 @@ ul.header-nav.show {
   left: 0;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
+} */
 
 .s-program {
   padding-bottom: 125px;
@@ -435,7 +435,7 @@ ul.header-nav.show {
   padding: 45px 92px;
   position: relative;
 }
-.s-cta .box-cta::before {
+/* .s-cta .box-cta::before {
   content: "";
   background-image: url(../images/bg-identidade.png);
   background-repeat: no-repeat;
@@ -449,7 +449,7 @@ ul.header-nav.show {
   left: 0;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
+} */
 @media (max-width: 768px) {
   .s-cta .box-cta {
     -webkit-box-orient: vertical;
@@ -730,6 +730,7 @@ ul.header-nav.show {
 .s-santander {
   background-color: #000000;
   padding-block: 50px;
+  padding-bottom: 150px !important;
 }
 
 .video-section-with-border {
@@ -1513,14 +1514,14 @@ ul.header-nav.show {
 }
 
 .s-subscribe {
-  padding-block: 260px 72px;
+  padding-block: 72px 72px;
   background-image: url(../images/bg-santander.png);
   background-position: center;
   background-repeat: no-repeat;
 }
 .s-subscribe p {
   color: #777777;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
 }
 .s-subscribe h2 {
@@ -2790,5 +2791,58 @@ footer {
 /* Alteração do max-width do container para 95% */
 .container {
   max-width: 95% !important;
+}
+
+/* Efeito de digitação (typewriter) */
+.typewriter {
+  display: inline-block;
+  line-height: 1.4;
+  color: #777777;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Cursor personalizado */
+.cursor {
+  color: #FF0000;
+  font-weight: normal;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+.cursor.blinking {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Para dispositivos móveis */
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+}
+
+/* Para tablets */
+@media (max-width: 992px) {
+  .typewriter {
+    font-size: 32px;
+  }
 }
 

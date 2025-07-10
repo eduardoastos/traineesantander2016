@@ -292,3 +292,110 @@ window.addEventListener('load', function() {
         console.log('AOS configurado no window load');
     }, 500);
 });
+
+// Função SIMPLES para executar o efeito de digitação
+function executeTypewriterEffect() {
+    console.log('EXECUTANDO TYPEWRITER');
+    
+    const element = document.getElementById('typewriter-text');
+    
+    if (!element) {
+        console.log('ELEMENTO NÃO ENCONTRADO');
+        return;
+    }
+
+    console.log('ELEMENTO ENCONTRADO');
+    
+    const text = "< Ser Trainee Santander é ter acesso a experiências e oportunidades de desenvolvimento global. >";
+    
+    element.innerHTML = '';
+    
+    let i = 0;
+    
+    function digitar() {
+        if (i < text.length) {
+            element.innerHTML = text.slice(0, i + 1) + '<span style="color:#FF0000;">|</span>';
+            i++;
+            setTimeout(digitar, 60);
+        } else {
+            element.innerHTML = text + '<span style="color:#FF0000; animation: blink 1s infinite;">|</span>';
+            console.log('DIGITAÇÃO CONCLUÍDA');
+        }
+    }
+    
+    digitar();
+}
+
+// Configurar Intersection Observer para ativar o efeito quando a seção for vista
+function initTypewriterWithObserver() {
+    console.log('🔍 Configurando Intersection Observer para typewriter...');
+    
+    const typewriterElement = document.getElementById('typewriter-text');
+    
+    if (!typewriterElement) {
+        console.error('❌ Elemento typewriter não encontrado no Observer');
+        return;
+    }
+
+    console.log('✅ Elemento typewriter encontrado para Observer');
+
+    let hasStarted = false; // Flag para evitar execução múltipla
+
+    // Configurar o Intersection Observer
+    const observerOptions = {
+        threshold: 0.1, // Ativa quando apenas 10% da seção está visível (mais sensível)
+        rootMargin: '0px 0px 0px 0px' // Sem margem para facilitar teste
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        console.log('👁️ Intersection Observer ativado:', entries.length, 'entradas');
+        
+        entries.forEach(entry => {
+            console.log('📊 Entry:', {
+                isIntersecting: entry.isIntersecting,
+                intersectionRatio: entry.intersectionRatio,
+                hasStarted: hasStarted,
+                targetClass: entry.target.className
+            });
+            
+            if (entry.isIntersecting && !hasStarted) {
+                console.log('🎯 Seção s-subscribe entrou na visualização, iniciando efeito de digitação');
+                hasStarted = true;
+                executeTypewriterEffect();
+                // Para de observar após ativar (executa apenas uma vez)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar a seção s-subscribe
+    const subscribeSection = document.querySelector('.s-subscribe');
+    if (subscribeSection) {
+        observer.observe(subscribeSection);
+        console.log('✅ Observer configurado para seção s-subscribe:', subscribeSection);
+    } else {
+        console.error('❌ Seção s-subscribe não encontrada');
+        // Fallback: executar imediatamente se não encontrar a seção
+        console.log('🔄 Fallback: executando typewriter em 2 segundos...');
+        setTimeout(executeTypewriterEffect, 2000);
+    }
+}
+
+// EXECUÇÃO SIMPLES E DIRETA
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM CARREGADO');
+    
+    setTimeout(function() {
+        console.log('TENTANDO EXECUTAR TYPEWRITER');
+        executeTypewriterEffect();
+    }, 2000);
+});
+
+window.addEventListener('load', function() {
+    console.log('PÁGINA CARREGADA');
+    
+    setTimeout(function() {
+        console.log('BACKUP - EXECUTANDO TYPEWRITER');
+        executeTypewriterEffect();
+    }, 3000);
+});
