@@ -110,7 +110,8 @@ ul.header-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  gap: 30px;
+  margin-right: 50px !important;
 }
 @media (max-width: 1200px) {
   ul.header-nav {
@@ -196,6 +197,11 @@ ul.header-nav.show {
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-big-red:hover {
+  background-color: #000000;
 }
 
 .btn-big-white {
