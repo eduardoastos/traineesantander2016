@@ -293,7 +293,7 @@
                         </div>
                         <div class="text">
                             <p>
-                                Interesse por transformação digital, inovação e trabalho colaborativo. 
+                                Interesse por transformação digital, inovação e trabalho colaborativo.
                             </p>
                         </div>
                     </li>
@@ -1007,6 +1007,45 @@
                 >
                     ONE SANTANDER
                 </h2>
+
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <div
+                            data-aos="fade-right"
+                            data-aos-offset="300"
+                            data-aos-delay="0"
+                            data-aos-duration="300"
+                        >
+                            <div class="image-size">
+                                <video class="w-100" autoplay muted loop playsinline>
+                                    <source src="images/video-sant.mp4" type="video/mp4">
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6"
+                        data-aos="fade-left"
+                        data-aos-offset="300"
+                        data-aos-delay="0"
+                        data-aos-duration="300"
+                    >
+                        <img src="images/red-dots.png" class="d-block mb-4" alt="">
+                        <h3 class="mb-5 text-santander-img"">
+                            Vem ser Trainee no Santander: aqui, sua chama transforma.
+                        </h3>
+                        <p style="color: white;">
+                            Somos globais, temos o propósito de contribuir para que pessoas e negócios prosperem e queremos ser a maior plataforma aberta de serviços financeiros. 
+                        </p>
+                        <p style="color: white;">
+                            Aqui, temos espaço para questionar o status quo, desafiar os modelos e criar o novo. Nossa paixão pelo cliente nos leva a melhorar para criar soluções e atendê-los da forma que precisam, com tudo o que só o Santander pode proporcionar. 
+                        </p>
+                        <p style="color: white;"> 
+                            Venha fazer parte de uma empresa global, que valoriza o potencial máximo de cada um e que preza pela inclusão em todas suas dimensões.
+                        </p>
+                    </div>
+                    
+                </div>
 
                 <div class="row align-items-center">
                     
@@ -1749,7 +1788,11 @@
                 tabs.forEach(function(tab) {
                     tab.addEventListener('click', function() {
                         var area = this.getAttribute('data-area');
+                        var targetTabId = area + '-content';
                         console.log('Clicou em:', area);
+                        
+                        // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
+                        resetTabAnimations(targetTabId);
                         
                         // Remove active de todas as abas
                         tabs.forEach(function(t) { t.classList.remove('active'); });
@@ -1761,7 +1804,7 @@
                         contents.forEach(function(c) { c.classList.remove('active'); });
                         
                         // Mostra o conteúdo correspondente
-                        var targetContent = document.getElementById(area + '-content');
+                        var targetContent = document.getElementById(targetTabId);
                         if (targetContent) {
                             targetContent.classList.add('active');
                             console.log('Conteúdo ativado:', area);
@@ -1779,7 +1822,7 @@
                                 }
                             }, 100);
                         } else {
-                            console.error('Conteúdo não encontrado:', area + '-content');
+                            console.error('Conteúdo não encontrado:', targetTabId);
                         }
                     });
                 });
@@ -1798,187 +1841,15 @@
             // Variável para rastrear o progresso de cada aba (qual step foi completado)
             window.tabProgress = {};
             
-            // Função para restaurar o estado de uma aba baseado no progresso
+            // Função para restaurar o estado de uma aba baseado no progresso (DEPRECATED - não usar mais)
             function restoreTabState(tabId) {
-                console.log('🔄 Restaurando estado da aba:', tabId, 'Progress:', window.tabProgress[tabId]);
-                
-                if (tabId !== 'wealth-management-content') {
-                    // Para outras abas, esconder tudo
-                    const buttonContainer = document.querySelector('.areas-button-more');
-                    const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                    const secondSection = document.querySelector('.second-qa-section');
-                    const thirdSection = document.querySelector('.third-qa-section');
-                    
-                    if (buttonContainer) buttonContainer.style.opacity = '0';
-                    if (secondButtonContainer) secondButtonContainer.style.opacity = '0';
-                    if (secondSection) secondSection.style.opacity = '0';
-                    if (thirdSection) thirdSection.style.opacity = '0';
+                console.log('⚠️ restoreTabState DEPRECATED - sempre reiniciando do zero');
+                // Esta função não é mais usada - sempre reiniciamos do zero
                     return;
                 }
                 
-                const progress = window.tabProgress[tabId] || 0;
-                
-                // Elementos da wealth management
-                const buttonContainer = document.querySelector('.areas-button-more');
-                const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                const secondSection = document.querySelector('.second-qa-section');
-                const thirdSection = document.querySelector('.third-qa-section');
-                
-                // Reset inicial - esconder tudo
-                if (buttonContainer) buttonContainer.style.opacity = '0';
-                if (secondButtonContainer) secondButtonContainer.style.opacity = '0';
-                if (secondSection) secondSection.style.opacity = '0';
-                if (thirdSection) thirdSection.style.opacity = '0';
-                
-                // Reset dos elementos internos das seções
-                const secondQuestion = document.getElementById('second-question');
-                const secondResponse = document.getElementById('second-response');
-                const thirdQuestion = document.getElementById('third-question');
-                const thirdResponse = document.getElementById('third-response');
-                
-                if (secondQuestion) secondQuestion.style.opacity = '0';
-                if (secondResponse) secondResponse.style.opacity = '0';
-                if (thirdQuestion) thirdQuestion.style.opacity = '0';
-                if (thirdResponse) thirdResponse.style.opacity = '0';
-                
-                if (progress === 0) {
-                    console.log('🎯 Primeira vez na aba - aguardando animações normais');
-                    return;
-                }
-                
-                console.log('🎬 Reiniciando animações sequenciais até progress level:', progress);
-                
-                // Replicar as animações sequenciais baseadas no progresso
-                setTimeout(() => {
-                    // Step 1: Primeira animação - sempre mostrar primeiro botão
-                    if (buttonContainer) {
-                        buttonContainer.style.opacity = '1';
-                        console.log('✅ Primeiro botão animado (restauração)');
-                    }
-                    
-                    if (progress >= 2) {
-                        // Step 2: Animar segunda seção após delay
-                        setTimeout(() => {
-                            console.log('🎬 Iniciando animação da segunda seção (restauração)');
-                            restoreAnimateSecondSection();
-                        }, 1000);
-                    }
-                    
-                    if (progress >= 3) {
-                        // Step 3: Animar terceira seção após delay maior
-                        setTimeout(() => {
-                            console.log('🎬 Iniciando animação da terceira seção (restauração)');
-                            restoreAnimateThirdSection();
-                        }, 3000);
-                    }
-                }, 1000);
-                
-                console.log('🎯 Sequência de restauração iniciada');
-            }
-            
-            // Função para animar a segunda seção durante restauração
-            function restoreAnimateSecondSection() {
-                const secondSection = document.querySelector('.second-qa-section');
-                const secondQuestion = document.getElementById('second-question');
-                const secondResponse = document.getElementById('second-response');
-                const secondButton = document.querySelector('.areas-button-more-second');
-                
-                if (secondSection) secondSection.style.opacity = '1';
-                
-                // Animar pergunta com pontos
-                if (secondQuestion) {
-                    const originalText = secondQuestion.getAttribute('data-original-text') || secondQuestion.textContent.trim();
-                    if (!secondQuestion.getAttribute('data-original-text')) {
-                        secondQuestion.setAttribute('data-original-text', originalText);
-                    }
-                    
-                    secondQuestion.style.opacity = '1';
-                    secondQuestion.textContent = '.';
-                    
-                    let dotCount = 0;
-                    const interval = setInterval(() => {
-                        let dots = '';
-                        if (dotCount === 0) dots = '.';
-                        else if (dotCount === 1) dots = '..';
-                        else if (dotCount === 2) dots = '...';
-                        else if (dotCount === 3) dots = '';
-                        
-                        secondQuestion.textContent = dots;
-                        dotCount = (dotCount + 1) % 4;
-                    }, 300);
-                    
-                    setTimeout(() => {
-                        clearInterval(interval);
-                        secondQuestion.textContent = originalText;
-                        
-                        // Mostrar resposta
-                        setTimeout(() => {
-                            if (secondResponse) {
-                                secondResponse.style.opacity = '1';
-                                if (typeof AOS !== 'undefined') {
-                                    secondResponse.classList.add('aos-animate');
-                                }
-                            }
-                            
-                            // Mostrar segundo botão
-                            setTimeout(() => {
-                                if (secondButton) {
-                                    secondButton.style.opacity = '1';
-                                    console.log('✅ Segunda seção completamente animada (restauração)');
-                                }
-                            }, 500);
-                        }, 500);
-                    }, 1000);
-                }
-            }
-            
-            // Função para animar a terceira seção durante restauração
-            function restoreAnimateThirdSection() {
-                const thirdSection = document.querySelector('.third-qa-section');
-                const thirdQuestion = document.getElementById('third-question');
-                const thirdResponse = document.getElementById('third-response');
-                
-                if (thirdSection) thirdSection.style.opacity = '1';
-                
-                // Animar pergunta com pontos
-                if (thirdQuestion) {
-                    const originalText = thirdQuestion.getAttribute('data-original-text') || thirdQuestion.textContent.trim();
-                    if (!thirdQuestion.getAttribute('data-original-text')) {
-                        thirdQuestion.setAttribute('data-original-text', originalText);
-                    }
-                    
-                    thirdQuestion.style.opacity = '1';
-                    thirdQuestion.textContent = '.';
-                    
-                    let dotCount = 0;
-                    const interval = setInterval(() => {
-                        let dots = '';
-                        if (dotCount === 0) dots = '.';
-                        else if (dotCount === 1) dots = '..';
-                        else if (dotCount === 2) dots = '...';
-                        else if (dotCount === 3) dots = '';
-                        
-                        thirdQuestion.textContent = dots;
-                        dotCount = (dotCount + 1) % 4;
-                    }, 300);
-                    
-                    setTimeout(() => {
-                        clearInterval(interval);
-                        thirdQuestion.textContent = originalText;
-                        
-                        // Mostrar resposta
-                        setTimeout(() => {
-                            if (thirdResponse) {
-                                thirdResponse.style.opacity = '1';
-                                if (typeof AOS !== 'undefined') {
-                                    thirdResponse.classList.add('aos-animate');
-                                }
-                                console.log('✅ Terceira seção completamente animada (restauração)');
-                            }
-                        }, 500);
-                    }, 1000);
-                }
-            }
+            // Funções de restauração removidas - não são mais necessárias
+            // Sempre reiniciamos as animações do zero
             
             // Função para animar os pontinhos
             function animateLoadingDots(element, originalText, delay) {
@@ -2002,16 +1873,6 @@
                 const personElement = parentBubble ? parentBubble.querySelector('.custom-singin') : null;
                 const responseElement = parentBubble ? parentBubble.querySelector('.areas-response') : null;
                 
-                // Esconde todos os elementos relacionados inicialmente
-                if (personElement) {
-                    personElement.style.opacity = '0';
-                    personElement.style.visibility = 'hidden';
-                }
-                if (responseElement) {
-                    responseElement.style.opacity = '0';
-                    responseElement.style.visibility = 'hidden';
-                }
-                
                 // Desabilita completamente o AOS e controla manualmente a opacidade
                 element.removeAttribute('data-aos');
                 element.removeAttribute('data-aos-delay');
@@ -2021,6 +1882,18 @@
                 element.style.opacity = '1';
                 element.style.visibility = 'visible';
                 element.style.transition = 'none';
+                
+                // Garantir que elementos relacionados estão inicialmente escondidos
+                if (personElement) {
+                    personElement.style.opacity = '0';
+                    personElement.style.visibility = 'hidden';
+                    personElement.style.transition = 'none';
+                }
+                if (responseElement) {
+                    responseElement.style.opacity = '0';
+                    responseElement.style.visibility = 'hidden';
+                    responseElement.style.transition = 'none';
+                }
                 
                 // Calcula e fixa a altura para evitar mudanças durante a animação
                 const originalHeight = element.offsetHeight;
@@ -2039,10 +1912,14 @@
                     console.log('Altura fixada em:', originalHeight + 'px');
                 }
                 
+                // Aguardar o delay especificado antes de iniciar a animação (mínimo 100ms)
+                const actualDelay = Math.max(delay, 100);
+                
+                setTimeout(function() {
                 // Inicia com um ponto
                 element.textContent = '.';
                 
-                // Inicia a animação dos pontinhos imediatamente
+                    // Inicia a animação dos pontinhos
                 interval = setInterval(function() {
                     let dots = '';
                     
@@ -2060,12 +1937,14 @@
                     dotCount = (dotCount + 1) % 4; // Ciclo de 0 a 3
                 }, 300); // Muda a cada 300ms
                 
-                // Guarda as referências para poder cancelar depois
+                    // Salvar referência do interval no elemento
                 element.loadingInterval = interval;
                 
-                // Para a animação e mostra o texto original após o delay
-                element.loadingTimeout = setTimeout(function() {
+                    // Para a animação dos pontos após 1000ms e mostra o texto original
+                    setTimeout(function() {
                     clearInterval(interval);
+                        element.loadingInterval = null;
+                        element.loadingTimeout = null;
                     element.textContent = originalContent;
                     console.log('Animação finalizada, mostrando:', originalContent);
                     
@@ -2084,6 +1963,7 @@
                                     personElement.style.transition = 'opacity 0.3s ease';
                                     personElement.style.visibility = 'visible';
                                     personElement.style.opacity = '1';
+                                    console.log('✅ Pessoa exibida');
                                     
                                     // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
                                     setTimeout(function() {
@@ -2091,6 +1971,7 @@
                                             responseElement.style.transition = 'opacity 0.3s ease';
                                             responseElement.style.visibility = 'visible';
                                             responseElement.style.opacity = '1';
+                                            console.log('✅ Resposta exibida');
                                         }
                                     }, 1000);
                                 }, 500);
@@ -2100,14 +1981,15 @@
                                     responseElement.style.transition = 'opacity 0.3s ease';
                                     responseElement.style.visibility = 'visible';
                                     responseElement.style.opacity = '1';
+                                    console.log('✅ Resposta exibida (sem pessoa)');
                                 }, 500);
                             }
                     }, 50);
+                    }, 1000);
                     
-                    // Limpa as referências
-                    element.loadingInterval = null;
-                    element.loadingTimeout = null;
-                }, delay);
+                }, actualDelay);
+                
+                // Código de animação movido para dentro do setTimeout acima
             }
             
             // Função para inicializar as animações
@@ -2122,6 +2004,68 @@
                     console.log('❌ Nenhuma aba ativa encontrada');
                     return;
                 }
+                
+                // Preparar elementos para animação - sempre começar do zero
+                const allElements = activeContent.querySelectorAll('.custom-question, .custom-singin, .areas-response');
+                allElements.forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.visibility = 'hidden';
+                    element.style.transition = 'none';
+                    element.classList.remove('aos-animate');
+                    
+                    // Limpar qualquer animação anterior
+                    if (element.loadingInterval) {
+                        clearInterval(element.loadingInterval);
+                        element.loadingInterval = null;
+                    }
+                    if (element.loadingTimeout) {
+                        clearTimeout(element.loadingTimeout);
+                        element.loadingTimeout = null;
+                    }
+                });
+                
+                // Esconder especificamente a primeira pergunta e resposta também
+                const firstQuestion = activeContent.querySelector('.custom-question');
+                const firstResponse = activeContent.querySelector('.areas-response');
+                const firstPerson = activeContent.querySelector('.custom-singin');
+                
+                if (firstQuestion) {
+                    firstQuestion.style.opacity = '0';
+                    firstQuestion.style.visibility = 'hidden';
+                    firstQuestion.style.transition = 'none';
+                    console.log('🔒 Primeira pergunta escondida');
+                }
+                
+                if (firstResponse) {
+                    firstResponse.style.opacity = '0';
+                    firstResponse.style.visibility = 'hidden';
+                    firstResponse.style.transition = 'none';
+                    console.log('🔒 Primeira resposta escondida');
+                }
+                
+                if (firstPerson) {
+                    firstPerson.style.opacity = '0';
+                    firstPerson.style.visibility = 'hidden';
+                    firstPerson.style.transition = 'none';
+                    console.log('🔒 Primeira pessoa escondida');
+                }
+                
+                // Esconder todos os botões e seções secundárias
+                const secondaryElements = [
+                    '.areas-button-more',
+                    '.areas-button-more-second',
+                    '.second-qa-section',
+                    '.third-qa-section'
+                ];
+                
+                secondaryElements.forEach(selector => {
+                    const element = document.querySelector(selector);
+                    if (element) {
+                        element.style.opacity = '0';
+                        element.style.visibility = 'hidden';
+                        element.style.transition = 'none';
+                    }
+                });
                 
                 const customQuestions = activeContent.querySelectorAll('.custom-question');
                 console.log('Encontradas', customQuestions.length, 'perguntas customizadas na aba ativa');
@@ -2138,18 +2082,14 @@
                     
                     console.log('Pergunta', index + 1, ':', originalText, 'delay:', delay);
                     
-                    if (delay > 0) {
-                        // Salva o texto original se ainda não foi salvo
+                    // Sempre salva o texto original se ainda não foi salvo
                         if (!question.getAttribute('data-original-text')) {
                             question.setAttribute('data-original-text', originalText);
                         }
                         
+                    // Sempre anima todas as perguntas - mesmo as sem delay
                         console.log('✅ Iniciando animação para pergunta', index + 1);
-                        // Inicia a animação
                         animateLoadingDots(question, originalText, delay);
-                    } else {
-                        console.log('⏩ Pergunta sem delay, pulando animação');
-                    }
                 });
                 
                 console.log('=== FIM ANIMAÇÕES ===');
@@ -2246,35 +2186,33 @@
                                 }
                             }
                             
+                            // Resetar completamente antes de iniciar animações
+                            resetTabAnimations('scroll-detection');
+                            
+                            // Aguardar um pouco para garantir que o reset foi completo
+                            setTimeout(function() {
                             // Inicia as animações das perguntas
                             initLoadingAnimations();
                             
-                            // Controle manual do botão "Quero saber mais" - 6 segundos após início das animações
+                                // Controle manual do botão "Quero saber mais" - ajustado para considerar as animações
                             setTimeout(function() {
+                                    const currentActiveContent = document.querySelector('.areas-content.active');
                                 const buttonContainer = document.querySelector('.areas-button-more');
-                                if (buttonContainer) {
+                                    
+                                    if (buttonContainer && currentActiveContent && currentActiveContent.id === 'wealth-management-content') {
                                     buttonContainer.style.opacity = '1';
-                                    console.log('✅ Botão "Quero saber mais" exibido aos 6000ms');
+                                        buttonContainer.style.visibility = 'visible';
+                                        buttonContainer.style.transition = 'opacity 0.3s ease';
+                                        console.log('✅ Botão "Quero saber mais" exibido');
                                     
                                     // Marcar que a animação foi completada para a aba ativa
-                                    const activeContent = document.querySelector('.areas-content.active');
-                                    if (activeContent) {
-                                        const tabId = activeContent.id;
+                                        const tabId = currentActiveContent.id;
                                         window.animationStates[tabId] = true;
                                         window.tabProgress[tabId] = 1; // Step 1 completado
                                         console.log('📝 Animação completada para aba:', tabId, 'Progress: Step 1');
                                     }
-                                }
-                                // Esconder segundo botão e terceira seção inicialmente
-                                const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                                const thirdSection = document.querySelector('.third-qa-section');
-                                if (secondButtonContainer) {
-                                    secondButtonContainer.style.opacity = '0';
-                                }
-                                if (thirdSection) {
-                                    thirdSection.style.opacity = '0';
-                                }
-                            }, 6000);
+                                }, 4000); // Reduzido para 4 segundos para ser mais responsivo
+                            }, 100);
                         } else if (!isVisible && wasVisible && !isAboveAreasSection) {
                             console.log('Seção das áreas saiu de vista (scroll para baixo)');
                             wasVisible = false;
@@ -2340,50 +2278,42 @@
                             const targetTabId = clickedArea + '-content';
                             console.log('Aba clicada:', clickedArea, 'Target ID:', targetTabId);
                             
+                            // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
+                            resetTabAnimations(targetTabId);
+                            
                             // Verificar se o elemento existe realmente
                             const targetElement = document.getElementById(targetTabId);
                             console.log('🎯 Elemento alvo encontrado:', targetElement);
                             
+                            // Aguardar um pouco mais para garantir que o reset foi completo
+                            setTimeout(function() {
                             // Verificar qual aba fica ativa após o clique
-                            setTimeout(() => {
                                 const activeContent = document.querySelector('.areas-content.active');
                                 console.log('🔍 Aba ativa após clique:', activeContent ? activeContent.id : 'nenhuma');
-                            }, 200);
-                            
-                            // Restaurar estado da nova aba baseado no progresso
-                            restoreTabState(targetTabId);
-                            
-                            // Pequeno delay para garantir que o conteúdo foi trocado
-                            setTimeout(function() {
+                                
+                                // Sempre começar do zero - iniciar animações
                                 initLoadingAnimations();
+                                console.log('🔄 Sempre começando do zero para aba:', targetTabId);
                                 
-                                // Verificar se a animação já foi completada para esta aba
-                                console.log('🔍 Verificando estado da aba:', targetTabId, 'Estado atual:', window.animationStates[targetTabId]);
-                                console.log('📊 Progress atual:', window.tabProgress[targetTabId]);
-                                
-                                if (window.animationStates[targetTabId] || window.tabProgress[targetTabId]) {
-                                    console.log('🔥 Aba já visitada - restaurando estado salvo');
-                                    // Aba já foi vista, o estado já foi restaurado pela função restoreTabState
-                                } else {
-                                    console.log('⏳ Primeira vez nesta aba - aguardando animações');
-                                    // Primeira vez nesta aba
-                                    if (targetTabId === 'wealth-management-content') {
-                                        // Para wealth management, aguardar 6000ms para primeiro botão
-                                        setTimeout(function() {
-                                            const buttonContainer = document.querySelector('.areas-button-more');
-                                            if (buttonContainer) {
-                                                buttonContainer.style.opacity = '1';
-                                                console.log('✅ Botão "Quero saber mais" exibido aos 6000ms (primeira vez)');
-                                                
-                                                // Marcar que a animação foi completada para esta aba
-                                                window.animationStates[targetTabId] = true;
-                                                window.tabProgress[targetTabId] = 1;
-                                                console.log('📝 Animação completada para aba:', targetTabId);
-                                            }
-                                        }, 6000);
-                                    }
+                                // Sempre começar do zero - não verificar estado anterior
+                                if (targetTabId === 'wealth-management-content') {
+                                    // Para wealth management, aguardar tempo para primeiro botão
+                                    setTimeout(function() {
+                                        const buttonContainer = document.querySelector('.areas-button-more');
+                                        if (buttonContainer && activeContent && activeContent.id === 'wealth-management-content') {
+                                            buttonContainer.style.opacity = '1';
+                                            buttonContainer.style.visibility = 'visible';
+                                            buttonContainer.style.transition = 'opacity 0.3s ease';
+                                            console.log('✅ Botão "Quero saber mais" exibido (sempre do zero)');
+                                            
+                                            // Marcar que a animação foi completada para esta aba
+                                            window.animationStates[targetTabId] = true;
+                                            window.tabProgress[targetTabId] = 1;
+                                            console.log('📝 Animação completada para aba:', targetTabId);
+                                        }
+                                    }, 4000); // Consistente com o tempo do scroll
                                 }
-                            }, 100);
+                            }, 200);
                         };
                         
                         // Adiciona o listener
@@ -2464,7 +2394,7 @@
 </script>
 
 <script>
-// Script final para garantir que as abas funcionem
+// Script final para garantir que as abas funcionem com reset completo
 (function() {
     function setupAreasTabs() {
         var tabs = document.querySelectorAll('.areas-tab');
@@ -2475,7 +2405,13 @@
         for (var i = 0; i < tabs.length; i++) {
             tabs[i].onclick = function() {
                 var targetArea = this.getAttribute('data-area');
+                var targetTabId = targetArea + '-content';
                 console.log('Tab clicked:', targetArea);
+                
+                // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
+                if (typeof resetTabAnimations === 'function') {
+                resetTabAnimations(targetTabId);
+                }
                 
                 // Remove active from all tabs
                 for (var j = 0; j < tabs.length; j++) {
@@ -2491,23 +2427,41 @@
                 }
                 
                 // Show target content
-                var target = document.getElementById(targetArea + '-content');
+                var target = document.getElementById(targetTabId);
                 if (target) {
                     target.classList.add('active');
                     console.log('Content shown:', targetArea);
                     
-                    // Reset animations for all tabs to ensure AOS animations work
-                    var aosElements = target.querySelectorAll('[data-aos]');
-                    aosElements.forEach(function(el) {
-                        el.classList.remove('aos-animate');
-                    });
-                    
-                    // Refresh AOS animations for the new content
+                    // Aguardar um pouco para garantir que o reset foi completo
                     setTimeout(function() {
-                        if (typeof AOS !== 'undefined') {
-                            AOS.refresh();
+                        // Sempre começar do zero - iniciar animações
+                        if (typeof initLoadingAnimations === 'function') {
+                            initLoadingAnimations();
                         }
-                    }, 100);
+                        
+                        // Para wealth management, aguardar tempo para primeiro botão
+                        if (targetTabId === 'wealth-management-content') {
+                    setTimeout(function() {
+                                var activeContent = document.querySelector('.areas-content.active');
+                                var buttonContainer = document.querySelector('.areas-button-more');
+                                
+                                if (buttonContainer && activeContent && activeContent.id === 'wealth-management-content') {
+                                    buttonContainer.style.opacity = '1';
+                                    buttonContainer.style.visibility = 'visible';
+                                    buttonContainer.style.transition = 'opacity 0.3s ease';
+                                    console.log('✅ Botão "Quero saber mais" exibido (script final)');
+                                    
+                                    // Marcar que a animação foi completada
+                                    if (typeof window.animationStates === 'object') {
+                                        window.animationStates[targetTabId] = true;
+                                    }
+                                    if (typeof window.tabProgress === 'object') {
+                                        window.tabProgress[targetTabId] = 1;
+                                    }
+                                }
+                            }, 4000); // Consistente com outros tempos
+                        }
+                    }, 200);
                 }
                 
                 return false;
@@ -2570,350 +2524,420 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-// Função para rolar até a próxima pergunta e disparar animações
-function scrollToNextQuestion() {
-    console.log('🖱️ Botão "Quero saber mais" clicado');
+// Função genérica para scroll para próxima seção
+function scrollToNextSection(targetSelector, buttonId) {
+    console.log('🖱️ Botão clicado:', buttonId);
     
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
     
-    // Encontrar o container das perguntas e o conteúdo ativo
     const contentWrapper = document.querySelector('.areas-content-wrapper');
     const activeContent = document.querySelector('.areas-content.active');
     
-    console.log('📦 Content wrapper:', contentWrapper);
-    console.log('🎯 Active content:', activeContent);
-    
     if (activeContent && contentWrapper) {
-        // Encontrar a segunda seção Q&A dentro da única speech bubble
-        const secondQASection = activeContent.querySelector('.second-qa-section');
+        const targetSection = activeContent.querySelector(targetSelector);
         
-        console.log('🔍 Second Q&A section:', secondQASection);
-        
-        if (secondQASection) {
-            // Calcular posição da segunda seção relativa ao wrapper
+        if (targetSection) {
             const wrapperRect = contentWrapper.getBoundingClientRect();
-            const secondSectionRect = secondQASection.getBoundingClientRect();
+            const targetRect = targetSection.getBoundingClientRect();
             
-            // Posição relativa dentro do container
-            const scrollPosition = secondSectionRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
+            // Calcular posição de scroll
+            let scrollPosition = targetRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
             
-            console.log('📏 Scroll position:', scrollPosition);
-            
-            // Fazer scroll suave dentro do container
-            contentWrapper.scrollTo({
-                top: scrollPosition,
-                behavior: 'smooth'
-            });
-            
-            // Desabilitar scroll programático após um tempo
-            setTimeout(() => {
-                allowProgrammaticScroll = false;
-                console.log('🔒 Scroll manual bloqueado novamente');
-            }, 1000);
-            
-            // Disparar animações em sequência após o scroll
-            setTimeout(() => {
-                animateSecondQuestion();
-            }, 200); // Pequeno delay apenas para o scroll iniciar
-            
-            // Feedback visual no botão
-            const button = document.getElementById('btn-more-wealth');
-            if (button) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = 'scale(1)';
-                }, 150);
-            }
-        }
-    }
-}
-
-// Função para rolar até a terceira pergunta e disparar animações
-function scrollToThirdQuestion() {
-    console.log('🖱️ Segundo botão "Quero saber mais" clicado');
-    
-    // Permitir scroll programático temporariamente
-    allowProgrammaticScroll = true;
-    
-    // Encontrar o container das perguntas e o conteúdo ativo
-    const contentWrapper = document.querySelector('.areas-content-wrapper');
-    const activeContent = document.querySelector('.areas-content.active');
-    
-    console.log('📦 Content wrapper:', contentWrapper);
-    console.log('🎯 Active content:', activeContent);
-    
-    if (activeContent && contentWrapper) {
-        // Encontrar a terceira seção Q&A dentro da única speech bubble
-        const thirdQASection = activeContent.querySelector('.third-qa-section');
-        
-        console.log('🔍 Third Q&A section:', thirdQASection);
-        
-        if (thirdQASection) {
-            // Calcular posição da terceira seção relativa ao wrapper
-            const wrapperRect = contentWrapper.getBoundingClientRect();
-            const thirdSectionRect = thirdQASection.getBoundingClientRect();
-            
-            // Encontrar o segundo botão para garantir que ele fique fora da vista
-            const secondButton = document.querySelector('.areas-button-more-second');
-            let buttonHeight = 0;
-            if (secondButton) {
-                buttonHeight = secondButton.offsetHeight + 50; // altura do botão + margem extra
-            }
-            
-            // Posição relativa dentro do container, ajustada para esconder o botão anterior
-            const scrollPosition = thirdSectionRect.top - wrapperRect.top + contentWrapper.scrollTop + buttonHeight;
-            
-            console.log('📏 Scroll position (adjusted to hide previous button):', scrollPosition);
-            
-            // Fazer scroll suave dentro do container
-            contentWrapper.scrollTo({
-                top: scrollPosition,
-                behavior: 'smooth'
-            });
-            
-            // Desabilitar scroll programático após um tempo
-            setTimeout(() => {
-                allowProgrammaticScroll = false;
-                console.log('🔒 Scroll manual bloqueado novamente');
-            }, 1000);
-            
-            // Disparar animações em sequência após o scroll
-            setTimeout(() => {
-                animateThirdQuestion();
-            }, 200); // Pequeno delay apenas para o scroll iniciar
-            
-            // Feedback visual no botão
-            const button = document.getElementById('btn-more-wealth-second');
-            if (button) {
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = 'scale(1)';
-                }, 150);
-            }
-        }
-    }
-}
-
-// Função para animar o segundo bloco de pergunta e resposta
-function animateSecondQuestion() {
-    console.log('🎬 Iniciando animação da segunda seção');
-    
-    const secondQASection = document.querySelector('.second-qa-section');
-    const secondQuestion = document.getElementById('second-question');
-    const secondResponse = document.getElementById('second-response');
-    
-    console.log('🔍 Elementos encontrados:');
-    console.log('- secondQASection:', secondQASection);
-    console.log('- secondQuestion:', secondQuestion);
-    console.log('- secondResponse:', secondResponse);
-    
-    if (secondQASection && secondQuestion && secondResponse) {
-        // Mostrar o container
-        secondQASection.style.opacity = '1';
-        console.log('✅ Container da segunda seção visível');
-        
-        // 1. Primeira animação - Pergunta com animação de pontos (delay: 1000ms)
-        const originalQuestionText = secondQuestion.getAttribute('data-original-text') || secondQuestion.textContent.trim();
-        
-        // Salvar o texto original se não foi salvo
-        if (!secondQuestion.getAttribute('data-original-text')) {
-            secondQuestion.setAttribute('data-original-text', originalQuestionText);
-        }
-        
-        console.log('✨ Iniciando animação de pontos para pergunta:', originalQuestionText);
-        
-        // Fazer a animação de pontos manualmente para a segunda pergunta
-        let dotCount = 0;
-        let interval;
-        
-        // Definir o elemento visível para a animação
-        secondQuestion.style.opacity = '1';
-        secondQuestion.textContent = '.';
-        
-        // Ciclo de animação dos pontos
-        interval = setInterval(function() {
-            let dots = '';
-            
-            if (dotCount === 0) {
-                dots = '.';
-            } else if (dotCount === 1) {
-                dots = '..';
-            } else if (dotCount === 2) {
-                dots = '...';
-            } else if (dotCount === 3) {
-                dots = '';
-            }
-            
-            secondQuestion.textContent = dots;
-            dotCount = (dotCount + 1) % 4;
-        }, 300);
-        
-        // Parar animação após 1000ms e mostrar texto final
-        setTimeout(() => {
-            clearInterval(interval);
-            secondQuestion.textContent = originalQuestionText;
-            console.log('✅ Pergunta exibida:', originalQuestionText);
-            
-            // Mostrar resposta após 500ms
-            setTimeout(() => {
-                console.log('✨ Animando resposta...');
-                secondResponse.style.opacity = '1';
-                if (typeof AOS !== 'undefined') {
-                    secondResponse.classList.add('aos-animate');
-                }
-                
-                // Mostrar segundo botão após resposta aparecer
-                setTimeout(() => {
-                    const secondButton = document.querySelector('.areas-button-more-second');
-                    if (secondButton) {
-                        secondButton.style.opacity = '1';
-                        console.log('✅ Segundo botão "Quero saber mais" exibido');
-                        
-                        // Salvar progresso - Step 2 completado
-                        const activeContent = document.querySelector('.areas-content.active');
-                        if (activeContent && activeContent.id === 'wealth-management-content') {
-                            window.tabProgress[activeContent.id] = 2;
-                            console.log('📝 Progress salvo: Step 2 para', activeContent.id);
-                        }
-                    }
-                }, 1000);
-            }, 500);
-        }, 1000);
-        
-        // 2. Segunda animação - Resposta (delay: 3000ms)
-        setTimeout(() => {
-            console.log('✨ Animando resposta (delay 3000ms)...');
-            secondResponse.style.opacity = '1';
-            if (typeof AOS !== 'undefined') {
-                secondResponse.classList.add('aos-animate');
-            }
-            
-            // Mostrar segundo botão após resposta aparecer
-            setTimeout(() => {
+            // Ajustar para esconder botão anterior se necessário
+            if (targetSelector === '.third-qa-section') {
                 const secondButton = document.querySelector('.areas-button-more-second');
                 if (secondButton) {
-                    secondButton.style.opacity = '1';
-                    console.log('✅ Segundo botão "Quero saber mais" exibido');
-                    
-                    // Salvar progresso - Step 2 completado
-                    const activeContent = document.querySelector('.areas-content.active');
-                    if (activeContent && activeContent.id === 'wealth-management-content') {
-                        window.tabProgress[activeContent.id] = 2;
-                        console.log('📝 Progress salvo: Step 2 para', activeContent.id);
-                    }
+                    scrollPosition += secondButton.offsetHeight + 50;
                 }
+            }
+            
+            // Fazer scroll suave
+            contentWrapper.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
+            
+            // Desabilitar scroll programático
+            setTimeout(() => {
+                allowProgrammaticScroll = false;
             }, 1000);
-        }, 3000);
-        
-        console.log('🎯 Sequência de animações iniciada com delays idênticos à primeira seção');
-    } else {
-        console.log('❌ Elementos da segunda seção não encontrados');
-        console.log('❌ secondQASection:', !!secondQASection);
-        console.log('❌ secondQuestion:', !!secondQuestion);
-        console.log('❌ secondResponse:', !!secondResponse);
+            
+            // Feedback visual no botão
+            const button = document.getElementById(buttonId);
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 150);
+            }
+        }
     }
 }
 
-// Função para animar o terceiro bloco de pergunta e resposta
-function animateThirdQuestion() {
-    console.log('🎬 Iniciando animação da terceira seção');
+// Função genérica para animar perguntas e respostas
+function animateQASection(config) {
+    const {
+        sectionSelector,
+        questionSelector,
+        responseSelector,
+        buttonSelector,
+        stepNumber,
+        progressId
+    } = config;
     
-    const thirdQASection = document.querySelector('.third-qa-section');
-    const thirdQuestion = document.getElementById('third-question');
-    const thirdResponse = document.getElementById('third-response');
+    console.log('🎬 Iniciando animação da seção:', sectionSelector);
     
-    console.log('🔍 Elementos encontrados:');
-    console.log('- thirdQASection:', thirdQASection);
-    console.log('- thirdQuestion:', thirdQuestion);
-    console.log('- thirdResponse:', thirdResponse);
+    const section = document.querySelector(sectionSelector);
+    const question = document.querySelector(questionSelector);
+    const response = document.querySelector(responseSelector);
     
-    if (thirdQASection && thirdQuestion && thirdResponse) {
-        // Mostrar o container
-        thirdQASection.style.opacity = '1';
-        console.log('✅ Container da terceira seção visível');
+    if (!section || !question || !response) {
+        console.log('❌ Elementos não encontrados:', { section: !!section, question: !!question, response: !!response });
+        return;
+    }
+    
+    // Preparar elementos para animação
+    response.style.opacity = '0';
+    response.style.visibility = 'hidden';
+    response.style.transition = 'none';
+    
+    // Mostrar container se ainda não estiver visível
+    if (section.style.opacity === '0') {
+    section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        section.style.transition = 'opacity 0.3s ease';
+    }
+    
+    // Animar pergunta com pontos
+    animateDotsQuestion(question, () => {
+        // Após animação da pergunta, mostrar resposta
+        setTimeout(() => {
+            response.style.opacity = '1';
+            response.style.visibility = 'visible';
+            response.style.transition = 'opacity 0.3s ease';
+            
+            if (typeof AOS !== 'undefined') {
+                response.classList.add('aos-animate');
+            }
+            
+            // Mostrar botão se especificado
+            if (buttonSelector) {
+                setTimeout(() => {
+                    showButton(buttonSelector);
+                }, 1000);
+            }
+            
+            // Salvar progresso
+            saveProgress(progressId, stepNumber);
+        }, 500);
+    });
+}
+
+// Função auxiliar para animação dos pontos
+function animateDotsQuestion(questionElement, callback) {
+    const originalText = questionElement.getAttribute('data-original-text') || questionElement.textContent.trim();
+    
+    if (!questionElement.getAttribute('data-original-text')) {
+        questionElement.setAttribute('data-original-text', originalText);
+    }
+    
+    // Preparar elemento para animação
+    questionElement.style.opacity = '1';
+    questionElement.style.visibility = 'visible';
+    questionElement.style.transition = 'none';
+    
+    // Limpar qualquer animação anterior
+    if (questionElement.loadingInterval) {
+        clearInterval(questionElement.loadingInterval);
+        questionElement.loadingInterval = null;
+    }
+    if (questionElement.loadingTimeout) {
+        clearTimeout(questionElement.loadingTimeout);
+        questionElement.loadingTimeout = null;
+    }
+    
+    let dotCount = 0;
+    let interval;
+    
+    // Ciclo de animação dos pontos
+    interval = setInterval(() => {
+        const dots = ['.', '..', '...', ''][dotCount];
+        questionElement.textContent = dots;
+        dotCount = (dotCount + 1) % 4;
+    }, 300);
+    
+    // Salvar referência do interval no elemento
+    questionElement.loadingInterval = interval;
+    
+    // Parar animação após 1000ms
+    questionElement.loadingTimeout = setTimeout(() => {
+        clearInterval(interval);
+        questionElement.loadingInterval = null;
+        questionElement.loadingTimeout = null;
+        questionElement.textContent = originalText;
+        console.log('✅ Pergunta exibida:', originalText);
         
-        // 1. Primeira animação - Pergunta com animação de pontos (delay: 1000ms)
-        const originalQuestionText = thirdQuestion.getAttribute('data-original-text') || thirdQuestion.textContent.trim();
-        
-        // Salvar o texto original se não foi salvo
-        if (!thirdQuestion.getAttribute('data-original-text')) {
-            thirdQuestion.setAttribute('data-original-text', originalQuestionText);
+        if (callback) callback();
+    }, 1000);
+}
+
+// Função auxiliar para mostrar botões
+function showButton(buttonSelector) {
+    const button = document.querySelector(buttonSelector);
+    if (button) {
+        button.style.opacity = '1';
+        button.style.visibility = 'visible';
+        button.style.transition = 'opacity 0.3s ease';
+        console.log('✅ Botão exibido:', buttonSelector);
+    }
+}
+
+// Função auxiliar para salvar progresso
+function saveProgress(progressId, stepNumber) {
+    if (progressId && stepNumber) {
+        const activeContent = document.querySelector('.areas-content.active');
+        if (activeContent && activeContent.id === progressId) {
+            window.tabProgress[progressId] = stepNumber;
+            console.log('📝 Progress salvo: Step', stepNumber, 'para', progressId);
+        }
+    }
+}
+
+// Função para scroll para segunda pergunta
+function scrollToNextQuestion() {
+    scrollToNextSection('.second-qa-section', 'btn-more-wealth');
+    
+    // Disparar animação após scroll
+    setTimeout(() => {
+        // Mostrar a seção antes de animar
+        const secondSection = document.querySelector('.second-qa-section');
+        if (secondSection) {
+            secondSection.style.opacity = '1';
+            secondSection.style.visibility = 'visible';
+            secondSection.style.transition = 'opacity 0.3s ease';
         }
         
-        console.log('✨ Iniciando animação de pontos para terceira pergunta:', originalQuestionText);
+        animateQASection({
+            sectionSelector: '.second-qa-section',
+            questionSelector: '#second-question',
+            responseSelector: '#second-response',
+            buttonSelector: '.areas-button-more-second',
+            stepNumber: 2,
+            progressId: 'wealth-management-content'
+        });
+    }, 200);
+}
+
+// Função para scroll para terceira pergunta
+function scrollToThirdQuestion() {
+    scrollToNextSection('.third-qa-section', 'btn-more-wealth-second');
+    
+    // Disparar animação após scroll
+    setTimeout(() => {
+        // Mostrar a seção antes de animar
+        const thirdSection = document.querySelector('.third-qa-section');
+        if (thirdSection) {
+            thirdSection.style.opacity = '1';
+            thirdSection.style.visibility = 'visible';
+            thirdSection.style.transition = 'opacity 0.3s ease';
+        }
         
-        // Fazer a animação de pontos manualmente para a terceira pergunta
-        let dotCount = 0;
-        let interval;
-        
-        // Definir o elemento visível para a animação
-        thirdQuestion.style.opacity = '1';
-        thirdQuestion.textContent = '.';
-        
-        // Ciclo de animação dos pontos
-        interval = setInterval(function() {
-            let dots = '';
+        animateQASection({
+            sectionSelector: '.third-qa-section',
+            questionSelector: '#third-question',
+            responseSelector: '#third-response',
+            buttonSelector: null, // Terceira seção não tem próximo botão
+            stepNumber: 3,
+            progressId: 'wealth-management-content'
+        });
+    }, 200);
+}
+</script>
+
+<script>
+// Função para resetar todas as animações de uma aba
+function resetTabAnimations(tabId) {
+    console.log('🔄 Resetando animações para aba:', tabId);
+    
+    // Resetar TODOS os estados e progresso
+    window.tabProgress = {};
+    window.animationStates = {};
+    
+    // Resetar scroll do container
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    if (contentWrapper) {
+        contentWrapper.scrollTop = 0;
+    }
+    
+    // Parar todos os intervals que possam estar rodando
+    if (window.dotsInterval) {
+        clearInterval(window.dotsInterval);
+    }
+    
+                    // Resetar TODOS os elementos de TODAS as tabs
+                const allContents = document.querySelectorAll('.areas-content');
+                allContents.forEach(content => {
+                    // Elementos a serem resetados em cada tab
+    const elementsToReset = [
+        '.areas-button-more',
+        '.areas-button-more-second',
+        '.second-qa-section',
+        '.third-qa-section',
+                        '.custom-question',
+                        '.custom-singin',
+                        '.areas-response'
+                    ];
+                    
+    elementsToReset.forEach(selector => {
+                        const elements = content.querySelectorAll(selector);
+                        elements.forEach(element => {
+            element.style.opacity = '0';
+                            element.style.visibility = 'hidden';
+                            element.style.transition = 'none';
             
-            if (dotCount === 0) {
-                dots = '.';
-            } else if (dotCount === 1) {
-                dots = '..';
-            } else if (dotCount === 2) {
-                dots = '...';
-            } else if (dotCount === 3) {
-                dots = '';
+            // Remover classes de animação AOS
+            element.classList.remove('aos-animate');
+            
+            // Resetar texto das perguntas se necessário
+                            if (element.classList.contains('custom-question')) {
+                const originalText = element.getAttribute('data-original-text');
+                if (originalText) {
+                    element.textContent = originalText;
+                }
+                                // Limpar qualquer interval específico do elemento
+                                if (element.loadingInterval) {
+                                    clearInterval(element.loadingInterval);
+                                    element.loadingInterval = null;
+                                }
+                                if (element.loadingTimeout) {
+                                    clearTimeout(element.loadingTimeout);
+                                    element.loadingTimeout = null;
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Reset adicional para elementos específicos da primeira seção
+                    const firstBubble = content.querySelector('.areas-speech-bubble');
+                    if (firstBubble) {
+                        const firstQuestion = firstBubble.querySelector('.custom-question');
+                        const firstPerson = firstBubble.querySelector('.custom-singin');
+                        const firstResponse = firstBubble.querySelector('.areas-response');
+                        
+        if (firstQuestion) {
+                            firstQuestion.style.opacity = '0';
+                            firstQuestion.style.visibility = 'hidden';
+                            firstQuestion.style.transition = 'none';
+                            
+                            // Limpar animations específicas
+                            if (firstQuestion.loadingInterval) {
+                                clearInterval(firstQuestion.loadingInterval);
+                                firstQuestion.loadingInterval = null;
+                            }
+                            if (firstQuestion.loadingTimeout) {
+                                clearTimeout(firstQuestion.loadingTimeout);
+                                firstQuestion.loadingTimeout = null;
+                            }
+                        }
+                        
+                        if (firstPerson) {
+                            firstPerson.style.opacity = '0';
+                            firstPerson.style.visibility = 'hidden';
+                            firstPerson.style.transition = 'none';
+                        }
+                        
+        if (firstResponse) {
+                            firstResponse.style.opacity = '0';
+                            firstResponse.style.visibility = 'hidden';
+                            firstResponse.style.transition = 'none';
+                        }
+                    }
+                });
+    
+    // Resetar elementos específicos da wealth-management que são globais
+    const globalElements = [
+        '.areas-button-more',
+        '.areas-button-more-second',
+        '.second-qa-section',
+        '.third-qa-section',
+        '#second-question',
+        '#second-response',
+        '#third-question',
+        '#third-response'
+    ];
+    
+    globalElements.forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.style.opacity = '0';
+            element.style.visibility = 'hidden';
+            element.style.transition = 'none';
+            element.classList.remove('aos-animate');
+            
+            // Limpar intervals específicos
+            if (element.loadingInterval) {
+                clearInterval(element.loadingInterval);
+                element.loadingInterval = null;
+            }
+            if (element.loadingTimeout) {
+                clearTimeout(element.loadingTimeout);
+                element.loadingTimeout = null;
+            }
+        }
+    });
+    
+    console.log('✅ Reset completo - todos os elementos resetados');
+}
+
+// Função genérica para scroll para próxima seção
+function scrollToNextSection(targetSelector, buttonId) {
+    console.log('🖱️ Botão clicado:', buttonId);
+    
+    // Permitir scroll programático temporariamente
+    allowProgrammaticScroll = true;
+    
+    const contentWrapper = document.querySelector('.areas-content-wrapper');
+    const activeContent = document.querySelector('.areas-content.active');
+    
+    if (activeContent && contentWrapper) {
+        const targetSection = activeContent.querySelector(targetSelector);
+        
+        if (targetSection) {
+            const wrapperRect = contentWrapper.getBoundingClientRect();
+            const targetRect = targetSection.getBoundingClientRect();
+            
+            // Calcular posição de scroll
+            let scrollPosition = targetRect.top - wrapperRect.top + contentWrapper.scrollTop - 50;
+            
+            // Ajustar para esconder botão anterior se necessário
+            if (targetSelector === '.third-qa-section') {
+                const secondButton = document.querySelector('.areas-button-more-second');
+                if (secondButton) {
+                    scrollPosition += secondButton.offsetHeight + 50;
+                }
             }
             
-            thirdQuestion.textContent = dots;
-            dotCount = (dotCount + 1) % 4;
-        }, 300);
-        
-        // Parar animação após 1000ms e mostrar texto final
-        setTimeout(() => {
-            clearInterval(interval);
-            thirdQuestion.textContent = originalQuestionText;
-            console.log('✅ Terceira pergunta exibida:', originalQuestionText);
+            // Fazer scroll suave
+            contentWrapper.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth'
+            });
             
-            // Mostrar resposta após 500ms
+            // Desabilitar scroll programático
             setTimeout(() => {
-                console.log('✨ Animando terceira resposta...');
-                thirdResponse.style.opacity = '1';
-                if (typeof AOS !== 'undefined') {
-                    thirdResponse.classList.add('aos-animate');
-                }
-                
-                // Salvar progresso - Step 3 completado
-                const activeContent = document.querySelector('.areas-content.active');
-                if (activeContent && activeContent.id === 'wealth-management-content') {
-                    window.tabProgress[activeContent.id] = 3;
-                    console.log('📝 Progress salvo: Step 3 (final) para', activeContent.id);
-                }
-            }, 500);
-        }, 1000);
-        
-        // 2. Segunda animação - Resposta (delay: 3000ms)
-        setTimeout(() => {
-            console.log('✨ Animando terceira resposta (delay 3000ms)...');
-            thirdResponse.style.opacity = '1';
-            if (typeof AOS !== 'undefined') {
-                thirdResponse.classList.add('aos-animate');
-            }
+                allowProgrammaticScroll = false;
+            }, 1000);
             
-            // Salvar progresso - Step 3 completado
-            const activeContent = document.querySelector('.areas-content.active');
-            if (activeContent && activeContent.id === 'wealth-management-content') {
-                window.tabProgress[activeContent.id] = 3;
-                console.log('📝 Progress salvo: Step 3 (final) para', activeContent.id);
+            // Feedback visual no botão
+            const button = document.getElementById(buttonId);
+            if (button) {
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 150);
             }
-        }, 3000);
-        
-        console.log('🎯 Sequência de animações iniciada para terceira seção');
-    } else {
-        console.log('❌ Elementos da terceira seção não encontrados');
-        console.log('❌ thirdQASection:', !!thirdQASection);
-        console.log('❌ thirdQuestion:', !!thirdQuestion);
-        console.log('❌ thirdResponse:', !!thirdResponse);
+        }
     }
 }
 </script>
