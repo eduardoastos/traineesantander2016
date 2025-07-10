@@ -2155,8 +2155,9 @@
                 element.removeAttribute('data-aos-offset');
                 element.removeAttribute('data-aos-duration');
                 element.classList.remove('aos-animate');
-                element.style.opacity = '1';
-                element.style.visibility = 'visible';
+                // Manter elemento escondido até começar a animação dos pontos
+                element.style.opacity = '0';
+                element.style.visibility = 'hidden';
                 element.style.transition = 'none';
                 
                 // Garantir que elementos relacionados estão inicialmente escondidos
@@ -2188,14 +2189,14 @@
                     console.log('Altura fixada em:', originalHeight + 'px');
                 }
                 
-                // Aguardar o delay especificado antes de iniciar a animação (mínimo 100ms)
-                const actualDelay = Math.max(delay, 100);
+                // Mostrar o elemento imediatamente e começar animação dos pontos
+                element.style.opacity = '1';
+                element.style.visibility = 'visible';
                 
-                setTimeout(function() {
-                // Inicia com um ponto
-                element.textContent = '.';
+                // Inicia com pontos vazios
+                element.textContent = '';
                 
-                    // Inicia a animação dos pontinhos
+                // Inicia a animação dos pontinhos IMEDIATAMENTE
                 interval = setInterval(function() {
                     let dots = '';
                     
@@ -2227,43 +2228,42 @@
                     // Remove a altura mínima fixa após a animação
                     element.style.minHeight = '';
                     
-                    // Aplica o efeito fade manualmente na pergunta
-                    element.style.opacity = '0';
-                    setTimeout(function() {
-                        element.style.transition = 'opacity 0.3s ease';
-                        element.style.opacity = '1';
-                        
-                                                    // Mostra a pessoa após a pergunta aparecer (delay original era +500ms)
-                            if (personElement) {
-                                setTimeout(function() {
-                                    personElement.style.transition = 'opacity 0.3s ease';
-                                    personElement.style.visibility = 'visible';
-                                    personElement.style.opacity = '1';
-                                    console.log('✅ Pessoa exibida');
-                                    
-                                    // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
-                                    setTimeout(function() {
-                                        if (responseElement) {
-                                            responseElement.style.transition = 'opacity 0.3s ease';
-                                            responseElement.style.visibility = 'visible';
-                                            responseElement.style.opacity = '1';
-                                            console.log('✅ Resposta exibida');
-                                        }
-                                    }, 1000);
-                                }, 500);
-                            } else if (responseElement) {
-                                // Se não há elemento de pessoa, mostra a resposta diretamente
-                                setTimeout(function() {
-                                    responseElement.style.transition = 'opacity 0.3s ease';
-                                    responseElement.style.visibility = 'visible';
-                                    responseElement.style.opacity = '1';
-                                    console.log('✅ Resposta exibida (sem pessoa)');
-                                }, 500);
-                            }
-                    }, 50);
-                    }, 1000);
+                    // Pergunta já está visível, agora mostrar elementos em sequência
+                    console.log('✅ Pergunta exibida:', originalContent);
                     
-                }, actualDelay);
+                    // Aplicar delay original para quando os próximos elementos aparecem
+                    const actualDelay = Math.max(delay, 0);
+                    
+                    setTimeout(function() {
+                        // Mostra a pessoa após a pergunta (delay original era +500ms)
+                        if (personElement) {
+                            setTimeout(function() {
+                                personElement.style.transition = 'opacity 0.3s ease';
+                                personElement.style.visibility = 'visible';
+                                personElement.style.opacity = '1';
+                                console.log('✅ Pessoa exibida');
+                                
+                                // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
+                                setTimeout(function() {
+                                    if (responseElement) {
+                                        responseElement.style.transition = 'opacity 0.3s ease';
+                                        responseElement.style.visibility = 'visible';
+                                        responseElement.style.opacity = '1';
+                                        console.log('✅ Resposta exibida');
+                                    }
+                                }, 1000);
+                            }, 500);
+                        } else if (responseElement) {
+                            // Se não há elemento de pessoa, mostra a resposta diretamente
+                            setTimeout(function() {
+                                responseElement.style.transition = 'opacity 0.3s ease';
+                                responseElement.style.visibility = 'visible';
+                                responseElement.style.opacity = '1';
+                                console.log('✅ Resposta exibida (sem pessoa)');
+                            }, 500);
+                        }
+                    }, actualDelay);
+                    }, 1000);
                 
                 // Código de animação movido para dentro do setTimeout acima
             }
@@ -3085,6 +3085,9 @@ function animateDotsQuestion(questionElement, callback) {
         clearTimeout(questionElement.loadingTimeout);
         questionElement.loadingTimeout = null;
     }
+    
+    // Inicia com pontos vazios para começar a animação imediatamente
+    questionElement.textContent = '';
     
     let dotCount = 0;
     let interval;
