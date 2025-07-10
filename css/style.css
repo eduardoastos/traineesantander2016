@@ -4,28 +4,28 @@
 
 @font-face {
   font-family: "Santander Headline";
-  src: url("../fonts/SantanderHeadline-Regular.woff2") format("woff2"), url("../fonts/SantanderHeadline-Regular.woff") format("woff");
+  src: url("../images/fonts/SantanderHeadline-Regular.woff2") format("woff2"), url("../images/fonts/SantanderHeadline-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Santander Headline";
-  src: url("../fonts/SantanderHeadline-Bold.woff2") format("woff2"), url("../fonts/SantanderHeadline-Bold.woff") format("woff");
+  src: url("../images/fonts/SantanderHeadline-Bold.woff2") format("woff2"), url("../images/fonts/SantanderHeadline-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Santander Text";
-  src: url("../fonts/SantanderText-Regular.woff2") format("woff2"), url("../fonts/SantanderText-Regular.woff") format("woff");
+  src: url("../images/fonts/SantanderText-Regular.woff2") format("woff2"), url("../images/fonts/SantanderText-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Santander Text";
-  src: url("../fonts/SantanderText-Bold.woff2") format("woff2"), url("../fonts/SantanderText-Bold.woff") format("woff");
+  src: url("../images/fonts/SantanderText-Bold.woff2") format("woff2"), url("../images/fonts/SantanderText-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -725,6 +725,30 @@ ul.header-nav.show {
   background-color: #000000;
   padding-block: 50px;
 }
+
+.video-section-with-border {
+  position: relative;
+  margin-bottom: 170px;
+  padding-bottom: 80px;
+}
+
+.video-section-with-border::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 0.5px;
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .video-section-with-border::after {
+    width: 80%;
+  }
+}
+
 .s-santander .header-title {
   background: #FF0000;
   /* border: 2px solid #FFFFFF; */
@@ -743,6 +767,7 @@ ul.header-nav.show {
   position: relative;
   z-index: 2;
   margin-bottom: 7rem !important;
+  margin-top: 2rem !important;
 }
 
 .s-santander .header-title::before {
