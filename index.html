@@ -1720,29 +1720,42 @@
                                 element.innerHTML = '';
                                 element.style.opacity = '1';
                                 
-                                let pos = 0;
+                                // Dividir texto em duas partes
+                                const parts = text.split('<br/>');
+                                const parte1 = parts[0]; // "< Ser Trainee Santander é ter acesso a experiências e"
+                                const parte2 = parts[1]; // "oportunidades de desenvolvimento global. >"
+                                
+                                let currentPart = 1; // Qual parte estamos digitando (1 ou 2)
+                                let pos = 0; // Posição na parte atual
                                 
                                 function typeChar() {
-                                    if (pos < text.length) {
-                                        // Verificar se é tag <br/>
-                                        if (text.substr(pos, 5) === '<br/>') {
-                                            // Pular a tag <br/> completa
-                                            pos += 5;
-                                        } else {
-                                            // Avançar um caractere
+                                    if (currentPart === 1) {
+                                        // Digitando primeira parte
+                                        if (pos < parte1.length) {
                                             pos++;
+                                            // Usar div para primeira linha com cursor
+                                            element.innerHTML = '<div>' + parte1.slice(0, pos) + '<span style="color:#FF0000;">|</span></div>';
+                                            setTimeout(typeChar, 60);
+                                        } else {
+                                            // Primeira parte completa, começar segunda linha
+                                            element.innerHTML = '<div>' + parte1 + '</div><div></div>';
+                                            currentPart = 2;
+                                            pos = 0;
+                                            setTimeout(typeChar, 150); // Pequena pausa na quebra
                                         }
-                                        
-                                        // Construir o conteúdo atual com cursor no final
-                                        let currentText = text.slice(0, pos);
-                                        let displayText = currentText + '<span style="color:#FF0000;">|</span>';
-                                        element.innerHTML = displayText;
-                                        
-                                        setTimeout(typeChar, 60);
                                     } else {
-                                        // Animação completa
-                                        element.innerHTML = text;
-                                        console.log('✅ TYPEWRITER ANIMAÇÃO COMPLETA');
+                                        // Digitando segunda parte
+                                        if (pos < parte2.length) {
+                                            pos++;
+                                            // Primeira linha completa + segunda linha com cursor
+                                            element.innerHTML = '<div>' + parte1 + '</div><div>' + 
+                                                              parte2.slice(0, pos) + '<span style="color:#FF0000;">|</span></div>';
+                                            setTimeout(typeChar, 60);
+                                        } else {
+                                            // Animação completa - usar o formato original
+                                            element.innerHTML = text;
+                                            console.log('✅ TYPEWRITER ANIMAÇÃO COMPLETA');
+                                        }
                                     }
                                 }
                                 
