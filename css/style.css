@@ -341,20 +341,42 @@ ul.header-nav.show {
 }
 
 .s-requirement {
-  background: #D92E20;
+  background: #FF0000;
   color: #FFFFFF;
   padding-block: 96px 192px;
 }
 .s-requirement .header-title {
-  border-radius: 50px;
-  display: table;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 auto;
-  padding: 12px 133px;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: wrap;
+    background: #050505;
+    /* border: px solid #FFFFFF; */
+    border-radius: 15px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 20px 60px;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 7rem !important;
+    margin-top: 2rem !important;
+}
+
+.s-requirement .header-title::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+    left: -11px;
+    right: 11px;
+    bottom: 7px;
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 15px;
+  z-index: 3;
 }
 @media screen and (min-width: 768px) {
   .s-requirement .header-title {
@@ -370,6 +392,7 @@ ul.header-nav.show {
   /* max-width: 1069px; */
   margin-inline: auto;
   font-size: 17px;
+  margin-bottom: 50px;
 }
 .s-requirement .requirement-list {
   gap: 20px;
@@ -395,7 +418,7 @@ ul.header-nav.show {
   margin: 0;
 }
 .s-requirement .requirement-list .icon {
-  background: #444444;
+  background: #050505;
   border-radius: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -780,10 +803,10 @@ ul.header-nav.show {
 .s-santander .header-title::before {
   content: "";
   position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
+  top: -8px;
+    left: -11px;
+    right: 11px;
+    bottom: 7px;
   background: transparent;
   border: 1px solid #FFFFFF;
   border-radius: 15px;
@@ -795,12 +818,12 @@ ul.header-nav.show {
     padding: 24px 195px;
   }
   
-  .s-santander .header-title::before {
+  /* .s-santander .header-title::before {
     top: -8px;
     left: -11px;
     right: 11px;
     bottom: 7px;
-  }
+  } */
 }
 .s-santander .image-size {
   width: calc(100vw - 24px);
@@ -898,7 +921,7 @@ ul.header-nav.show {
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
-  color: #ffffff;
+  color: #FF0000;
 }
 .s-santander .switcher {
   margin-top: -15px;
