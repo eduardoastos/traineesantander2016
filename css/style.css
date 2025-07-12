@@ -234,8 +234,8 @@ ul.header-nav.show {
   display: block;
   position: absolute;
   width: 913px;
-  height: 214px;
-  left: 73vw;
+  height: 245px;
+  left: 68vw;
   bottom: 0;
 }
 .s-about h2 {
@@ -295,7 +295,7 @@ ul.header-nav.show {
 } */
 
 .s-program {
-  padding-bottom: 125px;
+  padding-bottom: 166px;
   padding-top: 38px;
 }
 .s-program .box-line {
@@ -308,7 +308,7 @@ ul.header-nav.show {
   width: 214px;
   height: 913px;
   position: absolute;
-  top: 0;
+  top: -140px;
   left: -240px;
 }
 .s-program h2 {
@@ -322,7 +322,7 @@ ul.header-nav.show {
 }
 .s-program .content {
   width: 100%;
-  max-width: 560px;
+  max-width: 593px;
   font-size: 16px;
 }
 .s-program .content .color-red {
@@ -1755,6 +1755,60 @@ footer {
   margin-bottom: -200px;
 }
 
+.video-yt {
+    position: relative;
+    width: 100%;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.video-yt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    background-color: #ffffff;
+    z-index: 1;
+    border-radius: 30px 30px 0px 0px;
+    border: 3px solid #e91112;
+}
+
+.video-yt::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 26px;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    /* border: 2px solid #e91112; */
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 
+        24px 0 0 0 #ffffff,
+        48px 0 0 0 #ffffff;
+    -webkit-box-shadow:
+        24px 0 0 0 #ffffff,
+        48px 0 0 0 #ffffff;
+}
+
+.video-yt::after {
+    box-shadow: 
+        24px 0 0 0 #ffffff,
+        48px 0 0 0 #ffffff,
+        0 0 0 2px #e91112,
+        24px 0 0 2px #e91112,
+        48px 0 0 2px #e91112;
+    -webkit-box-shadow:
+        24px 0 0 0 #ffffff,
+        48px 0 0 0 #ffffff,
+        0 0 0 2px #e91112,
+        24px 0 0 2px #e91112,
+        48px 0 0 2px #e91112;
+}
+
 .video-yt iframe {
   border-radius: 4px;
   overflow: hidden;
@@ -2840,22 +2894,44 @@ footer {
 
 /* Efeito de digitação (typewriter) */
 .typewriter {
-  display: inline-block;
+  position: relative;
+  display: block;
+  text-align: center;
   line-height: 1.4;
   color: #777777;
   font-size: 40px;
   font-weight: bold;
   min-height: 120px; /* Altura mínima para evitar pulo no layout */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  width: 100%;
+  max-width: 1000px; /* Largura máxima para o container */
+  margin: 0 auto;
+  font-feature-settings: "kern" 1; /* Melhor kerning */
+  text-rendering: optimizeLegibility; /* Renderização otimizada */
 }
 
 .typewriter div {
   margin: 0;
   padding: 0;
   line-height: 1.4;
+  height: 56px; /* Altura fixa para cada linha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* Impede quebra de linha */
+}
+
+.typewriter .typing-text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /* Mantém o texto visível desde o início */
 }
 
 /* Cursor personalizado */
@@ -2863,6 +2939,9 @@ footer {
   color: #FF0000;
   font-weight: normal;
   animation: blink-cursor 1s step-end infinite;
+  position: relative;
+  display: inline-block;
+  animation: move-cursor 12s steps(100) forwards, blink-cursor 1s step-end infinite;
 }
 
 .cursor.blinking {
@@ -2878,21 +2957,12 @@ footer {
   }
 }
 
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes showAfterDelay {
+@keyframes move-cursor {
   from {
-    opacity: 0;
+    left: -50%;
   }
   to {
-    opacity: 1;
+    left: 50%;
   }
 }
 
@@ -2903,6 +2973,10 @@ footer {
     line-height: 1.3;
     min-height: 100px; /* Altura mínima ajustada para mobile */
   }
+  
+  .typewriter div {
+    height: 42px; /* Altura fixa ajustada para mobile */
+  }
 }
 
 /* Para tablets */
@@ -2910,6 +2984,10 @@ footer {
   .typewriter {
     font-size: 32px;
     min-height: 110px; /* Altura mínima ajustada para tablets */
+  }
+  
+  .typewriter div {
+    height: 48px; /* Altura fixa ajustada para tablets */
   }
 }
 

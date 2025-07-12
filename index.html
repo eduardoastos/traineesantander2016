@@ -148,7 +148,8 @@
                             <iframe
                             
                             style="border: 3px solid #e91112;
-                            border-radius: 25px;"
+                            border-radius: 0px 0px 25px 25px;
+                            margin-top: 50px;"
                              src="https://www.youtube.com/embed/4HG8YEUGVxY"
                               title="YouTube video player"
                                frameborder="0"
@@ -161,14 +162,14 @@
 
         <section class="s-program" id="programa">
             <div class="container"  style="max-width: 78% !important;">
-                <div class="row align-items-center">
+                <div class="row" style="align-items: start;">
                     <div class="col-md-7">
                         <div class="box-line"
                             data-aos="fade-right"
                             data-aos-offset="300"
                             data-aos-delay="0"
                             data-aos-duration="300"
-                        >
+                            style="margin-top: 10%;">
                             <h2>O Programa Trainee</br> Santander te chama para a evolução!</h2>
                         
                             <div class="content">
@@ -1725,20 +1726,36 @@
                                 const parte1 = parts[0]; // "< Ser Trainee Santander é ter acesso a experiências e"
                                 const parte2 = parts[1]; // "oportunidades de desenvolvimento global. >"
                                 
+                                // Criar estrutura das duas linhas com espaço reservado invisível
+                                element.innerHTML = '<div><span style="visibility:hidden;">' + parte1 + '</span></div>' +
+                                                   '<div><span style="visibility:hidden;">' + parte2 + '</span></div>';
+                                
+                                // Adicionar containers para o texto sendo digitado
+                                const linha1 = element.children[0];
+                                const linha2 = element.children[1];
+                                linha1.insertAdjacentHTML('beforeend', '<div class="typing-text"></div>');
+                                linha2.insertAdjacentHTML('beforeend', '<div class="typing-text"></div>');
+                                
                                 let currentPart = 1; // Qual parte estamos digitando (1 ou 2)
                                 let pos = 0; // Posição na parte atual
                                 
                                 function typeChar() {
+                                    const linha1 = element.children[0];
+                                    const linha2 = element.children[1];
+                                    const typingText1 = linha1.querySelector('.typing-text');
+                                    const typingText2 = linha2.querySelector('.typing-text');
+                                    
                                     if (currentPart === 1) {
                                         // Digitando primeira parte
                                         if (pos < parte1.length) {
                                             pos++;
-                                            // Usar div para primeira linha com cursor
-                                            element.innerHTML = '<div>' + parte1.slice(0, pos) + '<span style="color:#FF0000;">|</span></div>';
+                                            // Primeira linha com cursor
+                                            typingText1.innerHTML = parte1.slice(0, pos) + '<span style="color:#FF0000;">|</span>';
                                             setTimeout(typeChar, 60);
                                         } else {
                                             // Primeira parte completa, começar segunda linha
-                                            element.innerHTML = '<div>' + parte1 + '</div><div></div>';
+                                            typingText1.innerHTML = parte1;
+                                            typingText2.innerHTML = '<span style="color:#FF0000;">|</span>';
                                             currentPart = 2;
                                             pos = 0;
                                             setTimeout(typeChar, 150); // Pequena pausa na quebra
@@ -1747,12 +1764,11 @@
                                         // Digitando segunda parte
                                         if (pos < parte2.length) {
                                             pos++;
-                                            // Primeira linha completa + segunda linha com cursor
-                                            element.innerHTML = '<div>' + parte1 + '</div><div>' + 
-                                                              parte2.slice(0, pos) + '<span style="color:#FF0000;">|</span></div>';
+                                            // Segunda linha com cursor
+                                            typingText2.innerHTML = parte2.slice(0, pos) + '<span style="color:#FF0000;">|</span>';
                                             setTimeout(typeChar, 60);
                                         } else {
-                                            // Animação completa - usar o formato original
+                                            // Animação completa - mostrar o texto final
                                             element.innerHTML = text;
                                             console.log('✅ TYPEWRITER ANIMAÇÃO COMPLETA');
                                         }
@@ -2030,11 +2046,15 @@
                 element.style.opacity = '1';
                 element.style.transition = 'opacity 0.3s ease';
                 
-                // Se a função executeTypewriterEffect existir, usar ela
-                if (typeof executeTypewriterEffect === 'function') {
-                    executeTypewriterEffect();
+                // Se a função executarTypewriter existir, usar ela
+                if (typeof executarTypewriter === 'function') {
+                    executarTypewriter();
                 } else {
-                    console.log('⚠️ Função executeTypewriterEffect não encontrada, mantendo texto visível');
+                    console.log('⚠️ Função executarTypewriter não encontrada, mantendo texto visível');
+                    const text = element.getAttribute('data-text');
+                    if (text) {
+                        element.innerHTML = text;
+                    }
                 }
             } else {
                 console.log('✅ Elemento já está visível, fallback não necessário');
