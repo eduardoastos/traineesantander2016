@@ -2975,3 +2975,13 @@ footer {
   height: 44px;
 }
 
+.s-process .list-seletivo li:first-child .timeline-line {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.s-process .list-seletivo li:last-child .timeline-line {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
