@@ -511,7 +511,7 @@ ul.header-nav.show {
 
 .s-process .header-process {
   color: #EC0000;
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 40px;
@@ -618,7 +618,7 @@ ul.header-nav.show {
 .s-process .list-seletivo .content-card {
   background-color: #121212;
   border-radius: 25px;
-  padding: 30px 20px;
+  padding: 40px 30px;
   width: 94%;
   text-align: center;
   color: #FFFFFF;
@@ -630,6 +630,12 @@ ul.header-nav.show {
   transition: all 0.3s ease;
   position: relative;
   z-index: 0;
+  overflow: hidden;
+}
+
+.s-process .list-seletivo .content-card .card-content {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .s-process .list-seletivo .content-card h3 {
@@ -641,11 +647,30 @@ ul.header-nav.show {
   justify-content: center;
 }
 
+.s-process .list-seletivo .content-card img,
+.s-process .list-seletivo .content-card h3,
+.s-process .list-seletivo .content-card p {
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.s-process .list-seletivo .content-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+
 .s-process .list-seletivo .timeline-item:hover .content-card {
   transform: scale(1.15);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   background-color: #1a1a1a;
   z-index: 2;
+}
+
+.s-process .list-seletivo .timeline-item:hover .content-card img,
+.s-process .list-seletivo .timeline-item:hover .content-card h3,
+.s-process .list-seletivo .timeline-item:hover .content-card p {
+  transform: scale(1.15);
 }
 
 .s-process .list-seletivo .icon-wrapper {
@@ -2983,5 +3008,28 @@ footer {
 .s-process .list-seletivo li:last-child .timeline-line {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+
+.s-process .list-seletivo .content-card img,
+.s-process .list-seletivo .content-card h3,
+.s-process .list-seletivo .content-card p {
+  transition: all 0.3s ease;
+}
+
+.s-process .list-seletivo .timeline-item:hover .content-card img,
+.s-process .list-seletivo .timeline-item:hover .content-card h3,
+.s-process .list-seletivo .timeline-item:hover .content-card p {
+  transform: scale(1.15);
+}
+
+.s-process .list-seletivo .timeline-item:hover {
+  cursor: pointer;
+}
+
+.s-process .list-seletivo .timeline-item:hover .content-card {
+  transform: scale(1.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1a1a1a;
+  z-index: 2;
 }
 
