@@ -529,16 +529,46 @@ ul.header-nav.show {
 .s-process .list-seletivo {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 40px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
+  position: relative;
 }
 
 .s-process .list-seletivo li {
   flex: 1;
   width: 25%;
   min-width: 0;
+  position: relative;
+}
+
+.s-process .list-seletivo .timeline-line {
+  width: calc(100% + 40px);
+  height: 4px;
+  background-color: #FF0000;
+  position: absolute;
+  top: 90px;
+  left: -20px;
+  z-index: 1;
+}
+
+.s-process .list-seletivo .timeline-circle {
+  width: 12px;
+  height: 12px;
+  background-color: #FF0000;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.s-process .list-seletivo .timeline-item:hover .timeline-circle {
+  transform: translate(-50%, -50%) scale(1.8);
+  border: 1px solid #FFFFFF;
 }
 
 .s-process .list-seletivo .timeline-item {
@@ -553,14 +583,16 @@ ul.header-nav.show {
   background-color: #FF0000;
   color: #FFFFFF;
   padding: 15px 30px;
-  border-radius: 50px;
+  border-radius: 10px;
   font-size: 20px;
   font-weight: 500;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 75px;
   text-align: center;
   width: 100%;
   white-space: nowrap;
+  transition: all 0.3s ease;
+  z-index: 2;
 }
 
 .s-process .list-seletivo .date-balloon:after {
@@ -574,32 +606,20 @@ ul.header-nav.show {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid #FF0000;
+  z-index: 1;
 }
 
-.s-process .list-seletivo .timeline-line {
-  width: 100%;
-  height: 4px;
-  background-color: #FF0000;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.s-process .list-seletivo .timeline-circle {
-  width: 20px;
-  height: 20px;
-  background-color: #FF0000;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.s-process .list-seletivo .timeline-item:hover .date-balloon {
+  transform: scale(1.15);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+  z-index: 3;
 }
 
 .s-process .list-seletivo .content-card {
   background-color: #121212;
   border-radius: 25px;
   padding: 30px 20px;
-  width: 100%;
+  width: 94%;
   text-align: center;
   color: #FFFFFF;
   height: 100%;
@@ -607,11 +627,30 @@ ul.header-nav.show {
   flex-direction: column;
   align-items: center;
   min-height: 320px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.s-process .list-seletivo .content-card h3 {
+  font-weight: bold;
+  margin-bottom: 25px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.s-process .list-seletivo .timeline-item:hover .content-card {
+  transform: scale(1.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1a1a1a;
+  z-index: 2;
 }
 
 .s-process .list-seletivo .icon-wrapper {
   background-color: transparent;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2928,5 +2967,11 @@ footer {
         0 0 0 2px #e91112,
         24px 0 0 2px #e91112,
         48px 0 0 2px #e91112;
+}
+
+.s-process .list-seletivo .content-card img {
+  margin-bottom: 20px;
+  width: 44px;
+  height: 44px;
 }
 
