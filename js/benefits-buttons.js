@@ -48,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function() {
             var totalCards = cards.length;
             var completedAnimations = 0;
             
+            console.log("Animando saída de", totalCards, "cards");
+            
             if (totalCards === 0) {
                 callback();
                 return;
@@ -56,6 +58,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Animar cada card saindo individualmente
             cards.forEach(function(card, index) {
                 setTimeout(function() {
+                    // Remover qualquer animação AOS e forçar reset
+                    card.classList.remove('aos-animate');
+                    card.style.animationDelay = '';
+                    card.style.animationDuration = '';
+                    
                     card.style.transition = 'all 0.3s ease-out';
                     card.style.transform = 'translateY(-20px)';
                     card.style.opacity = '0';
@@ -63,10 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     setTimeout(function() {
                         completedAnimations++;
                         if (completedAnimations === totalCards) {
+                            console.log("Saída completa, iniciando entrada");
                             callback();
                         }
                     }, 300);
-                }, index * 50); // Delay escalonado de 50ms entre cada card
+                }, index * 40); // Delay um pouco mais rápido para saída
             });
         }
 
@@ -94,20 +102,36 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
             
-            // Primeiro, resetar todos os cards para o estado inicial
-            cards.forEach(function(card) {
-                card.style.transform = 'translateY(20px)';
+            console.log("Animando entrada de", cards.length, "cards");
+            
+            // Resetar completamente os cards para estado inicial
+            cards.forEach(function(card, index) {
+                // Forçar reset completo
+                card.style.transform = 'translateY(50px)';
                 card.style.opacity = '0';
                 card.style.transition = 'all 0.4s ease-out';
+                card.classList.remove('aos-animate');
+                
+                // Remover qualquer animação AOS
+                card.style.animationDelay = '';
+                card.style.animationDuration = '';
             });
 
-            // Animar cada card entrando individualmente
-            cards.forEach(function(card, index) {
-                setTimeout(function() {
-                    card.style.transform = 'translateY(0)';
-                    card.style.opacity = '1';
-                }, index * 80); // Delay escalonado de 80ms entre cada card
-            });
+            // Pequena pausa para garantir que o reset foi aplicado
+            setTimeout(function() {
+                // Animar cards sequencialmente
+                cards.forEach(function(card, index) {
+                    if (card.style.display !== 'none') {
+                        var delay = index * 80; // Delay fixo e consistente
+                        
+                        setTimeout(function() {
+                            console.log("Animando card", index);
+                            card.style.transform = 'translateY(0)';
+                            card.style.opacity = '1';
+                        }, delay);
+                    }
+                });
+            }, 50);
         }
 
         // Função para alternar entre seções com animação
@@ -158,12 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     currentActiveSection = targetSection;
                     isAnimating = false;
                     
-                    // Atualizar AOS se disponível
-                    if (typeof AOS !== 'undefined') {
-                        setTimeout(function() {
-                            AOS.refresh();
-                        }, 500);
-                    }
+                    console.log("Transição para " + targetSection + " concluída");
                 }, 100);
             });
         }
@@ -197,8 +216,11 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Inicializar animação nos cards iniciais
         setTimeout(function() {
-            animateCardsIn(descSantander, null); // Santander mostra todos os cards
-            console.log("Animação inicial aplicada aos cards do Santander");
+            // Garantir que o AOS seja inicializado nos cards do Santander
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+            console.log("AOS inicializado para os cards do Santander");
         }, 500);
         
     }, 2000); // Aguardar 2 segundos
