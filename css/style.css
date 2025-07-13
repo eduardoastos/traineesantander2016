@@ -3191,6 +3191,28 @@ footer {
   visibility: hidden;
 }
 
+/* Animações dos cards de benefícios */
+.list-benefits li {
+  transition: all 0.4s ease-out;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.list-benefits li.card-exit {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.list-benefits li.card-enter {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Suavizar transições dos containers */
+.list-benefits {
+  transition: opacity 0.2s ease-out;
+}
+
 /* Animações AOS */
 [data-aos="fade-up"] {
   transform: translateY(30px);
