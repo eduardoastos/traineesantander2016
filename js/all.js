@@ -152,28 +152,83 @@ t.style.display = "block", tabs.forEach(function (e) {
 e.classList.remove("active")
 }), s.classList.add("active")
 }
-var corpSantander = document.querySelector("#js-corp-santander"),
-corp2 = document.querySelector("#js-corp-2"),
-corp3 = document.querySelector("#js-corp-3"),
-descSantander = document.querySelector("#js-santander"),
-desc2 = document.querySelector("#js-empresa-2"),
-desc3 = document.querySelector("#js-empresa-3");
-corpSantander.addEventListener("click", function () {
-corpSantander.classList.add("active"), corp2.classList.remove("active"),
-corp3.classList.remove("active"), descSantander.classList.remove(
-"d-none"), desc2.classList.add("d-none"), desc3.classList.add(
-"d-none"), AOS.refresh()
-}), corp2.addEventListener("click", function () {
-corpSantander.classList.remove("active"), corp2.classList.add("active"),
-corp3.classList.remove("active"), descSantander.classList.add("d-none"),
-desc2.classList.remove("d-none"), desc3.classList.add("d-none"), AOS
-.refresh()
-}), corp3.addEventListener("click", function () {
-corpSantander.classList.remove("active"), corp2.classList.remove(
-"active"), corp3.classList.add("active"), descSantander.classList.add(
-"d-none"), desc2.classList.add("d-none"), desc3.classList.remove(
-"d-none"), AOS.refresh()
-});
+// Funcionalidade dos botões de benefícios
+setTimeout(function() {
+    console.log("Iniciando funcionalidade dos botões de benefícios");
+    
+    var corpSantander = document.getElementById("js-corp-santander");
+    var corp2 = document.getElementById("js-corp-2");
+    var corp3 = document.getElementById("js-corp-3");
+    var descSantander = document.getElementById("js-benefits-santander");
+    var desc2 = document.getElementById("js-empresa-2");
+    var desc3 = document.getElementById("js-empresa-3");
+
+    console.log("Elementos encontrados:");
+    console.log("corpSantander:", corpSantander);
+    console.log("corp2:", corp2);
+    console.log("corp3:", corp3);
+    console.log("descSantander:", descSantander);
+    console.log("desc2:", desc2);
+    console.log("desc3:", desc3);
+
+    // Verificar se todos os elementos existem
+    if (!corpSantander || !corp2 || !corp3 || !descSantander || !desc2 || !desc3) {
+        console.error("Alguns elementos dos botões de benefícios não foram encontrados");
+        return;
+    }
+
+    function switchToSantander() {
+        console.log("Botão Santander clicado");
+        corpSantander.classList.add("active");
+        corp2.classList.remove("active");
+        corp3.classList.remove("active");
+        
+        descSantander.classList.remove("d-none");
+        desc2.classList.add("d-none");
+        desc3.classList.add("d-none");
+        
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    function switchToF1rst() {
+        console.log("Botão F1RST clicado");
+        corpSantander.classList.remove("active");
+        corp2.classList.add("active");
+        corp3.classList.remove("active");
+        
+        descSantander.classList.add("d-none");
+        desc2.classList.remove("d-none");
+        desc3.classList.add("d-none");
+        
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    function switchToTools() {
+        console.log("Botão TOOLS clicado");
+        corpSantander.classList.remove("active");
+        corp2.classList.remove("active");
+        corp3.classList.add("active");
+        
+        descSantander.classList.add("d-none");
+        desc2.classList.add("d-none");
+        desc3.classList.remove("d-none");
+        
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    // Remover qualquer listener existente e adicionar novos
+    corpSantander.onclick = switchToSantander;
+    corp2.onclick = switchToF1rst;
+    corp3.onclick = switchToTools;
+
+    console.log("Event listeners adicionados com sucesso");
+}, 1000);
 
 // Funcionalidade para as abas da seção "Conheça Nossas Áreas"
 function initializeAreasTabs() {
