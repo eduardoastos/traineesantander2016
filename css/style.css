@@ -534,6 +534,7 @@ ul.header-nav.show {
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
+  align-items: stretch;
 }
 
 .s-process .list-seletivo li {
@@ -541,6 +542,8 @@ ul.header-nav.show {
   width: 25%;
   min-width: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .s-process .list-seletivo .timeline-line {
@@ -577,6 +580,7 @@ ul.header-nav.show {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 
 .s-process .list-seletivo .date-balloon {
@@ -607,6 +611,12 @@ ul.header-nav.show {
   border-right: 10px solid transparent;
   border-top: 10px solid #FF0000;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.s-process .list-seletivo .timeline-item:hover .date-balloon:after {
+  opacity: 1;
 }
 
 .s-process .list-seletivo .timeline-item:hover .date-balloon {
@@ -622,7 +632,6 @@ ul.header-nav.show {
   width: 94%;
   text-align: center;
   color: #FFFFFF;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -631,6 +640,8 @@ ul.header-nav.show {
   position: relative;
   z-index: 0;
   overflow: hidden;
+  flex: 1;
+  margin-top: auto;
 }
 
 .s-process .list-seletivo .content-card .card-content {
@@ -3047,22 +3058,20 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 16px;
-  border: 1px solid #FF0000;
-  border-radius: 16px;
+  padding: 32px 24px;
+  border: 2px solid #FF0000;
+  border-radius: 12px;
   background: #FFFFFF;
-  transition: transform 0.3s ease;
-  min-height: 160px;
+  transition: all 0.3s ease;
+  height: 180px; /* Altura fixa para todos os cards */
+  width: 100%;
   justify-content: flex-start;
-}
-
-.list-benefits li:hover {
-  transform: translateY(-5px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .list-benefits .icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3073,14 +3082,25 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);
 }
 
 .list-benefits p {
   font-size: 16px;
   line-height: 1.4;
   margin: 0;
-  color: #000000;
-  font-weight: normal;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Estilo para o título (primeira linha) */
+.list-benefits p strong,
+.list-benefits p:first-line {
+  color: #666666;
+  font-weight: 700;
+  display: block;
 }
 
 .list-benefits small {
@@ -3089,6 +3109,12 @@ footer {
   display: block;
   margin-top: 8px;
   line-height: 1.3;
+}
+
+/* Ajuste especial para o último card que tem mais conteúdo */
+.list-benefits li:last-child {
+  height: auto;
+  min-height: 180px;
 }
 
 /* Responsividade */
@@ -3111,16 +3137,17 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+  
+  .list-benefits li {
+    height: auto;
+    min-height: 180px;
+  }
 }
 
 @media (max-width: 480px) {
   .list-benefits {
     grid-template-columns: 1fr;
     padding: 32px 0;
-  }
-  
-  .list-benefits li {
-    min-height: 140px;
   }
 }
 
