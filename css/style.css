@@ -818,6 +818,46 @@ ul.header-nav.show {
   }
 }
 
+/* Estilo para s-transformacao similar ao s-santander */
+.s-transformacao .header-title {
+  background: #FF0000;
+  border-radius: 15px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 20px 60px;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 90%;
+  width: fit-content;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 2rem !important;
+  margin-top: 6rem !important;
+}
+
+.s-transformacao .header-title::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -11px;
+  right: 11px;
+  bottom: 7px;
+  background: transparent;
+  border: 2px solid #000000;
+  border-radius: 15px;
+  z-index: 3;
+}
+
+@media screen and (min-width: 768px) {
+  .s-transformacao .header-title {
+    font-size: 42px;
+    padding: 25px 40px;
+  }
+}
+
 /* Nova classe para a imagem do mundo Santander com animação */
 .s-santander .image-santander-animate {
   width: 100vw;
@@ -1508,7 +1548,7 @@ ul.header-nav.show {
   }
 }
 .s-trainee .text-video {
-  font-size: 24px;
+  font-size: 1.25em;
 }
 
 .s-videos-slide {
@@ -3304,5 +3344,147 @@ footer {
   .process-steps li:hover {
     height: 500px;
   }
+}
+
+/* Seção Santander Global */
+.s-santander-global {
+    background: url('../images/latam02.jpg') no-repeat center left;
+    background-size: 120% auto;
+    padding: 100px 0;
+    position: relative;
+    min-height: 650px;
+    transform: scaleX(-1);
+}
+
+.s-santander-global::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.85)); */
+    z-index: 2;
+}
+
+.s-santander-global .container {
+    transform: scaleX(-1);
+    position: relative;
+    z-index: 3;
+}
+
+.s-santander-global .container {
+    position: relative;
+    z-index: 2;
+}
+
+.s-santander-global .row {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+}
+
+/* Título Future unlocked */
+.future-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+}
+
+.future-red {
+    color: #EC0000;
+}
+
+.future-black {
+    color: #000000;
+}
+
+.unlock-icon {
+  display: inline-block;
+  width: 1.3em;
+  height: 0.6em;
+  background: #1a1a1a;
+  border-radius: 0.9em;
+  position: relative;
+  vertical-align: baseline;
+  margin: 0 0.1em;
+  padding: 0.1em;
+  top: 0.05em;
+}
+
+.unlock-icon::before {
+  content: '';
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  right: 0.1em;
+  bottom: 0.1em;
+  background: #ffffff;
+  border-radius: 0.7em;
+}
+
+.unlock-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0.2em;
+  width: 0.25em;
+  height: 0.25em;
+  background: #EC0000;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Subtítulo do programa */
+.program-subtitle {
+    color: #EC0000;
+    font-size: 2.0rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* Texto de oportunidade */
+.opportunity-text {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+}
+
+/* Texto descritivo */
+.description-text {
+    color: #555555;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 85%;
+}
+
+/* Botão Saiba mais */
+.btn-saiba-mais {
+    display: inline-block;
+    padding: 15px 45px;
+    border: 1.5px solid #EC0000;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-saiba-mais:hover {
+    background-color: #EC0000;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
