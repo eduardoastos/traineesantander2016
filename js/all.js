@@ -12,20 +12,27 @@ var menuList = document.querySelector(".header-nav"),
 menuOpen = document.querySelector("#js-open"),
 menuClose = document.querySelector("#js-close"),
 menuItem = document.querySelectorAll(".item-list");
-menuOpen.addEventListener("click", function () {
-menuList.classList.add("show"), menuClose.classList.remove("d-none"),
-menuOpen.classList.add("d-none")
-}), menuClose.addEventListener("click", function () {
-menuList.classList.remove("show"), menuClose.classList.add("d-none"),
-menuOpen.classList.remove("d-none")
-});
-for (var _loop = function (e) {
-menuItem[e].addEventListener("click", function () {
-console.log("you clicked region number " + e), menuList.classList
-.remove("show"), menuClose.classList.add("d-none"), menuOpen
-.classList.remove("d-none")
-})
-}, i = 0; i < menuItem.length; i++) _loop(i);
+
+// Verificar se os elementos do menu existem
+if (menuOpen && menuClose && menuList) {
+    menuOpen.addEventListener("click", function () {
+    menuList.classList.add("show"), menuClose.classList.remove("d-none"),
+    menuOpen.classList.add("d-none")
+    }), menuClose.addEventListener("click", function () {
+    menuList.classList.remove("show"), menuClose.classList.add("d-none"),
+    menuOpen.classList.remove("d-none")
+    });
+}
+// Verificar se menuItem existe e tem elementos
+if (menuItem && menuItem.length > 0) {
+    for (var _loop = function (e) {
+    menuItem[e].addEventListener("click", function () {
+    menuList.classList
+    .remove("show"), menuClose.classList.add("d-none"), menuOpen
+    .classList.remove("d-none")
+    })
+    }, i = 0; i < menuItem.length; i++) _loop(i);
+}
 var swiper = new Swiper(".first-slide", {
 slidesPerView: 1.3,
 spaceBetween: 30,
@@ -111,34 +118,40 @@ novoLeft = "./images/arrow-left-not.png",
 oldLeft = "./images/arrow-left-a.png",
 novoRight = "./images/arrow-right-not.png",
 oldRight = "./images/arrow-right-a.png";
-imgBrasil.addEventListener("click", function () {
-menuBrasil.classList.add("active"), menuMundo.classList.remove("active"),
-textBrasil.classList.remove("d-none"), textMundo.classList.add(
-"d-none"), imgBrasil.src = oldLeft, imgMundo.src = novoRight, AOS
-.refresh()
-}), imgMundo.addEventListener("click", function () {
-menuMundo.classList.add("active"), menuBrasil.classList.remove("active"),
-textMundo.classList.remove("d-none"), textBrasil.classList.add(
-"d-none"), imgMundo.src = oldRight, imgBrasil.src = novoLeft, AOS
-.refresh()
-});
+if (imgBrasil && imgMundo && menuBrasil && menuMundo && textBrasil && textMundo) {
+    imgBrasil.addEventListener("click", function () {
+    menuBrasil.classList.add("active"), menuMundo.classList.remove("active"),
+    textBrasil.classList.remove("d-none"), textMundo.classList.add(
+    "d-none"), imgBrasil.src = oldLeft, imgMundo.src = novoRight, AOS
+    .refresh()
+    }), imgMundo.addEventListener("click", function () {
+    menuMundo.classList.add("active"), menuBrasil.classList.remove("active"),
+    textMundo.classList.remove("d-none"), textBrasil.classList.add(
+    "d-none"), imgMundo.src = oldRight, imgBrasil.src = novoLeft, AOS
+    .refresh()
+    });
+}
 var listBlack = document.querySelector("#js-list-black"),
 listRed = document.querySelector("#js-list-red"),
 itemBlack = document.querySelector(".item-list-black"),
 itemRed = document.querySelector(".item-list-red");
-listBlack.addEventListener("click", function () {
-listBlack.classList.toggle("active"), listRed.classList.remove("active"),
-itemBlack.classList.toggle("d-none"), itemRed.classList.add("d-none"),
-conteudos.forEach(function (e) {
-e.style.display = "none"
-})
-}), listRed.addEventListener("click", function () {
-listBlack.classList.remove("active"), listRed.classList.toggle("active"),
-itemBlack.classList.add("d-none"), itemRed.classList.toggle("d-none"),
-conteudos.forEach(function (e) {
-e.style.display = "none"
-})
-});
+
+// Verificar se os elementos existem antes de adicionar event listeners
+if (listBlack && listRed && itemBlack && itemRed) {
+    listBlack.addEventListener("click", function () {
+    listBlack.classList.toggle("active"), listRed.classList.remove("active"),
+    itemBlack.classList.toggle("d-none"), itemRed.classList.add("d-none"),
+    conteudos.forEach(function (e) {
+    e.style.display = "none"
+    })
+    }), listRed.addEventListener("click", function () {
+    listBlack.classList.remove("active"), listRed.classList.toggle("active"),
+    itemBlack.classList.add("d-none"), itemRed.classList.toggle("d-none"),
+    conteudos.forEach(function (e) {
+    e.style.display = "none"
+    })
+    });
+}
 var conteudos = document.querySelectorAll(".conteudo"),
 tabs = document.querySelectorAll(".tab");
 
@@ -154,7 +167,6 @@ e.classList.remove("active")
 }
 // Funcionalidade dos botões de benefícios
 setTimeout(function() {
-    console.log("Iniciando funcionalidade dos botões de benefícios");
     
     var corpSantander = document.getElementById("js-corp-santander");
     var corp2 = document.getElementById("js-corp-2");
@@ -163,22 +175,12 @@ setTimeout(function() {
     var desc2 = document.getElementById("js-empresa-2");
     var desc3 = document.getElementById("js-empresa-3");
 
-    console.log("Elementos encontrados:");
-    console.log("corpSantander:", corpSantander);
-    console.log("corp2:", corp2);
-    console.log("corp3:", corp3);
-    console.log("descSantander:", descSantander);
-    console.log("desc2:", desc2);
-    console.log("desc3:", desc3);
-
     // Verificar se todos os elementos existem
     if (!corpSantander || !corp2 || !corp3 || !descSantander || !desc2 || !desc3) {
-        console.error("Alguns elementos dos botões de benefícios não foram encontrados");
         return;
     }
 
     function switchToSantander() {
-        console.log("Botão Santander clicado");
         corpSantander.classList.add("active");
         corp2.classList.remove("active");
         corp3.classList.remove("active");
@@ -193,7 +195,6 @@ setTimeout(function() {
     }
 
     function switchToF1rst() {
-        console.log("Botão F1RST clicado");
         corpSantander.classList.remove("active");
         corp2.classList.add("active");
         corp3.classList.remove("active");
@@ -208,7 +209,6 @@ setTimeout(function() {
     }
 
     function switchToTools() {
-        console.log("Botão TOOLS clicado");
         corpSantander.classList.remove("active");
         corp2.classList.remove("active");
         corp3.classList.add("active");
@@ -226,8 +226,6 @@ setTimeout(function() {
     corpSantander.onclick = switchToSantander;
     corp2.onclick = switchToF1rst;
     corp3.onclick = switchToTools;
-
-    console.log("Event listeners adicionados com sucesso");
 }, 1000);
 
 // Funcionalidade para as abas da seção "Conheça Nossas Áreas"
@@ -235,13 +233,10 @@ function initializeAreasTabs() {
     var areasTabs = document.querySelectorAll(".areas-tab");
     var areasContents = document.querySelectorAll(".areas-content");
     
-    console.log("Iniciando abas das áreas...", areasTabs.length, areasContents.length);
-    
     for (var i = 0; i < areasTabs.length; i++) {
         areasTabs[i].addEventListener("click", function(e) {
             e.preventDefault();
             var targetArea = this.getAttribute("data-area");
-            console.log("Clicou na aba:", targetArea);
             
             // Remove active class from all tabs
             for (var j = 0; j < areasTabs.length; j++) {
@@ -258,10 +253,8 @@ function initializeAreasTabs() {
             
             // Show target content area
             var targetContent = document.getElementById(targetArea + "-content");
-            console.log("Procurando elemento:", targetArea + "-content", targetContent);
             if (targetContent) {
                 targetContent.classList.add("active");
-                console.log("Conteúdo ativado para:", targetArea);
                 
                 // Reset ALL AOS animations first
                 var allAosElements = document.querySelectorAll('[data-aos]');
@@ -281,12 +274,9 @@ function initializeAreasTabs() {
                     // Final refresh to trigger animations
                     setTimeout(function() {
                         AOS.refresh();
-                        console.log('AOS refresh final executado para área:', targetArea);
                     }, 150);
                 }
                 
-            } else {
-                console.error("Elemento não encontrado:", targetArea + "-content");
             }
         });
     }
@@ -294,7 +284,6 @@ function initializeAreasTabs() {
 
 // Função para garantir que o AOS detecte todos os elementos
 function ensureAOSDetection() {
-    console.log('Iniciando detecção AOS...');
     
     // Temporariamente mostra todos os elementos AOS para que sejam detectados
     var allAreasContent = document.querySelectorAll('.areas-content');
@@ -308,7 +297,6 @@ function ensureAOSDetection() {
     // Refresh AOS para detectar todos os elementos
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
-        console.log('AOS refresh executado');
     }
     
     // Restaura a visibilidade original após um pequeno delay
@@ -319,7 +307,6 @@ function ensureAOSDetection() {
                 allAreasContent[j].style.removeProperty('visibility');
             }
         }
-        console.log('Visibilidade restaurada');
     }, 100);
 }
 
@@ -336,30 +323,24 @@ setTimeout(ensureAOSDetection, 2000);
 
 // UNIFICADO - DOM Ready com AOS e Typewriter
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📋 DOM CARREGADO - UNIFICADO');
     
     // Configuração AOS (código original)
     setTimeout(function() {
         ensureAOSDetection();
-        console.log('AOS configurado no DOMContentLoaded');
     }, 500);
     
     // AOS configurações originais mantidas
-    console.log('🔍 CONFIGURANDO AOS...');
 });
 
 // Window Load unificado
 window.addEventListener('load', function() {
-    console.log('🌐 WINDOW LOAD - UNIFICADO');
     
     // AOS (código original)
     setTimeout(function() {
         ensureAOSDetection();
-        console.log('AOS configurado no window load');
     }, 500);
     
     // Window load configurações originais mantidas
-    console.log('🔄 WINDOW LOAD CONFIGURADO');
 });
 
 // Final do arquivo

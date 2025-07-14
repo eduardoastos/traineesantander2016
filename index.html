@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santander | Programa de Trainee 2025</title>
+    <title>Trainee|Programa de Trainee 2025 - Santander</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/plugins.css">
+
+    <!-- MFE Cookies - Santander Hotsite -->
+    <script>
+        window.document.cma_url = "URL_2UP"; //Url usada para a 2up no ambiente
+        window.document.appKey = "SUA_APP_KEY"; //
+        window.document.cma_staging = false;
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -1425,24 +1432,18 @@
                         
                         <!-- TYPEWRITER COM INTERSECTION OBSERVER -->
                         <script>
-                            console.log('🎯 TYPEWRITER FINAL CARREGADO');
                             
                             // Função typewriter final
                             function executarTypewriter() {
-                                console.log('🚀 EXECUTANDO TYPEWRITER FINAL');
                                 
                                 const element = document.getElementById('typewriter-text');
                                 if (!element) {
-                                    console.error('❌ ELEMENTO TYPEWRITER NÃO ENCONTRADO');
                                     return;
                                 }
-                                
-                                console.log('✅ ELEMENTO ENCONTRADO, INICIANDO ANIMAÇÃO');
                                 
                                 // Texto a ser digitado (pegar do atributo data-text)
                                 const text = element.getAttribute('data-text');
                                 if (!text) {
-                                    console.error('❌ TEXTO NÃO ENCONTRADO NO ATRIBUTO DATA-TEXT');
                                     return;
                                 }
                                 
@@ -1499,7 +1500,6 @@
                                         } else {
                                             // Animação completa - mostrar o texto final
                                             element.innerHTML = text;
-                                            console.log('✅ TYPEWRITER ANIMAÇÃO COMPLETA');
                                         }
                                     }
                                 }
@@ -1507,19 +1507,15 @@
                                 typeChar();
                             }
                             
-                            // Configurar Intersection Observer
-                            document.addEventListener('DOMContentLoaded', function() {
-                                console.log('🔥 DOM CARREGADO - TYPEWRITER FINAL');
-                                
-                                const element = document.getElementById('typewriter-text');
-                                if (!element) {
-                                    console.error('❌ ELEMENTO NÃO ENCONTRADO PARA OBSERVER');
-                                    return;
-                                }
-                                
-                                console.log('🔍 CONFIGURANDO INTERSECTION OBSERVER');
-                                
-                                // Variável para controlar se já foi executado
+                                        // Configurar Intersection Observer
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                const element = document.getElementById('typewriter-text');
+                if (!element) {
+                    return;
+                }
+                
+                // Variável para controlar se já foi executado
                                 let typewriterExecutado = false;
                                 
                                 // Criar observer mais rigoroso
@@ -1531,15 +1527,7 @@
                                             const windowHeight = window.innerHeight;
                                             const isReallyVisible = rect.top >= 0 && rect.top <= windowHeight * 0.8;
                                             
-                                            console.log('👁️ ELEMENTO INTERSECTANDO - Verificando visibilidade real:', {
-                                                top: rect.top,
-                                                windowHeight: windowHeight,
-                                                isReallyVisible: isReallyVisible,
-                                                scrollY: window.scrollY
-                                            });
-                                            
                                             if (isReallyVisible) {
-                                                console.log('✅ ELEMENTO REALMENTE VISÍVEL - EXECUTANDO TYPEWRITER');
                                                 typewriterExecutado = true;
                                                 
                                                 // Pequeno delay para garantir estabilidade
@@ -1550,7 +1538,6 @@
                                                 // Desconectar observer após execução
                                                 observer.unobserve(entry.target);
                                             } else {
-                                                console.log('⚠️ ELEMENTO INTERSECTANDO MAS NÃO VISÍVEL AINDA');
                                             }
                                         }
                                     });
@@ -1561,7 +1548,6 @@
                                 
                                 // Observar elemento
                                 observer.observe(element);
-                                console.log('👁️ OBSERVER CONFIGURADO COM SUCESSO');
                                 
                                 // Fallback caso o observer não funcione (mais tardio)
                                 setTimeout(function() {
@@ -1571,11 +1557,9 @@
                                         const isVisible = rect.top >= 0 && rect.top <= window.innerHeight * 0.8;
                                         
                                         if (isVisible) {
-                                            console.log('⚠️ FALLBACK: ELEMENTO VISÍVEL, EXECUTANDO TYPEWRITER');
                                             typewriterExecutado = true;
                                             executarTypewriter();
                                         } else {
-                                            console.log('⚠️ FALLBACK: ELEMENTO NÃO VISÍVEL, NÃO EXECUTANDO');
                                         }
                                     }
                                 }, 8000);
@@ -1587,14 +1571,12 @@
                                         const isVisible = rect.top >= 0 && rect.top <= window.innerHeight;
                                         
                                         if (isVisible) {
-                                            console.log('🚨 FALLBACK FINAL: ELEMENTO VISÍVEL, MOSTRANDO TEXTO ORIGINAL');
                                             const text = element.getAttribute('data-text');
                                             if (text) {
                                                 element.innerHTML = text;
                                                 element.style.opacity = '1';
                                             }
                                         } else {
-                                            console.log('🚨 FALLBACK FINAL: ELEMENTO NÃO VISÍVEL, AGUARDANDO');
                                                                                  }
                                      }
                                  }, 15000);
@@ -1766,18 +1748,15 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
     
     <script>
         // SCRIPT DE FALLBACK APENAS PARA CASOS EXTREMOS
-        console.log('🔥 SCRIPT DE FALLBACK CARREGADO');
         
         function fallbackTypewriter() {
             const element = document.getElementById('typewriter-text');
             if (!element) {
-                console.error('❌ Elemento não encontrado no fallback');
                 return;
             }
             
             // Só executar se o elemento ainda estiver invisível após muito tempo
             if (element.style.opacity === '0' || getComputedStyle(element).opacity === '0') {
-                console.log('🚨 FALLBACK: Elemento ainda invisível, ativando fallback');
                 
                 // Cancelar animação CSS e tornar visível
                 element.style.animation = 'none';
@@ -1788,14 +1767,12 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 if (typeof executarTypewriter === 'function') {
                     executarTypewriter();
                 } else {
-                    console.log('⚠️ Função executarTypewriter não encontrada, mantendo texto visível');
                     const text = element.getAttribute('data-text');
                     if (text) {
                         element.innerHTML = text;
                     }
                 }
             } else {
-                console.log('✅ Elemento já está visível, fallback não necessário');
             }
         }
         
@@ -1806,7 +1783,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
     <script>
         // Script para melhorar a interatividade dos tooltips
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Inicializando tooltips do vídeo...');
             
             const videoTooltips = document.querySelectorAll('.video-tooltip');
             
@@ -1816,7 +1792,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 
                 // Adicionar eventos de mouse
                 tooltip.addEventListener('mouseenter', function() {
-                    console.log('Mouse entrou no tooltip:', country);
                     
                     // Adicionar classe para animação
                     tooltip.classList.add('tooltip-active');
@@ -1829,7 +1804,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 });
                 
                 tooltip.addEventListener('mouseleave', function() {
-                    console.log('Mouse saiu do tooltip:', country);
                     
                     // Remover classe de animação
                     tooltip.classList.remove('tooltip-active');
@@ -1844,7 +1818,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 // Adicionar evento de clique para dispositivos móveis
                 tooltip.addEventListener('click', function(e) {
                     e.preventDefault();
-                    console.log('Clicou no tooltip:', country);
                     
                     // Fechar outros tooltips
                     videoTooltips.forEach(function(otherTooltip) {
@@ -1867,26 +1840,22 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 }
             });
             
-            console.log('Tooltips inicializados com sucesso!');
         });
     </script>
     
     <script>
         // Script inline para garantir que as abas das áreas funcionem
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM carregado, iniciando abas das áreas...');
             
             setTimeout(function() {
                 var tabs = document.querySelectorAll('.areas-tab');
                 var contents = document.querySelectorAll('.areas-content');
                 
-                console.log('Encontradas', tabs.length, 'abas e', contents.length, 'conteúdos');
                 
                 tabs.forEach(function(tab) {
                     tab.addEventListener('click', function() {
                         var area = this.getAttribute('data-area');
                         var targetTabId = area + '-content';
-                        console.log('Clicou em:', area);
                         
                         // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
                         resetTabAnimations(targetTabId);
@@ -1904,7 +1873,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         var targetContent = document.getElementById(targetTabId);
                         if (targetContent) {
                             targetContent.classList.add('active');
-                            console.log('Conteúdo ativado:', area);
                             
                             // Reset animations for all tabs to ensure AOS animations work
                             var aosElements = targetContent.querySelectorAll('[data-aos]');
@@ -1919,7 +1887,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 }
                             }, 100);
                         } else {
-                            console.error('Conteúdo não encontrado:', targetTabId);
                         }
                     });
                 });
@@ -1930,7 +1897,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
     <script>
         // Script para animar os pontinhos de loading nas perguntas
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Iniciando script de loading dots...');
             
             // Variável global para rastrear estados de animação das abas
             window.animationStates = {};
@@ -1940,7 +1906,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
             
             // Função para restaurar o estado de uma aba baseado no progresso (DEPRECATED - não usar mais)
             function restoreTabState(tabId) {
-                console.log('⚠️ restoreTabState DEPRECATED - sempre reiniciando do zero');
                 // Esta função não é mais usada - sempre reiniciamos do zero
                     return;
                 }
@@ -1950,7 +1915,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
             
             // Função para animar os pontinhos
             function animateLoadingDots(element, originalText, delay) {
-                console.log('Iniciando animação para:', originalText, 'com delay:', delay);
                 let dotCount = 0;
                 let interval;
                 
@@ -1995,7 +1959,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 
                 // Calcula e fixa a altura para evitar mudanças durante a animação
                 const originalHeight = element.offsetHeight;
-                console.log('Altura original do elemento:', originalHeight);
                 
                 // Se a altura for muito pequena, calcula com o texto completo temporariamente
                 if (originalHeight < 20) {
@@ -2004,10 +1967,8 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                     const fullHeight = element.offsetHeight;
                     element.textContent = tempText;
                     element.style.minHeight = fullHeight + 'px';
-                    console.log('Altura ajustada para:', fullHeight + 'px');
                 } else {
                     element.style.minHeight = originalHeight + 'px';
-                    console.log('Altura fixada em:', originalHeight + 'px');
                 }
                 
                 // Mostrar o elemento imediatamente e começar animação dos pontos
@@ -2044,13 +2005,11 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         element.loadingInterval = null;
                         element.loadingTimeout = null;
                     element.textContent = originalContent;
-                    console.log('Animação finalizada, mostrando:', originalContent);
                     
                     // Remove a altura mínima fixa após a animação
                     element.style.minHeight = '';
                     
                     // Pergunta já está visível, agora mostrar elementos em sequência
-                    console.log('✅ Pergunta exibida:', originalContent);
                     
                     // Aplicar delay original para quando os próximos elementos aparecem
                     const actualDelay = Math.max(delay, 0);
@@ -2062,7 +2021,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 personElement.style.transition = 'opacity 0.3s ease';
                                 personElement.style.visibility = 'visible';
                                 personElement.style.opacity = '1';
-                                console.log('✅ Pessoa exibida');
                                 
                                 // Mostra a resposta após a pessoa aparecer (delay original era +1000ms)
                                 setTimeout(function() {
@@ -2070,7 +2028,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                         responseElement.style.transition = 'opacity 0.3s ease';
                                         responseElement.style.visibility = 'visible';
                                         responseElement.style.opacity = '1';
-                                        console.log('✅ Resposta exibida');
                                     }
                                 }, 1000);
                             }, 500);
@@ -2080,7 +2037,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 responseElement.style.transition = 'opacity 0.3s ease';
                                 responseElement.style.visibility = 'visible';
                                 responseElement.style.opacity = '1';
-                                console.log('✅ Resposta exibida (sem pessoa)');
                             }, 500);
                         }
                     }, actualDelay);
@@ -2091,14 +2047,11 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
             
             // Função para inicializar as animações
             function initLoadingAnimations() {
-                console.log('=== INICIANDO ANIMAÇÕES ===');
                 
                 // Busca apenas as perguntas da aba ativa
                 const activeContent = document.querySelector('.areas-content.active');
-                console.log('Conteúdo ativo encontrado:', activeContent);
                 
                 if (!activeContent) {
-                    console.log('❌ Nenhuma aba ativa encontrada');
                     return;
                 }
                 
@@ -2130,21 +2083,18 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                     firstQuestion.style.opacity = '0';
                     firstQuestion.style.visibility = 'hidden';
                     firstQuestion.style.transition = 'none';
-                    console.log('🔒 Primeira pergunta escondida');
                 }
                 
                 if (firstResponse) {
                     firstResponse.style.opacity = '0';
                     firstResponse.style.visibility = 'hidden';
                     firstResponse.style.transition = 'none';
-                    console.log('🔒 Primeira resposta escondida');
                 }
                 
                 if (firstPerson) {
                     firstPerson.style.opacity = '0';
                     firstPerson.style.visibility = 'hidden';
                     firstPerson.style.transition = 'none';
-                    console.log('🔒 Primeira pessoa escondida');
                 }
                 
                 // Esconder todos os botões e seções secundárias
@@ -2165,10 +2115,8 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 });
                 
                 const customQuestions = activeContent.querySelectorAll('.custom-question');
-                console.log('Encontradas', customQuestions.length, 'perguntas customizadas na aba ativa');
                 
                 if (customQuestions.length === 0) {
-                    console.log('❌ Nenhuma pergunta customizada encontrada');
                     return;
                 }
                 
@@ -2177,7 +2125,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                     // Usa o texto original salvo ou o texto atual
                     const originalText = question.getAttribute('data-original-text') || question.textContent.trim();
                     
-                    console.log('Pergunta', index + 1, ':', originalText, 'delay:', delay);
                     
                     // Sempre salva o texto original se ainda não foi salvo
                         if (!question.getAttribute('data-original-text')) {
@@ -2185,16 +2132,13 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         }
                         
                     // Sempre anima todas as perguntas - mesmo as sem delay
-                        console.log('✅ Iniciando animação para pergunta', index + 1);
                         animateLoadingDots(question, originalText, delay);
                 });
                 
-                console.log('=== FIM ANIMAÇÕES ===');
             }
             
             // Função para detectar quando a seção fica visível
             function setupScrollDetection() {
-                console.log('🚀 Iniciando configuração de detecção de scroll');
                 const areasSection = document.querySelector('.s-conheca-areas');
                 let wasVisible = false;
                 let areasTopPosition = 0;
@@ -2202,15 +2146,12 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 // Variável para rastrear qual seção wealth estava ativa antes de sair
                 let lastActiveWealthSection = null;
                 
-                console.log('📍 Seção encontrada:', areasSection);
                 
                 if (areasSection) {
-                    console.log('✅ Seção existe, configurando detecção...');
                     
                     // Função para recalcular a posição da seção
                     function updateAreasPosition() {
                         areasTopPosition = areasSection.getBoundingClientRect().top + window.scrollY;
-                        console.log('📏 Posição da seção conheca-areas atualizada:', areasTopPosition);
                     }
                     
                     // Calcula a posição inicial
@@ -2228,19 +2169,8 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         // Verifica se o usuário scrollou para cima da seção conheca-areas
                         const isAboveAreasSection = currentScrollY < (areasTopPosition - windowHeight);
                         
-                        console.log('Verificando visibilidade:', {
-                            rect: rect,
-                            windowHeight: windowHeight,
-                            isVisible: isVisible,
-                            wasVisible: wasVisible,
-                            currentScrollY: currentScrollY,
-                            areasTopPosition: areasTopPosition,
-                            isAboveAreasSection: isAboveAreasSection
-                        });
-                        
                         // Reset do estado se o usuário scrollou para seções anteriores
                         if (isAboveAreasSection && wasVisible) {
-                            console.log('🔄 Usuário scrollou para seções anteriores - resetando estado');
                             
                             // Salvar qual seção wealth estava ativa antes de resetar
                             const activeContent = document.querySelector('.areas-content.active');
@@ -2259,7 +2189,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 } else {
                                     lastActiveWealthSection = 1;
                                 }
-                                console.log('💾 Salvando seção wealth ativa:', lastActiveWealthSection);
                             }
                             
                             wasVisible = false;
@@ -2271,7 +2200,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             for (let tabId in window.tabProgress) {
                                 delete window.tabProgress[tabId];
                             }
-                            console.log('🔄 Estados de animação e progresso resetados para todas as abas');
                             
                             // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
@@ -2279,26 +2207,21 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             const thirdSection = document.querySelector('.third-qa-section');
                             if (buttonContainer) {
                                 buttonContainer.style.opacity = '0';
-                                console.log('🔒 Botão escondido no reset');
                             }
                             if (secondButtonContainer) {
                                 secondButtonContainer.style.opacity = '0';
-                                console.log('🔒 Segundo botão escondido no reset');
                             }
                             if (thirdSection) {
                                 thirdSection.style.opacity = '0';
-                                console.log('🔒 Terceira seção escondida no reset');
                             }
                         }
                         
                         if (isVisible && !wasVisible) {
-                            console.log('🎉 Seção das áreas ficou visível via scroll - iniciando animação');
                             wasVisible = true;
                             
                             // Força a ativação da primeira aba se nenhuma estiver ativa
                             const activeContent = document.querySelector('.areas-content.active');
                             if (!activeContent) {
-                                console.log('Nenhuma aba ativa, ativando primeira aba');
                                 const firstTab = document.querySelector('.areas-tab');
                                 const firstContent = document.querySelector('.areas-content');
                                 if (firstTab && firstContent) {
@@ -2327,19 +2250,16 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                             buttonContainer.style.opacity = '1';
                                             buttonContainer.style.visibility = 'visible';
                                             buttonContainer.style.transition = 'opacity 0.3s ease';
-                                            console.log('✅ Botão "Quero saber mais" exibido');
                                         
                                             // Marcar que a animação foi completada para a aba ativa
                                             const tabId = currentActiveContent.id;
                                             window.animationStates[tabId] = true;
                                             window.tabProgress[tabId] = 1; // Step 1 completado
-                                            console.log('📝 Animação completada para aba:', tabId, 'Progress: Step 1');
                                         }
                                     }, 4000);
                                     
                                     // Verificar se deve restaurar uma seção específica do wealth management
                                     if (lastActiveWealthSection && lastActiveWealthSection > 1) {
-                                        console.log('🔄 Restaurando seção wealth:', lastActiveWealthSection);
                                         
                                         // Restaurar diretamente para a seção que estava ativa
                                         setTimeout(function() {
@@ -2360,7 +2280,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 }
                             }, 100);
                         } else if (!isVisible && wasVisible && !isAboveAreasSection) {
-                            console.log('Seção das áreas saiu de vista (scroll para baixo)');
                             
                             // Salvar qual seção wealth estava ativa antes de resetar
                             const activeContent = document.querySelector('.areas-content.active');
@@ -2379,7 +2298,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 } else {
                                     lastActiveWealthSection = 1;
                                 }
-                                console.log('💾 Salvando seção wealth ativa (scroll para baixo):', lastActiveWealthSection);
                             }
                             
                             wasVisible = false;
@@ -2391,7 +2309,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             for (let tabId in window.tabProgress) {
                                 delete window.tabProgress[tabId];
                             }
-                            console.log('🔄 Estados de animação e progresso resetados para todas as abas (scroll para baixo)');
                             
                             // Esconder os botões e seções
                             const buttonContainer = document.querySelector('.areas-button-more');
@@ -2399,15 +2316,12 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             const thirdSection = document.querySelector('.third-qa-section');
                             if (buttonContainer) {
                                 buttonContainer.style.opacity = '0';
-                                console.log('🔒 Botão escondido no reset (scroll para baixo)');
                             }
                             if (secondButtonContainer) {
                                 secondButtonContainer.style.opacity = '0';
-                                console.log('🔒 Segundo botão escondido no reset (scroll para baixo)');
                             }
                             if (thirdSection) {
                                 thirdSection.style.opacity = '0';
-                                console.log('🔒 Terceira seção escondida no reset (scroll para baixo)');
                             }
                             
                             // Desabilitar scroll manual quando sair da área
@@ -2416,19 +2330,15 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                     }
                     
                     // Listener de scroll simplificado (sem throttle)
-                    console.log('🎯 Adicionando listener de scroll simplificado');
                     window.addEventListener('scroll', function() {
-                        console.log('🔄 Scroll simplificado detectado');
                         checkVisibility();
                     }, { passive: true });
                     
                     // Verifica visibilidade inicial
                     setTimeout(function() {
-                        console.log('🔍 Verificando visibilidade inicial...');
                         checkVisibility();
                     }, 100);
                 } else {
-                    console.log('❌ Seção .s-conheca-areas não encontrada!');
                 }
             }
             
@@ -2436,7 +2346,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
             function setupTabClickDetection() {
                 function attachClickListeners() {
                     const tabs = document.querySelectorAll('.areas-tab');
-                    console.log('Configurando listeners para', tabs.length, 'abas');
                     
                     tabs.forEach(function(tab) {
                         // Remove listener existente se houver
@@ -2446,30 +2355,25 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         tab.clickHandler = function() {
                             const clickedArea = this.getAttribute('data-area');
                             const targetTabId = clickedArea + '-content';
-                            console.log('Aba clicada:', clickedArea, 'Target ID:', targetTabId);
                             
                             // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
                             resetTabAnimations(targetTabId);
                             
                             // Verificar se o elemento existe realmente
                             const targetElement = document.getElementById(targetTabId);
-                            console.log('🎯 Elemento alvo encontrado:', targetElement);
                             
                             // Aguardar um pouco mais para garantir que o reset foi completo
                             setTimeout(function() {
                             // Verificar qual aba fica ativa após o clique
                                 const activeContent = document.querySelector('.areas-content.active');
-                                console.log('🔍 Aba ativa após clique:', activeContent ? activeContent.id : 'nenhuma');
                                 
                                 // Sempre começar do zero - iniciar animações
                                 initLoadingAnimations();
-                                console.log('🔄 Sempre começando do zero para aba:', targetTabId);
                                 
                                 // Sempre começar do zero - não verificar estado anterior
                                 if (targetTabId === 'wealth-management-content') {
                                     // Limpar estado salvo ao clicar na aba
                                     lastActiveWealthSection = null;
-                                    console.log('🔄 Estado wealth resetado ao clicar na aba');
                                     
                                     // Para wealth management, aguardar tempo para primeiro botão
                                     setTimeout(function() {
@@ -2480,12 +2384,10 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                             buttonContainer.style.opacity = '1';
                                             buttonContainer.style.visibility = 'visible';
                                             buttonContainer.style.transition = 'opacity 0.3s ease';
-                                            console.log('✅ Botão "Quero saber mais" exibido (sempre do zero)');
                                             
                                             // Marcar que a animação foi completada para esta aba
                                             window.animationStates[targetTabId] = true;
                                             window.tabProgress[targetTabId] = 1;
-                                            console.log('📝 Animação completada para aba:', targetTabId);
                                         }
                                     }, 4000); // Consistente com o tempo do scroll
                                 }
@@ -2504,28 +2406,17 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
             }
             
             // Executa a detecção de scroll e cliques
-            console.log('🔧 Executando setupScrollDetection...');
             setupScrollDetection();
-            console.log('🔧 Executando setupTabClickDetection...');
             setupTabClickDetection();
-            console.log('✅ Configuração completa!');
             
             // Teste adicional de scroll direto
-            console.log('🧪 Adicionando teste de scroll direto...');
             window.addEventListener('scroll', function() {
-                console.log('📜 SCROLL DIRETO DETECTADO - posição:', window.scrollY);
                 
                 const areasSection = document.querySelector('.s-conheca-areas');
                 if (areasSection) {
                     const rect = areasSection.getBoundingClientRect();
-                    console.log('📍 Posição da seção:', {
-                        top: rect.top,
-                        bottom: rect.bottom,
-                        visible: rect.top < window.innerHeight && rect.bottom > 0
-                    });
                     
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        console.log('🎯 SEÇÃO VISÍVEL! Deveria disparar animação...');
                     }
                 }
             }, { passive: true });
@@ -2576,13 +2467,11 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
         var tabs = document.querySelectorAll('.areas-tab');
         var contents = document.querySelectorAll('.areas-content');
         
-        console.log('Setup areas tabs:', tabs.length, contents.length);
         
         for (var i = 0; i < tabs.length; i++) {
             tabs[i].onclick = function() {
                 var targetArea = this.getAttribute('data-area');
                 var targetTabId = targetArea + '-content';
-                console.log('Tab clicked:', targetArea);
                 
                 // ✨ RESETAR TODAS AS ANIMAÇÕES ANTES DE TROCAR DE TAB
                 if (typeof resetTabAnimations === 'function') {
@@ -2606,7 +2495,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 var target = document.getElementById(targetTabId);
                 if (target) {
                     target.classList.add('active');
-                    console.log('Content shown:', targetArea);
                     
                     // Aguardar um pouco para garantir que o reset foi completo
                     setTimeout(function() {
@@ -2625,7 +2513,6 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                     buttonContainer.style.opacity = '1';
                                     buttonContainer.style.visibility = 'visible';
                                     buttonContainer.style.transition = 'opacity 0.3s ease';
-                                    console.log('✅ Botão "Quero saber mais" exibido (script final)');
                                     
                                     // Marcar que a animação foi completada
                                     if (typeof window.animationStates === 'object') {
@@ -2727,7 +2614,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        console.log('🚫 Scroll manual completamente desabilitado no areas-content-wrapper');
         
         // Inicializar como desabilitado
         disableManualScroll();
@@ -2759,7 +2645,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 // Função genérica para scroll para próxima seção
 function scrollToNextSection(targetSelector, buttonId) {
-    console.log('🖱️ Botão clicado:', buttonId);
     
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
@@ -2836,14 +2721,12 @@ function animateQASection(config) {
         progressId
     } = config;
     
-    console.log('🎬 Iniciando animação da seção:', sectionSelector);
     
     const section = document.querySelector(sectionSelector);
     const question = document.querySelector(questionSelector);
     const response = document.querySelector(responseSelector);
     
     if (!section || !question || !response) {
-        console.log('❌ Elementos não encontrados:', { section: !!section, question: !!question, response: !!response });
         return;
     }
     
@@ -2929,7 +2812,6 @@ function animateDotsQuestion(questionElement, callback) {
         questionElement.loadingInterval = null;
         questionElement.loadingTimeout = null;
         questionElement.textContent = originalText;
-        console.log('✅ Pergunta exibida:', originalText);
         
         if (callback) callback();
     }, 1000);
@@ -2942,7 +2824,6 @@ function showButton(buttonSelector) {
         button.style.opacity = '1';
         button.style.visibility = 'visible';
         button.style.transition = 'opacity 0.3s ease';
-        console.log('✅ Botão exibido:', buttonSelector);
     }
 }
 
@@ -2952,7 +2833,6 @@ function saveProgress(progressId, stepNumber) {
         const activeContent = document.querySelector('.areas-content.active');
         if (activeContent && activeContent.id === progressId) {
             window.tabProgress[progressId] = stepNumber;
-            console.log('📝 Progress salvo: Step', stepNumber, 'para', progressId);
         }
     }
 }
@@ -3009,7 +2889,6 @@ function scrollToThirdQuestion() {
 
 // Função para scroll para quarta pergunta
 function scrollToFourthQuestion() {
-    console.log('🖱️ Botão clicado: btn-more-wealth-third');
     
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
@@ -3081,14 +2960,12 @@ function scrollToFourthQuestion() {
                     inscriptionButton.style.opacity = '1';
                     inscriptionButton.style.visibility = 'visible';
                     inscriptionButton.style.transition = 'opacity 0.3s ease';
-                    console.log('✅ Botão de inscrição exibido');
                 }
             }, 500);
             
             // Habilitar scroll manual após animação da última seção estar completa
             setTimeout(() => {
                 enableManualScroll();
-                console.log('✅ Scroll manual habilitado na última seção');
             }, 1000);
         }, 1500);
     }, 200);
@@ -3100,7 +2977,6 @@ function enableManualScroll() {
     if (contentWrapper) {
         // Marcar que scroll manual está habilitado
         contentWrapper.setAttribute('data-manual-scroll', 'enabled');
-        console.log('✅ Scroll manual habilitado');
     }
 }
 
@@ -3110,7 +2986,6 @@ function disableManualScroll() {
     if (contentWrapper) {
         // Marcar que scroll manual está desabilitado
         contentWrapper.setAttribute('data-manual-scroll', 'disabled');
-        console.log('🚫 Scroll manual desabilitado');
     }
 }
 </script>
@@ -3118,7 +2993,6 @@ function disableManualScroll() {
 <script>
 // Função para resetar todas as animações de uma aba
 function resetTabAnimations(tabId) {
-    console.log('🔄 Resetando animações para aba:', tabId);
     
     // Desabilitar scroll manual quando trocar de tab
     disableManualScroll();
@@ -3259,12 +3133,10 @@ function resetTabAnimations(tabId) {
         }
     });
     
-    console.log('✅ Reset completo - todos os elementos resetados');
 }
 
 // Função genérica para scroll para próxima seção
 function scrollToNextSection(targetSelector, buttonId) {
-    console.log('🖱️ Botão clicado:', buttonId);
     
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
@@ -3330,6 +3202,13 @@ function scrollToNextSection(targetSelector, buttonId) {
     }
 }
 </script>
+
+<!-- MFE Cookies Scripts - Santander -->
+<wpc-mfe-cookies-element id="mfe">
+    <link rel="stylesheet" href="https://www.santander.com.br/mfe-cookies/styles.css">
+    <script src="https://www.santander.com.br/mfe-cookies/polyfills.js"></script>
+    <script src="https://www.santander.com.br/mfe-cookies/main.js"></script>
+</wpc-mfe-cookies-element>
 
 </body>
 </html>

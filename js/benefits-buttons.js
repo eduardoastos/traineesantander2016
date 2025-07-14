@@ -1,13 +1,10 @@
 // Funcionalidade dos botões de benefícios com AOS
-console.log("Carregando script dos botões de benefícios...");
 
 // Aguardar o DOM carregar completamente
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM carregado, iniciando funcionalidade dos botões");
     
     // Aguardar mais um pouco para garantir que tudo está pronto
     setTimeout(function() {
-        console.log("Iniciando funcionalidade dos botões de benefícios");
         
         var corpSantander = document.getElementById("js-corp-santander");
         var corp2 = document.getElementById("js-corp-2");
@@ -16,17 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
         var desc2 = document.getElementById("js-empresa-2");
         var desc3 = document.getElementById("js-empresa-3");
 
-        console.log("Elementos encontrados:");
-        console.log("corpSantander:", corpSantander);
-        console.log("corp2:", corp2);
-        console.log("corp3:", corp3);
-        console.log("descSantander:", descSantander);
-        console.log("desc2:", desc2);
-        console.log("desc3:", desc3);
-
         // Verificar se todos os elementos existem
         if (!corpSantander || !corp2 || !corp3 || !descSantander || !desc2 || !desc3) {
-            console.error("Alguns elementos dos botões de benefícios não foram encontrados");
             return;
         }
 
@@ -54,11 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Função para trocar seção
         function switchSection(targetSection, targetContainer, button1, button2, button3) {
             if (currentActiveSection === targetSection) {
-                console.log("Seção já está ativa:", targetSection);
                 return;
             }
-
-            console.log("Trocando para seção:", targetSection);
             currentActiveSection = targetSection;
 
             // Atualizar classes dos botões
@@ -96,35 +81,27 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
             }
-
-            console.log("Seção trocada para:", targetSection);
         }
 
         // Event listeners para os botões
         corpSantander.addEventListener("click", function() {
-            console.log("Clique no botão Santander");
             switchSection('santander', descSantander, corpSantander, corp2, corp3);
         });
 
         corp2.addEventListener("click", function() {
-            console.log("Clique no botão F1RST");
             switchSection('f1rst', desc2, corpSantander, corp2, corp3);
         });
 
         corp3.addEventListener("click", function() {
-            console.log("Clique no botão TOOLS");
             switchSection('tools', desc3, corpSantander, corp2, corp3);
         });
 
         // Inicializar com Santander ativo
-        console.log("Inicializando com Santander ativo");
         corpSantander.classList.add('active');
         
         // Garantir que apenas Santander está visível
         descSantander.classList.remove('d-none');
         desc2.classList.add('d-none');
         desc3.classList.add('d-none');
-
-        console.log("Funcionalidade dos botões de benefícios inicializada com sucesso");
     }, 100);
 }); 
