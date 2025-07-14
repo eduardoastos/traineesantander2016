@@ -10,7 +10,7 @@
 
     <!-- MFE Cookies - Santander Hotsite -->
     <script>
-        window.document.cma_url = "www.santander.com.br/hotsite/traineesantander"; //Url usada para a 2up no ambiente
+        window.document.cma_url = "www.santander.com.br/hotsite/traineesantander"; 
         window.document.appKey = "SUA_APP_KEY"; //
         window.document.cma_staging = false;
     </script>
@@ -3389,21 +3389,64 @@ document.addEventListener('DOMContentLoaded', function() {
     const contentWrapper = document.querySelector('.areas-content-wrapper');
     
     if (contentWrapper) {
-        // Bloquear scroll com mouse wheel - apenas se não estiver habilitado
+        // Redirecionar scroll para a página quando não estiver habilitado na div
         contentWrapper.addEventListener('wheel', function(e) {
             if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
+                // Sempre redirecionar scroll para a página quando scroll manual está desabilitado
                 e.preventDefault();
                 e.stopPropagation();
+                
+                // Calcular scroll com sensibilidade natural idêntica ao comportamento padrão
+                let scrollAmount = e.deltaY;
+                
+                // Ajustar sensibilidade baseado no deltaMode para comportamento mais natural
+                if (e.deltaMode === 1) {
+                    // deltaMode 1 = linhas, usar valor que simula scroll natural do navegador
+                    scrollAmount *= 20;
+                } else if (e.deltaMode === 2) {
+                    // deltaMode 2 = páginas, usar porcentagem da viewport
+                    scrollAmount *= window.innerHeight * 0.85;
+                }
+                
+                // Aplicar multiplicador para sensibilidade mais suave se necessário
+                if (Math.abs(scrollAmount) > 100) {
+                    scrollAmount *= 0.8; // Reduzir um pouco se o scroll for muito rápido
+                }
+                
+                // Aplicar o scroll na página com comportamento instantâneo para parecer natural
+                window.scrollBy(0, scrollAmount);
+                
                 return false;
             }
         }, { passive: false });
         
-        // Bloquear scroll com touch - apenas se não estiver habilitado
-        contentWrapper.addEventListener('touchmove', function(e) {
+        // Também tratar evento DOMMouseScroll para navegadores mais antigos
+        contentWrapper.addEventListener('DOMMouseScroll', function(e) {
             if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
                 e.preventDefault();
                 e.stopPropagation();
+                
+                // Normalizar deltaY para navegadores antigos com sensibilidade natural
+                let scrollAmount = e.detail ? e.detail * -24 : 0; // Ajustado para sensibilidade similar ao scroll natural
+                
+                // Aplicar suavização se necessário
+                if (Math.abs(scrollAmount) > 100) {
+                    scrollAmount *= 0.8;
+                }
+                
+                // Aplicar scroll instantâneo para parecer natural
+                window.scrollBy(0, scrollAmount);
+                
                 return false;
+            }
+        }, { passive: false });
+        
+        // Redirecionar scroll para a página em dispositivos touch quando não estiver habilitado na div
+        contentWrapper.addEventListener('touchmove', function(e) {
+            if (contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
+                // Permitir que o scroll continue funcionando na página
+                // Em dispositivos touch, não vamos interferir tanto para manter a experiência natural
+                return true;
             }
         }, { passive: false });
         
@@ -3457,12 +3500,34 @@ document.addEventListener('DOMContentLoaded', function() {
         disableManualScroll();
     }
     
-    // Bloquear qualquer tentativa de scroll que possa afetar o container pai
+    // Redirecionar scroll da página quando mouse estiver sobre container com scroll desabilitado
     document.addEventListener('wheel', function(e) {
         const target = e.target.closest('.areas-content-wrapper');
         if (target && target.getAttribute('data-manual-scroll') !== 'enabled') {
+            // Sempre redirecionar scroll para a página quando scroll manual está desabilitado
             e.preventDefault();
             e.stopPropagation();
+            
+            // Calcular scroll com sensibilidade natural idêntica ao comportamento padrão
+            let scrollAmount = e.deltaY;
+            
+            // Ajustar sensibilidade baseado no deltaMode para comportamento mais natural
+            if (e.deltaMode === 1) {
+                // deltaMode 1 = linhas, usar valor que simula scroll natural do navegador
+                scrollAmount *= 20;
+            } else if (e.deltaMode === 2) {
+                // deltaMode 2 = páginas, usar porcentagem da viewport
+                scrollAmount *= window.innerHeight * 0.85;
+            }
+            
+            // Aplicar multiplicador para sensibilidade mais suave se necessário
+            if (Math.abs(scrollAmount) > 100) {
+                scrollAmount *= 0.8; // Reduzir um pouco se o scroll for muito rápido
+            }
+            
+            // Aplicar o scroll na página com comportamento instantâneo para parecer natural
+            window.scrollBy(0, scrollAmount);
+            
             return false;
         }
     }, { passive: false });
@@ -3470,9 +3535,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchmove', function(e) {
         const target = e.target.closest('.areas-content-wrapper');
         if (target && target.getAttribute('data-manual-scroll') !== 'enabled') {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
+            // Permitir que o scroll continue funcionando na página em dispositivos touch
+            // Mantendo experiência natural do usuário
+            return true;
         }
     }, { passive: false });
 });

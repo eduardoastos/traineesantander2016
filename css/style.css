@@ -2220,9 +2220,9 @@ footer {
   scrollbar-width: none;  /* Firefox */
   border-radius: 0px 0px 15px 15px;
   
-  /* Desabilitar scroll manual */
-  overscroll-behavior: none;
-  touch-action: none;
+  /* Permitir scroll da página quando necessário */
+  overscroll-behavior: contain;
+  touch-action: manipulation;
   -webkit-overflow-scrolling: touch;
   
   /* Desabilitar seleção de texto para evitar arrastar */
