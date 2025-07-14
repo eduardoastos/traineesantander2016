@@ -2249,10 +2249,18 @@ footer {
 
 .areas-content {
   display: none !important;
+  visibility: hidden !important;
 }
 
 .areas-content.active {
   display: block !important;
+  visibility: visible !important;
+}
+
+/* Força esconder todas as abas que não tenham a classe active, mesmo com estilos inline */
+.areas-content:not(.active) {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .areas-speech-bubble {

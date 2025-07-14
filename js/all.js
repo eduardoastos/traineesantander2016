@@ -246,9 +246,12 @@ function initializeAreasTabs() {
             // Add active class to clicked tab
             this.classList.add("active");
             
-            // Hide all content areas
+            // Hide all content areas E limpa estilos inline forçados
             for (var k = 0; k < areasContents.length; k++) {
                 areasContents[k].classList.remove("active");
+                // ✨ REMOVER QUALQUER ESTILO INLINE FORÇADO
+                areasContents[k].style.display = '';
+                areasContents[k].style.visibility = '';
             }
             
             // Show target content area
@@ -328,6 +331,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() {
         ensureAOSDetection();
     }, 500);
+    
+    // ✨ DESABILITADO: initializeAreasTabs() - Usando apenas script inline no HTML
+    // initializeAreasTabs();
     
     // AOS configurações originais mantidas
 });

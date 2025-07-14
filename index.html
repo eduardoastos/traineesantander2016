@@ -10,7 +10,7 @@
 
     <!-- MFE Cookies - Santander Hotsite -->
     <script>
-        window.document.cma_url = "URL_2UP"; //Url usada para a 2up no ambiente
+        window.document.cma_url = "www.santander.com.br/hotsite/traineesantander"; //Url usada para a 2up no ambiente
         window.document.appKey = "SUA_APP_KEY"; //
         window.document.cma_staging = false;
     </script>
@@ -1078,6 +1078,951 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- SCIB CONTENT -->
+                                <div class="areas-content" id="scib-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de SCIB faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Ana Costa entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>No SCIB (Santander Corporate & Investment Banking), somos o braço de investimentos corporativos do Santander. Estruturamos operações complexas de M&A, IPOs, financiamentos e derivativos para grandes corporações e governos na América Latina.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-ana-costa.svg" alt="Ana Costa" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Ana Costa</h5>
+                                                            <p class="areas-person-title">Líder da área de SCIB</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-scib" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de SCIB?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Participar de operações que movimentam bilhões e definem o futuro das maiores empresas da região. Você irá desenvolver pitch books, análises de avaliação e due diligences, trabalhando diretamente com Managing Directors em deals internacionais.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-ana-costa.svg" alt="Ana Costa" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Ana Costa</h5>
+                                                            <p class="areas-person-title">Líder da área de SCIB</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-scib-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de SCIB?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>O SCIB oferece uma carreira acelerada em investment banking, desde Analyst até Managing Director. Você pode se especializar em M&A, ECM, DCM, ou Structured Finance, com oportunidades de mobilidade para Nova York, Londres e outras praças financeiras globais.</p>
+                                                    <p>Além disso, há programas de intercâmbio com bancos de investimento parceiros, participação em deals cross-border e desenvolvimento de expertises em setores específicos como energia, infraestrutura e tecnologia.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-ana-costa.svg" alt="Ana Costa" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Ana Costa</h5>
+                                                            <p class="areas-person-title">Líder da área de SCIB</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-scib-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de SCIB?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – Modelagem financeira e valuation de empresas</p>
+                                                    <p><strong>📈 GROW</strong> – Estruturação de operações e análise de mercados</p>
+                                                    <p><strong>🌐 REACH</strong> – Networking com executives e institutional investors</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Pitch development e apresentações executivas</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-ana-costa.svg" alt="Ana Costa" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Ana Costa</h5>
+                                                            <p class="areas-person-title">Líder da área de SCIB</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de SCIB, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-ana-costa.svg" alt="Ana Costa" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Ana Costa</h5>
+                                                            <p class="areas-person-title">Líder da área de SCIB</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CFO CONTENT -->
+                                <div class="areas-content" id="cfo-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de CFO faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Carlos Oliveira entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>Na área de CFO, somos o centro nervoso financeiro do Santander. Gerenciamos planejamento estratégico, controladoria, investor relations e compliance. Transformamos dados em insights que direcionam as decisões estratégicas de todo o banco.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-carlos-oliveira.svg" alt="Carlos Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Carlos Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área de CFO</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cfo" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de CFO?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Desenvolver visão 360° do negócio através de análises financeiras estratégicas. Você irá participar de orçamentos anuais, stress tests regulatórios, preparação de earnings calls e projetos de otimização de capital.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-carlos-oliveira.svg" alt="Carlos Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Carlos Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área de CFO</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cfo-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de CFO?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área de CFO oferece uma carreira sólida em finanças corporativas, desde Analyst até CFO. Você pode se especializar em Planning & Performance, Investor Relations, Risk Management ou Treasury, com oportunidades em outras geografias do Grupo Santander.</p>
+                                                    <p>Além disso, há programas de certificação internacional (CFA, FRM), participação em projetos transformacionais e possibilidade de rotação entre diferentes unidades de negócio.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-carlos-oliveira.svg" alt="Carlos Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Carlos Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área de CFO</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cfo-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de CFO?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – Business intelligence e planejamento financeiro</p>
+                                                    <p><strong>📈 GROW</strong> – Análise de performance e gestão de capital</p>
+                                                    <p><strong>🌐 REACH</strong> – Conexão com investidores e reguladores</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Comunicação executiva e strategic thinking</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-carlos-oliveira.svg" alt="Carlos Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Carlos Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área de CFO</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de CFO, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-carlos-oliveira.svg" alt="Carlos Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Carlos Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área de CFO</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FINANÇAS E ESTRATÉGIA CONTENT -->
+                                <div class="areas-content" id="financas-estrategia-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de Finanças e Estratégia faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Fernanda Silva entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>Em Finanças e Estratégia, somos os arquitetos do futuro do Santander. Desenvolvemos planos estratégicos de longo prazo, análises de novos mercados, parcerias e aquisições. Transformamos visão em realidade através de roadmaps e business cases sólidos.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-fernanda-silva.svg" alt="Fernanda Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Fernanda Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Finanças e Estratégia</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financas" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de Finanças e Estratégia?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Ser protagonista na construção do futuro do banco através de análises estratégicas profundas. Você irá trabalhar em projetos de expansão, avaliação de fintechs, strategic planning e business development para novas verticais de negócio.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-fernanda-silva.svg" alt="Fernanda Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Fernanda Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Finanças e Estratégia</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financas-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de Finanças e Estratégia?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área oferece uma carreira estratégica única, desde Strategy Analyst até Chief Strategy Officer. Você pode se especializar em Corporate Development, Strategic Planning, M&A ou Innovation, com oportunidades de liderar transformações digitais e expansões internacionais.</p>
+                                                    <p>Além disso, há projetos especiais com consultoria estratégica (McKinsey, BCG), participação em venture capital e acesso direto a CEOs e Board Members para apresentações estratégicas.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-fernanda-silva.svg" alt="Fernanda Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Fernanda Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Finanças e Estratégia</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financas-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de Finanças e Estratégia?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – Strategic thinking e análise de mercado</p>
+                                                    <p><strong>📈 GROW</strong> – Business case development e financial modeling</p>
+                                                    <p><strong>🌐 REACH</strong> – Networking com líderes e ecossistema fintech</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Executive presentations e strategic communication</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-fernanda-silva.svg" alt="Fernanda Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Fernanda Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Finanças e Estratégia</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de Finanças e Estratégia, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-fernanda-silva.svg" alt="Fernanda Silva" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Fernanda Silva</h5>
+                                                            <p class="areas-person-title">Líder da área de Finanças e Estratégia</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FINANCEIRA CONTENT -->
+                                <div class="areas-content" id="financeira-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área Financeira faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Juliana Oliveira entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>Na área Financeira, gerenciamos o coração financeiro do Santander. Cuidamos do funding, liquidez, gestão de capital, balanço e relacionamento com reguladores. Garantimos que o banco opere com máxima eficiência e segurança financeira.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-juliana-oliveira.svg" alt="Juliana Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Juliana Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área Financeira</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financeira" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área Financeira?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Dominar os fundamentos da gestão financeira bancária e apoiar decisões críticas de funding e capital. Você irá trabalhar em ALM (Asset Liability Management), modelagem de stress test e otimização da estrutura de capital do banco.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-juliana-oliveira.svg" alt="Juliana Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Juliana Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área Financeira</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financeira-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área Financeira?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área Financeira oferece carreira sólida em gestão financeira bancária, desde Analyst até CFO. Você pode se especializar em Treasury, Capital Management, Financial Planning ou Regulatory Affairs, com oportunidades em centros financeiros globais.</p>
+                                                    <p>Além disso, há programas de especialização em Basel III/IV, participação em comitês de ALCO e possibilidade de atuar em fusões e aquisições como financial advisor.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-juliana-oliveira.svg" alt="Juliana Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Juliana Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área Financeira</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-financeira-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área Financeira?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – ALM modeling e gestão de liquidez</p>
+                                                    <p><strong>📈 GROW</strong> – Capital optimization e regulatory compliance</p>
+                                                    <p><strong>🌐 REACH</strong> – Network com treasury professionals e reguladores</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Financial reporting e stakeholder management</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-juliana-oliveira.svg" alt="Juliana Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Juliana Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área Financeira</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área Financeira, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-juliana-oliveira.svg" alt="Juliana Oliveira" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Juliana Oliveira</h5>
+                                                            <p class="areas-person-title">Líder da área Financeira</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PESSOAS E OUVIDORIA CONTENT -->
+                                <div class="areas-content" id="pessoas-ouvidoria-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de Pessoas e Ouvidoria faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Maria Santos entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>Em Pessoas e Ouvidoria, cuidamos do que é mais valioso no Santander: nossos colaboradores e a confiança dos clientes. Desenvolvemos estratégias de People Analytics, cultura organizacional, diversidade e canais de comunicação transparente.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Maria Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Pessoas e Ouvidoria</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-pessoas" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de Pessoas e Ouvidoria?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Ser agente de transformação cultural e melhorar continuamente a experiência dos stakeholders. Você irá trabalhar em projetos de engagement, diversity & inclusion, employee experience e resolução proativa de questões de clientes e colaboradores.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Maria Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Pessoas e Ouvidoria</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-pessoas-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de Pessoas e Ouvidoria?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área oferece carreira em People Management, desde HR Analyst até CHRO. Você pode se especializar em People Analytics, Organizational Development, Compensation & Benefits ou Customer Experience, com oportunidades em outras geografias do Grupo.</p>
+                                                    <p>Além disso, há certificações internacionais em People Management, projetos com consultorias especializadas e participação em comitês de diversidade e sustentabilidade.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Maria Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Pessoas e Ouvidoria</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-pessoas-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de Pessoas e Ouvidoria?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – People analytics e employee experience design</p>
+                                                    <p><strong>📈 GROW</strong> – Organizational development e culture transformation</p>
+                                                    <p><strong>🌐 REACH</strong> – Network com líderes de RH e diversity champions</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Facilitation skills e conflict resolution</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Maria Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Pessoas e Ouvidoria</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de Pessoas e Ouvidoria, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-maria-santos.svg" alt="Maria Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Maria Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Pessoas e Ouvidoria</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- VAREJO CONTENT -->
+                                <div class="areas-content" id="varejo-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de Varejo faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Pedro Santos entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>No Varejo, conectamos milhões de brasileiros aos seus sonhos financeiros. Desenvolvemos produtos, experiências e jornadas digitais que transformam a vida dos clientes pessoa física e pequenas empresas. Somos o motor de crescimento do Santander no Brasil.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-pedro-santos.svg" alt="Pedro Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Pedro Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Varejo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-varejo" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de Varejo?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Impactar a vida de milhões de clientes através de inovação e excelência em produtos financeiros. Você irá trabalhar em desenvolvimento de produtos, análise de customer journey, estratégias de pricing e projetos de transformação digital.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-pedro-santos.svg" alt="Pedro Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Pedro Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Varejo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-varejo-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de Varejo?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>O Varejo oferece carreira acelerada em banking, desde Product Analyst até Chief Product Officer. Você pode se especializar em Digital Banking, Product Management, Customer Experience ou Business Development, com oportunidades de liderar transformações em escala.</p>
+                                                    <p>Além disso, há programas de especialização em fintech, participação em labs de inovação e possibilidade de liderar launches de produtos que impactam milhões de usuários.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-pedro-santos.svg" alt="Pedro Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Pedro Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Varejo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-varejo-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de Varejo?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – Product development e customer experience design</p>
+                                                    <p><strong>📈 GROW</strong> – Data-driven decision making e growth hacking</p>
+                                                    <p><strong>🌐 REACH</strong> – Network com product leaders e ecosystem fintech</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Agile methodologies e customer-centric mindset</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-pedro-santos.svg" alt="Pedro Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Pedro Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Varejo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de Varejo, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-pedro-santos.svg" alt="Pedro Santos" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Pedro Santos</h5>
+                                                            <p class="areas-person-title">Líder da área de Varejo</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- T&O CYBER E DADOS CONTENT -->
+                                <div class="areas-content" id="to-cyber-dados-content">
+                                    <div class="areas-speech-bubble">
+                                        <!-- Primeira seção (pergunta e resposta lado a lado) -->
+                                        <div class="first-qa-section d-flex align-items-start">
+                                            <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de T&O Cyber e Dados faz?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <p class="mb-3 custom-singin" style="width: fit-content;" data-aos="fade" data-aos-offset="300" data-aos-delay="6000" data-aos-duration="300">Roberto Lima entrou na conversa.</p>
+                                                <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
+                                                    <p>Em T&O Cyber e Dados, somos a fortaleza digital do Santander. Protegemos o banco contra ameaças cibernéticas, desenvolvemos arquiteturas de dados robustas e criamos insights que direcionam decisões estratégicas através de IA e machine learning.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-roberto-lima.svg" alt="Roberto Lima" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Roberto Lima</h5>
+                                                            <p class="areas-person-title">Líder da área de T&O Cyber e Dados</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após primeira resposta -->
+                                        <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cyber" onclick="scrollToNextQuestion()">
+                                                Quero saber mais
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Segunda seção (pergunta e resposta lado a lado) -->
+                                        <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de T&O Cyber e Dados?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Ser guardião da segurança digital e arquiteto de soluções data-driven que transformam o futuro do banking. Você irá trabalhar em cybersecurity, data engineering, machine learning e projetos de inteligência artificial aplicada a serviços financeiros.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-roberto-lima.svg" alt="Roberto Lima" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Roberto Lima</h5>
+                                                            <p class="areas-person-title">Líder da área de T&O Cyber e Dados</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após segunda resposta -->
+                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cyber-second" onclick="scrollToThirdQuestion()">
+                                                Quero dar match com essa área
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Terceira seção (pergunta e resposta lado a lado) -->
+                                        <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de T&O Cyber e Dados?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>A área oferece carreira acelerada em tech e data, desde Data Analyst até Chief Data Officer ou CISO. Você pode se especializar em Cybersecurity, Data Science, MLOps ou AI Engineering, com oportunidades em centros de excelência tecnológica globais.</p>
+                                                    <p>Além disso, há certificações internacionais (CISSP, CISM, AWS), participação em hackathons, projetos com big techs e desenvolvimento de patentes em fintech e AI.</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-roberto-lima.svg" alt="Roberto Lima" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Roberto Lima</h5>
+                                                            <p class="areas-person-title">Líder da área de T&O Cyber e Dados</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botão centralizado após terceira resposta -->
+                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
+                                            <button class="btn-more-info" id="btn-more-cyber-third" onclick="scrollToFourthQuestion()">
+                                                Quero saber o que vou aprender
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M6 9l6 6 6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de T&O Cyber e Dados?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p><strong>📱 PLAY</strong> – Cybersecurity frameworks e data engineering</p>
+                                                    <p><strong>📈 GROW</strong> – Machine learning operations e AI governance</p>
+                                                    <p><strong>🌐 REACH</strong> – Network com security experts e data scientists</p>
+                                                    <p><strong>💬 NEXTLEVEL</strong> – Tech leadership e innovation management</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-roberto-lima.svg" alt="Roberto Lima" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Roberto Lima</h5>
+                                                            <p class="areas-person-title">Líder da área de T&O Cyber e Dados</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de T&O Cyber e Dados, se inscreva e vem ser Trainee Santander!</p>
+                                                    <div class="areas-person">
+                                                        <div class="areas-person-avatar">
+                                                            <img src="images/avatar-roberto-lima.svg" alt="Roberto Lima" class="rounded-circle">
+                                                        </div>
+                                                        <div class="areas-person-info">
+                                                            <h5 class="areas-person-name">Roberto Lima</h5>
+                                                            <p class="areas-person-title">Líder da área de T&O Cyber e Dados</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
+                                                    <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
+                                                        Clique aqui e inscreva-se!
+                                                        <img src="images/subscribe.svg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1716,8 +2661,13 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                         // Adiciona active na aba clicada
                         this.classList.add('active');
                         
-                        // Remove active de todos os conteúdos
-                        contents.forEach(function(c) { c.classList.remove('active'); });
+                        // Remove active de todos os conteúdos E limpa estilos inline forçados
+                        contents.forEach(function(c) { 
+                            c.classList.remove('active');
+                            // ✨ REMOVER QUALQUER ESTILO INLINE FORÇADO
+                            c.style.display = '';
+                            c.style.visibility = '';
+                        });
                         
                         // Mostra o conteúdo correspondente
                         var targetContent = document.getElementById(targetTabId);
@@ -1741,6 +2691,26 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 }
                             }, 100);
                         }
+                        
+                        // ✨ GARANTIR QUE APENAS A ABA ALVO ESTEJA VISÍVEL
+                        setTimeout(function() {
+                            // Forçar limpeza completa de todas as abas
+                            contents.forEach(function(content) {
+                                if (content.id !== targetTabId) {
+                                    content.classList.remove('active');
+                                    content.style.display = 'none';
+                                    content.style.visibility = 'hidden';
+                                }
+                            });
+                            
+                            // Garantir que apenas a aba alvo esteja visível
+                            var targetContent = document.getElementById(targetTabId);
+                            if (targetContent) {
+                                targetContent.classList.add('active');
+                                targetContent.style.display = '';
+                                targetContent.style.visibility = '';
+                            }
+                        }, 10);
                         
                         // ✨ RESETAR TODAS AS ANIMAÇÕES APÓS TROCAR DE TAB
                         setTimeout(function() {
@@ -1955,7 +2925,7 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                     firstPerson.style.transition = 'none';
                 }
                 
-                // Esconder todos os botões e seções secundárias
+                // Esconder todos os botões e seções secundárias APENAS da aba ativa
                 const secondaryElements = [
                     '.areas-button-more',
                     '.areas-button-more-second',
@@ -1964,7 +2934,7 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 ];
                 
                 secondaryElements.forEach(selector => {
-                    const element = document.querySelector(selector);
+                    const element = activeContent.querySelector(selector);
                     if (element) {
                         element.style.opacity = '0';
                         element.style.visibility = 'hidden';
@@ -2033,10 +3003,10 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             // Salvar qual seção wealth estava ativa antes de resetar
                             const activeContent = document.querySelector('.areas-content.active');
                             if (activeContent && activeContent.id === 'wealth-management-content') {
-                                // Detectar qual seção estava visível
-                                const secondSection = document.querySelector('.second-qa-section');
-                                const thirdSection = document.querySelector('.third-qa-section');
-                                const fourthSection = document.querySelector('.fourth-qa-section');
+                                // ✨ DETECTAR QUAL SEÇÃO ESTAVA VISÍVEL APENAS NA ABA ATIVA
+                                const secondSection = activeContent.querySelector('.second-qa-section');
+                                const thirdSection = activeContent.querySelector('.third-qa-section');
+                                const fourthSection = activeContent.querySelector('.fourth-qa-section');
                                 
                                 if (fourthSection && fourthSection.style.opacity === '1') {
                                     lastActiveWealthSection = 4;
@@ -2059,19 +3029,22 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 delete window.tabProgress[tabId];
                             }
                             
-                            // Esconder os botões e seções
-                            const buttonContainer = document.querySelector('.areas-button-more');
-                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                            const thirdSection = document.querySelector('.third-qa-section');
-                            if (buttonContainer) {
-                                buttonContainer.style.opacity = '0';
-                            }
-                            if (secondButtonContainer) {
-                                secondButtonContainer.style.opacity = '0';
-                            }
-                            if (thirdSection) {
-                                thirdSection.style.opacity = '0';
-                            }
+                            // Esconder os botões e seções de todas as abas
+                            const allContents = document.querySelectorAll('.areas-content');
+                            allContents.forEach(content => {
+                                const buttonContainer = content.querySelector('.areas-button-more');
+                                const secondButtonContainer = content.querySelector('.areas-button-more-second');
+                                const thirdSection = content.querySelector('.third-qa-section');
+                                if (buttonContainer) {
+                                    buttonContainer.style.opacity = '0';
+                                }
+                                if (secondButtonContainer) {
+                                    secondButtonContainer.style.opacity = '0';
+                                }
+                                if (thirdSection) {
+                                    thirdSection.style.opacity = '0';
+                                }
+                            });
                         }
                         
                         if (isVisible && !wasVisible) {
@@ -2096,25 +3069,25 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 // Inicia as animações das perguntas
                                 initLoadingAnimations();
                                 
-                                // Controle da exibição do botão da primeira seção
-                                const currentActiveContent = document.querySelector('.areas-content.active');
-                                
-                                // Se for wealth management, sempre exibir o primeiro botão
-                                if (currentActiveContent && currentActiveContent.id === 'wealth-management-content') {
-                                    setTimeout(function() {
-                                        const buttonContainer = document.querySelector('.areas-button-more');
-                                        
-                                        if (buttonContainer) {
-                                            buttonContainer.style.opacity = '1';
-                                            buttonContainer.style.visibility = 'visible';
-                                            buttonContainer.style.transition = 'opacity 0.3s ease';
-                                        
-                                            // Marcar que a animação foi completada para a aba ativa
-                                            const tabId = currentActiveContent.id;
-                                            window.animationStates[tabId] = true;
-                                            window.tabProgress[tabId] = 1; // Step 1 completado
-                                        }
-                                    }, 4000);
+                                                            // Controle da exibição do botão da primeira seção
+                            const currentActiveContent = document.querySelector('.areas-content.active');
+                            
+                            // Para qualquer aba ativa, sempre exibir o primeiro botão
+                            if (currentActiveContent) {
+                                setTimeout(function() {
+                                    const buttonContainer = currentActiveContent.querySelector('.areas-button-more');
+                                    
+                                    if (buttonContainer) {
+                                        buttonContainer.style.opacity = '1';
+                                        buttonContainer.style.visibility = 'visible';
+                                        buttonContainer.style.transition = 'opacity 0.3s ease';
+                                    
+                                        // Marcar que a animação foi completada para a aba ativa
+                                        const tabId = currentActiveContent.id;
+                                        window.animationStates[tabId] = true;
+                                        window.tabProgress[tabId] = 1; // Step 1 completado
+                                    }
+                                }, 4000);
                                     
                                     // REMOVIDO: Código que tentava restaurar seção específica do wealth management
                                     // Sempre começar da primeira seção quando alternar entre tabs
@@ -2126,10 +3099,10 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             // Salvar qual seção wealth estava ativa antes de resetar
                             const activeContent = document.querySelector('.areas-content.active');
                             if (activeContent && activeContent.id === 'wealth-management-content') {
-                                // Detectar qual seção estava visível
-                                const secondSection = document.querySelector('.second-qa-section');
-                                const thirdSection = document.querySelector('.third-qa-section');
-                                const fourthSection = document.querySelector('.fourth-qa-section');
+                                // ✨ DETECTAR QUAL SEÇÃO ESTAVA VISÍVEL APENAS NA ABA ATIVA
+                                const secondSection = activeContent.querySelector('.second-qa-section');
+                                const thirdSection = activeContent.querySelector('.third-qa-section');
+                                const fourthSection = activeContent.querySelector('.fourth-qa-section');
                                 
                                 if (fourthSection && fourthSection.style.opacity === '1') {
                                     lastActiveWealthSection = 4;
@@ -2152,19 +3125,22 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                                 delete window.tabProgress[tabId];
                             }
                             
-                            // Esconder os botões e seções
-                            const buttonContainer = document.querySelector('.areas-button-more');
-                            const secondButtonContainer = document.querySelector('.areas-button-more-second');
-                            const thirdSection = document.querySelector('.third-qa-section');
-                            if (buttonContainer) {
-                                buttonContainer.style.opacity = '0';
-                            }
-                            if (secondButtonContainer) {
-                                secondButtonContainer.style.opacity = '0';
-                            }
-                            if (thirdSection) {
-                                thirdSection.style.opacity = '0';
-                            }
+                            // Esconder os botões e seções de todas as abas
+                            const allContents = document.querySelectorAll('.areas-content');
+                            allContents.forEach(content => {
+                                const buttonContainer = content.querySelector('.areas-button-more');
+                                const secondButtonContainer = content.querySelector('.areas-button-more-second');
+                                const thirdSection = content.querySelector('.third-qa-section');
+                                if (buttonContainer) {
+                                    buttonContainer.style.opacity = '0';
+                                }
+                                if (secondButtonContainer) {
+                                    secondButtonContainer.style.opacity = '0';
+                                }
+                                if (thirdSection) {
+                                    thirdSection.style.opacity = '0';
+                                }
+                            });
                             
                             // Desabilitar scroll manual quando sair da área
                             disableManualScroll();
@@ -2206,33 +3182,33 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             
                             // Aguardar um pouco mais para garantir que o reset foi completo
                             setTimeout(function() {
-                            // Verificar qual aba fica ativa após o clique
-                                const activeContent = document.querySelector('.areas-content.active');
+                                                    // Verificar qual aba fica ativa após o clique
+                            const activeContent = document.querySelector('.areas-content.active');
+                            
+                            // Sempre começar do zero - iniciar animações
+                            initLoadingAnimations();
+                            
+                            // Sempre começar do zero - não verificar estado anterior
+                            if (activeContent) {
+                                // Limpar estado salvo ao clicar na aba
+                                lastActiveWealthSection = null;
                                 
-                                // Sempre começar do zero - iniciar animações
-                                initLoadingAnimations();
-                                
-                                // Sempre começar do zero - não verificar estado anterior
-                                if (targetTabId === 'wealth-management-content') {
-                                    // Limpar estado salvo ao clicar na aba
-                                    lastActiveWealthSection = null;
+                                // Para qualquer aba, aguardar tempo para primeiro botão
+                                setTimeout(function() {
+                                    const buttonContainer = activeContent.querySelector('.areas-button-more');
                                     
-                                    // Para wealth management, aguardar tempo para primeiro botão
-                                    setTimeout(function() {
-                                        const buttonContainer = document.querySelector('.areas-button-more');
+                                    // Garantir que o botão sempre apareça na primeira seção
+                                    if (buttonContainer) {
+                                        buttonContainer.style.opacity = '1';
+                                        buttonContainer.style.visibility = 'visible';
+                                        buttonContainer.style.transition = 'opacity 0.3s ease';
                                         
-                                        // Garantir que o botão sempre apareça na primeira seção
-                                        if (buttonContainer) {
-                                            buttonContainer.style.opacity = '1';
-                                            buttonContainer.style.visibility = 'visible';
-                                            buttonContainer.style.transition = 'opacity 0.3s ease';
-                                            
-                                            // Marcar que a animação foi completada para esta aba
-                                            window.animationStates[targetTabId] = true;
-                                            window.tabProgress[targetTabId] = 1;
-                                        }
-                                    }, 4000); // Consistente com o tempo do scroll
-                                }
+                                        // Marcar que a animação foi completada para esta aba
+                                        window.animationStates[targetTabId] = true;
+                                        window.tabProgress[targetTabId] = 1;
+                                    }
+                                }, 4000); // Consistente com o tempo do scroll
+                            }
                             }, 200);
                         };
                         
@@ -2328,15 +3304,37 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                 // Add active to clicked tab
                 this.classList.add('active');
                 
-                // Hide all contents
+                // Hide all contents E limpa estilos inline forçados
                 for (var k = 0; k < contents.length; k++) {
                     contents[k].classList.remove('active');
+                    // ✨ REMOVER QUALQUER ESTILO INLINE FORÇADO
+                    contents[k].style.display = '';
+                    contents[k].style.visibility = '';
                 }
                 
                 // Show target content
                 var target = document.getElementById(targetTabId);
                 if (target) {
                     target.classList.add('active');
+                    
+                    // ✨ GARANTIR QUE APENAS A ABA ALVO ESTEJA VISÍVEL
+                    setTimeout(function() {
+                        // Forçar limpeza completa de todas as abas
+                        for (var m = 0; m < contents.length; m++) {
+                            if (contents[m].id !== targetTabId) {
+                                contents[m].classList.remove('active');
+                                contents[m].style.display = 'none';
+                                contents[m].style.visibility = 'hidden';
+                            }
+                        }
+                        
+                        // Garantir que apenas a aba alvo esteja visível
+                        if (target) {
+                            target.classList.add('active');
+                            target.style.display = '';
+                            target.style.visibility = '';
+                        }
+                    }, 10);
                     
                     // Aguardar um pouco para garantir que o reset foi completo
                     setTimeout(function() {
@@ -2345,27 +3343,25 @@ O diferencial desta edição é a busca por candidatos das áreas de Ciência, T
                             initLoadingAnimations();
                         }
                         
-                        // Para wealth management, aguardar tempo para primeiro botão
-                        if (targetTabId === 'wealth-management-content') {
-                    setTimeout(function() {
-                                var activeContent = document.querySelector('.areas-content.active');
-                                var buttonContainer = document.querySelector('.areas-button-more');
+                        // Para qualquer aba, aguardar tempo para primeiro botão
+                        setTimeout(function() {
+                            var activeContent = document.querySelector('.areas-content.active');
+                            var buttonContainer = activeContent ? activeContent.querySelector('.areas-button-more') : null;
+                            
+                            if (buttonContainer && activeContent) {
+                                buttonContainer.style.opacity = '1';
+                                buttonContainer.style.visibility = 'visible';
+                                buttonContainer.style.transition = 'opacity 0.3s ease';
                                 
-                                if (buttonContainer && activeContent && activeContent.id === 'wealth-management-content') {
-                                    buttonContainer.style.opacity = '1';
-                                    buttonContainer.style.visibility = 'visible';
-                                    buttonContainer.style.transition = 'opacity 0.3s ease';
-                                    
-                                    // Marcar que a animação foi completada
-                                    if (typeof window.animationStates === 'object') {
-                                        window.animationStates[targetTabId] = true;
-                                    }
-                                    if (typeof window.tabProgress === 'object') {
-                                        window.tabProgress[targetTabId] = 1;
-                                    }
+                                // Marcar que a animação foi completada
+                                if (typeof window.animationStates === 'object') {
+                                    window.animationStates[targetTabId] = true;
                                 }
-                            }, 4000); // Consistente com outros tempos
-                        }
+                                if (typeof window.tabProgress === 'object') {
+                                    window.tabProgress[targetTabId] = 1;
+                                }
+                            }
+                        }, 4000); // Consistente com outros tempos
                     }, 200);
                 }
                 
@@ -2511,7 +3507,7 @@ function scrollToNextSection(targetSelector, buttonId) {
             
             // Ajustar para esconder botão anterior se necessário
             if (targetSelector === '.third-qa-section') {
-                const secondButton = document.querySelector('.areas-button-more-second');
+                const secondButton = activeContent.querySelector('.areas-button-more-second');
                 if (secondButton) {
                     scrollPosition += secondButton.offsetHeight + 50;
                 }
@@ -2521,7 +3517,7 @@ function scrollToNextSection(targetSelector, buttonId) {
             
             // Ajustar para esconder botão anterior se necessário
             if (targetSelector === '.fourth-qa-section') {
-                const thirdButton = document.querySelector('.areas-button-more-third');
+                const thirdButton = activeContent.querySelector('.areas-button-more-third');
                 if (thirdButton) {
                     scrollPosition += thirdButton.offsetHeight + 50;
                 }
@@ -2563,10 +3559,13 @@ function animateQASection(config) {
         progressId
     } = config;
     
+    // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
+    const activeContent = document.querySelector('.areas-content.active');
+    if (!activeContent) return;
     
-    const section = document.querySelector(sectionSelector);
-    const question = document.querySelector(questionSelector);
-    const response = document.querySelector(responseSelector);
+    const section = activeContent.querySelector(sectionSelector);
+    const question = activeContent.querySelector(questionSelector);
+    const response = activeContent.querySelector(responseSelector);
     
     if (!section || !question || !response) {
         return;
@@ -2661,7 +3660,8 @@ function animateDotsQuestion(questionElement, callback) {
 
 // Função auxiliar para mostrar botões
 function showButton(buttonSelector) {
-    const button = document.querySelector(buttonSelector);
+    const activeContent = document.querySelector('.areas-content.active');
+    const button = activeContent ? activeContent.querySelector(buttonSelector) : document.querySelector(buttonSelector);
     if (button) {
         button.style.opacity = '1';
         button.style.visibility = 'visible';
@@ -2685,8 +3685,11 @@ function scrollToNextQuestion() {
     
     // Disparar animação após scroll
     setTimeout(() => {
-        // Mostrar a seção antes de animar
-        const secondSection = document.querySelector('.second-qa-section');
+        // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
+        const activeContent = document.querySelector('.areas-content.active');
+        if (!activeContent) return;
+        
+        const secondSection = activeContent.querySelector('.second-qa-section');
         if (secondSection) {
             secondSection.style.opacity = '1';
             secondSection.style.visibility = 'visible';
@@ -2699,7 +3702,7 @@ function scrollToNextQuestion() {
             responseSelector: '#second-response',
             buttonSelector: '.areas-button-more-second',
             stepNumber: 2,
-            progressId: 'wealth-management-content'
+            progressId: activeContent.id
         });
     }, 200);
 }
@@ -2710,8 +3713,11 @@ function scrollToThirdQuestion() {
     
     // Disparar animação após scroll
     setTimeout(() => {
-        // Mostrar a seção antes de animar
-        const thirdSection = document.querySelector('.third-qa-section');
+        // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
+        const activeContent = document.querySelector('.areas-content.active');
+        if (!activeContent) return;
+        
+        const thirdSection = activeContent.querySelector('.third-qa-section');
         if (thirdSection) {
             thirdSection.style.opacity = '1';
             thirdSection.style.visibility = 'visible';
@@ -2724,7 +3730,7 @@ function scrollToThirdQuestion() {
             responseSelector: '#third-response',
             buttonSelector: '.areas-button-more-third', // Terceira seção agora tem próximo botão
             stepNumber: 3,
-            progressId: 'wealth-management-content'
+            progressId: activeContent.id
         });
     }, 200);
 }
@@ -2752,8 +3758,9 @@ function scrollToFourthQuestion() {
             allowProgrammaticScroll = false;
         }, 1000);
         
-        // Feedback visual no botão
-        const button = document.getElementById('btn-more-wealth-third');
+        // ✨ BUSCAR BOTÃO APENAS NA ABA ATIVA
+        const activeContent = document.querySelector('.areas-content.active');
+        const button = activeContent ? activeContent.querySelector('.areas-button-more-third button') : null;
         if (button) {
             button.style.transform = 'scale(0.95)';
             setTimeout(() => {
@@ -2764,8 +3771,11 @@ function scrollToFourthQuestion() {
     
     // Disparar animação após scroll
     setTimeout(() => {
-        // Mostrar a seção antes de animar
-        const fourthSection = document.querySelector('.fourth-qa-section');
+        // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
+        const activeContent = document.querySelector('.areas-content.active');
+        if (!activeContent) return;
+        
+        const fourthSection = activeContent.querySelector('.fourth-qa-section');
         if (fourthSection) {
             fourthSection.style.opacity = '1';
             fourthSection.style.visibility = 'visible';
@@ -2779,12 +3789,12 @@ function scrollToFourthQuestion() {
             responseSelector: '#fourth-response',
             buttonSelector: null, // Quarta seção não tem próximo botão
             stepNumber: 4,
-            progressId: 'wealth-management-content'
+            progressId: activeContent.id
         });
         
         // Animar a segunda resposta também com delay maior
         setTimeout(() => {
-            const duplicateResponse = document.querySelector('#fourth-response-duplicate');
+            const duplicateResponse = activeContent.querySelector('#fourth-response-duplicate');
             if (duplicateResponse) {
                 duplicateResponse.style.opacity = '1';
                 duplicateResponse.style.visibility = 'visible';
@@ -2795,9 +3805,9 @@ function scrollToFourthQuestion() {
                 }
             }
             
-            // Mostrar botão de inscrição após o último elemento
+            // Mostrar botão de inscrição após o último elemento (apenas na aba ativa)
             setTimeout(() => {
-                const inscriptionButton = document.querySelector('#inscription-button');
+                const inscriptionButton = activeContent.querySelector('#inscription-button');
                 if (inscriptionButton) {
                     inscriptionButton.style.opacity = '1';
                     inscriptionButton.style.visibility = 'visible';
@@ -3042,7 +4052,7 @@ function scrollToNextSection(targetSelector, buttonId) {
             
             // Ajustar para esconder botão anterior se necessário
             if (targetSelector === '.third-qa-section') {
-                const secondButton = document.querySelector('.areas-button-more-second');
+                const secondButton = activeContent.querySelector('.areas-button-more-second');
                 if (secondButton) {
                     scrollPosition += secondButton.offsetHeight + 50;
                 }
@@ -3052,7 +4062,7 @@ function scrollToNextSection(targetSelector, buttonId) {
             
             // Ajustar para esconder botão anterior se necessário
             if (targetSelector === '.fourth-qa-section') {
-                const thirdButton = document.querySelector('.areas-button-more-third');
+                const thirdButton = activeContent.querySelector('.areas-button-more-third');
                 if (thirdButton) {
                     scrollPosition += thirdButton.offsetHeight + 50;
                 }
