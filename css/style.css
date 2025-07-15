@@ -237,7 +237,7 @@ ul.header-nav.show {
   position: absolute;
   width: 913px;
   height: 245px;
-  left: 68vw;
+  left: 74vw;
   bottom: 0;
 }
 .s-about h2 {
@@ -344,12 +344,12 @@ ul.header-nav.show {
 }
 
 .s-requirement {
-  background: #FF0000;
+  background: #000000;
   color: #FFFFFF;
   padding-block: 38px 155px;
 }
 .s-requirement .header-title {
-    background: #050505;
+    background: #ec0000;
     /* border: px solid #FFFFFF; */
     border-radius: 15px;
     color: #FFFFFF;
@@ -357,7 +357,7 @@ ul.header-nav.show {
     font-size: 24px;
     font-weight: bold;
     margin: 0 auto;
-    padding: 20px 60px;
+    padding: 20px 185px;
     text-align: center;
     white-space: nowrap;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -396,6 +396,7 @@ ul.header-nav.show {
   margin-inline: auto;
   font-size: 17px;
   margin-bottom: 50px;
+  padding: 0 192px;
 }
 .s-requirement .requirement-list {
   gap: 20px;
@@ -421,7 +422,7 @@ ul.header-nav.show {
   margin: 0;
 }
 .s-requirement .requirement-list .icon {
-  background: #050505;
+  background: #ec0000;
   border-radius: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -494,6 +495,7 @@ ul.header-nav.show {
   color: #FF0000;
   line-height: 1.2;
   font-size: 24px;
+  padding-right: 7%;
 }
 @media (min-width: 992px) {
   .s-cta .box-cta .text {
@@ -939,7 +941,7 @@ ul.header-nav.show {
   }
 }
 .s-santander .text-santander-img {
-  max-width: 641px;
+  max-width: 741px;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -1478,8 +1480,7 @@ ul.header-nav.show {
 }
 .s-trainee {
   background-color: #454545;
-  padding-top: 96px;
-  padding-bottom: 55px;
+  padding: 166px 0;
 }
 .s-trainee .video-yt.yt-part {
   width: 100%;
@@ -1580,7 +1581,7 @@ ul.header-nav.show {
 }
 
 .s-subscribe {
-  padding-block: 72px 72px;
+  padding-block: 170px 72px;
   background-image: url(../images/bg-santander.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -1901,6 +1902,7 @@ footer {
 .faq-section {
   max-width: 800px;
   margin: auto;
+  margin-top: 80px;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
@@ -2131,6 +2133,7 @@ footer {
   padding: 80px 0;
   position: relative;
   overflow: hidden;
+  padding-bottom: 40px;
 }
 
 /* .s-conheca-areas::after {
@@ -2150,6 +2153,15 @@ footer {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 10px;
+}
+
+.s-conheca-areas .subtitle-process {
+  font-family: "Santander Headline";
+  font-weight: 100;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .areas-tabs-container {
