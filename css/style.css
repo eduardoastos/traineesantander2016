@@ -34,6 +34,10 @@ h1, h2, h3, h4, h5 {
   font-family: "Santander Headline", sans-serif;
 }
 
+.responsive-title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
 #santander-trainee {
   overflow: hidden;
 }
