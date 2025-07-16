@@ -38,6 +38,142 @@ h1, h2, h3, h4, h5 {
   font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
+.stats-number-responsive {
+  color: #333;
+  font-size: clamp(0.75rem, 2vw, 1.3rem);
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  word-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
+  padding: 0 0.2rem;
+}
+
+/* Estilos específicos para os cards de estatísticas */
+.stats-card {
+  background: white !important;
+  border: 2px solid #EC0000 !important;
+  border-radius: 20px !important;
+  padding: 1.2rem 1rem 1.4rem 1rem !important;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stats-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  margin-bottom: 0 !important;
+  flex-shrink: 0;
+}
+
+.stats-icon svg {
+  display: block;
+}
+
+.stats-number-responsive {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.2rem;
+}
+
+/* Responsividade para cards de estatísticas */
+@media (max-width: 991px) {
+  .stats-card {
+    padding: 1rem 0.6rem 1.2rem 0.6rem !important;
+    height: 140px;
+  }
+  
+  .stats-icon {
+    height: 36px;
+  }
+  
+  .stats-number-responsive {
+    font-size: clamp(0.7rem, 2.3vw, 1.1rem) !important;
+    line-height: 1.1;
+    padding: 0 0.1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .stats-card {
+    padding: 0.8rem 0.4rem 1rem 0.4rem !important;
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+  
+  .stats-icon {
+    height: 32px;
+    margin-bottom: 0 !important;
+  }
+  
+  .stats-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .stats-number-responsive {
+    font-size: clamp(0.65rem, 2.8vw, 0.95rem) !important;
+    line-height: 1.1;
+    padding: 0 0.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-card {
+    padding: 0.7rem 0.3rem 0.9rem 0.3rem !important;
+    height: 110px;
+  }
+  
+  .stats-icon {
+    height: 28px;
+  }
+  
+  .stats-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .stats-number-responsive {
+    font-size: clamp(0.6rem, 2.5vw, 0.85rem) !important;
+    line-height: 1.05;
+    padding: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .stats-card {
+    padding: 0.6rem 0.2rem 0.8rem 0.2rem !important;
+    height: 100px;
+  }
+  
+  .stats-icon {
+    height: 24px;
+  }
+  
+  .stats-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  .stats-number-responsive {
+    font-size: clamp(0.55rem, 2.2vw, 0.75rem) !important;
+    line-height: 1.0;
+    padding: 0;
+  }
+}
+
 #santander-trainee {
   overflow: hidden;
 }
