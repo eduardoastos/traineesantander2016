@@ -369,7 +369,7 @@ ul.header-nav.show {
   position: relative;
   padding-bottom: 160px;
 }
-.s-about::after {
+/* .s-about::after {
   content: "";
   background-image: url(../images/bg-comeca-aqui.svg);
   background-repeat: no-repeat;
@@ -379,7 +379,7 @@ ul.header-nav.show {
   height: 245px;
   left: 74vw;
   bottom: 0;
-}
+} */
 .s-about h2 {
   font-size: 32px;
   margin-top: -48px;
@@ -497,12 +497,12 @@ ul.header-nav.show {
     font-size: 24px;
     font-weight: bold;
     margin: 0 auto;
-    padding: 20px 185px;
+    padding: 20px 0px;
     text-align: center;
     /* white-space: nowrap; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     max-width: 90%;
-    width: fit-content;
+    /* width: fit-content; */
     position: relative;
     z-index: 2;
     margin-bottom: 1rem !important;
@@ -536,7 +536,7 @@ ul.header-nav.show {
   margin-inline: auto;
   font-size: 17px;
   margin-bottom: 50px;
-  padding: 0 192px;
+  padding: 0 0px;
 }
 .s-requirement .requirement-list {
   gap: 20px;
@@ -912,12 +912,12 @@ ul.header-nav.show {
   font-size: 24px;
   font-weight: bold;
   margin: 0 auto;
-  padding: 20px 60px;
+  padding: 20px 0px;
   text-align: center;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   max-width: 90%;
-  width: fit-content;
+  /* width: fit-content; */
   position: relative;
   z-index: 2;
   margin-bottom: 7rem !important;
@@ -971,11 +971,11 @@ ul.header-nav.show {
   font-size: 24px;
   font-weight: bold;
   margin: 0 auto;
-  padding: 20px 60px;
+  padding: 20px 0px;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   max-width: 90%;
-  width: fit-content;
+  /* width: fit-content; */
   position: relative;
   z-index: 2;
   margin-bottom: 2rem !important;
@@ -1721,7 +1721,7 @@ ul.header-nav.show {
 }
 
 .s-subscribe {
-  padding-block: 170px 72px;
+  padding-block: 0px 72px;
   background-image: url(../images/bg-santander.png);
   background-position: center;
   background-repeat: no-repeat;
