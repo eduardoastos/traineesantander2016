@@ -35,11 +35,27 @@ h1, h2, h3, h4, h5 {
 }
 
 .responsive-title {
-  font-size: clamp(1.2rem, 4vw, 3rem);
+  font-size: clamp(0.75rem, 2vw, 3rem);
+  line-height: 1.15;
+  text-align: right;
+  white-space: normal;
+  word-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
+  padding: 0 0.2rem;
 }
 
 .responsive-paragraph {
-  font-size: clamp(0.8rem, 2vw, 1.5rem) !important;
+  font-size: clamp(0.75rem, 2vw, 1.3rem) !important;
+  line-height: 1.15;
+  text-align: left;
+  white-space: normal;
+  word-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
+  padding: 0 0.2rem;
 }
 
 @media screen and (max-width: 767px) {
@@ -3669,5 +3685,34 @@ footer {
     text-decoration: none;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title-container {
+  padding-right: 30px;
+  display: flex;
+  /* justify-content: flex-end; */
+}
+@media screen and (max-width: 767px) {
+  .title-container {
+    justify-content: flex-end;
+  }
+}
+
+.title-offset {
+  position: relative;
+  top: -10px;
+  width: 410px;
+}
+
+.text-width {
+  width: 410px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.container-full {
+  max-width: 100% !important;
 }
 
