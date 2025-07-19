@@ -35,8 +35,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .responsive-title {
-  font-size: clamp(0.75rem, 2vw, 3rem);
-  line-height: 1.15;
+  font-size: 48px;
+  line-height: 57.6px;
   text-align: right;
   white-space: normal;
   word-wrap: normal;
@@ -47,8 +47,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .responsive-paragraph {
-  font-size: clamp(0.75rem, 2vw, 1.3rem) !important;
-  line-height: 1.15;
+  font-size: 20px !important;
+  line-height: 30px;
   text-align: left;
   white-space: normal;
   word-wrap: normal;
@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5 {
 
 @media screen and (max-width: 767px) {
   .responsive-title {
+    font-size: 36px;
     text-align: left !important;
   }
   .responsive-paragraph {
@@ -405,11 +406,11 @@ ul.header-nav.show {
 
   }
 }
-
+/* 
 .s-about h3 {
   font-size: 32px;
-  /* margin-top: -48px; */
-}
+  margin-top: -48px;
+} */
 @media (min-width: 992px) {
   .s-about h3 {
     font-size: 42px;
@@ -421,7 +422,8 @@ ul.header-nav.show {
   }
 }
  .s-about .text-about { 
-   width: 100%;
+   width: 410px;
+
 } 
 .s-about .text-about span {
   background-color: #FFFFFF;
@@ -3690,13 +3692,26 @@ footer {
 .title-container {
   padding-right: 30px;
   display: flex;
-  /* justify-content: flex-end; */
+  justify-content: flex-end;
 }
 @media screen and (max-width: 767px) {
   .title-container {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
+
+
+.paragraph-container {
+  display: flex;
+  justify-content: flex-start;
+}
+@media screen and (max-width: 767px) {
+  .paragraph-container {
+    justify-content: flex-start;
+  }
+}
+
+
 
 .title-offset {
   position: relative;
