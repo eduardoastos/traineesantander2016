@@ -35,7 +35,20 @@ h1, h2, h3, h4, h5 {
 }
 
 .responsive-title {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.2rem, 4vw, 3rem);
+}
+
+.responsive-paragraph {
+  font-size: clamp(0.8rem, 2vw, 1.5rem) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-title {
+    text-align: left !important;
+  }
+  .responsive-paragraph {
+    text-align: left;
+  }
 }
 
 .stats-number-responsive {
@@ -363,41 +376,37 @@ ul.header-nav.show {
 }
 
 .s-about {
-  background: #121111;
-  color: #FFFFFF;
+  background: #ffffff;
+  color: #EC0000;
   padding-block: 80px;
   position: relative;
-  padding-bottom: 160px;
+  /* padding-bottom: 160px; */
 }
-/* .s-about::after {
-  content: "";
-  background-image: url(../images/bg-comeca-aqui.svg);
-  background-repeat: no-repeat;
-  display: block;
-  position: absolute;
-  width: 913px;
-  height: 245px;
-  left: 74vw;
-  bottom: 0;
-} */
-.s-about h2 {
+
+@media screen and (max-width: 767px) {
+  .s-about {
+    padding-block: 35px;
+
+  }
+}
+
+.s-about h3 {
   font-size: 32px;
-  margin-top: -48px;
+  /* margin-top: -48px; */
 }
 @media (min-width: 992px) {
-  .s-about h2 {
+  .s-about h3 {
     font-size: 42px;
   }
 }
 @media (min-width: 1400px) {
-  .s-about h2 {
+  .s-about h3 {
     font-size: 48px;
   }
 }
-.s-about .text-about {
-  font-size: 20px;
-  max-width: 533px;
-}
+ .s-about .text-about { 
+   width: 100%;
+} 
 .s-about .text-about span {
   background-color: #FFFFFF;
   border-radius: 30px;
