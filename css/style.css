@@ -60,7 +60,8 @@ h1, h2, h3, h4, h5 {
 
 @media screen and (max-width: 767px) {
   .responsive-title {
-    font-size: 36px;
+    font-size: 32px;
+    line-height: 36px;
     text-align: left !important;
   }
   .responsive-paragraph {
@@ -413,7 +414,7 @@ ul.header-nav.show {
 } */
 @media (min-width: 992px) {
   .s-about h3 {
-    font-size: 42px;
+    font-size: 48px;
   }
 }
 @media (min-width: 1400px) {
