@@ -1981,7 +1981,7 @@ ul.header-nav.show {
 }
 
 footer {
-  padding-block: 20px;
+  padding-block: 45px;
   /* background-image: url(../images/bg-footer.png);
   background-repeat: no-repeat;
   background-size: cover; */
@@ -4122,25 +4122,27 @@ footer {
 }
 
 .social-link {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: #EC1C2E;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  background-color: white;
+  border: 1px solid #EC1C2E;
+  border-radius: 4px; */
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-link:hover {
-  background-color: #d61829;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(236, 28, 46, 0.2);
 }
 
 .social-icon {
   width: 24px;
   height: 24px;
-  fill: white;
+  fill: #EC1C2E;
 }
 
 @media screen and (max-width: 768px) {
