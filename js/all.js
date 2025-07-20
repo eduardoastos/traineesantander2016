@@ -169,23 +169,43 @@ e.classList.remove("active")
 setTimeout(function() {
     
     var corpSantander = document.getElementById("js-corp-santander");
+    var corpAymore = document.getElementById("js-corp-aymore");
     var corp2 = document.getElementById("js-corp-2");
     var corp3 = document.getElementById("js-corp-3");
     var descSantander = document.getElementById("js-benefits-santander");
+    var descAymore = document.getElementById("js-empresa-aymore");
     var desc2 = document.getElementById("js-empresa-2");
     var desc3 = document.getElementById("js-empresa-3");
 
     // Verificar se todos os elementos existem
-    if (!corpSantander || !corp2 || !corp3 || !descSantander || !desc2 || !desc3) {
+    if (!corpSantander || !corpAymore || !corp2 || !corp3 || !descSantander || !descAymore || !desc2 || !desc3) {
         return;
     }
 
     function switchToSantander() {
         corpSantander.classList.add("active");
+        corpAymore.classList.remove("active");
         corp2.classList.remove("active");
         corp3.classList.remove("active");
         
         descSantander.classList.remove("d-none");
+        descAymore.classList.add("d-none");
+        desc2.classList.add("d-none");
+        desc3.classList.add("d-none");
+        
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    function switchToAymore() {
+        corpSantander.classList.remove("active");
+        corpAymore.classList.add("active");
+        corp2.classList.remove("active");
+        corp3.classList.remove("active");
+        
+        descSantander.classList.add("d-none");
+        descAymore.classList.remove("d-none");
         desc2.classList.add("d-none");
         desc3.classList.add("d-none");
         
@@ -196,10 +216,12 @@ setTimeout(function() {
 
     function switchToF1rst() {
         corpSantander.classList.remove("active");
+        corpAymore.classList.remove("active");
         corp2.classList.add("active");
         corp3.classList.remove("active");
         
         descSantander.classList.add("d-none");
+        descAymore.classList.add("d-none");
         desc2.classList.remove("d-none");
         desc3.classList.add("d-none");
         
@@ -210,10 +232,12 @@ setTimeout(function() {
 
     function switchToTools() {
         corpSantander.classList.remove("active");
+        corpAymore.classList.remove("active");
         corp2.classList.remove("active");
         corp3.classList.add("active");
         
         descSantander.classList.add("d-none");
+        descAymore.classList.add("d-none");
         desc2.classList.add("d-none");
         desc3.classList.remove("d-none");
         
@@ -224,6 +248,7 @@ setTimeout(function() {
 
     // Remover qualquer listener existente e adicionar novos
     corpSantander.onclick = switchToSantander;
+    corpAymore.onclick = switchToAymore;
     corp2.onclick = switchToF1rst;
     corp3.onclick = switchToTools;
 }, 1000);

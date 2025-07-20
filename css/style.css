@@ -71,8 +71,8 @@ h1, h2, h3, h4, h5 {
 
 .stats-number-responsive {
   color: #333;
-  font-size: clamp(0.75rem, 2vw, 1.3rem);
-  line-height: 1.15;
+  font-size: 16px;
+  line-height: 100%;
   text-align: center;
   white-space: normal;
   word-wrap: normal;
@@ -87,8 +87,8 @@ h1, h2, h3, h4, h5 {
   background: white !important;
   border: 2px solid #EC0000 !important;
   border-radius: 20px !important;
-  padding: 1.2rem 1rem 1.4rem 1rem !important;
-  height: 160px;
+  /* padding: 5px 0px; */
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -116,7 +116,6 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 0.2rem;
 }
 
 /* Responsividade para cards de estatísticas */
@@ -468,8 +467,8 @@ ul.header-nav.show {
 } */
 
 .s-program {
-  padding-bottom: 166px;
-  padding-top: 38px;
+  padding-bottom: 60px;
+  padding-top: 115px;
 }
 .s-program .box-line {
   position: relative;
@@ -486,12 +485,27 @@ ul.header-nav.show {
 }
 .s-program h2 {
   width: 100%;
-  max-width: 585px;
+  /* max-width: 585px; */
   font-size: 40px;
   line-height: 57.72px;
   font-weight: bold;
-  color: #FF0000;
-  margin-bottom: 40px;
+  color: #EC0000;
+  /* margin-bottom: 40px; */
+}
+.s-program .subtitle-process {
+  font-size: 18px;
+  line-height: 28px;
+}
+.s-program .bold{
+  font-weight: bold;
+}
+.s-program .margin{
+  margin-bottom: 0 !important;
+}
+.s-program .width-90{
+  width: 90% !important;
+  margin: 0 auto;
+  margin-bottom: 30px !important;
 }
 .s-program .content {
   width: 100%;
@@ -504,6 +518,126 @@ ul.header-nav.show {
 .s-program .image-size {
   width: calc(100vw - 24px);
 }
+.s-program .images {
+  width: 50%;
+  border-radius: 16px;
+  height: auto;
+  /* max-height: 545px; */
+  object-fit: cover;
+}
+.s-program .images-flex-left {
+  display: flex;
+  justify-content: flex-end;
+}
+.s-program .images-flex-right {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Estilos para as sobreposições das imagens */
+.s-program .image-container-left {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.s-program .image-container-right {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.s-program .image-overlay-left {
+  position: absolute;
+  background: #000000;
+  bottom: 15px;
+  left: 75%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  white-space: nowrap;
+  width: 90%;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.s-program .image-overlay-right {
+  position: absolute;
+  background: #EC0000;
+  bottom: 15px;
+  left: 25%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  white-space: nowrap;
+  width: 90%;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+
+.s-program .overlay-text {
+  color: white;
+  font-family: 'SantanderHeadline', Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+/* Responsividade para overlay text */
+@media screen and (min-width: 992px) {
+  .s-program .image-overlay-left,
+  .s-program .image-overlay-right {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    bottom: 20px;
+    width: 46%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .s-program .image-overlay-left,
+  .s-program .image-overlay-right {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    bottom: 15px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .s-program .image-overlay-left,
+  .s-program .image-overlay-right {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    border-radius: 40px;
+    bottom: 10px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .s-program .image-overlay-left,
+  .s-program .image-overlay-right {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    border-radius: 30px;
+    bottom: 8px;
+    width: 90%;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .s-program .image-size {
     width: 44vw;
@@ -518,6 +652,7 @@ ul.header-nav.show {
   background: #000000;
   color: #FFFFFF;
   padding-block: 38px 155px;
+  padding-top: 100px;
 }
 .s-requirement .header-title {
     background: #ec0000;
@@ -528,12 +663,12 @@ ul.header-nav.show {
     font-size: 24px;
     font-weight: bold;
     margin: 0 auto;
-    padding: 20px 0px;
+    padding: 20px 66px;
     text-align: center;
     /* white-space: nowrap; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 90%;
-    /* width: fit-content; */
+    /* max-width: 90%; */
+    width: fit-content;
     position: relative;
     z-index: 2;
     margin-bottom: 1rem !important;
@@ -563,7 +698,7 @@ ul.header-nav.show {
 
 .s-requirement .text-box {
   width: 100%;
-  /* max-width: 1069px; */
+  max-width: 992px;
   margin-inline: auto;
   font-size: 17px;
   margin-bottom: 50px;
@@ -680,13 +815,14 @@ ul.header-nav.show {
 }
 
 .s-process {
-  padding-top: 60px;
+  padding-top: 100px;
   padding-bottom: 40px;
 }
 
 .s-process .header-process {
   color: #EC0000;
-  font-size: 44px;
+  font-size: 40px;
+  line-height: 48px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
@@ -801,12 +937,12 @@ ul.header-nav.show {
 }
 
 .s-process .list-seletivo .content-card {
-  background-color: #121212;
+  background-color: #FFFFFF;
   border-radius: 25px;
   padding: 40px 30px;
   width: 94%;
   text-align: center;
-  color: #FFFFFF;
+  color: #FF0000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -817,6 +953,7 @@ ul.header-nav.show {
   overflow: hidden;
   flex: 1;
   margin-top: auto;
+  border: 2px solid #FF0000;
 }
 
 .s-process .list-seletivo .content-card .card-content {
@@ -870,14 +1007,14 @@ ul.header-nav.show {
 .s-process .list-seletivo .icon-wrapper img {
   width: 40px;
   height: 40px;
-  filter: brightness(0) invert(1);
+  /* filter: brightness(0) invert(1); */
 }
 
 .s-process .list-seletivo .card-title {
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 20px;
-  color: #FFFFFF;
+  color: #FF0000;
   line-height: 1.3;
   width: 100%;
 }
@@ -885,7 +1022,7 @@ ul.header-nav.show {
 .s-process .list-seletivo .card-description {
   font-size: 14px;
   line-height: 1.5;
-  color: #FFFFFF;
+  color: #444444;
   margin: 0;
   width: 100%;
 }
@@ -906,14 +1043,14 @@ ul.header-nav.show {
 }
 
 .s-santander {
-  background-color: #000000;
-  padding-block: 50px;
-  padding-bottom: 150px !important;
+  background-color: #121111;
+  padding-block: 100px;
+  padding-bottom: 100px !important;
 }
 
 .video-section-with-border {
   position: relative;
-  margin-bottom: 170px;
+  margin-bottom: 110px;
   padding-bottom: 80px;
 }
 
@@ -923,8 +1060,9 @@ ul.header-nav.show {
   bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  height: 0.5px;
+  width: 95%;
+  height: 2px;
+  border-radius: 10px;
   background: #4d4c4c;
 }
 
@@ -940,19 +1078,27 @@ ul.header-nav.show {
   border-radius: 15px;
   color: #FFFFFF;
   display: block;
-  font-size: 24px;
+  font-size: 40px;
+  line-height: 48px;
   font-weight: bold;
   margin: 0 auto;
   padding: 20px 0px;
   text-align: center;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 90%;
-  /* width: fit-content; */
+  /* max-width: 90%; */
+  width: fit-content;
   position: relative;
   z-index: 2;
   margin-bottom: 7rem !important;
   margin-top: 2rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .s-santander .header-title {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .s-santander .header-title::before {
@@ -970,7 +1116,7 @@ ul.header-nav.show {
 @media screen and (min-width: 768px) {
   .s-santander .header-title {
     font-size: 40px;
-    padding: 24px 195px;
+    padding: 10px 110px;
   }
   
   /* .s-santander .header-title::before {
@@ -1042,8 +1188,25 @@ ul.header-nav.show {
 }
 @media screen and (min-width: 768px) {
   .s-santander .image-santander-animate {
-    width: calc(50vw + 15px);
+    width: calc(49vw + 0px);
     margin-left: 0;
+  }
+}
+
+/* Estilos para a imagem dentro da div image-santander-animate */
+.s-santander .image-santander-animate img {
+  width: 100%;
+  height: auto;
+  max-height: 545px;
+  object-fit: cover;
+  border-radius: 60px 0px 0px 60px;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .s-santander .image-santander-animate img {
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 .s-santander .bg-linear {
@@ -1116,7 +1279,9 @@ ul.header-nav.show {
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+  line-height: 48px;
   color: #FFFFFF;
+  margin-bottom: 1.5rem !important;
 }
 .s-santander .switcher {
   margin-top: -15px;
@@ -1651,7 +1816,7 @@ ul.header-nav.show {
 }
 .s-trainee {
   background-color: #454545;
-  padding: 166px 0;
+  padding: 70px 0;
 }
 .s-trainee .video-yt.yt-part {
   width: 100%;
@@ -1691,12 +1856,12 @@ ul.header-nav.show {
   display: block;
   font-size: 24px;
   font-weight: bold;
-  /* margin: 0 auto; */
-  padding: 20px 60px;
+  margin: 0 auto;
+  padding: 10px 100px;
   text-align: center;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  max-width: 90%;
+  /* max-width: 90%; */
   width: fit-content;
   position: relative;
   z-index: 2;
@@ -1751,12 +1916,12 @@ ul.header-nav.show {
   left: 60vw;
 }
 
-.s-subscribe {
+/* .s-subscribe {
   padding-block: 0px 72px;
   background-image: url(../images/bg-santander.png);
   background-position: center;
   background-repeat: no-repeat;
-}
+} */
 .s-subscribe p {
   color: #777777;
   font-size: 40px;
@@ -1817,9 +1982,9 @@ ul.header-nav.show {
 
 footer {
   padding-block: 20px;
-  background-image: url(../images/bg-footer.png);
+  /* background-image: url(../images/bg-footer.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
   background-color: #990000;
 }
 
@@ -2072,8 +2237,7 @@ footer {
 
 .faq-section {
   max-width: 800px;
-  margin: auto;
-  margin-top: 80px;
+  margin: 80px auto;
   background: #fff;
   padding: 30px;
   border-radius: 12px;
@@ -2240,12 +2404,13 @@ footer {
 .sobre-universia-flex .conteudo h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  line-height: 28.8px;
   color: #FF0000;
 }
 
 .sobre-universia-flex .conteudo p {
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 20px;
   color: #555;
   margin-bottom: 30px;
   text-align: justify;
@@ -2257,7 +2422,7 @@ footer {
   background-color: #d6001c;
   color: #fff;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 25px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
@@ -2743,7 +2908,39 @@ footer {
 }
 
 .video-tooltip:hover {
-  transform: scale(1.1);
+  transform: none;
+}
+
+.video-tooltip:hover .tooltip-dot {
+  transform: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+.video-tooltip.tooltip-inverted:hover .tooltip-dot {
+  transform: none;
+  background-color: inherit;
+  box-shadow: none;
+}
+
+.video-tooltip:hover {
+  cursor: default;
+}
+
+.video-tooltip.tooltip-active .tooltip-dot {
+  transform: none;
+  box-shadow: none;
+}
+
+.video-tooltip.tooltip-clicked .tooltip-dot {
+  animation: none;
+  transform: none;
+}
+
+.video-tooltip.tooltip-inverted:hover .tooltip-dot {
+  transform: none;
+  background-color: inherit;
+  box-shadow: none;
 }
 
 .tooltip-marker {
@@ -2799,7 +2996,7 @@ footer {
   position: absolute;
   bottom: 30px;
   left: 50%;
-  transform: translateX(-50%) scale(0.8);
+  transform: none;
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
   padding: 16px 20px;
@@ -2809,17 +3006,16 @@ footer {
   max-width: 320px;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: none;
   backdrop-filter: blur(10px);
   z-index: 200;
 }
 
-/* Ajuste para tooltips próximos às bordas */
 .video-tooltip[style*="left: 10%"] .tooltip-content,
 .video-tooltip[style*="left: 15%"] .tooltip-content,
 .video-tooltip[style*="left: 20%"] .tooltip-content {
   left: 0;
-  transform: translateX(0) scale(0.8);
+  transform: none;
 }
 
 .video-tooltip[style*="left: 60%"] .tooltip-content,
@@ -2827,23 +3023,24 @@ footer {
 .video-tooltip[style*="left: 70%"] .tooltip-content {
   left: auto;
   right: 0;
-  transform: translateX(0) scale(0.8);
+  transform: none;
 }
 
-/* Ajuste das setas para tooltips nas bordas */
-.video-tooltip[style*="left: 10%"] .tooltip-content::after,
-.video-tooltip[style*="left: 15%"] .tooltip-content::after,
-.video-tooltip[style*="left: 20%"] .tooltip-content::after {
-  left: 30px;
-  transform: translateX(0);
+.video-tooltip:hover .tooltip-content,
+.video-tooltip.tooltip-clicked .tooltip-content {
+  transform: none;
 }
 
-.video-tooltip[style*="left: 60%"] .tooltip-content::after,
-.video-tooltip[style*="left: 65%"] .tooltip-content::after,
-.video-tooltip[style*="left: 70%"] .tooltip-content::after {
-  left: auto;
-  right: 30px;
-  transform: translateX(0);
+.video-tooltip.tooltip-active .tooltip-dot {
+  transform: none;
+}
+
+.video-tooltip.tooltip-clicked .tooltip-dot {
+  transform: none;
+}
+
+.video-tooltip:hover .tooltip-dot {
+  transform: none;
 }
 
 .tooltip-content::after {
@@ -2878,9 +3075,9 @@ footer {
 
 .video-tooltip:hover .tooltip-content,
 .video-tooltip.tooltip-clicked .tooltip-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(-10px) scale(1);
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* Ajuste para tooltips das bordas no hover */
@@ -2890,7 +3087,9 @@ footer {
 .video-tooltip[style*="left: 10%"].tooltip-clicked .tooltip-content,
 .video-tooltip[style*="left: 15%"].tooltip-clicked .tooltip-content,
 .video-tooltip[style*="left: 20%"].tooltip-clicked .tooltip-content {
-  transform: translateX(0) translateY(-10px) scale(1);
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .video-tooltip[style*="left: 60%"]:hover .tooltip-content,
@@ -2899,11 +3098,13 @@ footer {
 .video-tooltip[style*="left: 60%"].tooltip-clicked .tooltip-content,
 .video-tooltip[style*="left: 65%"].tooltip-clicked .tooltip-content,
 .video-tooltip[style*="left: 70%"].tooltip-clicked .tooltip-content {
-  transform: translateX(0) translateY(-10px) scale(1);
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .video-tooltip.tooltip-active .tooltip-dot {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.3);
   background-color: #CC0000;
 }
@@ -2911,11 +3112,11 @@ footer {
 .video-tooltip.tooltip-clicked .tooltip-dot {
   animation: none;
   background-color: #CC0000;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .video-tooltip:hover .tooltip-dot {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   background-color: #E60000;
   box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.4);
 }
@@ -3052,7 +3253,7 @@ footer {
 }
 
 .video-tooltip.tooltip-inverted.tooltip-active .tooltip-dot {
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
   box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.3);
   background-color: #F0F0F0;
 }
@@ -3060,11 +3261,11 @@ footer {
 .video-tooltip.tooltip-inverted.tooltip-clicked .tooltip-dot {
   animation: none;
   background-color: #F0F0F0;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .video-tooltip.tooltip-inverted:hover .tooltip-dot {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   background-color: #F5F5F5;
   box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.4);
 }
@@ -3280,7 +3481,7 @@ footer {
 .s-process .list-seletivo .timeline-item:hover .content-card {
   transform: scale(1.15);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #1a1a1a;
+  background-color: #FFFFFF;
   z-index: 2;
 }
 
@@ -3427,6 +3628,100 @@ footer {
   background: #FF0000;
   color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+/* Estilo específico para o botão Aymore */
+.benefits-aymore {
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #FF0000;
+  border-radius: 50px;
+  padding: 12px 32px;
+  margin: 0 !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #FF0000;
+  font-size: 16px;
+  min-width: 120px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.benefits-aymore:hover {
+  background: #FF0000;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+.benefits-aymore.active {
+  background: #FF0000;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+/* Estilos específicos para benefícios do Aymore */
+.aymore-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  padding: 48px 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.aymore-items li {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+  border: 2px solid #FF0000;
+  border-radius: 12px;
+  background: #FFFFFF;
+  transition: all 0.3s ease;
+  height: 190px;
+  width: 100%;
+  justify-content: flex-start;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12), 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.aymore-items li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15), 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para benefícios do Aymore */
+@media (max-width: 1200px) {
+  .aymore-items {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .aymore-items {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aymore-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .aymore-items li {
+    height: auto;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aymore-items {
+    grid-template-columns: 1fr;
+    padding: 32px 0;
+  }
 }
 
 /* Animações */
@@ -3754,3 +4049,29 @@ footer {
   object-position: center;
 }
  */
+
+.santander-paragraph {
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .santander-paragraph {
+    width: 100%;
+  }
+}
+
+/* Classe utilitária para largura de 85% */
+.width-85 {
+  width: 85% !important;
+}
+
+/* Classe flexbox para distribuição vertical */
+.flex-column-spaced {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
