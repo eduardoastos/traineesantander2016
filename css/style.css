@@ -3626,6 +3626,9 @@ footer {
   flex-shrink: 0;
 }
 @media (max-width: 768px) {
+  .benefits-change {
+    gap: 0.25rem !important;
+  }
   .benefits-change p {
     cursor: pointer;
     background: #FFFFFF;
