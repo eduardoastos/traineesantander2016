@@ -568,6 +568,7 @@ ul.header-nav.show {
   font-size: 1rem;
   box-sizing: border-box;
   overflow: hidden;
+  z-index: 3;
 }
 
 .s-program .image-overlay-right {
@@ -587,6 +588,7 @@ ul.header-nav.show {
   font-size: 1rem;
   box-sizing: border-box;
   overflow: hidden;
+  z-index: 3;
 }
 
 
@@ -4224,6 +4226,7 @@ footer {
   height: calc(100% - 100px);
   box-sizing: border-box;
   overflow-y: auto;
+  z-index: 3;
 }
 
 .s-program .overlay-content p {
@@ -4250,7 +4253,9 @@ footer {
 }
 
 .s-program .images {
-  transition: opacity 0.3s ease-in-out;
+  transition: filter 0.3s ease;
+  border: 3px solid transparent;
+  border-radius: 16px;
 }
 
 /* Hover states */
@@ -4269,9 +4274,39 @@ footer {
   visibility: visible;
 }
 
+.s-program .image-container-left .images,
+.s-program .image-container-right .images {
+  border: 3px solid transparent !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.s-program .image-container-left::after,
+.s-program .image-container-right::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease, border-radius 0.3s ease;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .s-program .image-container-left:hover .images,
 .s-program .image-container-right:hover .images {
-  filter: brightness(0.2);
+  border-color: #EC0000 !important;
+  border-radius: 25px;
+}
+
+.s-program .image-container-left:hover::after,
+.s-program .image-container-right:hover::after {
+  opacity: 1;
+  border-radius: 22px;
 }
 
 /* Responsividade para as animações */
