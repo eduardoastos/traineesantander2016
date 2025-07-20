@@ -4241,7 +4241,7 @@ footer {
 /* Estados de transição para os overlays */
 .s-program .image-overlay-left,
 .s-program .image-overlay-right {
-  transition: top 0.3s ease-in-out, left 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out, max-width 0.3s ease-in-out, padding 0.3s ease-in-out, border-radius 0.3s ease-in-out, border 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out, border 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -4256,25 +4256,11 @@ footer {
 /* Hover states */
 .s-program .image-container-left:hover .image-overlay-left {
   top: 20px;
-  background: #000000;
   border: 2px solid white;
-  padding: 15px 30px;
-  border-radius: 50px;
-  width: auto;
-  max-width: 85%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .s-program .image-container-right:hover .image-overlay-right {
   top: 20px;
-  background: #EC0000;
-  padding: 15px 30px;
-  border-radius: 50px;
-  width: auto;
-  max-width: 85%;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .s-program .image-container-left:hover .overlay-content,
@@ -4285,7 +4271,7 @@ footer {
 
 .s-program .image-container-left:hover .images,
 .s-program .image-container-right:hover .images {
-  opacity: 0.3;
+  filter: brightness(0.2);
 }
 
 /* Responsividade para as animações */
@@ -4304,19 +4290,11 @@ footer {
   }
   
   .s-program .image-container-left:hover .image-overlay-left {
-    max-width: 90%;
-    padding: 12px 20px;
-    border: 2px solid white;
-    left: 50%;
-    transform: translateX(-50%);
     top: 15px;
+    border: 2px solid white;
   }
   
   .s-program .image-container-right:hover .image-overlay-right {
-    max-width: 90%;
-    padding: 12px 20px;
-    left: 50%;
-    transform: translateX(-50%);
     top: 15px;
   }
 }
@@ -4335,19 +4313,11 @@ footer {
   }
   
   .s-program .image-container-left:hover .image-overlay-left {
-    max-width: 90%;
-    padding: 10px 15px;
     top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
     border: 2px solid white;
   }
   
   .s-program .image-container-right:hover .image-overlay-right {
-    max-width: 90%;
-    padding: 10px 15px;
     top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
