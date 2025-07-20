@@ -554,7 +554,7 @@ ul.header-nav.show {
 .s-program .image-overlay-left {
   position: absolute;
   background: #000000;
-  bottom: 15px;
+  top: calc(100% - 67px);
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 24px;
@@ -573,7 +573,7 @@ ul.header-nav.show {
 .s-program .image-overlay-right {
   position: absolute;
   background: #EC0000;
-  bottom: 15px;
+  top: calc(100% - 67px);
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 24px;
@@ -610,7 +610,7 @@ ul.header-nav.show {
   .s-program .image-overlay-right {
     padding: 15px 30px;
     font-size: 1.1rem;
-    bottom: 20px;
+    top: calc(100% - 75px);
     width: 90%;
     max-width: 90%;
     left: 50%;
@@ -623,7 +623,7 @@ ul.header-nav.show {
   .s-program .image-overlay-right {
     padding: 12px 20px;
     font-size: 0.95rem;
-    bottom: 15px;
+    top: calc(100% - 67px);
     width: 90%;
     max-width: 90%;
     left: 50%;
@@ -637,7 +637,7 @@ ul.header-nav.show {
     padding: 8px 16px;
     font-size: 0.8rem;
     border-radius: 40px;
-    bottom: 10px;
+    top: calc(100% - 58px);
     width: 90%;
     max-width: 90%;
     left: 50%;
@@ -651,7 +651,7 @@ ul.header-nav.show {
     padding: 6px 12px;
     font-size: 0.7rem;
     border-radius: 30px;
-    bottom: 8px;
+    top: calc(100% - 50px);
     width: 90%;
     max-width: 90%;
     left: 50%;
@@ -4205,5 +4205,149 @@ footer {
   .social-icon {
     width: 20px;
     height: 20px;
+  }
+}
+
+/* Animações de hover para as áreas */
+.s-program .overlay-content {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out 0.3s, visibility 0.4s ease-in-out 0.3s;
+  text-align: left;
+  width: 90%;
+  height: calc(100% - 100px);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.s-program .overlay-content p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  font-family: 'SantanderText', Arial, sans-serif;
+  font-weight: normal;
+}
+
+.s-program .overlay-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Estados de transição para os overlays */
+.s-program .image-overlay-left,
+.s-program .image-overlay-right {
+  transition: top 0.3s ease-in-out, left 0.3s ease-in-out, transform 0.3s ease-in-out, width 0.3s ease-in-out, max-width 0.3s ease-in-out, padding 0.3s ease-in-out, border-radius 0.3s ease-in-out, border 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.s-program .overlay-text {
+  transition: all 0.3s ease-in-out;
+}
+
+.s-program .images {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hover states */
+.s-program .image-container-left:hover .image-overlay-left {
+  top: 20px;
+  background: #000000;
+  border: 2px solid white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  width: auto;
+  max-width: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.s-program .image-container-right:hover .image-overlay-right {
+  top: 20px;
+  background: #EC0000;
+  padding: 15px 30px;
+  border-radius: 50px;
+  width: auto;
+  max-width: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.s-program .image-container-left:hover .overlay-content,
+.s-program .image-container-right:hover .overlay-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.s-program .image-container-left:hover .images,
+.s-program .image-container-right:hover .images {
+  opacity: 0.3;
+}
+
+/* Responsividade para as animações */
+@media screen and (max-width: 991px) {
+  .s-program .overlay-content {
+    padding: 15px;
+    width: 95%;
+    top: 70px;
+    height: calc(100% - 85px);
+  }
+  
+  .s-program .overlay-content p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  
+  .s-program .image-container-left:hover .image-overlay-left {
+    max-width: 90%;
+    padding: 12px 20px;
+    border: 2px solid white;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+  }
+  
+  .s-program .image-container-right:hover .image-overlay-right {
+    max-width: 90%;
+    padding: 12px 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .s-program .overlay-content {
+    padding: 12px;
+    top: 60px;
+    height: calc(100% - 75px);
+  }
+  
+  .s-program .overlay-content p {
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  
+  .s-program .image-container-left:hover .image-overlay-left {
+    max-width: 90%;
+    padding: 10px 15px;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid white;
+  }
+  
+  .s-program .image-container-right:hover .image-overlay-right {
+    max-width: 90%;
+    padding: 10px 15px;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
