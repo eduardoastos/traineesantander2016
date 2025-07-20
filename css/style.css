@@ -519,10 +519,10 @@ ul.header-nav.show {
   width: calc(100vw - 24px);
 }
 .s-program .images {
-  width: 50%;
+  /* width: 50%; */
   border-radius: 16px;
   height: auto;
-  /* max-height: 545px; */
+  max-height: 545px;
   object-fit: cover;
 }
 .s-program .images-flex-left {
@@ -555,7 +555,7 @@ ul.header-nav.show {
   position: absolute;
   background: #000000;
   bottom: 15px;
-  left: 75%;
+  left: 50%;
   transform: translateX(-50%);
   padding: 12px 24px;
   display: flex;
@@ -564,15 +564,17 @@ ul.header-nav.show {
   border-radius: 50px;
   white-space: nowrap;
   width: 90%;
+  max-width: 90%;
   font-size: 1rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .s-program .image-overlay-right {
   position: absolute;
   background: #EC0000;
   bottom: 15px;
-  left: 25%;
+  left: 50%;
   transform: translateX(-50%);
   padding: 12px 24px;
   display: flex;
@@ -581,8 +583,10 @@ ul.header-nav.show {
   border-radius: 50px;
   white-space: nowrap;
   width: 90%;
+  max-width: 90%;
   font-size: 1rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 
@@ -594,6 +598,11 @@ ul.header-nav.show {
   text-align: center;
   margin: 0;
   letter-spacing: 0.5px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /* Responsividade para overlay text */
 @media screen and (min-width: 992px) {
@@ -602,7 +611,10 @@ ul.header-nav.show {
     padding: 15px 30px;
     font-size: 1.1rem;
     bottom: 20px;
-    width: 46%;
+    width: 90%;
+    max-width: 90%;
+    left: 50%;
+    overflow: hidden;
   }
 }
 
@@ -613,6 +625,9 @@ ul.header-nav.show {
     font-size: 0.95rem;
     bottom: 15px;
     width: 90%;
+    max-width: 90%;
+    left: 50%;
+    overflow: hidden;
   }
 }
 
@@ -624,6 +639,9 @@ ul.header-nav.show {
     border-radius: 40px;
     bottom: 10px;
     width: 90%;
+    max-width: 90%;
+    left: 50%;
+    overflow: hidden;
   }
 }
 
@@ -635,6 +653,9 @@ ul.header-nav.show {
     border-radius: 30px;
     bottom: 8px;
     width: 90%;
+    max-width: 90%;
+    left: 50%;
+    overflow: hidden;
   }
 }
 
@@ -752,8 +773,8 @@ ul.header-nav.show {
   background-color: #FFFFFF;
   border-radius: 16px 16px 16px 16px;
   border: 3px solid #ff0000;
-  -webkit-box-shadow: 0px 4px 20px 0px rgba(147, 0, 0, 0.5019607843);
-  box-shadow: 0px 4px 20px 0px rgba(147, 0, 0, 0.5019607843);
+  /* -webkit-box-shadow: 0px 4px 20px 0px rgba(147, 0, 0, 0.5019607843);
+  box-shadow: 0px 4px 20px 0px rgba(147, 0, 0, 0.5019607843); */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
