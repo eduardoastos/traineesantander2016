@@ -76,17 +76,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // Resetar e reativar animações AOS
             resetAOSAnimations(targetContainer);
 
-            // Para F1RST, mostrar apenas os primeiros 6 cards
-            if (targetSection === 'f1rst') {
-                var f1rstCards = desc2.querySelectorAll('li');
-                f1rstCards.forEach(function(card, index) {
-                    if (index >= 6) {
-                        card.style.display = 'none';
-                    } else {
-                        card.style.display = 'block';
-                    }
-                });
-            }
+            // Mostrar todos os cards para todas as seções
+            var allCards = targetContainer.querySelectorAll('li');
+            allCards.forEach(function(card) {
+                card.style.display = 'block';
+            });
         }
 
         // Event listeners para os botões
