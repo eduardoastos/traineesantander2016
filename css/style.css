@@ -67,6 +67,10 @@ h1, h2, h3, h4, h5 {
   .responsive-paragraph {
     text-align: left;
   }
+  .stats-number-responsive{
+  }
+  .stats-icon{
+  }
 }
 
 .stats-number-responsive {
@@ -80,6 +84,7 @@ h1, h2, h3, h4, h5 {
   hyphens: none;
   max-width: 100%;
   padding: 0 0.2rem;
+  margin-bottom: 2.5rem !important;
 }
 
 /* Estilos específicos para os cards de estatísticas */
@@ -105,6 +110,8 @@ h1, h2, h3, h4, h5 {
   height: 40px;
   margin-bottom: 0 !important;
   flex-shrink: 0;
+  margin-top: 1.5rem !important;
+
 }
 
 .stats-icon svg {
@@ -148,6 +155,8 @@ h1, h2, h3, h4, h5 {
   .stats-icon {
     height: 32px;
     margin-bottom: 0 !important;
+    margin-right: 5px !important;
+    margin-top: 0 !important;
   }
   
   .stats-icon svg {
@@ -172,6 +181,7 @@ h1, h2, h3, h4, h5 {
   
   .stats-icon {
     height: 28px;
+    margin-right: 5px !important;
   }
   
   .stats-icon svg {
@@ -180,8 +190,8 @@ h1, h2, h3, h4, h5 {
   }
   
   .stats-number-responsive {
-    font-size: clamp(0.6rem, 2.5vw, 0.85rem) !important;
-    line-height: 1.05;
+    font-size: 16px !important;
+    line-height: 100% !important;
     padding: 0;
   }
 }
@@ -194,6 +204,7 @@ h1, h2, h3, h4, h5 {
   
   .stats-icon {
     height: 24px;
+    margin-right: 5px !important;
   }
   
   .stats-icon svg {
@@ -202,8 +213,8 @@ h1, h2, h3, h4, h5 {
   }
   
   .stats-number-responsive {
-    font-size: clamp(0.55rem, 2.2vw, 0.75rem) !important;
-    line-height: 1.0;
+    font-size: 16px !important;
+    line-height: 100% !important;
     padding: 0;
   }
 }
