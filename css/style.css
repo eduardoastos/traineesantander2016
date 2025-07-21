@@ -4674,8 +4674,8 @@ footer {
 }
 
 .btn-modal-secondary:hover {
-    background: #EC0000;
-    color: white;
+    /* background: #EC0000; */
+    color: #EC0000;
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(236, 1, 18, 0.3);
