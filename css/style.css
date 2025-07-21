@@ -631,6 +631,16 @@ ul.header-nav.show {
     left: 5%;
     overflow: hidden;
   }
+  .s-program .images-flex-left {
+    justify-content: center;
+  }
+  .s-program .images-flex-right {
+    justify-content: center;
+  }
+  .s-program .overlay-text {
+    font-size: 16px;
+    line-height: 28px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -644,6 +654,16 @@ ul.header-nav.show {
     max-width: 90%;
     left: 5%;
     overflow: hidden;
+  }
+  .s-program .images-flex-left {
+    justify-content: center;
+  }
+  .s-program .images-flex-right {
+    justify-content: center;
+  }
+  .s-program .overlay-text {
+    font-size: 16px;
+    line-height: 28px;
   }
 }
 
@@ -1121,6 +1141,9 @@ ul.header-nav.show {
   .s-santander .header-title {
     max-width: 100%;
     width: 100%;
+    font-size: 24px;
+    white-space: normal;
+    padding: 10px 0px;
   }
 }
 
