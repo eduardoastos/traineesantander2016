@@ -545,9 +545,15 @@ ul.header-nav.show {
   max-height: 545px;
   object-fit: cover;
 }
+@media screen and (max-width: 767px) {
+  .s-program .images {
+    max-height: 425px;
+  }
+}
 .s-program .images-flex-left {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 1rem !important;
 }
 .s-program .images-flex-right {
   display: flex;
@@ -4610,7 +4616,7 @@ footer {
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 0;
-    color: #494949;
+    color: #FFFFFF;
   }
   
   .s-program .overlay-content p {
@@ -4627,6 +4633,11 @@ footer {
   .s-program .image-container-right:hover .image-overlay-right {
     top: 15px;
   }
+
+  .s-program .image-container-left:hover .images,
+  .s-program .image-container-right:hover .images {
+  border: none !important;
+}
 }
 
 /* Modal de Inscrição */
