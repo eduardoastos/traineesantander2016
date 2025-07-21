@@ -139,8 +139,10 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 767px) {
   .stats-card {
     padding: 0.8rem 0.4rem 1rem 0.4rem !important;
-    height: 120px;
+    height: auto;
     margin-bottom: 1rem;
+    flex-direction: row !important;
+    justify-content: center !important;
   }
   
   .stats-icon {
@@ -154,16 +156,18 @@ h1, h2, h3, h4, h5 {
   }
   
   .stats-number-responsive {
-    font-size: clamp(0.65rem, 2.8vw, 0.95rem) !important;
-    line-height: 1.1;
+    font-size: 16px !important;
+    line-height: 100% !important;
     padding: 0 0.1rem;
+    flex: none !important;
+    margin-bottom: 0px !important;
   }
 }
 
 @media (max-width: 480px) {
   .stats-card {
     padding: 0.7rem 0.3rem 0.9rem 0.3rem !important;
-    height: 110px;
+    height: auto;
   }
   
   .stats-icon {
@@ -185,7 +189,7 @@ h1, h2, h3, h4, h5 {
 @media (max-width: 360px) {
   .stats-card {
     padding: 0.6rem 0.2rem 0.8rem 0.2rem !important;
-    height: 100px;
+    height: auto;
   }
   
   .stats-icon {
@@ -407,6 +411,17 @@ ul.header-nav.show {
   .s-about {
     padding-block: 35px;
 
+  }
+  .s-about::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 2px;
+    border-radius: 10px;
+    background: #4d4c4c;
   }
 }
 /* 
@@ -1111,8 +1126,14 @@ ul.header-nav.show {
 
 @media (max-width: 768px) {
   .video-section-with-border::after {
-    width: 80%;
+    width: 86%;
   }
+  .s-santander {
+    padding-block: 50px !important;
+  }
+}
+.img-fluid {
+  margin-left: 2vw !important;
 }
 
 .s-santander .header-title {
@@ -1144,6 +1165,28 @@ ul.header-nav.show {
     font-size: 24px;
     white-space: normal;
     padding: 10px 0px;
+    margin-bottom: 1rem !important;
+  }
+  .btn-inscreva-767 {
+    display: none !important;
+  }
+  .image-valorizar {
+    order: -1;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+  .image-valorizar div {
+    margin-left: 0px !important;
+    width: 100% !important;
+  }
+  .image-valorizar img {
+    border-radius: 12px !important;
+  }
+  .s-santander .row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px !important;
+    padding-bottom: 0 !important;
   }
 }
 
@@ -1328,6 +1371,12 @@ ul.header-nav.show {
   line-height: 48px;
   color: #FFFFFF;
   margin-bottom: 1.5rem !important;
+}
+@media (max-width: 767px) {
+  .s-santander .text-santander-img {
+    font-size: 20px !important;
+    line-height: 24px!important;
+  }
 }
 .s-santander .switcher {
   margin-top: -15px;
@@ -4143,17 +4192,36 @@ footer {
     width: 100%;
   }
   .flex-column-spaced {
+    align-items: flex-start;
+  }
+  .width-85 {
+    width: 100% !important;
+    margin-bottom: 0px !important;
+  }
+  .padding-cards{
+    padding: 0px !important;
+  }
+  .flex-column-spaced2 {
     align-items: center;
+  }
+  .s-santander .row.margin-bottom0 {
+    margin-bottom: 0px !important;
   }
 }
 
 /* Classe utilitária para largura de 85% */
 .width-85 {
-  width: 85% !important;
+  width: 85%;
 }
 
 /* Classe flexbox para distribuição vertical */
 .flex-column-spaced {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.flex-column-spaced2 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
