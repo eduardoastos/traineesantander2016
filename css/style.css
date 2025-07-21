@@ -4082,6 +4082,12 @@ footer {
   .paragraph-container {
     justify-content: center;
   }
+  .title-offset {
+    width: 100% !important;
+  }
+  .text-width {
+    width: 100% !important;
+  }
 }
 
 
