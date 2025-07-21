@@ -2722,7 +2722,8 @@ footer {
 .s-conheca-areas .subtitle-process {
   font-family: "Santander Headline";
   font-weight: 100;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 48px;
   color: #FFFFFF;
   text-align: center;
   margin-bottom: 30px;
