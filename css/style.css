@@ -279,6 +279,11 @@ h1, h2, h3, h4, h5 {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+  .header-paragraf {
+    font-size: 32px !important;
+    line-height: 36px !important;
+    text-align: left !important;
+  }
 }
 ul.header-nav {
   display: -webkit-box;
@@ -679,6 +684,18 @@ ul.header-nav.show {
   .s-program .overlay-text {
     font-size: 16px;
     line-height: 28px;
+  }
+  .s-program .subtitle-process {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  .s-program .image-container-left {
+    justify-content: center !important;
+  }
+  .s-program .image-container-right {
+    justify-content: center !important;
   }
 }
 
@@ -1115,7 +1132,7 @@ ul.header-nav.show {
 .video-section-with-border::after {
   content: "";
   position: absolute;
-  bottom: -25px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
@@ -1363,6 +1380,15 @@ ul.header-nav.show {
     margin-inline: auto;
   }
 }
+.s-santander .text-santander-img01 {
+  max-width: 741px;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem !important;
+}
 .s-santander .text-santander-img {
   max-width: 741px;
   font-size: 40px;
@@ -1376,6 +1402,10 @@ ul.header-nav.show {
   .s-santander .text-santander-img {
     font-size: 20px !important;
     line-height: 24px!important;
+  }
+  .s-santander .text-santander-img01 {
+    font-size: 32px !important;
+    line-height: 36px!important;
   }
 }
 .s-santander .switcher {
@@ -4190,6 +4220,8 @@ footer {
 @media screen and (max-width: 768px) {
   .santander-paragraph {
     width: 100%;
+    font-size: 16px !important;
+    line-height: 24px !important;
   }
   .flex-column-spaced {
     align-items: flex-start;
@@ -4205,6 +4237,9 @@ footer {
     align-items: center;
   }
   .s-santander .row.margin-bottom0 {
+    margin-bottom: 0px !important;
+  }
+  .subtitle-process.margin-bottom0 {
     margin-bottom: 0px !important;
   }
 }
