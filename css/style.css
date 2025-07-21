@@ -2041,13 +2041,24 @@ ul.header-nav.show {
   /* margin-top: 2rem !important; */
 }
 @media (max-width: 768px) {
+  .s-trainee {
+    padding-bottom: 5px !important;
+  }
   .s-trainee .header-title {
     padding: 10px 40px !important;
     white-space: normal !important;
     margin-bottom: 2rem !important;
+    width: 90% !important;
   }
   .s-trainee .video-center {
     justify-content: center !important;
+    margin-bottom: 2rem !important;
+  }
+  .s-trainee .btn-inscreva-767 {
+    display: none !important;
+  }
+  .countdown-section {
+    padding: 30px 20px !important;
   }
 }
 @media (max-width: 992px) {
@@ -2071,6 +2082,10 @@ ul.header-nav.show {
   .s-trainee .header-title {
     font-size: 36px;
   }
+  .s-trainee .nopadding {
+    padding-left: 30px !important;
+  }
+  
 }
 .s-trainee .text-video {
   font-size: 1.25em;
@@ -2429,6 +2444,13 @@ footer {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    margin: 12px auto !important;
+    margin-bottom: 40px !important;
+  }
 }
 
 .faq-title {
@@ -4420,8 +4442,8 @@ footer {
   }
   
   .social-icon {
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
   }
 }
 
