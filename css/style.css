@@ -2804,25 +2804,45 @@ footer {
   }
 }
 
-.areas-tab {
-  background-color: transparent;
-  color: #666666;
-  padding: 12px 24px;
-  border-radius: 33px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 400;
-  font-size: 19px;
-  white-space: nowrap;
-  border: 1px solid #FF0000;
-}
-
-.areas-tab:hover,
-.areas-tab.active {
-  background-color: #FF0000;
-  color: #FFFFFF;
-  border-color: #FF0000;
-}
+  .areas-tab {
+    background-color: #121111;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 33px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size: 19px;
+    white-space: nowrap;
+    border: 3px solid transparent;
+  }
+  
+  .areas-tab.varejo {
+    background-color: #EC0000;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 33px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size: 19px;
+    white-space: nowrap;
+    border: 3px solid transparent;
+  }
+  
+  .areas-tab:hover,
+  .areas-tab.active {
+    background-color: #FFFFFF;
+    color: #121111;
+    border: 3px solid #FF0000;
+  }
+  
+  .areas-tab.varejo:hover,
+  .areas-tab.varejo.active {
+    background-color: #FFFFFF;
+    color: #121111;
+    border: 3px solid #121111;
+  }
 
 .areas-content-wrapper {
   position: relative;
