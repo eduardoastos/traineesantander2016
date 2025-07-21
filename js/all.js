@@ -374,4 +374,63 @@ window.addEventListener('load', function() {
     // Window load configurações originais mantidas
 });
 
+// Funcionalidade da Modal de Inscrição
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('modal-inscricao');
+    const modalClose = document.getElementById('modal-close');
+    
+    // Função para abrir a modal
+    function openModal() {
+        // Calcular largura da barra de rolagem antes de ocultar
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        
+        // Adicionar padding para compensar a barra de rolagem
+        document.body.style.paddingRight = scrollbarWidth + 'px';
+        document.body.style.overflow = 'hidden';
+        
+        modal.classList.add('active');
+    }
+    
+    // Função para fechar a modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+    }
+    
+    // Adicionar event listeners para todos os botões "Inscreva-se"
+    const inscricaoButtons = document.querySelectorAll('a[href*="universia.net"]');
+    inscricaoButtons.forEach(button => {
+        // Verificar se o botão contém "Inscreva-se" ou "inscrever" no texto
+        const buttonText = button.textContent.toLowerCase();
+        if (buttonText.includes('inscreva') || buttonText.includes('inscrever')) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
+    });
+    
+    // Fechar modal ao clicar no X
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+    
+    // Fechar modal ao clicar no overlay
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+    
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+});
+
 // Final do arquivo
