@@ -793,14 +793,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-scib-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-scib-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -823,14 +835,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-scib-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-scib-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -871,6 +895,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -928,14 +964,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-cfo-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-cfo-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -958,14 +1006,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-cfo-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-cfo-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1006,6 +1066,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1063,14 +1135,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-financas-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-financas-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -1093,14 +1177,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-financas-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-financas-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1141,6 +1237,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1198,14 +1306,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-financeira-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-financeira-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -1228,14 +1348,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-financeira-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-financeira-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1276,6 +1408,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1333,14 +1477,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-pessoas-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-pessoas-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -1363,14 +1519,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-pessoas-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-pessoas-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1411,6 +1579,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1468,14 +1648,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-varejo-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-varejo-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -1498,14 +1690,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-varejo-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-varejo-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1546,6 +1750,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1602,14 +1818,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-cyber-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-cyber-second" onclick="scrollToThirdQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
@@ -1635,14 +1863,26 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-cyber-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-cyber-third" onclick="scrollToFourthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Quarta seção (pergunta e resposta lado a lado) -->
@@ -1683,6 +1923,18 @@
                                                         <img src="images/subscribe.svg" alt="">
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -3855,26 +4107,24 @@ function animateQASection(config) {
                 setTimeout(() => {
                     showButton(buttonSelector);
                     
-                    // Mostrar botão de voltar correspondente na tab wealth-management
-                    if (activeContent.id === 'wealth-management-content') {
-                        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
-                        // Esconder todos primeiro
-                        allScrollBackButtons.forEach(button => {
-                            button.style.opacity = '0';
-                            button.style.visibility = 'hidden';
-                        });
-                        
-                        // Mostrar o botão correspondente baseado no buttonSelector
-                        let buttonIndex = -1;
-                        if (buttonSelector === '.areas-button-more-third') buttonIndex = 1; // terceira seção = segundo botão
-                        else if (buttonSelector === '.areas-button-more-fourth') buttonIndex = 2; // quarta seção = terceiro botão
-                        
-                        if (buttonIndex >= 0 && buttonIndex < allScrollBackButtons.length) {
-                            const targetButton = allScrollBackButtons[buttonIndex];
-                            if (targetButton) {
-                                targetButton.style.opacity = '1';
-                                targetButton.style.visibility = 'visible';
-                            }
+                    // Mostrar botão de voltar correspondente em qualquer tab
+                    const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+                    // Esconder todos primeiro
+                    allScrollBackButtons.forEach(button => {
+                        button.style.opacity = '0';
+                        button.style.visibility = 'hidden';
+                    });
+                    
+                    // Mostrar o botão correspondente baseado no buttonSelector
+                    let buttonIndex = -1;
+                    if (buttonSelector === '.areas-button-more-third') buttonIndex = 1; // terceira seção = segundo botão
+                    else if (buttonSelector === '.areas-button-more-fourth') buttonIndex = 2; // quarta seção = terceiro botão
+                    
+                    if (buttonIndex >= 0 && buttonIndex < allScrollBackButtons.length) {
+                        const targetButton = allScrollBackButtons[buttonIndex];
+                        if (targetButton) {
+                            targetButton.style.opacity = '1';
+                            targetButton.style.visibility = 'visible';
                         }
                     }
                 }, 1000);
@@ -3961,7 +4211,7 @@ function saveProgress(progressId, stepNumber) {
 function scrollToNextQuestion() {
     // Esconder botão de voltar da seção atual antes do scroll
     const activeContent = document.querySelector('.areas-content.active');
-    if (activeContent && activeContent.id === 'wealth-management-content') {
+    if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
             button.style.opacity = '0';
@@ -3971,12 +4221,13 @@ function scrollToNextQuestion() {
     
     scrollToNextSection('.second-qa-section', 'btn-more-wealth');
     
-    // Disparar animação após scroll
+    // Disparar animação após scroll com delay apropriado
     setTimeout(() => {
         // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
         const activeContent = document.querySelector('.areas-content.active');
         if (!activeContent) return;
         
+        // Mostrar container da segunda seção primeiro, mas ainda sem conteúdo
         const secondSection = activeContent.querySelector('.second-qa-section');
         if (secondSection) {
             secondSection.style.opacity = '1';
@@ -3984,25 +4235,25 @@ function scrollToNextQuestion() {
             secondSection.style.transition = 'opacity 0.3s ease';
         }
         
-        // Como não há pergunta na segunda seção, mostrar apenas a resposta
-        const response = activeContent.querySelector('#second-response');
-        if (response) {
-            response.style.opacity = '1';
-            response.style.visibility = 'visible';
-            response.style.transition = 'opacity 0.3s ease';
-            
-            if (typeof AOS !== 'undefined') {
-                response.classList.add('aos-animate');
-            }
-        }
-        
-        // Mostrar botão após a resposta
+        // Adicionar delay antes de mostrar o balão de conversa (resposta)
         setTimeout(() => {
-            showButton('.areas-button-more-second');
-            saveProgress(activeContent.id, 2);
+            const response = activeContent.querySelector('#second-response');
+            if (response) {
+                response.style.opacity = '1';
+                response.style.visibility = 'visible';
+                response.style.transition = 'opacity 0.3s ease';
+                
+                if (typeof AOS !== 'undefined') {
+                    response.classList.add('aos-animate');
+                }
+            }
             
-            // Esconder todos os botões de voltar e mostrar apenas o da segunda seção
-            if (activeContent.id === 'wealth-management-content') {
+            // Mostrar botão após a resposta
+            setTimeout(() => {
+                showButton('.areas-button-more-second');
+                saveProgress(activeContent.id, 2);
+                
+                // Esconder todos os botões de voltar e mostrar apenas o da segunda seção
                 // Esconder todos primeiro
                 const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
                 allScrollBackButtons.forEach(button => {
@@ -4016,8 +4267,8 @@ function scrollToNextQuestion() {
                     secondSectionButton.style.opacity = '1';
                     secondSectionButton.style.visibility = 'visible';
                 }
-            }
-        }, 500);
+            }, 500);
+        }, 800); // Delay de 800ms para o balão aparecer após o scroll
     }, 200);
 }
 
@@ -4025,7 +4276,7 @@ function scrollToNextQuestion() {
 function scrollToThirdQuestion() {
     // Esconder botão de voltar da seção atual antes do scroll
     const activeContent = document.querySelector('.areas-content.active');
-    if (activeContent && activeContent.id === 'wealth-management-content') {
+    if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
             button.style.opacity = '0';
@@ -4061,11 +4312,11 @@ function scrollToThirdQuestion() {
     }, 200);
 }
 
-// Função para scroll de volta ao topo na tab wealth-management
+// Função para scroll de volta ao topo em qualquer tab
 function scrollBackToTop() {
     const activeContent = document.querySelector('.areas-content.active');
     
-    if (activeContent && activeContent.id === 'wealth-management-content') {
+    if (activeContent) {
         console.log('Fazendo scroll de volta ao topo e resetando animações como troca de aba');
         
         // Esconder todos os botões de voltar imediatamente
@@ -4088,23 +4339,23 @@ function scrollBackToTop() {
         
         // Aguardar scroll terminar e simplesmente simular clique na tab atual
         setTimeout(() => {
-            console.log('Simulando clique na tab wealth-management para reiniciar animações...');
+            console.log('Simulando clique na tab ativa para reiniciar animações...');
             
-            // Encontrar e simular clique na tab wealth-management
-            const wealthTab = document.querySelector('.areas-tab[data-area="wealth-management"]');
+            // Encontrar qual tab está ativa e simular clique nela
+            const activeTab = document.querySelector('.areas-tab.active');
             
-            if (wealthTab) {
+            if (activeTab) {
                 // Simular evento de clique completo
                 const clickEvent = new Event('click', {
                     bubbles: true,
                     cancelable: true
                 });
                 
-                wealthTab.dispatchEvent(clickEvent);
+                activeTab.dispatchEvent(clickEvent);
                 
                 console.log('Clique simulado na tab - animações devem reiniciar automaticamente!');
             } else {
-                console.error('Tab wealth-management não encontrada');
+                console.error('Tab ativa não encontrada');
             }
             
         }, 500);
@@ -4115,7 +4366,7 @@ function scrollBackToTop() {
 function scrollToFourthQuestion() {
     // Esconder botão de voltar da seção atual antes do scroll
     const activeContent = document.querySelector('.areas-content.active');
-    if (activeContent && activeContent.id === 'wealth-management-content') {
+    if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
             button.style.opacity = '0';
@@ -4156,7 +4407,7 @@ function scrollToFifthQuestion() {
     
     // Esconder botão de voltar da seção atual antes do scroll
     const activeContent = document.querySelector('.areas-content.active');
-    if (activeContent && activeContent.id === 'wealth-management-content') {
+    if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
             button.style.opacity = '0';
@@ -4242,21 +4493,19 @@ function scrollToFifthQuestion() {
                     inscriptionButton.style.transition = 'opacity 0.3s ease';
                 }
                 
-                // Mostrar botão de voltar da quinta seção na tab wealth-management
-                if (activeContent.id === 'wealth-management-content') {
-                    const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
-                    // Esconder todos primeiro
-                    allScrollBackButtons.forEach(button => {
-                        button.style.opacity = '0';
-                        button.style.visibility = 'hidden';
-                    });
-                    
-                    // Mostrar o botão da quinta seção (quarto botão)
-                    const fifthSectionButton = allScrollBackButtons[3];
-                    if (fifthSectionButton) {
-                        fifthSectionButton.style.opacity = '1';
-                        fifthSectionButton.style.visibility = 'visible';
-                    }
+                // Mostrar botão de voltar da quinta seção em qualquer tab
+                const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+                // Esconder todos primeiro
+                allScrollBackButtons.forEach(button => {
+                    button.style.opacity = '0';
+                    button.style.visibility = 'hidden';
+                });
+                
+                // Mostrar o botão da quinta seção (quarto botão)
+                const fifthSectionButton = allScrollBackButtons[3];
+                if (fifthSectionButton) {
+                    fifthSectionButton.style.opacity = '1';
+                    fifthSectionButton.style.visibility = 'visible';
                 }
             }, 500);
             
