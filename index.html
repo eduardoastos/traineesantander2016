@@ -548,16 +548,31 @@
                                 data-aos-offset="300"
                                 data-aos-delay="0"
                                 data-aos-duration="300">
-                                <ul class="areas-nav-list list-unstyled">
-                                    <li class="areas-tab active" data-area="wealth-management">Chief Financial Officer</li>
-                                    <li class="areas-tab" data-area="scib">Santander Financiamentos</li>
-                                    <li class="areas-tab" data-area="cfo">Finanças e Estratégia</li>
-                                    <li class="areas-tab" data-area="financas-estrategia">Pessoas, Cultura & Ouvidoria</li>
-                                    <li class="areas-tab" data-area="financeira">Santander Corporate & Investment Banking</li>
-                                    <li class="areas-tab" data-area="pessoas-ouvidoria">Tecnologia & Operações</li>
-                                    <li class="areas-tab" data-area="varejo">Wealth Management</li>
-                                    <li class="areas-tab" data-area="to-cyber-dados">Varejo</li>
-                                </ul>
+                                <div class="areas-nav-list">
+                                    <div class="areas-tab active" data-area="wealth-management">Chief Financial Officer</div>
+                                    <div class="areas-mobile-content" id="mobile-wealth-management"></div>
+                                    
+                                    <div class="areas-tab" data-area="scib">Santander Financiamentos</div>
+                                    <div class="areas-mobile-content" id="mobile-scib"></div>
+                                    
+                                    <div class="areas-tab" data-area="cfo">Finanças e Estratégia</div>
+                                    <div class="areas-mobile-content" id="mobile-cfo"></div>
+                                    
+                                    <div class="areas-tab" data-area="financas-estrategia">Pessoas, Cultura & Ouvidoria</div>
+                                    <div class="areas-mobile-content" id="mobile-financas-estrategia"></div>
+                                    
+                                    <div class="areas-tab" data-area="financeira">Santander Corporate & Investment Banking</div>
+                                    <div class="areas-mobile-content" id="mobile-financeira"></div>
+                                    
+                                    <div class="areas-tab" data-area="pessoas-ouvidoria">Tecnologia & Operações</div>
+                                    <div class="areas-mobile-content" id="mobile-pessoas-ouvidoria"></div>
+                                    
+                                    <div class="areas-tab" data-area="varejo">Wealth Management</div>
+                                    <div class="areas-mobile-content" id="mobile-varejo"></div>
+                                    
+                                    <div class="areas-tab" data-area="to-cyber-dados">Varejo</div>
+                                    <div class="areas-mobile-content" id="mobile-to-cyber-dados"></div>
+                                </div>
                             </div>
                             
                             <div class="areas-content-wrapper"
@@ -1519,7 +1534,7 @@
                                         <!-- Primeira seção (pergunta e resposta lado a lado) -->
                                         <div class="first-qa-section d-flex align-items-start">
                                             <p class="mb-3 custom-question" style="width: 50%;" data-aos="fade" data-aos-offset="100" data-aos-delay="3500" data-aos-duration="300">O que a área de Wealth Management faz?</p>
-                                            <div style="width: 70%; margin-top: 6%;">
+                                            <div style="width: 70%; margin-top: 2%; width: 100%;">
                                                 <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
                                                     <p>Na área de Wealth Management, combinamos tecnologia, análise e estratégia para oferecer soluções completas a clientes de alta renda — com foco em investimentos, planejamento patrimonial e inovação digital.</p>
                                                     <p>Atuamos em três frentes conectadas: Private Banking, Asset Management e Toro Investimentos.</p>
@@ -3181,7 +3196,7 @@ Se desejar participar de ambas, é necessário se inscrever separadamente em cad
             function initLoadingAnimations() {
                 
                 // Busca apenas as perguntas da aba ativa
-                const activeContent = document.querySelector('.areas-content.active');
+                const activeContent = getActiveAreaContainer();
                 
                 if (!activeContent) {
                     return;
@@ -3858,8 +3873,20 @@ function scrollToNextSection(targetSelector, buttonId) {
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
     
-    const contentWrapper = document.querySelector('.areas-content-wrapper');
-    const activeContent = document.querySelector('.areas-content.active');
+    // Usar função para detectar container ativo correto (mobile ou desktop)
+    const activeContent = getActiveAreaContainer();
+    
+    // Determinar o wrapper correto baseado no contexto
+    let contentWrapper;
+    if (window.innerWidth <= 768) {
+        // Mobile: usar o container móvel ativo como wrapper
+        contentWrapper = document.querySelector('.areas-mobile-content.active');
+        console.log('Mobile: usando container móvel para scroll', contentWrapper);
+    } else {
+        // Desktop: usar o wrapper original
+        contentWrapper = document.querySelector('.areas-content-wrapper');
+        console.log('Desktop: usando wrapper original para scroll', contentWrapper);
+    }
     
     if (activeContent && contentWrapper) {
         const targetSection = activeContent.querySelector(targetSelector);
@@ -4052,29 +4079,54 @@ function animateDotsQuestion(questionElement, callback) {
 
 // Função auxiliar para mostrar botões
 function showButton(buttonSelector) {
-    const activeContent = document.querySelector('.areas-content.active');
+    const activeContent = getActiveAreaContainer();
     const button = activeContent ? activeContent.querySelector(buttonSelector) : document.querySelector(buttonSelector);
+    console.log('showButton: procurando', buttonSelector, 'em', activeContent);
     if (button) {
         button.style.opacity = '1';
         button.style.visibility = 'visible';
         button.style.transition = 'opacity 0.3s ease';
+        console.log('showButton: botão encontrado e mostrado');
+    } else {
+        console.log('showButton: botão não encontrado');
     }
 }
 
 // Função auxiliar para salvar progresso
 function saveProgress(progressId, stepNumber) {
     if (progressId && stepNumber) {
-        const activeContent = document.querySelector('.areas-content.active');
+        const activeContent = getActiveAreaContainer();
         if (activeContent && activeContent.id === progressId) {
             window.tabProgress[progressId] = stepNumber;
+            console.log('saveProgress: progresso salvo', progressId, stepNumber);
         }
     }
 }
 
+// Função auxiliar para encontrar o container ativo correto (desktop ou mobile)
+function getActiveAreaContainer() {
+    // Verificar se estamos em mobile e há container móvel ativo
+    if (window.innerWidth <= 768) {
+        const mobileContainer = document.querySelector('.areas-mobile-content.active');
+        if (mobileContainer) {
+            // Retornar o areas-content dentro do container móvel
+            return mobileContainer.querySelector('.areas-content');
+        }
+    }
+    
+    // Fallback para desktop ou se mobile não encontrou
+    return document.querySelector('.areas-content.active');
+}
+
 // Função para scroll para segunda pergunta
 function scrollToNextQuestion() {
+    console.log('=== scrollToNextQuestion INICIADA ===');
+    console.log('Window width:', window.innerWidth);
+    console.log('É mobile?', window.innerWidth <= 768);
+    
     // Esconder botão de voltar da seção atual antes do scroll
-    const activeContent = document.querySelector('.areas-content.active');
+    const activeContent = getActiveAreaContainer();
+    console.log('activeContent encontrado:', !!activeContent);
     if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
@@ -4083,12 +4135,13 @@ function scrollToNextQuestion() {
         });
     }
     
+    console.log('scrollToNextQuestion: chamando scrollToNextSection com .second-qa-section');
     scrollToNextSection('.second-qa-section', 'btn-more-wealth');
     
     // Disparar animação após scroll com delay apropriado
     setTimeout(() => {
         // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
-        const activeContent = document.querySelector('.areas-content.active');
+        const activeContent = getActiveAreaContainer();
         if (!activeContent) return;
         
         // Mostrar container da segunda seção primeiro, mas ainda sem conteúdo
@@ -4139,7 +4192,7 @@ function scrollToNextQuestion() {
 // Função para scroll para terceira pergunta
 function scrollToThirdQuestion() {
     // Esconder botão de voltar da seção atual antes do scroll
-    const activeContent = document.querySelector('.areas-content.active');
+    const activeContent = getActiveAreaContainer();
     if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
@@ -4153,7 +4206,7 @@ function scrollToThirdQuestion() {
     // Disparar animação após scroll
     setTimeout(() => {
         // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
-        const activeContent = document.querySelector('.areas-content.active');
+        const activeContent = getActiveAreaContainer();
         if (!activeContent) return;
         
         const thirdSection = activeContent.querySelector('.third-qa-section');
@@ -4229,7 +4282,7 @@ function scrollBackToTop() {
 // Função para scroll para quarta pergunta
 function scrollToFourthQuestion() {
     // Esconder botão de voltar da seção atual antes do scroll
-    const activeContent = document.querySelector('.areas-content.active');
+    const activeContent = getActiveAreaContainer();
     if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
@@ -4279,7 +4332,7 @@ function scrollToFourthQuestion() {
     
     // Disparar animação após scroll
     setTimeout(() => {
-        const activeContent = document.querySelector('.areas-content.active');
+        const activeContent = getActiveAreaContainer();
         if (!activeContent) return;
         
         // Animar a quarta seção
@@ -4366,7 +4419,7 @@ function scrollToFourthQuestion() {
 function scrollToFifthQuestion() {
     
     // Esconder botão de voltar da seção atual antes do scroll
-    const activeContent = document.querySelector('.areas-content.active');
+    const activeContent = getActiveAreaContainer();
     if (activeContent) {
         const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
         allScrollBackButtons.forEach(button => {
@@ -4408,7 +4461,7 @@ function scrollToFifthQuestion() {
     
     // Disparar animação após scroll - Quinta seção como última seção
     setTimeout(() => {
-        const activeContent = document.querySelector('.areas-content.active');
+        const activeContent = getActiveAreaContainer();
         if (!activeContent) return;
         
         // Animar a quinta seção (última seção)
@@ -4695,8 +4748,20 @@ function scrollToNextSection(targetSelector, buttonId) {
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
     
-    const contentWrapper = document.querySelector('.areas-content-wrapper');
-    const activeContent = document.querySelector('.areas-content.active');
+    // Usar função para detectar container ativo correto (mobile ou desktop)
+    const activeContent = getActiveAreaContainer();
+    
+    // Determinar o wrapper correto baseado no contexto
+    let contentWrapper;
+    if (window.innerWidth <= 768) {
+        // Mobile: usar o container móvel ativo como wrapper
+        contentWrapper = document.querySelector('.areas-mobile-content.active');
+        console.log('Mobile: usando container móvel para scroll', contentWrapper);
+    } else {
+        // Desktop: usar o wrapper original
+        contentWrapper = document.querySelector('.areas-content-wrapper');
+        console.log('Desktop: usando wrapper original para scroll', contentWrapper);
+    }
     
     if (activeContent && contentWrapper) {
         const targetSection = activeContent.querySelector(targetSelector);

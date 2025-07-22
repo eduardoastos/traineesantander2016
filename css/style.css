@@ -2800,8 +2800,10 @@ footer {
 
 @media (max-width: 768px) {
   .areas-nav-list {
-    flex-wrap: wrap;
-    gap: 6px;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
   }
 }
 
@@ -3081,32 +3083,232 @@ footer {
     padding: 20px 15px;
   }
   
+  .areas-tabs-wrapper {
+    padding: 20px 15px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
   .areas-tab {
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 16px 24px;
+    font-size: 16px;
     text-align: center;
+    width: 100%;
+    white-space: normal;
+    border-radius: 50px;
+    display: block;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .areas-tab.active {
+    padding: 10px 24px !important;
+    border-radius: 20px 20px 0 0 !important;
+    background-color: #EC0000 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    margin-bottom: -7px !important;
+  }
+  
+  .areas-tab.varejo.active {
+    background-color: #EC0000 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+  }
+  
+  /* Animação suave para o conteúdo em mobile */
+  .areas-content-wrapper {
+    transition: all 0.3s ease;
+  }
+  
+  /* Scroll suave para toda a página em mobile */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Container das áreas com scroll mais suave */
+  .areas-tabs-wrapper {
+    scroll-behavior: smooth;
+  }
+  
+  /* Transições suaves para os botões ativos */
+  .areas-tab {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Reduzir movimento brusco na página */
+  body {
+    scroll-behavior: smooth;
+  }
+  
+  /* Ajustes para o container desktop em mobile (escondido) */
+  
+  /* Estilo para integrar melhor o layout em mobile */
+  .areas-tabs-wrapper {
+    margin-bottom: 0;
+  }
+  
+  /* Container móvel para o conteúdo */
+  .areas-mobile-content {
+    display: none;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 15px;
+    scroll-margin-top: 20px;
+    border-top: 3px solid #EC0000;
+    border-radius: 0 0 15px 15px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 460px;
+    overflow: hidden;
+  }
+  
+  /* Garantir que o conteúdo clonado mantenha as propriedades corretas */
+  .areas-mobile-content .areas-speech-bubble {
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    background-color: #EAF0F2;
+  }
+  
+  .areas-mobile-content.active {
+    display: block;
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  /* Ajustar focus no container móvel */
+  .areas-mobile-content:focus {
+    outline: none;
+  }
+  
+  /* Forçar layout vertical em todas as divs filhas diretas da areas-speech-bubble em mobile */
+  .areas-speech-bubble > div {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* Forçar largura 100% para todos os filhos diretos p e div das divs filhas da areas-speech-bubble */
+  .areas-speech-bubble > div > p {
+    width: 100% !important;
+    margin-bottom: 0px !important;
+  }
+
+  .custom-question {
+    padding: 12px 42px !important;
+  }
+  
+  .areas-speech-bubble > div > div {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Forçar largura 100% para divs areas-response especificamente */
+  .areas-response {
+    width: 100% !important;
+  }
+  
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    60% {
+      opacity: 0.8;
+      transform: translateY(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Esconder o container desktop em mobile */
+  .areas-content-wrapper {
+    display: none;
+  }
+}
+
+/* Para desktop - mostrar container normal e esconder móvel */
+@media (min-width: 769px) {
+  .areas-mobile-content {
+    display: none !important;
   }
   
   .areas-content-wrapper {
-    height: 450px;
+    display: block !important;
+  }
+  
+  .areas-content-wrapper {
+    height: 400px;
+    min-height: 400px;
+    margin-top: 20px;
+    position: relative;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* Manter consistência de scroll com desktop */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .areas-content-wrapper::-webkit-scrollbar {
+    display: none;
   }
   
   .areas-speech-bubble {
-    padding: 15px;
-    padding-bottom: 100px;
+    padding: 25px;
+    padding-bottom: 60px;
+    padding-top: 40px;
     background-image: url(../images/bg-santander.png);
-    background-size: cover;
+    background-size: 50%;
     background-position: center;
-    background-repeat: no-repeat;
-    min-height: 450px;
+    background-repeat: repeat;
+    height: 400px;
+    min-height: 400px;
+    border-radius: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    border: 1px solid #E9ECEF;
+    
+    /* Estilo de scroll similar ao desktop */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    
+    /* Permitir scroll da página quando necessário */
+    overscroll-behavior: contain;
+    touch-action: manipulation;
+    
+    /* Desabilitar seleção de texto para evitar arrastar */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    /* Desabilitar drag and drop */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+  
+  .areas-speech-bubble::-webkit-scrollbar {
+    display: none;
   }
   
   .areas-speech-bubble:first-child {
-    margin-bottom: 100px; /* Mais espaço em mobile */
+    margin-bottom: 0px; /* Sem margem extra em mobile */
   }
   
   .areas-response {
-    padding: 15px;
+    padding: 20px;
+    margin-top: 15px;
   }
   
   .areas-person {
@@ -3119,7 +3321,13 @@ footer {
   }
   
   .areas-button-more {
-    bottom: -70px; /* Ajustar posição em mobile */
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 10;
   }
 }
 
@@ -3155,6 +3363,9 @@ footer {
 
 /* Estilos para o botão "Quero saber mais" */
 .btn-more-info {
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
   background: white;
   border: 0px;
   color: #ec0000;

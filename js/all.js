@@ -253,6 +253,125 @@ setTimeout(function() {
     corp3.onclick = switchToTools;
 }, 1000);
 
+// Função para reativar event listeners dos botões clonados
+function reactivateButtonListeners(container) {
+    // Abordagem 1: Tentar executar onclick diretamente nos botões existentes
+    var allButtons = container.querySelectorAll('button');
+    console.log('Encontrados ' + allButtons.length + ' botões no container');
+    
+    for (var i = 0; i < allButtons.length; i++) {
+        var button = allButtons[i];
+        var onclickValue = button.getAttribute('onclick');
+        
+        if (onclickValue) {
+            console.log('Botão com onclick encontrado:', onclickValue);
+            
+            // Abordagem simples: forçar onclick a funcionar
+            (function(btn, onclick) {
+                btn.addEventListener('click', function(e) {
+                    console.log('Clique detectado! Executando:', onclick);
+                    
+                    // Método 1: Tentar executar eval
+                    try {
+                        eval(onclick);
+                        return;
+                    } catch (e1) {
+                        console.log('Eval falhou, tentando método 2:', e1);
+                    }
+                    
+                    // Método 2: Tentar executar função window
+                    try {
+                        var funcName = onclick.replace('()', '').trim();
+                        if (typeof window[funcName] === 'function') {
+                            window[funcName]();
+                            return;
+                        }
+                    } catch (e2) {
+                        console.log('Window function falhou, tentando método 3:', e2);
+                    }
+                    
+                    // Método 3: Chamar funções conhecidas diretamente
+                    if (onclick.includes('scrollToNextQuestion') && typeof scrollToNextQuestion === 'function') {
+                        scrollToNextQuestion();
+                    } else if (onclick.includes('scrollToThirdQuestion') && typeof scrollToThirdQuestion === 'function') {
+                        scrollToThirdQuestion();
+                    } else if (onclick.includes('scrollToFourthQuestion') && typeof scrollToFourthQuestion === 'function') {
+                        scrollToFourthQuestion();
+                    } else if (onclick.includes('scrollToFifthQuestion') && typeof scrollToFifthQuestion === 'function') {
+                        scrollToFifthQuestion();
+                    } else if (onclick.includes('scrollBackToTop') && typeof scrollBackToTop === 'function') {
+                        scrollBackToTop();
+                    } else {
+                        console.error('Nenhum método funcionou para:', onclick);
+                    }
+                });
+            })(button, onclickValue);
+        }
+    }
+    
+    // Abordagem 2: Também tentar forçar clique nos botões originais se disponíveis
+    var moreButtons = container.querySelectorAll('.btn-more-info');
+    console.log('Encontrados ' + moreButtons.length + ' botões .btn-more-info específicos');
+    
+    for (var j = 0; j < moreButtons.length; j++) {
+        var moreBtn = moreButtons[j];
+        if (!moreBtn.getAttribute('data-listener-added')) {
+            moreBtn.setAttribute('data-listener-added', 'true');
+            
+            moreBtn.addEventListener('click', function(e) {
+                console.log('Clique direto em btn-more-info detectado!');
+                var onclick = this.getAttribute('onclick');
+                if (onclick) {
+                    try {
+                        eval(onclick);
+                    } catch (error) {
+                        console.error('Erro ao executar onclick direto:', error);
+                    }
+                }
+            });
+        }
+    }
+}
+
+// Função para lidar com mudanças de tamanho da tela
+function handleResizeForAreas() {
+    var activeTab = document.querySelector(".areas-tab.active");
+    var allMobileContainers = document.querySelectorAll(".areas-mobile-content");
+    
+    if (window.innerWidth <= 768) {
+        // Modo mobile - mover conteúdo ativo para container móvel específico
+        if (activeTab) {
+            var targetArea = activeTab.getAttribute("data-area");
+            var targetContent = document.getElementById(targetArea + "-content");
+            var mobileContainer = document.getElementById("mobile-" + targetArea);
+            
+            if (targetContent && targetContent.classList.contains("active") && mobileContainer) {
+                var contentClone = targetContent.cloneNode(true);
+                
+                // Limpar todos os containers móveis primeiro
+                for (var i = 0; i < allMobileContainers.length; i++) {
+                    allMobileContainers[i].innerHTML = '';
+                    allMobileContainers[i].classList.remove("active");
+                }
+                
+                // Adicionar conteúdo ao container específico
+                mobileContainer.appendChild(contentClone);
+                mobileContainer.classList.add("active");
+                mobileContainer.setAttribute("tabindex", "0");
+                
+                // Reativar event listeners dos botões clonados
+                reactivateButtonListeners(mobileContainer);
+            }
+        }
+    } else {
+        // Modo desktop - limpar todos os containers móveis
+        for (var j = 0; j < allMobileContainers.length; j++) {
+            allMobileContainers[j].innerHTML = '';
+            allMobileContainers[j].classList.remove("active");
+        }
+    }
+}
+
 // Funcionalidade para as abas da seção "Conheça Nossas Áreas"
 function initializeAreasTabs() {
     var areasTabs = document.querySelectorAll(".areas-tab");
@@ -279,10 +398,57 @@ function initializeAreasTabs() {
                 areasContents[k].style.visibility = '';
             }
             
+            // Limpar todos os containers móveis
+            var allMobileContainers = document.querySelectorAll(".areas-mobile-content");
+            for (var m = 0; m < allMobileContainers.length; m++) {
+                allMobileContainers[m].innerHTML = '';
+                allMobileContainers[m].classList.remove("active");
+            }
+            
             // Show target content area
             var targetContent = document.getElementById(targetArea + "-content");
             if (targetContent) {
                 targetContent.classList.add("active");
+                
+                // Mover conteúdo para mobile se necessário
+                if (window.innerWidth <= 768) {
+                    var mobileContainer = document.getElementById("mobile-" + targetArea);
+                    if (mobileContainer) {
+                        var contentClone = targetContent.cloneNode(true);
+                        
+                        // Adicionar conteúdo clonado ao container específico
+                        mobileContainer.innerHTML = '';
+                        mobileContainer.appendChild(contentClone);
+                        mobileContainer.classList.add("active");
+                        mobileContainer.setAttribute("tabindex", "0");
+                        
+                        // Reativar event listeners dos botões clonados após um pequeno delay
+                        setTimeout(function() {
+                            console.log('Tentando reativar listeners para container:', mobileContainer);
+                            reactivateButtonListeners(mobileContainer);
+                        }, 50);
+                        
+                        // Fazer scroll suave até o conteúdo específico - nova abordagem
+                        setTimeout(function() {
+                            // Verificar se o elemento existe e está visível
+                            if (mobileContainer && mobileContainer.classList.contains('active')) {
+                                // Aguardar um frame adicional para garantir que o elemento foi renderizado
+                                requestAnimationFrame(function() {
+                                    // Scroll simples e direto
+                                    var containerRect = mobileContainer.getBoundingClientRect();
+                                    var currentScrollY = window.pageYOffset;
+                                    var targetY = currentScrollY + containerRect.top - 50; // 50px de margem do topo
+                                    
+                                    // Scroll direto para a posição calculada
+                                    window.scrollTo({
+                                        top: Math.max(0, targetY), // Não permitir scroll negativo
+                                        behavior: 'smooth'
+                                    });
+                                });
+                            }
+                        }, 100);
+                    }
+                }
                 
                 // Reset ALL AOS animations first
                 var allAosElements = document.querySelectorAll('[data-aos]');
@@ -397,6 +563,44 @@ window.addEventListener('load', function() {
     }, 500);
     
     // Window load configurações originais mantidas
+    
+    // Inicializar layout responsivo das áreas
+    handleResizeForAreas();
+    window.addEventListener('resize', handleResizeForAreas);
+    
+    // Função para inicializar a tab ativa inicial - Simular clique na tab ativa
+    function initializeActiveTab() {
+        // Se estiver em mobile, simular clique na tab ativa para disparar as animações
+        if (window.innerWidth <= 768) {
+            var initialActiveTab = document.querySelector(".areas-tab.active");
+            if (initialActiveTab) {
+                // Simular clique na tab ativa - isso vai acionar toda a lógica que já funciona
+                setTimeout(function() {
+                                                if (initialActiveTab.click) {
+                                initialActiveTab.click();
+                            } else {
+                                // Fallback para navegadores antigos
+                                var clickEvent = new Event('click', { bubbles: true });
+                                initialActiveTab.dispatchEvent(clickEvent);
+                            }
+                            
+                            // Aguardar um pouco e garantir que os event listeners estão ativos
+                            setTimeout(function() {
+                                var activeMobileContainer = document.querySelector('.areas-mobile-content.active');
+                                if (activeMobileContainer) {
+                                    reactivateButtonListeners(activeMobileContainer);
+                                }
+                            }, 200);
+                }, 100);
+            }
+        }
+    }
+    
+    // Executar inicialização após DOM estar pronto
+    setTimeout(initializeActiveTab, 500);
+    
+    // Executar novamente após AOS estar completamente carregado
+    setTimeout(initializeActiveTab, 2000);
 });
 
 // Funcionalidade da Modal de Inscrição
