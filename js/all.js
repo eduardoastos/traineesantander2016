@@ -290,6 +290,31 @@ function initializeAreasTabs() {
                     allAosElements[n].classList.remove('aos-animate');
                 }
                 
+                // Lógica específica para wealth-management: mostrar apenas o botão correto baseado no progresso
+                if (targetArea === 'wealth-management' && typeof window.tabProgress !== 'undefined' && window.tabProgress['wealth-management-content'] > 0) {
+                    setTimeout(function() {
+                        var allScrollBackButtons = targetContent.querySelectorAll('.scroll-back-button');
+                        var currentStep = window.tabProgress['wealth-management-content'];
+                        
+                        // Esconder todos primeiro
+                        allScrollBackButtons.forEach(function(button) {
+                            button.style.opacity = '0';
+                            button.style.visibility = 'hidden';
+                        });
+                        
+                        // Mostrar apenas o botão da seção atual (baseado no progresso)
+                        // Step 2 = botão 0, Step 3 = botão 1, Step 4 = botão 2, Step 5 = botão 3
+                        var buttonIndex = currentStep - 2;
+                        if (buttonIndex >= 0 && buttonIndex < allScrollBackButtons.length) {
+                            var currentButton = allScrollBackButtons[buttonIndex];
+                            if (currentButton) {
+                                currentButton.style.opacity = '1';
+                                currentButton.style.visibility = 'visible';
+                            }
+                        }
+                    }, 100);
+                }
+                
                 // Force refresh AOS multiple times to ensure detection
                 if (typeof AOS !== 'undefined') {
                     AOS.refresh();

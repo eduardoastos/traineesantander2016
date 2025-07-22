@@ -2904,9 +2904,9 @@ footer {
   min-height: 540px;
   background-color: #F8F9FA;
   background-image: url(../images/bg-santander.png);
-  background-size: cover;
+  background-size: 50%;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   border-radius: 0px 0px 15px 15px;
   padding: 25px;
   padding-bottom: 60px;
@@ -2986,10 +2986,13 @@ footer {
 }
 
 .areas-person-title {
-  color: #666666;
-  font-size: 13px;
-  margin-bottom: 0 !important;
-  font-style: normal;
+  border: 1px solid #edf3f6;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #edf3f6;
+  color: #121111 !important;
+  margin-top: 25px;
 }
 
 @media (max-width: 992px) {
@@ -5012,3 +5015,5 @@ footer {
         padding: 12px 25px;
     }
 }
+
+

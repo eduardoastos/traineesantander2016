@@ -575,15 +575,7 @@
                                                 <div class="areas-response" data-aos="fade" data-aos-offset="100" data-aos-delay="8500" data-aos-duration="300">
                                                     <p>Aqui, os números guiam as decisões e controlam o rumo da companhia. A área de CFO garante o equilíbrio entre ativos e passivos para que o banco cresça com sustentabilidade e segurança e tudo o que o Santander faça seja sustentável, ético e lucrativo.
                                                         No Santander, essa área está presente de duas formas diferentes: CFO - Gestão Financeira e CFO - Gestão de Capital. Conheça mais as áreas clicando nos botões abaixo:</p>
-                                                    <div class="areas-person">
-                                                        <!-- <div class="areas-person-avatar">
-                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
-                                                        </div>
-                                                        <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">João da Silva</h5>
-                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
-                                                        </div> -->
-                                                    </div>
+                                                    <p class="areas-person-title">Chief Financial Officer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -591,7 +583,7 @@
                                         <!-- Botão centralizado após primeira resposta -->
                                         <div class="areas-button-more" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
                                             <button class="btn-more-info" id="btn-more-wealth" onclick="scrollToNextQuestion()">
-                                                Quero saber mais
+                                                Gestão Financeira
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                                     <path d="M6 9l6 6 6-6"></path>
                                                 </svg>
@@ -600,94 +592,130 @@
                                         
                                         <!-- Segunda seção (pergunta e resposta lado a lado) -->
                                         <div class="second-qa-section d-flex align-items-start" id="second-question-block" style="opacity: 0; margin-top: 20px;">
-                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="second-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de Wealth?</p>
-                                            <div style="width: 50%; margin-top: 6%;">
+                                            <div style="width: 100%; margin-top: 4%;  margin-left: 36%;">
                                                 <div class="areas-response" style="opacity: 0;" id="second-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
-                                                    <p>Entender profundamente o perfil dos clientes e desenvolver soluções que ultrapassam o óbvio. Você irá atuar em projetos que cruzam dados, comportamento e estratégia de mercado, ao lado de especialistas em investimentos e private banking.</p>
-                                                    <div class="areas-person">
-                                                        <div class="areas-person-avatar">
-                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
-                                                        </div>
-                                                        <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">João da Silva</h5>
-                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
-                                                        </div>
-                                                    </div>
+                                                    <p>A área de CFO - Gestão Financeira/Asset and liability management é responsável por cuidar da estrutura do balanço do banco, garantindo o equilíbrio entre ativos e passivos com inteligência, precisão e visão estratégica. Aqui, monitoramos riscos de mercado como juros, câmbio e liquidez , definimos estratégias de funding, operamos com títulos e derivativos e ajudamos a tomar decisões que sustentam o crescimento do Santander. Atuamos em conjunto com Tesouraria, Riscos e demais áreas estratégicas, participando de fóruns seniores e interagindo com o mercado e órgãos reguladores. Se você curte finanças profundas, dados e decisões que fazem a diferença, esse é o seu lugar.</p>
+                                                    <p class="areas-person-title">Chief Financial Officer - Gestão Financeira</p>
+
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após segunda resposta -->
-                                        <div class="areas-button-more-second" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-wealth-second" onclick="scrollToThirdQuestion()">
-                                                Quero dar match com essa área
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após segunda resposta -->
+                                            <div class="areas-button-more-second" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-wealth-second" onclick="scrollToThirdQuestion()">
+                                                    Quero saber mais
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
                                         <!-- Terceira seção (pergunta e resposta lado a lado) -->
                                         <div class="third-qa-section d-flex align-items-start" id="third-question-block" style="opacity: 0; margin-top: 20px;">
-                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Quais são as oportunidades de crescimento na área de Wealth?</p>
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="third-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a missão do trainee da área de CFO - Gestão Financeira?</p>
                                             <div style="width: 50%; margin-top: 6%;">
                                                 <div class="areas-response" style="opacity: 0;" id="third-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
-                                                    <p>A área de Wealth Management oferece um caminho de crescimento único, desde Analista até Executive Director. Você pode evoluir em especialidades como Gestão de Patrimônio, Investment Banking, ou liderar equipes de consultores especializados em clientes ultra-high-net-worth.</p>
-                                                    <p>Além disso, há oportunidades de intercâmbio com outras unidades do Santander pelo mundo, participação em projetos estratégicos globais e desenvolvimento de competências em inovação financeira e wealth tech.</p>
-                                                    <div class="areas-person">
-                                                        <div class="areas-person-avatar">
-                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
-                                                        </div>
-                                                        <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">João da Silva</h5>
-                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
-                                                        </div>
-                                                    </div>
+                                                    <p>Trazer olhar analítico, pensamento estruturado e usar tecnologia e dados para gerar impacto real - com um pé nas finanças e outro no futuro;</p>
+                                                    <p>Vai estar no centro da estratégia do banco - conectando dados, análises e decisões que movem o negócio.</p>
+                                                    <p class="areas-person-title">Chief Financial Officer - Gestão Financeira</p>
+
                                                 </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Botão centralizado após terceira resposta -->
-                                        <div class="areas-button-more-third" style="position: relative; text-align: center; margin: 30px 0; opacity: 0; transition: opacity 0.3s ease;">
-                                            <button class="btn-more-info" id="btn-more-wealth-third" onclick="scrollToFourthQuestion()">
-                                                Quero saber o que vou aprender
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                    <path d="M6 9l6 6 6-6"></path>
-                                                </svg>
-                                            </button>
+                                        <!-- Container para botão de scroll e botão de voltar - Terceira seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após terceira resposta -->
+                                            <div class="areas-button-more-third" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-wealth-third" onclick="scrollToFourthQuestion()">
+                                                    Quero dar match com essa área
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         </div>
                                         
-                                        <!-- Quarta seção (pergunta e resposta lado a lado) -->
+                                        <!-- Nova Quarta seção (pergunta e resposta lado a lado) -->
                                         <div class="fourth-qa-section d-flex align-items-start" id="fourth-question-block" style="opacity: 0; margin-top: 20px;">
-                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Como posso me preparar para uma carreira na área de Wealth?</p>
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fourth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">O que eu preciso para ser um trainee de CFO - Gestão Financeira ?</p>
                                             <div style="width: 50%; margin-top: 6%;">
-                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
-                                                    <p><strong>📱 PLAY</strong> – Imersão no universo Wealth e perfil de cliente</p>
-                                                    <p><strong>📈 GROW</strong> – Fundos, estruturação, regulação e tendências de investimento</p>
-                                                    <p><strong>🌐 REACH</strong> – Trocas com profissionais do private banking e mesas globais</p>
-                                                    <p><strong>💬 NEXTLEVEL</strong> – Comunicação consultiva e desenvolvimento de influência</p>
-                                                    <div class="areas-person">
-                                                        <div class="areas-person-avatar">
-                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
-                                                        </div>
-                                                        <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">João da Silva</h5>
-                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
-                                                        </div>
-                                                    </div>
+                                                <div class="areas-response" style="opacity: 0;" id="fourth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>O match perfeito com essa área acontecerá se você...</br>
+                                                        ✔️  Curte mercado financeiro, funding, liquidez e riscos;</br>
+                                                        ✔️ Sabe (ou quer aprender) Python, SQL, Excel avançado;</br>
+                                                        ✔️ Tem olhar analítico e pensamento estruturado;</br>
+                                                        ✔️ Proatividade e autonomia para resolução de problemas;</br>
+                                                        ✔️ Vontade de aprender e se desenvolver em um ambiente técnico e desafiador.</p>
+                                                    <p class="areas-person-title">Chief Financial Officer - Gestão Financeira</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de scroll e botão de voltar - Quarta seção -->
+                                        <div style="position: relative; display: flex; justify-content: space-between; align-items: center; margin: 30px 0;">
+                                            <!-- Botão centralizado após nova quarta resposta -->
+                                            <div class="areas-button-more-fourth" style="opacity: 0; transition: opacity 0.3s ease; flex: 1; text-align: center;">
+                                                <button class="btn-more-info" id="btn-more-wealth-fourth" onclick="scrollToFifthQuestion()">
+                                                    Quero saber o que vou aprender
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Quinta seção (pergunta e resposta lado a lado) -->
+                                        <div class="fifth-qa-section d-flex align-items-start" id="fifth-question-block" style="opacity: 0; margin-top: 20px;">
+                                            <p class="mb-3 custom-question" style="width: 50%; opacity: 0;" id="fifth-question" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">Qual é a trilha de aprendizado do trainee de CFO - Gestão Financeira ?</p>
+                                            <div style="width: 50%; margin-top: 6%;">
+                                                <div class="areas-response" style="opacity: 0; margin-bottom: 20px;" id="fifth-response" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Sua jornada será intensa, estratégica e colaborativa:</br>
+                                                        🚀 Imersão nas áreas do Santander;</br>
+                                                        🚀 Desenvolvimento de projetos;</br>
+                                                        🚀 Mentoria com executivos;</br>
+                                                        🚀 4 ondas de treinamentos;</br>
+                                                        🚀 Vivência internacional para os trainees com melhor performance.</p>
+                                                        <p class="areas-person-title">Chief Financial Officer - Gestão Financeira</p>
+
                                                 </div>
                                                 
-                                                <div class="areas-response" style="opacity: 0;" id="fourth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
-                                                    <p>Agora que você já sabe tudo sobre a área de Wealth Management, se inscreva e vem ser Trainee Santander!</p>
-                                                    <div class="areas-person">
-                                                        <div class="areas-person-avatar">
-                                                            <img src="images/avatar_joao-silva.png" alt="João da Silva" class="rounded-circle">
-                                                        </div>
-                                                        <div class="areas-person-info">
-                                                            <h5 class="areas-person-name">João da Silva</h5>
-                                                            <p class="areas-person-title">Líder da área de Wealth Management</p>
-                                                        </div>
-                                                    </div>
+                                                <div class="areas-response" style="opacity: 0;" id="fifth-response-duplicate" data-aos="fade" data-aos-offset="100" data-aos-delay="0" data-aos-duration="300">
+                                                    <p>Agora que você já sabe tudo sobre a área de CFO - Gestão Financeira, se inscreva e vem ser Trainee Santander!</p>
+                                                    <p class="areas-person-title">Chief Financial Officer - Gestão Financeira</p>
+
                                                 </div>
                                                 <div class="col-md-4 col-xxl-4 align-items-center d-flex btn-inscreva" style="width: 40%; position: relative; top: 20px; left: -120px; opacity: 0; visibility: hidden;" id="inscription-button">
                                                     <a href="https://www.universia.net/br/home" target="_blank" class="btn-big-red tm-tracking" data-categoria="Inscrição" data-rotulo="Inscrição no menu" data-acao="Clique na inscrição no menu">
@@ -696,6 +724,18 @@
                                                         <!-- <img src="https://ca.talent.com/tracker/img-pixel.php?tracker=globeats"> -->
                                                     </a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Container para botão de voltar - Quinta seção -->
+                                        <div style="position: relative; display: flex; justify-content: flex-end; align-items: center; margin: 30px 0;">
+                                            <!-- Botão de voltar ao topo - alinhado à direita -->
+                                            <div class="scroll-back-button" style="opacity: 0; visibility: hidden; transition: opacity 0.3s ease;">
+                                                <button class="btn-scroll-back" onclick="scrollBackToTop()" style="background: #EA0029; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(234, 0, 41, 0.3); transition: all 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform: rotate(180deg);">
+                                                        <path d="M6 9l6 6 6-6"></path>
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -2180,7 +2220,7 @@
                         style=" align-items: center;"
                     >
                         <div class="video-yt yt-part" style="background-color: #121111;">
-                            <iframe src="https://www.youtube.com/embed/8GWtH0lAo-I" class="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="mix-blend-mode: lighten; background-color: #121111;"></iframe>
+                            <iframe src="https://www.youtube.com/embed/s8TkF73vTGA" class="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="mix-blend-mode: lighten; background-color: #121111;"></iframe>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 nopadding"
@@ -3631,6 +3671,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Bloquear scroll com barra de rolagem - apenas se não estiver habilitado
         let lastScrollTop = 0;
         contentWrapper.addEventListener('scroll', function(e) {
+
+            
             if (!allowProgrammaticScroll && contentWrapper.getAttribute('data-manual-scroll') !== 'enabled') {
                 e.preventDefault();
                 e.stopPropagation();
@@ -3812,6 +3854,29 @@ function animateQASection(config) {
             if (buttonSelector) {
                 setTimeout(() => {
                     showButton(buttonSelector);
+                    
+                    // Mostrar botão de voltar correspondente na tab wealth-management
+                    if (activeContent.id === 'wealth-management-content') {
+                        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+                        // Esconder todos primeiro
+                        allScrollBackButtons.forEach(button => {
+                            button.style.opacity = '0';
+                            button.style.visibility = 'hidden';
+                        });
+                        
+                        // Mostrar o botão correspondente baseado no buttonSelector
+                        let buttonIndex = -1;
+                        if (buttonSelector === '.areas-button-more-third') buttonIndex = 1; // terceira seção = segundo botão
+                        else if (buttonSelector === '.areas-button-more-fourth') buttonIndex = 2; // quarta seção = terceiro botão
+                        
+                        if (buttonIndex >= 0 && buttonIndex < allScrollBackButtons.length) {
+                            const targetButton = allScrollBackButtons[buttonIndex];
+                            if (targetButton) {
+                                targetButton.style.opacity = '1';
+                                targetButton.style.visibility = 'visible';
+                            }
+                        }
+                    }
                 }, 1000);
             }
             
@@ -3894,6 +3959,16 @@ function saveProgress(progressId, stepNumber) {
 
 // Função para scroll para segunda pergunta
 function scrollToNextQuestion() {
+    // Esconder botão de voltar da seção atual antes do scroll
+    const activeContent = document.querySelector('.areas-content.active');
+    if (activeContent && activeContent.id === 'wealth-management-content') {
+        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+        allScrollBackButtons.forEach(button => {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        });
+    }
+    
     scrollToNextSection('.second-qa-section', 'btn-more-wealth');
     
     // Disparar animação após scroll
@@ -3909,19 +3984,55 @@ function scrollToNextQuestion() {
             secondSection.style.transition = 'opacity 0.3s ease';
         }
         
-        animateQASection({
-            sectionSelector: '.second-qa-section',
-            questionSelector: '#second-question',
-            responseSelector: '#second-response',
-            buttonSelector: '.areas-button-more-second',
-            stepNumber: 2,
-            progressId: activeContent.id
-        });
+        // Como não há pergunta na segunda seção, mostrar apenas a resposta
+        const response = activeContent.querySelector('#second-response');
+        if (response) {
+            response.style.opacity = '1';
+            response.style.visibility = 'visible';
+            response.style.transition = 'opacity 0.3s ease';
+            
+            if (typeof AOS !== 'undefined') {
+                response.classList.add('aos-animate');
+            }
+        }
+        
+        // Mostrar botão após a resposta
+        setTimeout(() => {
+            showButton('.areas-button-more-second');
+            saveProgress(activeContent.id, 2);
+            
+            // Esconder todos os botões de voltar e mostrar apenas o da segunda seção
+            if (activeContent.id === 'wealth-management-content') {
+                // Esconder todos primeiro
+                const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+                allScrollBackButtons.forEach(button => {
+                    button.style.opacity = '0';
+                    button.style.visibility = 'hidden';
+                });
+                
+                // Mostrar apenas o da segunda seção (primeiro botão)
+                const secondSectionButton = allScrollBackButtons[0];
+                if (secondSectionButton) {
+                    secondSectionButton.style.opacity = '1';
+                    secondSectionButton.style.visibility = 'visible';
+                }
+            }
+        }, 500);
     }, 200);
 }
 
 // Função para scroll para terceira pergunta
 function scrollToThirdQuestion() {
+    // Esconder botão de voltar da seção atual antes do scroll
+    const activeContent = document.querySelector('.areas-content.active');
+    if (activeContent && activeContent.id === 'wealth-management-content') {
+        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+        allScrollBackButtons.forEach(button => {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        });
+    }
+    
     scrollToNextSection('.third-qa-section', 'btn-more-wealth-second');
     
     // Disparar animação após scroll
@@ -3945,11 +4056,113 @@ function scrollToThirdQuestion() {
             stepNumber: 3,
             progressId: activeContent.id
         });
+        
+
     }, 200);
+}
+
+// Função para scroll de volta ao topo na tab wealth-management
+function scrollBackToTop() {
+    const activeContent = document.querySelector('.areas-content.active');
+    
+    if (activeContent && activeContent.id === 'wealth-management-content') {
+        console.log('Fazendo scroll de volta ao topo e resetando animações como troca de aba');
+        
+        // Esconder todos os botões de voltar imediatamente
+        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+        allScrollBackButtons.forEach(button => {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        });
+        
+        // Fazer scroll para o topo primeiro
+        allowProgrammaticScroll = true;
+        const contentWrapper = document.querySelector('.areas-content-wrapper');
+        
+        if (contentWrapper) {
+            contentWrapper.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Aguardar scroll terminar e simplesmente simular clique na tab atual
+        setTimeout(() => {
+            console.log('Simulando clique na tab wealth-management para reiniciar animações...');
+            
+            // Encontrar e simular clique na tab wealth-management
+            const wealthTab = document.querySelector('.areas-tab[data-area="wealth-management"]');
+            
+            if (wealthTab) {
+                // Simular evento de clique completo
+                const clickEvent = new Event('click', {
+                    bubbles: true,
+                    cancelable: true
+                });
+                
+                wealthTab.dispatchEvent(clickEvent);
+                
+                console.log('Clique simulado na tab - animações devem reiniciar automaticamente!');
+            } else {
+                console.error('Tab wealth-management não encontrada');
+            }
+            
+        }, 500);
+    }
 }
 
 // Função para scroll para quarta pergunta
 function scrollToFourthQuestion() {
+    // Esconder botão de voltar da seção atual antes do scroll
+    const activeContent = document.querySelector('.areas-content.active');
+    if (activeContent && activeContent.id === 'wealth-management-content') {
+        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+        allScrollBackButtons.forEach(button => {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        });
+    }
+    
+    scrollToNextSection('.fourth-qa-section', 'btn-more-wealth-third');
+    
+    // Disparar animação após scroll
+    setTimeout(() => {
+        // ✨ BUSCAR ELEMENTOS APENAS NA ABA ATIVA
+        const activeContent = document.querySelector('.areas-content.active');
+        if (!activeContent) return;
+        
+        const fourthSection = activeContent.querySelector('.fourth-qa-section');
+        if (fourthSection) {
+            fourthSection.style.opacity = '1';
+            fourthSection.style.visibility = 'visible';
+            fourthSection.style.transition = 'opacity 0.3s ease';
+        }
+        
+        animateQASection({
+            sectionSelector: '.fourth-qa-section',
+            questionSelector: '#fourth-question',
+            responseSelector: '#fourth-response',
+            buttonSelector: '.areas-button-more-fourth',
+            stepNumber: 4,
+            progressId: activeContent.id
+        });
+        
+
+    }, 200);
+}
+
+// Função para scroll para quinta pergunta
+function scrollToFifthQuestion() {
+    
+    // Esconder botão de voltar da seção atual antes do scroll
+    const activeContent = document.querySelector('.areas-content.active');
+    if (activeContent && activeContent.id === 'wealth-management-content') {
+        const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+        allScrollBackButtons.forEach(button => {
+            button.style.opacity = '0';
+            button.style.visibility = 'hidden';
+        });
+    }
     
     // Permitir scroll programático temporariamente
     allowProgrammaticScroll = true;
@@ -3973,7 +4186,7 @@ function scrollToFourthQuestion() {
         
         // ✨ BUSCAR BOTÃO APENAS NA ABA ATIVA
         const activeContent = document.querySelector('.areas-content.active');
-        const button = activeContent ? activeContent.querySelector('.areas-button-more-third button') : null;
+        const button = activeContent ? activeContent.querySelector('.areas-button-more-fourth button') : null;
         if (button) {
             button.style.transform = 'scale(0.95)';
             setTimeout(() => {
@@ -3988,26 +4201,28 @@ function scrollToFourthQuestion() {
         const activeContent = document.querySelector('.areas-content.active');
         if (!activeContent) return;
         
-        const fourthSection = activeContent.querySelector('.fourth-qa-section');
-        if (fourthSection) {
-            fourthSection.style.opacity = '1';
-            fourthSection.style.visibility = 'visible';
-            fourthSection.style.transition = 'opacity 0.3s ease';
+        const fifthSection = activeContent.querySelector('.fifth-qa-section');
+        if (fifthSection) {
+            fifthSection.style.opacity = '1';
+            fifthSection.style.visibility = 'visible';
+            fifthSection.style.transition = 'opacity 0.3s ease';
         }
         
-        // Animar ambas as respostas da quarta seção
+        // Animar ambas as respostas da quinta seção
         animateQASection({
-            sectionSelector: '.fourth-qa-section',
-            questionSelector: '#fourth-question',
-            responseSelector: '#fourth-response',
-            buttonSelector: null, // Quarta seção não tem próximo botão
-            stepNumber: 4,
+            sectionSelector: '.fifth-qa-section',
+            questionSelector: '#fifth-question',
+            responseSelector: '#fifth-response',
+            buttonSelector: null, // Quinta seção não tem próximo botão
+            stepNumber: 5,
             progressId: activeContent.id
         });
         
+
+        
         // Animar a segunda resposta também com delay maior
         setTimeout(() => {
-            const duplicateResponse = activeContent.querySelector('#fourth-response-duplicate');
+            const duplicateResponse = activeContent.querySelector('#fifth-response-duplicate');
             if (duplicateResponse) {
                 duplicateResponse.style.opacity = '1';
                 duplicateResponse.style.visibility = 'visible';
@@ -4025,6 +4240,23 @@ function scrollToFourthQuestion() {
                     inscriptionButton.style.opacity = '1';
                     inscriptionButton.style.visibility = 'visible';
                     inscriptionButton.style.transition = 'opacity 0.3s ease';
+                }
+                
+                // Mostrar botão de voltar da quinta seção na tab wealth-management
+                if (activeContent.id === 'wealth-management-content') {
+                    const allScrollBackButtons = activeContent.querySelectorAll('.scroll-back-button');
+                    // Esconder todos primeiro
+                    allScrollBackButtons.forEach(button => {
+                        button.style.opacity = '0';
+                        button.style.visibility = 'hidden';
+                    });
+                    
+                    // Mostrar o botão da quinta seção (quarto botão)
+                    const fifthSectionButton = allScrollBackButtons[3];
+                    if (fifthSectionButton) {
+                        fifthSectionButton.style.opacity = '1';
+                        fifthSectionButton.style.visibility = 'visible';
+                    }
                 }
             }, 500);
             
