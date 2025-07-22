@@ -500,7 +500,7 @@ ul.header-nav.show {
 
 .s-program {
   padding-bottom: 60px;
-  padding-top: 115px;
+  padding-top: 80px;
 }
 .s-program .box-line {
   position: relative;
@@ -633,7 +633,7 @@ ul.header-nav.show {
 
 .s-program .overlay-text {
   color: white;
-  font-family: 'SantanderHeadline', Arial, sans-serif;
+  font-family: 'Santander Headline', Arial, sans-serif;
   font-weight: bold;
   text-align: center;
   margin: 0;
@@ -959,7 +959,7 @@ ul.header-nav.show {
   line-height: 48px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .s-process .subtitle-process {
@@ -968,13 +968,13 @@ ul.header-nav.show {
   font-size: 20px;
   color: #444444;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .s-process .list-seletivo {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 30px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 40px;
@@ -1073,7 +1073,7 @@ ul.header-nav.show {
 .s-process .list-seletivo .content-card {
   background-color: #FFFFFF;
   border-radius: 25px;
-  padding: 20px 30px;
+  padding: 16px 16px;
   width: 94%;
   text-align: center;
   color: #FF0000;
@@ -1098,7 +1098,7 @@ ul.header-nav.show {
 
 .s-process .list-seletivo .content-card h3 {
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1114,7 +1114,7 @@ ul.header-nav.show {
 
 .s-process .list-seletivo .content-card p {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.2;
   margin: 0 auto;
 }
 
@@ -2131,7 +2131,7 @@ ul.header-nav.show {
   
 }
 .s-trainee .text-video {
-  font-size: 1.25em;
+  font-size: 18px;
   margin-bottom: 2rem !important;
 }
 
@@ -4000,7 +4000,7 @@ footer {
 .s-process .list-seletivo .timeline-item:hover .content-card img,
 .s-process .list-seletivo .timeline-item:hover .content-card h3,
 .s-process .list-seletivo .timeline-item:hover .content-card p {
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 
 .s-process .list-seletivo .timeline-item:hover {
@@ -4008,7 +4008,7 @@ footer {
 }
 
 .s-process .list-seletivo .timeline-item:hover .content-card {
-  transform: scale(1.15);
+  transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   background-color: #FFFFFF;
   z-index: 2;
@@ -4017,7 +4017,7 @@ footer {
 .list-benefits {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  gap: 20px;
   padding-bottom: 60px;
   max-width: 100%;
   margin: 0 auto;
@@ -4067,15 +4067,15 @@ footer {
 
 .list-benefits h3 {
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.2;
   margin: 0 0 8px 0;
   color: #333333;
   font-weight: 700;
 }
 
 .list-benefits p {
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.1;
   margin: 0;
   color: #444444;
 }
@@ -4137,6 +4137,29 @@ footer {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 768px) {
+  .benefits-change {
+    flex-wrap: wrap;
+    width: fit-content;
+    gap: 8px;
+    padding: 12px !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  .benefits-change li {
+    width: calc(50% - 4px); /* 50% menos metade do gap */
+    width: fit-content !important;
+  }
+  
+  .benefits-change p {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    min-width: unset;
+  }
+}
+
 .benefits-change p {
   cursor: pointer;
   background: #FFFFFF;
@@ -4161,7 +4184,7 @@ footer {
     background: #FFFFFF;
     color: #FF0000;
     border-radius: 50px;
-    padding: 12px 2px;
+    padding: 12px 12px;
     margin: 0 !important;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -4615,7 +4638,7 @@ footer {
   color: white;
   width: 100%;
   max-width: 600px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
 }
 
@@ -4789,7 +4812,7 @@ footer {
   font-size: 18px;
   line-height: 30px;
   margin-bottom: 0;
-  font-family: 'SantanderText', Arial, sans-serif;
+  font-family: 'Santander Text', Arial, sans-serif;
   font-weight: normal;
   color: #FFFFFF;
   text-align: left;
