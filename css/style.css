@@ -3164,30 +3164,56 @@ footer {
     border-radius: 0 0 15px 15px;
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    /* Altura variável baseada no conteúdo de cada seção */
-    height: auto; /* Adapta-se ao conteúdo de cada seção */
-    min-height: 150px; /* Altura mínima reduzida */
+    /* Altura mínima possível */
+    height: fit-content;
+    min-height: 0; /* Sem altura mínima forçada */
     /* Sem scroll - navegação apenas por botões como no desktop */
-    overflow: hidden;
+    overflow: visible;
     /* Garantir que o posicionamento relativo funcione para os botões */
     position: relative;
-    /* Padding bottom mínimo - quase zero para eliminar espaço extra */
-    padding-bottom: 15px; /* Apenas o necessário para o botão + 5px */
+    /* Sem padding bottom - botão será posicionado absolutamente */
+    padding-bottom: 0; /* Zero para eliminar completamente espaço extra */
   }
   
   /* Garantir que o conteúdo clonado mantenha as propriedades corretas */
   .areas-mobile-content .areas-speech-bubble {
-    /* Altura variável baseada no conteúdo da seção - sem scroll interno */
-    height: auto; /* Adapta-se ao conteúdo de cada seção */
-    min-height: 120px; /* Altura mínima mais compacta */
+    /* Altura mínima possível */
+    height: auto;
+    min-height: 0; /* Sem altura mínima forçada */
     border-radius: 0;
     border: none;
     margin: 0;
     background-color: #EAF0F2;
     /* Sem scroll - navegação apenas por botões */
     overflow: hidden;
-    /* Padding interno reduzido */
-    padding: 15px; /* Reduzido de 20px para 15px */
+    /* Padding interno mínimo */
+    padding: 8px; /* Mínimo necessário para legibilidade */
+    padding-bottom: 8px; /* Uniforme para eliminar qualquer espaço extra */
+    /* Forçar altura baseada apenas no conteúdo visível */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Forçar primeira seção a ocupar apenas o espaço necessário */
+  .areas-mobile-content .first-qa-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Remover margens e paddings de todos os elementos internos */
+  .areas-mobile-content .areas-speech-bubble > *,
+  .areas-mobile-content .first-qa-section > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ajustar alinhamento específico dos elementos internos */
+  .areas-mobile-content .custom-question,
+  .areas-mobile-content .areas-response {
+    margin: 5px 0 !important;
+    padding: 8px !important;
   }
   
   /* ===== CONTROLE DE VISIBILIDADE INICIAL PARA MOBILE ===== */
@@ -3249,8 +3275,10 @@ footer {
    }
   
   .areas-mobile-content.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
     animation: slideDown 0.5s ease-out;
+    margin-bottom: 10px; /* Espaço mínimo entre seções */
   }
   
   /* Ajustar focus no container móvel */
@@ -3396,13 +3424,14 @@ footer {
   }
   
   .areas-button-more {
-    position: absolute;
-    bottom: 5px; /* 5px abaixo do conteúdo conforme solicitado */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative; /* Mudado para relative para seguir o fluxo natural */
+    bottom: auto;
+    left: auto;
+    transform: none;
     width: 100%;
     text-align: center;
     z-index: 10;
+    margin-top: 5px; /* Apenas 5px de margem acima */
   }
 }
 
@@ -3481,11 +3510,9 @@ footer {
   text-align: center;
   animation: fadeIn 0.5s ease-in-out;
   z-index: 10;
-  position: absolute;
-  bottom: 5px; /* 5px abaixo do conteúdo conforme solicitado */
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative; /* Mudado para relative para seguir o fluxo natural */
   width: 100%;
+  margin-top: 5px; /* Apenas 5px de margem acima */
 }
 
 @keyframes fadeIn {
