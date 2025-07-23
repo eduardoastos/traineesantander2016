@@ -1,12 +1,13 @@
 "use strict";
 AOS.init({
-    duration: 300,
-    easing: 'ease-in-out',
-    delay: 0,
-    offset: 0,
-    once: false,
+    duration: 800, // Aumentado para uma transição mais suave
+    easing: 'ease-out-cubic', // Alterado para um easing mais suave
+    delay: 100, // Pequeno delay para melhor percepção
+    offset: 120,
+    once: true,
     mirror: false,
-    anchorPlacement: 'top-bottom'
+    anchorPlacement: 'top-bottom',
+    disable: 'mobile'
 });
 var menuList = document.querySelector(".header-nav"),
 menuOpen = document.querySelector("#js-open"),
@@ -390,19 +391,11 @@ function initializeAreasTabs() {
             // Add active class to clicked tab
             this.classList.add("active");
             
-            // Hide all content areas E limpa estilos inline forçados
+            // Hide all content areas e limpa estilos inline forçados
             for (var k = 0; k < areasContents.length; k++) {
                 areasContents[k].classList.remove("active");
-                // ✨ REMOVER QUALQUER ESTILO INLINE FORÇADO
                 areasContents[k].style.display = '';
                 areasContents[k].style.visibility = '';
-            }
-            
-            // Limpar todos os containers móveis
-            var allMobileContainers = document.querySelectorAll(".areas-mobile-content");
-            for (var m = 0; m < allMobileContainers.length; m++) {
-                allMobileContainers[m].innerHTML = '';
-                allMobileContainers[m].classList.remove("active");
             }
             
             // Show target content area
@@ -415,8 +408,6 @@ function initializeAreasTabs() {
                     var mobileContainer = document.getElementById("mobile-" + targetArea);
                     if (mobileContainer) {
                         var contentClone = targetContent.cloneNode(true);
-                        
-                        // Adicionar conteúdo clonado ao container específico
                         mobileContainer.innerHTML = '';
                         mobileContainer.appendChild(contentClone);
                         mobileContainer.classList.add("active");
@@ -424,29 +415,8 @@ function initializeAreasTabs() {
                         
                         // Reativar event listeners dos botões clonados após um pequeno delay
                         setTimeout(function() {
-                            console.log('Tentando reativar listeners para container:', mobileContainer);
                             reactivateButtonListeners(mobileContainer);
                         }, 50);
-                        
-                        // Fazer scroll suave até o conteúdo específico - nova abordagem
-                        setTimeout(function() {
-                            // Verificar se o elemento existe e está visível
-                            if (mobileContainer && mobileContainer.classList.contains('active')) {
-                                // Aguardar um frame adicional para garantir que o elemento foi renderizado
-                                requestAnimationFrame(function() {
-                                    // Scroll simples e direto
-                                    var containerRect = mobileContainer.getBoundingClientRect();
-                                    var currentScrollY = window.pageYOffset;
-                                    var targetY = currentScrollY + containerRect.top - 50; // 50px de margem do topo
-                                    
-                                    // Scroll direto para a posição calculada
-                                    window.scrollTo({
-                                        top: Math.max(0, targetY), // Não permitir scroll negativo
-                                        behavior: 'smooth'
-                                    });
-                                });
-                            }
-                        }, 100);
                     }
                 }
                 
@@ -456,46 +426,10 @@ function initializeAreasTabs() {
                     allAosElements[n].classList.remove('aos-animate');
                 }
                 
-                // Lógica específica para wealth-management: mostrar apenas o botão correto baseado no progresso
-                if (targetArea === 'wealth-management' && typeof window.tabProgress !== 'undefined' && window.tabProgress['wealth-management-content'] > 0) {
-                    setTimeout(function() {
-                        var allScrollBackButtons = targetContent.querySelectorAll('.scroll-back-button');
-                        var currentStep = window.tabProgress['wealth-management-content'];
-                        
-                        // Esconder todos primeiro
-                        allScrollBackButtons.forEach(function(button) {
-                            button.style.opacity = '0';
-                            button.style.visibility = 'hidden';
-                        });
-                        
-                        // Mostrar apenas o botão da seção atual (baseado no progresso)
-                        // Step 2 = botão 0, Step 3 = botão 1, Step 4 = botão 2, Step 5 = botão 3
-                        var buttonIndex = currentStep - 2;
-                        if (buttonIndex >= 0 && buttonIndex < allScrollBackButtons.length) {
-                            var currentButton = allScrollBackButtons[buttonIndex];
-                            if (currentButton) {
-                                currentButton.style.opacity = '1';
-                                currentButton.style.visibility = 'visible';
-                            }
-                        }
-                    }, 100);
-                }
-                
-                // Force refresh AOS multiple times to ensure detection
+                // Force refresh AOS to detect new elements
                 if (typeof AOS !== 'undefined') {
                     AOS.refresh();
-                    
-                    // Wait and refresh again
-                    setTimeout(function() {
-                        AOS.refresh();
-                    }, 50);
-                    
-                    // Final refresh to trigger animations
-                    setTimeout(function() {
-                        AOS.refresh();
-                    }, 150);
                 }
-                
             }
         });
     }
@@ -503,30 +437,15 @@ function initializeAreasTabs() {
 
 // Função para garantir que o AOS detecte todos os elementos
 function ensureAOSDetection() {
-    
-    // Temporariamente mostra todos os elementos AOS para que sejam detectados
-    var allAreasContent = document.querySelectorAll('.areas-content');
-    
-    // Faz todos os conteúdos ficarem visíveis temporariamente, sobrescrevendo o !important
-    for (var i = 0; i < allAreasContent.length; i++) {
-        allAreasContent[i].style.setProperty('display', 'block', 'important');
-        allAreasContent[i].style.setProperty('visibility', 'visible', 'important');
-    }
-    
     // Refresh AOS para detectar todos os elementos
     if (typeof AOS !== 'undefined') {
         AOS.refresh();
+        
+        // Aguardar um pouco e fazer um segundo refresh para garantir
+        setTimeout(function() {
+            AOS.refresh();
+        }, 100);
     }
-    
-    // Restaura a visibilidade original após um pequeno delay
-    setTimeout(function() {
-        for (var j = 0; j < allAreasContent.length; j++) {
-            if (!allAreasContent[j].classList.contains('active')) {
-                allAreasContent[j].style.removeProperty('display');
-                allAreasContent[j].style.removeProperty('visibility');
-            }
-        }
-    }, 100);
 }
 
 // Executa em diferentes momentos para garantir que funcione

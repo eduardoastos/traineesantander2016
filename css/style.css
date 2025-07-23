@@ -2937,7 +2937,7 @@ footer {
 .areas-speech-bubble p:nth-child(2) {
   color: #444444;
   /* font-style: italic; */
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .areas-response {
@@ -2952,7 +2952,7 @@ footer {
 
 .areas-response p {
   color: #444444;
-  font-size: 11.5px;
+  font-size: 16px;
   line-height: 1.7;
   margin-bottom: 0px !important;
 }
@@ -3013,6 +3013,10 @@ footer {
   .areas-response p {
     font-size: 13px;
   }
+  .areas-tab {
+    /* padding: 8px 16px !important; */
+    font-size: 13px !important;
+  }
 }
 
 @media (max-width: 992px) {
@@ -3034,14 +3038,14 @@ footer {
   }
   
   .areas-tab {
-    padding: 8px 16px;
-    font-size: 13px;
+    padding: 8px 16px !important;
+    font-size: 16px !important;
   }
   .areas-speech-bubble p{
-    font-size: 11.5px;
+    font-size: 16px;
   }
   .areas-response p {
-    font-size: 11.5px;
+    font-size: 16px;
   }
   
   .areas-content-wrapper {
@@ -3160,18 +3164,89 @@ footer {
     border-radius: 0 0 15px 15px;
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: 460px;
+    /* Altura variável baseada no conteúdo de cada seção */
+    height: auto; /* Adapta-se ao conteúdo de cada seção */
+    min-height: 150px; /* Altura mínima reduzida */
+    /* Sem scroll - navegação apenas por botões como no desktop */
     overflow: hidden;
+    /* Garantir que o posicionamento relativo funcione para os botões */
+    position: relative;
+    /* Padding bottom mínimo - quase zero para eliminar espaço extra */
+    padding-bottom: 15px; /* Apenas o necessário para o botão + 5px */
   }
   
   /* Garantir que o conteúdo clonado mantenha as propriedades corretas */
   .areas-mobile-content .areas-speech-bubble {
-    height: 100%;
+    /* Altura variável baseada no conteúdo da seção - sem scroll interno */
+    height: auto; /* Adapta-se ao conteúdo de cada seção */
+    min-height: 120px; /* Altura mínima mais compacta */
     border-radius: 0;
     border: none;
     margin: 0;
     background-color: #EAF0F2;
+    /* Sem scroll - navegação apenas por botões */
+    overflow: hidden;
+    /* Padding interno reduzido */
+    padding: 15px; /* Reduzido de 20px para 15px */
   }
+  
+  /* ===== CONTROLE DE VISIBILIDADE INICIAL PARA MOBILE ===== */
+  
+  /* Esconder TODAS as seções progressivas - sobrescrever estilos inline */
+  .areas-mobile-content .second-qa-section,
+  .areas-mobile-content .third-qa-section,
+  .areas-mobile-content .fourth-qa-section {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Esconder TODOS os botões exceto o primeiro */
+  .areas-mobile-content .areas-button-more-second,
+  .areas-mobile-content .areas-button-more-third,
+  .areas-mobile-content .areas-button-more-fourth {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+  }
+  
+  /* Garantir que apenas a primeira seção seja totalmente visível */
+  .areas-mobile-content .first-qa-section {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+  }
+  
+     /* Primeiro botão inicialmente escondido (será mostrado pelo JavaScript) */
+   .areas-mobile-content .areas-button-more {
+     display: block !important;
+     /* Permitir que JavaScript controle opacity e visibility */
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.3s ease, visibility 0.3s ease;
+     /* Não colapsar altura para manter posicionamento */
+   }
+   
+   /* Sobrescrever qualquer elemento com opacity inline que deveria estar escondido */
+   .areas-mobile-content [style*="opacity: 0"]:not(.first-qa-section):not(.first-qa-section *) {
+     display: none !important;
+     opacity: 0 !important;
+     visibility: hidden !important;
+     height: 0 !important;
+   }
+   
+   /* Garantir que elementos com margin-top sejam escondidos se não forem da primeira seção */
+   .areas-mobile-content [style*="margin-top: 20px"]:not(.first-qa-section):not(.first-qa-section *) {
+     display: none !important;
+     height: 0 !important;
+     margin: 0 !important;
+   }
   
   .areas-mobile-content.active {
     display: block;
@@ -3322,7 +3397,7 @@ footer {
   
   .areas-button-more {
     position: absolute;
-    bottom: 15px;
+    bottom: 5px; /* 5px abaixo do conteúdo conforme solicitado */
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -3407,7 +3482,7 @@ footer {
   animation: fadeIn 0.5s ease-in-out;
   z-index: 10;
   position: absolute;
-  bottom: 15px;
+  bottom: 5px; /* 5px abaixo do conteúdo conforme solicitado */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
