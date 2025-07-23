@@ -2942,7 +2942,7 @@ footer {
 
 .areas-response {
   background-color: #FFFFFF;
-  border-radius: 36px;
+  border-radius: 12px;
   padding: 25px;
   margin-top: 20px;
   border: 1px solid #FF0000;
@@ -3034,7 +3034,7 @@ footer {
   }
   
   .areas-nav-list {
-    gap: 6px;
+    gap: 10px;
   }
   
   .areas-tab {
@@ -3291,6 +3291,7 @@ footer {
     opacity: 1;
     overflow: visible;
     pointer-events: auto;
+    top: -7px;
   }
   
   /* Ajustar focus no container móvel */
@@ -3930,7 +3931,9 @@ footer {
 
 /* Alteração do max-width do container para 95% */
 .container {
-  max-width: 95% !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Efeito de digitação (typewriter) */

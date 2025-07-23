@@ -370,34 +370,180 @@ window.addEventListener('load', function() {
         var originalGetActiveAreaContainer = window.getActiveAreaContainer;
         
         window.getActiveAreaContainer = function() {
-            // ✨ No mobile, retornar o container móvel ativo
+            // ✨ No mobile, retornar o .areas-content dentro do container móvel (CONSISTENTE com index.html)
             if (window.innerWidth <= 768) {
                 var mobileContainer = document.querySelector('.areas-mobile-content.active');
                 if (mobileContainer) {
-                    // Retornar o areas-content dentro do container móvel
                     var areasContent = mobileContainer.querySelector('.areas-content');
                     if (areasContent) {
-                        console.log('✨ getActiveAreaContainer retornando container móvel:', areasContent);
+                        console.log('✨ getActiveAreaContainer retornando areas-content do mobile:', areasContent);
                         return areasContent;
                     }
                 }
+                console.log('⚠️ getActiveAreaContainer: nenhum container mobile ativo encontrado');
             }
             
             // Desktop ou fallback - usar função original
             if (typeof originalGetActiveAreaContainer === 'function') {
-                return originalGetActiveAreaContainer();
+                var result = originalGetActiveAreaContainer();
+                console.log('✨ getActiveAreaContainer retornando desktop:', result);
+                return result;
             } else {
                 // Fallback manual
-                return document.querySelector('.areas-content.active');
+                var result = document.querySelector('.areas-content.active');
+                console.log('✨ getActiveAreaContainer retornando fallback:', result);
+                return result;
             }
         };
         
         console.log('✨ getActiveAreaContainer foi sobrescrita para incluir suporte mobile');
+        
+        // ✨ VERIFICAR SE FUNÇÕES DE SCROLL ESTÃO DISPONÍVEIS
+        console.log('=== VERIFICAÇÃO DE FUNÇÕES DE SCROLL ===');
+        console.log('scrollToNextQuestion:', typeof window.scrollToNextQuestion, typeof scrollToNextQuestion);
+        console.log('scrollToThirdQuestion:', typeof window.scrollToThirdQuestion, typeof scrollToThirdQuestion);
+        console.log('scrollToFourthQuestion:', typeof window.scrollToFourthQuestion, typeof scrollToFourthQuestion);
+        console.log('scrollBackToTop:', typeof window.scrollBackToTop, typeof scrollBackToTop);
+        console.log('==========================================');
+        
     }, 2000);
 });
 
+// ✨ FUNÇÃO ESPECÍFICA PARA MOBILE: Mostrar próxima seção sem scroll
+function showMobileNextSection(sectionName) {
+    console.log('✨ showMobileNextSection:', sectionName);
+    
+    var mobileContainer = document.querySelector('.areas-mobile-content.active');
+    if (!mobileContainer) {
+        console.log('❌ Container mobile não encontrado');
+        return;
+    }
+    
+    var areasContent = mobileContainer.querySelector('.areas-content');
+    if (!areasContent) {
+        console.log('❌ Areas content não encontrado');
+        return;
+    }
+    
+    // Mapear nomes para seletores
+    var sectionSelectors = {
+        'second': '.second-qa-section',
+        'third': '.third-qa-section', 
+        'fourth': '.fourth-qa-section',
+        'fifth': '.fifth-qa-section'
+    };
+    
+    var buttonSelectors = {
+        'second': '.areas-button-more-second',
+        'third': '.areas-button-more-third',
+        'fourth': '.areas-button-more-fourth',
+        'fifth': '.areas-button-more-fifth'
+    };
+    
+    var sectionSelector = sectionSelectors[sectionName];
+    var nextButtonSelector = buttonSelectors[sectionName];
+    
+    if (!sectionSelector) {
+        console.log('❌ Seção não reconhecida:', sectionName);
+        return;
+    }
+    
+    // 1. Esconder botão atual
+    var currentButtons = areasContent.querySelectorAll('.areas-button-more, .areas-button-more-second, .areas-button-more-third, .areas-button-more-fourth');
+    for (var i = 0; i < currentButtons.length; i++) {
+        currentButtons[i].style.opacity = '0';
+        currentButtons[i].style.visibility = 'hidden';
+    }
+    
+    // 2. Mostrar a próxima seção
+    var targetSection = areasContent.querySelector(sectionSelector);
+    if (targetSection) {
+        console.log('✨ Mostrando seção:', sectionSelector);
+        targetSection.style.display = 'flex';
+        targetSection.style.opacity = '1';
+        targetSection.style.visibility = 'visible';
+        targetSection.style.height = 'auto';
+        
+        // 3. Animar seção (simular animação das perguntas)
+        setTimeout(function() {
+            var questionElement = targetSection.querySelector('[id*="question"]');
+            var responseElement = targetSection.querySelector('[id*="response"]');
+            
+            if (questionElement && responseElement) {
+                // Animar pergunta primeiro
+                questionElement.style.opacity = '1';
+                questionElement.style.visibility = 'visible';
+                
+                // Depois animar resposta
+                setTimeout(function() {
+                    responseElement.style.opacity = '1';
+                    responseElement.style.visibility = 'visible';
+                    
+                    // 4. Mostrar próximo botão se não for a última seção
+                    if (nextButtonSelector && sectionName !== 'fifth') {
+                        setTimeout(function() {
+                            var nextButton = areasContent.querySelector(nextButtonSelector);
+                            if (nextButton) {
+                                console.log('✨ Mostrando próximo botão:', nextButtonSelector);
+                                nextButton.style.display = 'flex';
+                                nextButton.style.opacity = '1';
+                                nextButton.style.visibility = 'visible';
+                                nextButton.style.height = 'auto';
+                            }
+                        }, 500);
+                    } else if (sectionName === 'fifth') {
+                        // Se é a última seção, mostrar botão de inscrição
+                        setTimeout(function() {
+                            var signUpSection = areasContent.querySelector('.custom-singin');
+                            if (signUpSection) {
+                                console.log('✨ Mostrando seção de inscrição');
+                                signUpSection.style.opacity = '1';
+                                signUpSection.style.visibility = 'visible';
+                            }
+                        }, 1000);
+                    }
+                    
+                }, 800);
+            }
+        }, 200);
+        
+    } else {
+        console.log('❌ Seção não encontrada:', sectionSelector);
+    }
+}
+
+// ✨ FUNÇÃO PARA MOSTRAR PRIMEIRO BOTÃO NO MOBILE
+function showFirstButtonMobile(mobileContainer) {
+    console.log('✨ showFirstButtonMobile');
+    
+    if (!mobileContainer) {
+        console.log('❌ Container mobile não fornecido');
+        return;
+    }
+    
+    var areasContent = mobileContainer.querySelector('.areas-content');
+    if (!areasContent) {
+        console.log('❌ Areas content não encontrado');
+        return;
+    }
+    
+    var firstButton = areasContent.querySelector('.areas-button-more');
+    if (firstButton) {
+        console.log('✨ Mostrando primeiro botão no mobile');
+        firstButton.style.opacity = '1';
+        firstButton.style.visibility = 'visible';
+        firstButton.style.transition = 'opacity 0.3s ease';
+    } else {
+        console.log('❌ Primeiro botão não encontrado');
+    }
+}
+
 // Função para reativar event listeners dos botões clonados
 function reactivateButtonListeners(container) {
+    console.log('✨ REACTIVATING BUTTON LISTENERS - MOBILE');
+    console.log('Container:', container);
+    console.log('Window width:', window.innerWidth);
+    
     // Abordagem 1: Tentar executar onclick diretamente nos botões existentes
     var allButtons = container.querySelectorAll('button');
     console.log('Encontrados ' + allButtons.length + ' botões no container');
@@ -434,30 +580,150 @@ function reactivateButtonListeners(container) {
                     }
                     
                     // Método 3: Chamar funções conhecidas diretamente
-                    if (onclick.includes('scrollToNextQuestion') && typeof scrollToNextQuestion === 'function') {
-                        scrollToNextQuestion();
-                    } else if (onclick.includes('scrollToThirdQuestion') && typeof scrollToThirdQuestion === 'function') {
-                        scrollToThirdQuestion();
-                    } else if (onclick.includes('scrollToFourthQuestion') && typeof scrollToFourthQuestion === 'function') {
-                        scrollToFourthQuestion();
-                    } else if (onclick.includes('scrollToFifthQuestion') && typeof scrollToFifthQuestion === 'function') {
-                        scrollToFifthQuestion();
-                    } else if (onclick.includes('scrollBackToTop') && typeof scrollBackToTop === 'function') {
-                        scrollBackToTop();
+                    if (onclick.includes('scrollToNextQuestion')) {
+                        console.log('✨ Chamando scrollToNextQuestion via mobile');
+                        if (typeof scrollToNextQuestion === 'function') {
+                            scrollToNextQuestion();
+                        } else if (typeof window.scrollToNextQuestion === 'function') {
+                            window.scrollToNextQuestion();
+                        }
+                    } else if (onclick.includes('scrollToThirdQuestion')) {
+                        console.log('✨ Chamando scrollToThirdQuestion via mobile');
+                        if (typeof scrollToThirdQuestion === 'function') {
+                            scrollToThirdQuestion();
+                        } else if (typeof window.scrollToThirdQuestion === 'function') {
+                            window.scrollToThirdQuestion();
+                        }
+                    } else if (onclick.includes('scrollToFourthQuestion')) {
+                        console.log('✨ Chamando scrollToFourthQuestion via mobile');
+                        if (typeof scrollToFourthQuestion === 'function') {
+                            scrollToFourthQuestion();
+                        } else if (typeof window.scrollToFourthQuestion === 'function') {
+                            window.scrollToFourthQuestion();
+                        }
+                    } else if (onclick.includes('scrollToFifthQuestion')) {
+                        console.log('✨ Chamando scrollToFifthQuestion via mobile');
+                        if (typeof scrollToFifthQuestion === 'function') {
+                            scrollToFifthQuestion();
+                        } else if (typeof window.scrollToFifthQuestion === 'function') {
+                            window.scrollToFifthQuestion();
+                        }
+                    } else if (onclick.includes('scrollBackToTop')) {
+                        console.log('✨ Chamando scrollBackToTop via mobile');
+                        if (typeof scrollBackToTop === 'function') {
+                            scrollBackToTop();
+                        } else if (typeof window.scrollBackToTop === 'function') {
+                            window.scrollBackToTop();
+                        }
                     } else {
-                        console.error('Nenhum método funcionou para:', onclick);
+                        console.error('❌ Nenhum método funcionou para:', onclick);
                     }
                 });
             })(button, onclickValue);
         }
     }
     
-    // Abordagem 2: Também tentar forçar clique nos botões originais se disponíveis
+    // ✨ MÉTODO DIRETO: Adicionar listeners diretos nos botões específicos
     var moreButtons = container.querySelectorAll('.btn-more-info');
-    console.log('Encontrados ' + moreButtons.length + ' botões .btn-more-info específicos');
+    console.log('✨ Encontrados ' + moreButtons.length + ' botões .btn-more-info específicos');
     
     for (var j = 0; j < moreButtons.length; j++) {
-        var moreBtn = moreButtons[j];
+        var button = moreButtons[j];
+        var buttonId = button.id;
+        
+        console.log('✨ Configurando botão:', buttonId);
+        
+        // Remover listener anterior se existir
+        button.removeEventListener('click', button.mobileClickHandler);
+        
+        // Criar handler específico baseado no ID do botão
+        (function(btn, id) {
+            btn.mobileClickHandler = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // ✨ PREVENIR MÚLTIPLAS EXECUÇÕES
+                if (btn.isExecuting) {
+                    console.log('⚠️ Botão já está executando, ignorando clique:', id);
+                    return;
+                }
+                btn.isExecuting = true;
+                
+                console.log('✨ Botão clicado no mobile:', id);
+                
+                // Mapear IDs para funções corretas
+                if (id.includes('btn-more-') && !id.includes('-second') && !id.includes('-third') && !id.includes('-fourth')) {
+                    // Primeiro botão - "Gestão Financeira" ou "Quero saber mais"
+                    console.log('✨ Executando scrollToNextQuestion para primeiro botão');
+                    
+                    // ✨ NO MOBILE: lógica específica para mostrar próxima seção sem scroll
+                    if (window.innerWidth <= 768) {
+                        console.log('✨ Mobile: mostrando segunda seção diretamente');
+                        showMobileNextSection('second');
+                    } else {
+                        // Desktop: usar função normal
+                        if (typeof window.scrollToNextQuestion === 'function') {
+                            window.scrollToNextQuestion();
+                        } else if (typeof scrollToNextQuestion === 'function') {
+                            scrollToNextQuestion();
+                        }
+                    }
+                } else if (id.includes('-second')) {
+                    // Segundo botão
+                    console.log('✨ Executando scrollToThirdQuestion para segundo botão');
+                    if (window.innerWidth <= 768) {
+                        console.log('✨ Mobile: mostrando terceira seção diretamente');
+                        showMobileNextSection('third');
+                    } else {
+                        if (typeof window.scrollToThirdQuestion === 'function') {
+                            window.scrollToThirdQuestion();
+                        } else if (typeof scrollToThirdQuestion === 'function') {
+                            scrollToThirdQuestion();
+                        }
+                    }
+                } else if (id.includes('-third')) {
+                    // Terceiro botão
+                    console.log('✨ Executando scrollToFourthQuestion para terceiro botão');
+                    if (window.innerWidth <= 768) {
+                        console.log('✨ Mobile: mostrando quarta seção diretamente');
+                        showMobileNextSection('fourth');
+                    } else {
+                        if (typeof window.scrollToFourthQuestion === 'function') {
+                            window.scrollToFourthQuestion();
+                        } else if (typeof scrollToFourthQuestion === 'function') {
+                            scrollToFourthQuestion();
+                        }
+                    }
+                } else if (id.includes('-fourth')) {
+                    // Quarto botão
+                    console.log('✨ Executando scrollToFifthQuestion para quarto botão');
+                    if (window.innerWidth <= 768) {
+                        console.log('✨ Mobile: mostrando quinta seção diretamente');
+                        showMobileNextSection('fifth');
+                    } else {
+                        if (typeof window.scrollToFifthQuestion === 'function') {
+                            window.scrollToFifthQuestion();
+                        } else if (typeof scrollToFifthQuestion === 'function') {
+                            scrollToFifthQuestion();
+                        }
+                    }
+                }
+                
+                // ✨ LIBERAR A FLAG APÓS UM PEQUENO DELAY
+                setTimeout(function() {
+                    btn.isExecuting = false;
+                }, 1000);
+            };
+            
+            // Adicionar o novo listener
+            btn.addEventListener('click', btn.mobileClickHandler);
+            
+        })(button, buttonId);
+    }
+    
+    // ✨ MÉTODO ALTERNATIVO: Tentar detectar botões por texto também
+    for (var k = 0; k < moreButtons.length; k++) {
+        var moreBtn = moreButtons[k];
         if (!moreBtn.getAttribute('data-listener-added')) {
             moreBtn.setAttribute('data-listener-added', 'true');
             
@@ -511,6 +777,11 @@ function handleResizeForAreas() {
                 
                 // Reativar event listeners dos botões clonados
                 reactivateButtonListeners(mobileContainer);
+                
+                // ✨ MOSTRAR PRIMEIRO BOTÃO NO MOBILE APÓS UM DELAY
+                setTimeout(function() {
+                    showFirstButtonMobile(mobileContainer);
+                }, 2000);
             }
         }
     } else {
@@ -587,6 +858,10 @@ function initializeAreasTabs() {
                         // Reativar event listeners dos botões clonados após um pequeno delay
                         setTimeout(function() {
                             reactivateButtonListeners(mobileContainer);
+                            // ✨ MOSTRAR PRIMEIRO BOTÃO NO MOBILE APÓS UM DELAY
+                            setTimeout(function() {
+                                showFirstButtonMobile(mobileContainer);
+                            }, 2000);
                         }, 50);
                     }
                 }
