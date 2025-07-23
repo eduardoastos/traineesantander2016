@@ -3249,14 +3249,16 @@ footer {
     height: auto !important;
   }
   
-     /* Primeiro botão inicialmente escondido (será mostrado pelo JavaScript) */
+     /* Primeiro botão com espaço reservado desde o início */
    .areas-mobile-content .areas-button-more {
      display: block !important;
-     /* Permitir que JavaScript controle opacity e visibility */
+     width: 100% !important;
+     margin-top: 15px !important; /* Espaço adequado após o texto */
+     height: 40px !important; /* Altura fixa para reservar espaço */
+     /* Permitir que JavaScript controle apenas a visibilidade */
      opacity: 0;
-     visibility: hidden;
-     transition: opacity 0.3s ease, visibility 0.3s ease;
-     /* Não colapsar altura para manter posicionamento */
+     visibility: visible !important; /* Mantém o espaço mesmo invisível */
+     transition: opacity 0.3s ease;
    }
    
    /* Sobrescrever qualquer elemento com opacity inline que deveria estar escondido */
@@ -3279,6 +3281,7 @@ footer {
     flex-direction: column;
     animation: slideDown 0.5s ease-out;
     margin-bottom: 10px; /* Espaço mínimo entre seções */
+    position: relative; /* Para posicionamento do botão */
   }
   
   /* Ajustar focus no container móvel */
@@ -3510,9 +3513,9 @@ footer {
   text-align: center;
   animation: fadeIn 0.5s ease-in-out;
   z-index: 10;
-  position: relative; /* Mudado para relative para seguir o fluxo natural */
   width: 100%;
-  margin-top: 5px; /* Apenas 5px de margem acima */
+  margin-top: 15px; /* Espaço adequado após o texto */
+  height: 40px; /* Altura fixa para reservar espaço */
 }
 
 @keyframes fadeIn {
