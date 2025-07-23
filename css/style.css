@@ -3249,16 +3249,17 @@ footer {
     height: auto !important;
   }
   
-     /* Primeiro botão com espaço reservado desde o início */
+     /* Botões no mobile - controle simples */
    .areas-mobile-content .areas-button-more {
      display: block !important;
      width: 100% !important;
-     margin-top: 15px !important; /* Espaço adequado após o texto */
-     height: 40px !important; /* Altura fixa para reservar espaço */
-     /* Permitir que JavaScript controle apenas a visibilidade */
+     margin-top: 15px !important;
+     height: 40px !important;
+     /* Inicialmente invisível - JavaScript controla a visibilidade */
      opacity: 0;
-     visibility: visible !important; /* Mantém o espaço mesmo invisível */
-     transition: opacity 0.3s ease;
+     visibility: hidden;
+     /* Transição suave apenas na opacidade */
+     transition: opacity 0.3s ease-out;
    }
    
    /* Sobrescrever qualquer elemento com opacity inline que deveria estar escondido */
@@ -3276,12 +3277,20 @@ footer {
      margin: 0 !important;
    }
   
+  /* Estado inicial - sempre escondido */
+  .areas-mobile-content {
+    display: none !important;
+  }
+
+  /* Estado ativo - aparece imediatamente sem transição para evitar conflitos */
   .areas-mobile-content.active {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
-    animation: slideDown 0.5s ease-out;
-    margin-bottom: 10px; /* Espaço mínimo entre seções */
-    position: relative; /* Para posicionamento do botão */
+    margin-bottom: 10px;
+    position: relative;
+    opacity: 1;
+    overflow: visible;
+    pointer-events: auto;
   }
   
   /* Ajustar focus no container móvel */
@@ -3315,20 +3324,7 @@ footer {
     width: 100% !important;
   }
   
-  @keyframes slideDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-15px);
-    }
-    60% {
-      opacity: 0.8;
-      transform: translateY(-5px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  /* Removida animação slideDown em favor de transições */
   
   /* Esconder o container desktop em mobile */
   .areas-content-wrapper {

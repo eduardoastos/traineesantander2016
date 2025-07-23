@@ -254,6 +254,148 @@ setTimeout(function() {
     corp3.onclick = switchToTools;
 }, 1000);
 
+// Função para resetar completamente todas as animações em um conteúdo
+function resetAllAnimationsInContent(content) {
+    if (!content) return;
+    
+    // Resetar todos os elementos com animação AOS
+    var aosElements = content.querySelectorAll('[data-aos]');
+    for (var i = 0; i < aosElements.length; i++) {
+        aosElements[i].classList.remove('aos-animate');
+        aosElements[i].style.transform = '';
+        aosElements[i].style.opacity = '';
+        aosElements[i].style.transition = '';
+    }
+    
+    // Resetar seções progressivas para estado inicial
+    var secondSections = content.querySelectorAll('.second-qa-section');
+    var thirdSections = content.querySelectorAll('.third-qa-section');
+    var fourthSections = content.querySelectorAll('.fourth-qa-section');
+    
+    for (var j = 0; j < secondSections.length; j++) {
+        secondSections[j].style.opacity = '0';
+        secondSections[j].style.display = 'none';
+    }
+    for (var k = 0; k < thirdSections.length; k++) {
+        thirdSections[k].style.opacity = '0';
+        thirdSections[k].style.display = 'none';
+    }
+    for (var l = 0; l < fourthSections.length; l++) {
+        fourthSections[l].style.opacity = '0';
+        fourthSections[l].style.display = 'none';
+    }
+    
+    // Resetar todos os botões para estado inicial
+    var allButtons = content.querySelectorAll('.areas-button-more, .areas-button-more-second, .areas-button-more-third, .areas-button-more-fourth');
+    for (var m = 0; m < allButtons.length; m++) {
+        allButtons[m].style.opacity = '0';
+        allButtons[m].style.visibility = 'hidden';
+    }
+    
+    // Garantir que apenas a primeira seção esteja visível
+    var firstSections = content.querySelectorAll('.first-qa-section');
+    for (var n = 0; n < firstSections.length; n++) {
+        firstSections[n].style.opacity = '1';
+        firstSections[n].style.display = 'flex';
+    }
+}
+
+// Função auxiliar para limpar todos os containers móveis (chamada pelo HTML)
+function clearAllMobileContainers() {
+    if (window.innerWidth <= 768) {
+        var allMobileContainers = document.querySelectorAll(".areas-mobile-content");
+        for (var i = 0; i < allMobileContainers.length; i++) {
+            resetAllAnimationsInContent(allMobileContainers[i]);
+            allMobileContainers[i].innerHTML = '';
+            allMobileContainers[i].classList.remove("active");
+        }
+    }
+}
+
+// ✨ INTERCEPTAR e sobrescrever resetTabAnimations do HTML para incluir limpeza mobile
+window.addEventListener('load', function() {
+    // Aguardar um pouco para garantir que todas as funções do HTML foram carregadas
+    setTimeout(function() {
+        // Salvar a função original se existir
+        var originalResetTabAnimations = window.resetTabAnimations;
+        
+        // Sobrescrever com nossa versão que também limpa mobile
+        window.resetTabAnimations = function(tabId) {
+            console.log('✨ resetTabAnimations chamado para:', tabId);
+            
+            // ✨ LIMPAR CONTAINERS MÓVEIS PRIMEIRO
+            clearAllMobileContainers();
+            
+            // Chamar a função original se existir
+            if (typeof originalResetTabAnimations === 'function') {
+                originalResetTabAnimations(tabId);
+            }
+            
+            // ✨ GARANTIR que mobile seja atualizado após reset
+            if (window.innerWidth <= 768) {
+                setTimeout(function() {
+                    handleResizeForAreas();
+                }, 100);
+            }
+        };
+        
+        console.log('✨ resetTabAnimations foi sobrescrita para incluir suporte mobile');
+        
+        // ✨ SOBRESCREVER initLoadingAnimations também
+        var originalInitLoadingAnimations = window.initLoadingAnimations;
+        
+        window.initLoadingAnimations = function() {
+            console.log('✨ initLoadingAnimations chamado');
+            
+            // ✨ GARANTIR que mobile tenha conteúdo clonado antes de iniciar animações
+            if (window.innerWidth <= 768) {
+                handleResizeForAreas();
+                // Aguardar um pouco para garantir que a clonagem foi feita
+                setTimeout(function() {
+                    if (typeof originalInitLoadingAnimations === 'function') {
+                        originalInitLoadingAnimations();
+                    }
+                }, 100);
+            } else {
+                // Desktop - chamar diretamente
+                if (typeof originalInitLoadingAnimations === 'function') {
+                    originalInitLoadingAnimations();
+                }
+            }
+        };
+        
+        console.log('✨ initLoadingAnimations foi sobrescrita para incluir suporte mobile');
+        
+        // ✨ SOBRESCREVER getActiveAreaContainer para funcionar no mobile
+        var originalGetActiveAreaContainer = window.getActiveAreaContainer;
+        
+        window.getActiveAreaContainer = function() {
+            // ✨ No mobile, retornar o container móvel ativo
+            if (window.innerWidth <= 768) {
+                var mobileContainer = document.querySelector('.areas-mobile-content.active');
+                if (mobileContainer) {
+                    // Retornar o areas-content dentro do container móvel
+                    var areasContent = mobileContainer.querySelector('.areas-content');
+                    if (areasContent) {
+                        console.log('✨ getActiveAreaContainer retornando container móvel:', areasContent);
+                        return areasContent;
+                    }
+                }
+            }
+            
+            // Desktop ou fallback - usar função original
+            if (typeof originalGetActiveAreaContainer === 'function') {
+                return originalGetActiveAreaContainer();
+            } else {
+                // Fallback manual
+                return document.querySelector('.areas-content.active');
+            }
+        };
+        
+        console.log('✨ getActiveAreaContainer foi sobrescrita para incluir suporte mobile');
+    }, 2000);
+});
+
 // Função para reativar event listeners dos botões clonados
 function reactivateButtonListeners(container) {
     // Abordagem 1: Tentar executar onclick diretamente nos botões existentes
@@ -347,13 +489,20 @@ function handleResizeForAreas() {
             var mobileContainer = document.getElementById("mobile-" + targetArea);
             
             if (targetContent && targetContent.classList.contains("active") && mobileContainer) {
-                var contentClone = targetContent.cloneNode(true);
-                
-                // Limpar todos os containers móveis primeiro
+                // ✨ LIMPAR TODOS OS CONTAINERS MÓVEIS PRIMEIRO
                 for (var i = 0; i < allMobileContainers.length; i++) {
+                    resetAllAnimationsInContent(allMobileContainers[i]);
                     allMobileContainers[i].innerHTML = '';
                     allMobileContainers[i].classList.remove("active");
                 }
+                
+                // ✨ RESETAR COMPLETAMENTE ANTES DE CLONAR
+                resetAllAnimationsInContent(targetContent);
+                
+                var contentClone = targetContent.cloneNode(true);
+                
+                // ✨ RESETAR TAMBÉM O CONTEÚDO CLONADO
+                resetAllAnimationsInContent(contentClone);
                 
                 // Adicionar conteúdo ao container específico
                 mobileContainer.appendChild(contentClone);
@@ -367,6 +516,8 @@ function handleResizeForAreas() {
     } else {
         // Modo desktop - limpar todos os containers móveis
         for (var j = 0; j < allMobileContainers.length; j++) {
+            // ✨ RESETAR ANIMAÇÕES ANTES DE LIMPAR
+            resetAllAnimationsInContent(allMobileContainers[j]);
             allMobileContainers[j].innerHTML = '';
             allMobileContainers[j].classList.remove("active");
         }
@@ -377,6 +528,19 @@ function handleResizeForAreas() {
 function initializeAreasTabs() {
     var areasTabs = document.querySelectorAll(".areas-tab");
     var areasContents = document.querySelectorAll(".areas-content");
+    
+    // ✨ RESETAR TODOS OS CONTEÚDOS ANTES DE CONFIGURAR EVENTOS
+    for (var x = 0; x < areasContents.length; x++) {
+        resetAllAnimationsInContent(areasContents[x]);
+    }
+    
+    // ✨ LIMPAR TODOS OS CONTAINERS MÓVEIS NO INÍCIO
+    var allMobileContainers = document.querySelectorAll(".areas-mobile-content");
+    for (var y = 0; y < allMobileContainers.length; y++) {
+        resetAllAnimationsInContent(allMobileContainers[y]);
+        allMobileContainers[y].innerHTML = '';
+        allMobileContainers[y].classList.remove("active");
+    }
     
     for (var i = 0; i < areasTabs.length; i++) {
         areasTabs[i].addEventListener("click", function(e) {
@@ -407,7 +571,14 @@ function initializeAreasTabs() {
                 if (window.innerWidth <= 768) {
                     var mobileContainer = document.getElementById("mobile-" + targetArea);
                     if (mobileContainer) {
+                        // ✨ RESETAR COMPLETAMENTE ANTES DE CLONAR
+                        resetAllAnimationsInContent(targetContent);
+                        
                         var contentClone = targetContent.cloneNode(true);
+                        
+                        // ✨ RESETAR TAMBÉM O CONTEÚDO CLONADO
+                        resetAllAnimationsInContent(contentClone);
+                        
                         mobileContainer.innerHTML = '';
                         mobileContainer.appendChild(contentClone);
                         mobileContainer.classList.add("active");
@@ -448,10 +619,10 @@ function ensureAOSDetection() {
     }
 }
 
-// Executa em diferentes momentos para garantir que funcione
-setTimeout(initializeAreasTabs, 500);
-setTimeout(initializeAreasTabs, 1500);
-setTimeout(initializeAreasTabs, 3000);
+// ✨ DESABILITADO - Usando apenas o sistema do HTML que já funciona
+// setTimeout(initializeAreasTabs, 500);
+// setTimeout(initializeAreasTabs, 1500);
+// setTimeout(initializeAreasTabs, 3000);
 
 // Executa a detecção do AOS após o carregamento
 setTimeout(ensureAOSDetection, 1000);
@@ -467,8 +638,13 @@ document.addEventListener('DOMContentLoaded', function() {
         ensureAOSDetection();
     }, 500);
     
-    // ✨ DESABILITADO: initializeAreasTabs() - Usando apenas script inline no HTML
+    // ✨ DESABILITADO: initializeAreasTabs() - Usando apenas script inline no HTML que já funciona
     // initializeAreasTabs();
+    
+    // ✨ GARANTIR que o sistema de clonagem para mobile funcione
+    if (window.innerWidth <= 768) {
+        handleResizeForAreas();
+    }
     
     // AOS configurações originais mantidas
 });
