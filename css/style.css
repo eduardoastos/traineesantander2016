@@ -3356,7 +3356,7 @@ footer {
   
   .areas-content-wrapper {
     height: auto;
-    margin-top: -20px;
+    margin-top: 20px;
     position: relative;
     top: 0;
     overflow: hidden;
