@@ -464,6 +464,9 @@ function showMobileNextSection(sectionName) {
         targetSection.style.visibility = 'visible';
         targetSection.style.height = 'auto';
         
+        // Garantir que o container móvel tenha altura suficiente
+        mobileContainer.style.minHeight = '100vh';
+        
         // 3. Animar seção (simular animação das perguntas)
         setTimeout(function() {
             var questionElement = targetSection.querySelector('[id*="question"]');
@@ -479,29 +482,42 @@ function showMobileNextSection(sectionName) {
                     responseElement.style.opacity = '1';
                     responseElement.style.visibility = 'visible';
                     
-                    // 4. Mostrar próximo botão se não for a última seção
-                    if (nextButtonSelector && sectionName !== 'fifth') {
-                        setTimeout(function() {
-                            var nextButton = areasContent.querySelector(nextButtonSelector);
-                            if (nextButton) {
-                                console.log('✨ Mostrando próximo botão:', nextButtonSelector);
-                                nextButton.style.display = 'flex';
-                                nextButton.style.opacity = '1';
-                                nextButton.style.visibility = 'visible';
-                                nextButton.style.height = 'auto';
-                            }
-                        }, 500);
-                    } else if (sectionName === 'fifth') {
-                        // Se é a última seção, mostrar botão de inscrição
-                        setTimeout(function() {
-                            var signUpSection = areasContent.querySelector('.custom-singin');
-                            if (signUpSection) {
-                                console.log('✨ Mostrando seção de inscrição');
-                                signUpSection.style.opacity = '1';
-                                signUpSection.style.visibility = 'visible';
-                            }
-                        }, 1000);
-                    }
+                    // Usar a função scrollToNextSection do HTML após as animações
+                    var buttonId = '';
+                    if (sectionName === 'second') buttonId = 'btn-more-cfo';
+                    else if (sectionName === 'third') buttonId = 'btn-more-cfo-second';
+                    else if (sectionName === 'fourth') buttonId = 'btn-more-cfo-third';
+                    else if (sectionName === 'fifth') buttonId = 'btn-more-cfo-fourth';
+                    
+                    setTimeout(function() {
+                        if (typeof window.scrollToNextSection === 'function') {
+                            window.scrollToNextSection(sectionSelector, buttonId);
+                        }
+                        
+                        // 4. Mostrar próximo botão se não for a última seção
+                        if (nextButtonSelector && sectionName !== 'fifth') {
+                            setTimeout(function() {
+                                var nextButton = areasContent.querySelector(nextButtonSelector);
+                                if (nextButton) {
+                                    console.log('✨ Mostrando próximo botão:', nextButtonSelector);
+                                    nextButton.style.display = 'flex';
+                                    nextButton.style.opacity = '1';
+                                    nextButton.style.visibility = 'visible';
+                                    nextButton.style.height = 'auto';
+                                }
+                            }, 500);
+                        } else if (sectionName === 'fifth') {
+                            // Se é a última seção, mostrar botão de inscrição
+                            setTimeout(function() {
+                                var signUpSection = areasContent.querySelector('.custom-singin');
+                                if (signUpSection) {
+                                    console.log('✨ Mostrando seção de inscrição');
+                                    signUpSection.style.opacity = '1';
+                                    signUpSection.style.visibility = 'visible';
+                                }
+                            }, 1000);
+                        }
+                    }, 300); // Aguardar um pouco após a animação da resposta antes de fazer o scroll
                     
                 }, 800);
             }
@@ -894,83 +910,60 @@ function ensureAOSDetection() {
     }
 }
 
-// ✨ DESABILITADO - Usando apenas o sistema do HTML que já funciona
-// setTimeout(initializeAreasTabs, 500);
-// setTimeout(initializeAreasTabs, 1500);
-// setTimeout(initializeAreasTabs, 3000);
+// Inicialização unificada
+let hasInitialized = false;
 
-// Executa a detecção do AOS após o carregamento
-setTimeout(ensureAOSDetection, 1000);
-setTimeout(ensureAOSDetection, 2000);
-
-// ARQUIVO JS ALL.JS CARREGADO
-
-// UNIFICADO - DOM Ready com AOS e Typewriter
-document.addEventListener('DOMContentLoaded', function() {
+function initializeOnce() {
+    if (hasInitialized) return;
+    hasInitialized = true;
     
-    // Configuração AOS (código original)
-    setTimeout(function() {
-        ensureAOSDetection();
-    }, 500);
+    // Configurar AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init();
+    }
     
-    // ✨ DESABILITADO: initializeAreasTabs() - Usando apenas script inline no HTML que já funciona
-    // initializeAreasTabs();
-    
-    // ✨ GARANTIR que o sistema de clonagem para mobile funcione
+    // Garantir que o sistema de clonagem para mobile funcione
     if (window.innerWidth <= 768) {
         handleResizeForAreas();
     }
-    
-    // AOS configurações originais mantidas
-});
-
-// Window Load unificado
-window.addEventListener('load', function() {
-    
-    // AOS (código original)
-    setTimeout(function() {
-        ensureAOSDetection();
-    }, 500);
-    
-    // Window load configurações originais mantidas
     
     // Inicializar layout responsivo das áreas
     handleResizeForAreas();
     window.addEventListener('resize', handleResizeForAreas);
     
-    // Função para inicializar a tab ativa inicial - Simular clique na tab ativa
-    function initializeActiveTab() {
-        // Se estiver em mobile, simular clique na tab ativa para disparar as animações
+    // Inicializar tab ativa
+    setTimeout(function() {
         if (window.innerWidth <= 768) {
             var initialActiveTab = document.querySelector(".areas-tab.active");
             if (initialActiveTab) {
-                // Simular clique na tab ativa - isso vai acionar toda a lógica que já funciona
+                if (initialActiveTab.click) {
+                    initialActiveTab.click();
+                } else {
+                    var clickEvent = new Event('click', { bubbles: true });
+                    initialActiveTab.dispatchEvent(clickEvent);
+                }
+                
                 setTimeout(function() {
-                                                if (initialActiveTab.click) {
-                                initialActiveTab.click();
-                            } else {
-                                // Fallback para navegadores antigos
-                                var clickEvent = new Event('click', { bubbles: true });
-                                initialActiveTab.dispatchEvent(clickEvent);
-                            }
-                            
-                            // Aguardar um pouco e garantir que os event listeners estão ativos
-                            setTimeout(function() {
-                                var activeMobileContainer = document.querySelector('.areas-mobile-content.active');
-                                if (activeMobileContainer) {
-                                    reactivateButtonListeners(activeMobileContainer);
-                                }
-                            }, 200);
-                }, 100);
+                    var activeMobileContainer = document.querySelector('.areas-mobile-content.active');
+                    if (activeMobileContainer) {
+                        reactivateButtonListeners(activeMobileContainer);
+                    }
+                }, 200);
             }
         }
-    }
-    
-    // Executar inicialização após DOM estar pronto
-    setTimeout(initializeActiveTab, 500);
-    
-    // Executar novamente após AOS estar completamente carregado
-    setTimeout(initializeActiveTab, 2000);
+        
+        // Refresh AOS após tudo estar pronto
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }, 500);
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', initializeOnce);
+window.addEventListener('load', function() {
+    // Garantir que a inicialização aconteça mesmo se o DOMContentLoaded já tiver passado
+    setTimeout(initializeOnce, 100);
 });
 
 // Funcionalidade da Modal de Inscrição
@@ -1033,3 +1026,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Final do arquivo
+
+

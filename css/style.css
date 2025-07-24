@@ -1265,6 +1265,12 @@ ul.header-nav.show {
   margin-top: 2rem !important;
 }
 
+.btn-areas-inscreva {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .s-santander .header-title {
     max-width: 100%;
@@ -2775,6 +2781,9 @@ footer {
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .areas-tabs-wrapper {
@@ -2794,7 +2803,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 0;
 }
 
@@ -3059,6 +3068,7 @@ footer {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    height: auto;
     min-height: 500px;
   }
   
@@ -3192,6 +3202,7 @@ footer {
     /* Forçar altura baseada apenas no conteúdo visível */
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   /* Forçar primeira seção a ocupar apenas o espaço necessário */
@@ -3344,22 +3355,30 @@ footer {
   }
   
   .areas-content-wrapper {
-    height: 400px;
-    min-height: 400px;
-    margin-top: 20px;
+    height: auto;
+    margin-top: -20px;
     position: relative;
     top: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
     
-    /* Manter consistência de scroll com desktop */
+    /* Desabilitar scroll completamente incluindo scroll do mouse */
     -ms-overflow-style: none;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
+    pointer-events: auto;
+    overscroll-behavior: none;
   }
   
   .areas-content-wrapper::-webkit-scrollbar {
     display: none;
+  }
+  
+  /* Desabilitar scroll do mouse especificamente */
+  .areas-content-wrapper {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   
   .areas-speech-bubble {
@@ -3370,10 +3389,10 @@ footer {
     background-size: 50%;
     background-position: center;
     background-repeat: repeat;
-    height: 400px;
-    min-height: 400px;
+    height: auto;
+    max-height: 500px;
     border-radius: 15px;
-    overflow-y: auto;
+    overflow: hidden;
     overflow-x: hidden;
     position: relative;
     border: 1px solid #E9ECEF;
